@@ -91,9 +91,67 @@ que se encuentran en las bases de datos relacionales, es decir, no almacenan sus
 
 Tipos de bases de datos NoSQL:
   -> Pares clave-valor, se organiza en un diccionario de pares, donde cada elemento tiene una clave y un valor.
-  -> 
-  -> 
-  -> 
+  -> Orientadas a documentos, pueden ser úteles en la gestion de datos semiestructurados.
+  -> Orientadas a gráfos, alberga datos de un grafo de conocimiento, los elementos de datos se almacenan como nodos, aristas y propiedades.
+     Cualquier objeto puede ser un nodo. Una arista define la relalción entre los nodos.
+  -> Tabulares, usan un formato tabular que permite variar como se nombran y formatean los datos en cada fila dentro de la misma tabla.
+     Este tipo acelera las consultas al almacenar los datos en columna.
+
+
+ACCESO A BASE DE DATOS MEDIANTE CONECTORES
+
+Un DRIVER JDBC es un componente sofware que posiblita a una aplicación Java interaccionar con una base de datos.
+Define interfaces y clases para escribir aplicaciones de bases de datos en Java realizando conexiones de base de datos.
+Mediante JDBC se pueden enviar sentencias SQL y PL/SQL a una base de datos relacional, permite embeber SQL dentro de códiogo Java.
+
+
+MAPEO OBJETO RELACIONAL - ORM
+
+Consiste en una técnica de programación para convertir datos entre el sistema de tipos utilizado en un lenguaje de programación orientada a objetos
+y el sistema utilizado en una base de datos relacional.
+
+DESFASE OBJETO-RELACIONAL problema de compabilidad entre los dos paradigmas de trabajar con OOP Y RDB 
+(el modelo relacional trata con relaciones y conjuntos, es de naturaleza matemática y la programacion orientada a objetos trata con objetos, atribuotas y asociaciones de unos con otros)
+que surje cuando se requiere almacenar la información de objetos utilizando una base de datos relacional.
+
+
+CAPA DE PERSISTENCIA Y FRAMEWORK DE MAPEO
+
+La capa de persistencia de una aplicación es la pieza que permite almacenar, recuperar, actualizar y eliminar el estado de los objetos que necesitan persistir en un sistema gestor de datos.
+
+Un mapeo objeto-relacional es una capa que permite relacional objetos con un modelo de datos relacional, ocultando todo el mecanismo de conexión al motor de la base de datos,
+y también no teniendo que escribir las sentencias SQL necesarias para la gestión de los datos.
+
+La capa de persistencia traduce entre los dos modelos de datos:
+  -> Desde objetos a registros.
+  -> Desde registro a objetos.
+Entonces la capa de persistencia llama al MOTOR DE PERSISTENCIA, traduce el objeto a registros y llama a la base de datos para que los guarde.
+
+Hay 3 comunidades que están implicadas en el mundo de la persistencia O/R de Java de forma activa
+  -> Organizaciones basadas en el estándar.
+  -> Comunidades código abierto.
+  -> Grupos comerciales.
+
+Cada uno de los mecanismos de mapeo O/R tiene una dependencia particular en el conector JDBC para poder comunicarse con la base de datos de una forma eficiente.
+Si el conector JDBC que participa en la comunicación no es óptimo, la posible eficiencia de cualquier framework quedará debilitada.
+
+
+DESARROLLO DE COMPONENTES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
