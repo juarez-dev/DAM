@@ -85,13 +85,15 @@ Aplicaciones actuales:
   -> Interconexión e Interoperabilidad.
 
 
-BASES DE DATOS RELACIONALES VS BASES DE DATOS ORIENTADAS A OBJETOS
+BASES DE DATOS NoSQL - No solo SQL
+Un enfoque de diseño de base de datos que permite almacenar y consultar datos sin utilizar las estructuras tradicionales
+que se encuentran en las bases de datos relacionales, es decir, no almacenan susdatos en tablas.
 
-
-
-
-
-
+Tipos de bases de datos NoSQL:
+  -> Pares clave-valor, se organiza en un diccionario de pares, donde cada elemento tiene una clave y un valor.
+  -> 
+  -> 
+  -> 
 
 
 
