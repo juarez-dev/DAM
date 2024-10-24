@@ -1,0 +1,112 @@
+INTRODUCCIÓN AL ACCESO A DATOS
+
+INTRODUCCIÓN
+
+En la mayoría de las aplicaciones informáticas se pueden diferenciar, a grandes rasgos, 2 bloques:
+  -> EL PROGRAMA, que realiza las operaciones deseadas con los datos necesarios.
+  -> LOS DATOS con los que opera el programa, pueden ser obtenidos mediante diversos métodos.
+
+Es necesario que los datos PERSISTAN, para que cuando el programa termine su ejecución, no se pierdan y puedan ser recuperados posteriormente.
+
+
+ACCESO A DATOS
+
+Estrategias de acceso a datos para gestionar la persistencia de los datos:
+  -> Mediante FICHEROS.
+  -> BASES DE DATOS:
+    -> Relacionales.
+    -> Orientadas a Objetos.
+    -> Objeto-Relacionales.
+    -> Bases de Datos XML (eXtensible Markup Lanjuage).
+    -> Bases de datos NoSQL.
+  -> MAPEO OBJETO RELACIONAL (ORM).
+  -> COMPONENTES.
+
+Ventajas de las Bses de Datos, permiten:
+    -> Eliminar el problema de la información redundante.
+    -> Eliminar información inconsistente.
+    -> Globalizar o Centralizar la información.
+    -> Garantizar el mantenimento de la integridad de la información, solo se almacena la información correcta.
+    -> Independencia de datos, implica la separación entre programas y datos, si se realizan cambios en la información sin tener que hacer cambio en aplicaciones o programas.
+
+
+FICHEROS
+
+Actualmente se usan ficheros que guardan los datos siguiendo un patrón o estructura bien definida.
+FICHEROS XML, archivos de texto, no necesitan software propietario para interpretarse, tienen extensión xml. Las DBA actuales emplean ficheros XML para guardar sus datos.
+
+
+BASES DE DATOS
+
+Sistema de información orientado hacia los datos, que pretende recuperar y almacenar la información de manera eficiente y cómoda.
+
+VENTAJAS CON RESPECTO A LOS SITEMAS DE ARCHIVOS CONVENCIONALES
+  -> INDEPENDENCIA de los datos respecto a los procedimientos.
+  -> Disminución de las REDUNDANCIAS y, en consecuencia.
+    -> Disminución de posibles INCONSISTENCIAS DE DATOS.
+    -> Mayor DISPONIBILIDAD de los datos.
+    -> Mayor SEGURIDAD de los datos.
+    -> Mayor PRIVACIDAD de los datos.
+    -> Mayor EFICIENCIA en la recogida, codificación y entrada en el sistema.
+    -> COMPARTICIÓN de los datos, se puede acceder a los datos por varios usuarios simultáneamente, teniendo previstos procedimientos para salvaguardar su integridad.
+
+Se usa un sistema de ficheros convencional cuando la cantidad de datos a guardar es tan reducida que no justifica las desventajas del uso de los sistemas de bases de datos.
+
+
+BASES DE DATOS RELACIONALES
+
+Su propósito es proporcional un método declarativo para especificar datos y consultas.
+Son adecuadas para manejar grandes cantidades de datos, compartir datos entre programas, realizar búsquedas rápidas, etc.
+Como desventaja, no presentan un buen modelo de las relaciones entre los datos, ya que todo se representa como tablas bidimensionales.
+
+Facts about DB:
+  -> Robustas.
+  -> Permiten interoperabilidad entre aplicaciones.
+  -> Permiten una forma de compartir datos entre aplicaciones.
+  -> Son el común denominador de muchos sistemas y tecnologías.
+
+Otros modelos tradicionales:
+  -> Modelo Jerárquico.
+  -> Modelo en Red.
+
+
+BD ORIENTADAS A OBJETOS - OODB
+
+Soportan un modelo de objetos puro.
+El lenguaje de programación y el esquema de la base de datos utilizan ls mismas definiciones de tipos.
+
+Aplicaciones actuales:
+  -> Soporte de objetos complejos y datos multimedia.
+  -> Jerarquías de objetos o tipos y herencia.
+  -> Gestión de Versiones.
+  -> Modelos extensibles mediante tipos de datos definidos por el usuario.
+  -> Integración de los datos con sus procedimientos asociados.
+  -> Manipualción navegacional y de conjunto de registros.
+  -> Interconexión e Interoperabilidad.
+
+
+BASES DE DATOS RELACIONALES VS BASES DE DATOS ORIENTADAS A OBJETOS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
