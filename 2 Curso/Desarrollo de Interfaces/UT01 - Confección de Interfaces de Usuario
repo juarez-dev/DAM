@@ -68,6 +68,13 @@ HERRAMIENTAS PARA LA ELABORACIÓN DE INTERFACES
 
 CONTENEDORES
 
+Un FORMULARIO es una ventana que dispone 3 botones (minimize, maximize and close), una barra de título y está delimitado por unos bordes.
+Es la base para crear una aplicación de escritorio.
+
+Una aplicacion se compone de una serie de formularios.
+
+CONTENEDOR Java, es un componente que permite incluir otros componentes incluidos contenedores que se usarán para distribuir los controles.
+Los contenedores forman una ESTRUCTURA JERÁRQUICA.
 
 
 
