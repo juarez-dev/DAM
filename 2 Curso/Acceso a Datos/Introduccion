@@ -138,14 +138,56 @@ Si el conector JDBC que participa en la comunicación no es óptimo, la posible 
 
 DESARROLLO DE COMPONENTES
 
+Un COMPONENTE es una unidad se software con una función e interfaz bien definidas. Posee interfaces especificadas contractualemnte, pudiendo ser desplegado
+indipendientemente y puede interaccionar con otros componentes para formar un sistema.
+
+Un INTERFAZ es un punto de acceso a los componentes, permite a los clientes acceder a los servicios proporcionados por un componentes.
+
+Un JavaBean es un componente software reutilizable basado en la especificación JavaBean de Sun(Oracle) que se puede manupular visualmente con una herramienta de desarrollo.
+Propiedades que presenta un JavaBean:
+  -> PORTABILIDAD.
+  -> REUSABILIDAD.
+  -> INTROSPECCIÓN.
+  -> PERSONALIZACIÓN.
+  -> PERSISTENCIA.
+  -> COMUNICACIÓN ENTRE EVENTOS.
 
 
+HERRAMIENTAS UTILIZADAS EN EL MODULO
+  -> NetBeans & Eplipse, IDE Integrated Development Environment
+  -> Hibernate Tools (Plugin):
+    -> Editor de mapeo, para los archivos SML, compatible con autocompletado y resaltado de sintaxis.
+    -> Consola, permite configurar conexiones de DB, proporcioona viisualización de clases y sus relaciones, permite ejecutar consultas HQL
+    -> Ingeniería inversa, puede generar clases de modelo de dominio y archivos de mapeo, documentación HTML, incluso una aplicacion JBoss Seam completa.
+    -> Wizards, proporcionas varios asistentes.
+    -> Tarea Ant, permite ejecutar generación de esquema, de mapeo o de código Java como parte de su compilación.
+  -> JDBC, Java Database Connectivity, una API(Aplication Programming Interface) para java que define cómo un cliente puede acceder a una base de datos.
 
 
+DATABASE MANAGMENT SYSTEM
+Es un sistema que permite la creación, gestión y administración de bases de datos, así como la elección y manejo de las estructuras necesarias
+para el almacenamiento y búsqueda de la información del modo más eficiente posible.
+
+ORACLE - MYSQL - SQLite
 
 
+BASES DE DATOS ORIENTADAS A DOCUMENTOS
+
+DB XML
+
+  DB XML ENABLED, la extensión de la conversión de documentos XML.
+La información se almacena en tablas, que se dividen en filas que contienen los registors, y columnas que contienen los campos.
+Permite obtener los resultados de las consultas en formato XML.
+No se trata por tanto de una DB orentada a documentos.
+
+  DB XML NATIVA
+No posee campos ni tablas, almacena documentos XML, se denomina con frecuenci DB centrada u orientada a documentos.
 
 
+BASES DE DATOS MongoDB
+En esta no existen las transiciones, auque pude simularlas.
+Solo garantiza operaciones atómicas a nivel de documento.
+Guarda los datos en documentos, que son almacenados en BSON(una representación binaria de JSON)
 
 
 
