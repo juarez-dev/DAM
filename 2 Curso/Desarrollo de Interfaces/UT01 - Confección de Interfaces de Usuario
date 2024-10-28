@@ -54,6 +54,28 @@ LIBRERÍA DE COMPONENTES
     -> Dear ImGui (Immediate mode GUI), libreria ligera que permite crear interfaces de usuario en aplicaciones interactivas en tiempo real.
 
 
+HERRAMIENTAS PARA LA ELABORACIÓN DE INTERFACES
+  -> Visual Estudio, entorno de desarrollo con la biblioteca .NET framework de Microsoft.
+  -> NetBeans, IDE destribuido por Oracle bajo licencia GNU GPL, desarrollado en Java, pertmite crear aplicaciones en diferentes lenguajes.
+  -> Eclipse, IDE distribuido bajo la Licencia Pública Eclipse (EPL).
+  -> JDeveloper, IDE desarrollado por Oracle Corporation para Java, HTML, XML, ...
+  -> CodeLite IDE, OpenSource, multiplataforma y gratuito.
+  -> JetBrains, conjunto de IDEs orientadas a cubrir diferentes necesidades de empresas y particulares.
+  -> BlueFish, compatible con windosws, linux, mac, freebsd, openbsd y solaris.
+  -> Atom, IDE que permite programar en diferentes lenguajes, un editor opensource.
+  -> Qt Creator, desarrollado por Nokia, IDA para interfaces gráficas y multiplataforma.
+
+
+CONTENEDORES
+
+
+
+
+
+
+
+
+
 
 
 
