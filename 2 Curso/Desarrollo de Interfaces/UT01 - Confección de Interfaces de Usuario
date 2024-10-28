@@ -25,3 +25,54 @@ Algunos componentes típicos
 
 LENGUAJES DESCRIPTIVOS PARA LA DEFINICIÓN DE INTERFACES
 
+Permiten definir la estructura, el estilo y la interacción de la interfaz del usuario, facilitando la comunicación entre diseñadores y desarrolladores y 
+asegurando una implementación coherente y eficiente de la interfaz en la aplicación final.
+
+  -> XML (eXtensible Markup Language), lenguaje de marcado utilizado para describir datos estructurados.
+En interfaces se puede utilizar para definir la estructura y los elementos de la interfaz, sus propiedades y atributos.
+  -> HTML (HyperText Markup Language), empleado en la definición de la estructura básica de interfaces de usuario en aplicaciones web.
+  -> CSS (Cascading Style Sheets), lenguaje de estilo utilizado para definir la presentación y el aspecto visual de los elementos de una web, se puede combinar con HTML o XML.
+  -> JSON (JavaScrip Object Notation), su proposito principal es el intercambio de datos, tambíen se puede utilizar para describir la estructura de una interfaz y las propiedades de sus elementos.
+  -> XAML (eXtensible Application Markup Languaje), lenguaje de marcado de Microsoft, se utiliza para interfaces en aplicaciones de la plataforma .NET.
+  -> QML (Qt Meta-Object Language), lenguaje de marcado utilizado en desarrollo de interfaces en el framework Qt.
+
+
+LIBRERÍA DE COMPONENTES
+
+  -> JFC - JAVA Fundation Classes, incluyen librerías para crear interfaces gráficas de las aplicaciones Java y applets de Java:
+    -> AWT, común a todas las plataformas, practicamente en desuso.
+    -> Swing, totalmente multiplataforma porque no tienen códiigo nativo. Es el estandar actual para el desarrollo de interfaces gráficas en Java.
+    -> JavaFX, reemplazo de Swing, más moderna y rica.
+  -> Librerias MSDN de Microsoft (C#, ASP, ...):
+    -> .NET Framework, componente integral que permite la compilación y ejecución y webs como la propia librería de componentes que permite su creación.
+  -> Librerias Basadas en XML:
+    Normalmente disponene de mecanimos para elaborara las interfaces y traducirlas a diferentes lenguajes de programación, para integrarlas en la aplicacion final.
+  -> Otras API (Application Programming Interface)
+    -> DirectX, plataforma Microsoft para facilitar el manejo de los elementos multimedia.
+    -> GTX (GIMP Toolkit), librería del equipo GTK+. El entorno gráfico de GNOME utiliza esta librería.
+    -> QT, utilizada por el entorno gráfico KDE, utiliza C++ y puede ser integrado en otros lenguajes.
+    -> Dear ImGui (Immediate mode GUI), libreria ligera que permite crear interfaces de usuario en aplicaciones interactivas en tiempo real.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
