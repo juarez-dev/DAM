@@ -1,0 +1,27 @@
+INTRODUCCIÓN
+
+INTERFAZ DE USUARIO, es el elemento de una aplicación informática que permite al usuario comunicarse con ella.
+
+Tipos de interfaces:
+  -> TEXTUALES, la comunicación se produce por médio de la insercción de órdenes o comandos escritos en un intérprete de órdenes.
+  -> GRÁFICAS, consta de elementos visuales con los que se interraciona.
+  -> TÁCTILES, comunicación producida mediante un dispositivo táctil.
+  -> NATURALES, intenta imitar la forma de interacción humana, permitiendo una interacción más intuitiva, fácil y sin esfuerzo. (Gestos, expresiones, por voz, ...)
+
+COMPONENTES, elementos gráficos atómicos que tienene sus propias características y funciones que se conbinan para formar la interfaz.
+
+Algunos componentes típicos
+  -> ETIIQUETAS, permiten situar texto en la interfaz, no son interactivos.
+  -> CAMPOS DE TEXTO, campos de una línea para insertar texto.
+  -> ÁREAS DE TEXTO, cuadros en los que escribir texto.
+  -> BOTONES, aréas pulsables para realizar alguna acción.
+  -> BOTONES DE RÁDIO, botones circulares que presentan agrupados para realizar una seleccion de un único elemento entre ellos. Para seleccionar entre un conjunto.
+  -> CUADROS DE VERIFICACIÓN, botones rectangulares, usados para marcar alguna opción, aparecen un tic cuando se seleccionan.
+  -> IMÁGENES, añaden información gráfica.
+  -> PASSWORD, cuadro de texto en el que aparecen los carácteres ocultos.
+  -> LISTAS, conjunto de datos presentados en un cuadro en los que se puede seleccionar uno o varios.
+  -> LISTAS DESPLEGLABLES, combinación de cuadro de texto y lista, se puede escribri o seleccionar un elemento de una lista oculta que se puede desplegar.
+
+
+LENGUAJES DESCRIPTIVOS PARA LA DEFINICIÓN DE INTERFACES
+
