@@ -76,13 +76,31 @@ Una aplicacion se compone de una serie de formularios.
 CONTENEDOR Java, es un componente que permite incluir otros componentes incluidos contenedores que se usarán para distribuir los controles.
 Los contenedores forman una ESTRUCTURA JERÁRQUICA.
 
+Un formulario está formado por un contenedor de nivel superior que inclulle un contentpanel(panel de contenido) que permite añadir otros componentes.
+Como contenedor de nivel superior se puede elegir entre:
+  -> Ventana (JFrame), un formulario con título, botones de maximizar, minimizar o cerrar y borde.
+  -> Dialogo (JDialog), formularios que suelen solicitar información al usuario, pueden ser modales o no.
+  -> Applet (JApplet), ventana que ejecuta una aplicaciçon Java en el contexto de una página web.
 
 
+CONTENEDORES SECUNDARIOS
+
+Tambien se interpretan como diálogos los siguientes componentes:
+  -> PANEL DE OPCIONES (JOptionPane), genera ventanas con botones para responder cuestiones ocn respuestas del tipo si-no, acept-cancel, ...
+  -> SELECTOR DE ARCHIVOS (JFileChooser), permite seleccionar un archivo del sistema de archivos del equipo deonde se ejecuta la aplicación.
+  -> SELECTOR DE COLORES (JColorCooser), permite seleccionar entre un conjungo de colores y devolverlo usando el código adecuado.
+
+Otro tipo de contenedores para distribuir el resto de los controles que se incluyen en la ventana principal, los más habituales:
+  -> PANELES (JPanel), representa un contenedor intermedia, cuya función principal es la de colocar controles.
+  -> BARRA DE MENÚS (JMenu), permite la creación de menús complejos de opciones.
+  -> BARRA DE HERRAMIENTAS (JToolBar), se utiliza pra contener iconos de acceso a las opciones de la aplicación.
+  -> PESTAÑAS (JTabbedPane), tipo particular de panel que permite la distribución de elementos en pestañas o tarjetas.
+  -> PANELES DESLIZABLES (JScrollPne), tipo especial de panel que permite desplazar sus contenidos de manera automática.
+  -> VENTANAS INTERNAS (JInternalFrame), ventanas hijas que no pueden rebasar los límites de la ventana padre donde se han creado.
+  -> PANELES DIVIDIDOS (JSplitPane), permite visualizar dos componentes, uno a cada lado, asignado espacio dinámicamente a cada uno.
 
 
-
-
-
+COMPONENTES DE LA INTERFAZ
 
 
 
