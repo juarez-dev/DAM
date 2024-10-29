@@ -102,6 +102,28 @@ Otro tipo de contenedores para distribuir el resto de los controles que se inclu
 
 COMPONENTES DE LA INTERFAZ
 
+Los componentes o controles gráficos de un formulario, son elementos gráficos que se anida en los contenedores para formar aplicaciones.
+Muestran información y la recaban del usuario.
+
+LAYOUT, reglas de colococación de componentes en el formulario que establecen el orden y la posición en la que deben ser mostrados.
+
+MANEJO DE EVENTOS, gestion de la interaccion de un compenente con el usuario.
+Una acción sobre el componente debe provocar un EVENTO.
+
+
+AÑADIR Y ELIMINAR COMPONENTES DE LA INTERFAZ - IDE NetBeans
+
+Los componentes se pueden añadir desde la paleta, que se suele anclar a la derecha de la interfaz.
+
+Categorías:
+  -> CONTENEDOROS SWING, secundarios en la jerarquía, se usan para distribuir y organizar el resto de controladores.
+  -> CONTROLES SWING, básicos para crear una interfaz útil para comunicarse con el user y mostrar o solicitar info.
+  -> RELLENADORES SWING, mecanismo que posibilita que ciertos componentes ocupen el espacio adicional.
+  -> MENUS SWING, incluyen controladores para crear menús de aplicación complejos, con varios bloques, elementos activos, etc.
+  -> VENTANAS SWING, permiten añadir ventanas (JFrame), diálogos (JDialog), selectores de fichero y colores (JFileChooser u JColorChooser) y paneles de opciones (JOptionPane).
+
+
+
 
 
 
