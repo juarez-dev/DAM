@@ -122,10 +122,44 @@ Categorías:
   -> MENUS SWING, incluyen controladores para crear menús de aplicación complejos, con varios bloques, elementos activos, etc.
   -> VENTANAS SWING, permiten añadir ventanas (JFrame), diálogos (JDialog), selectores de fichero y colores (JFileChooser u JColorChooser) y paneles de opciones (JOptionPane).
 
+Para añadir componentes a la interfaz, seleccionar el control en la paleta y pinchar sobre la interfar que se estra construyendo.
+Opción DISEÑO LIBRE, aparecen sobre un formulario unas guías que permiten colocar con facilidad el control.
+
+Para eliminar un control basta con seleccionarlo y pulsar Supr, o seleccionar Suprimir en el menú contextual.
 
 
+MODIFICACIÓN DE PROPIEDADES
+
+Con el control seleccionado accedes a sus propiedades en el panel propiedades.
+Se suele comenzar modificando su nombre para localizarlo con más facilidad en el código de la clase que genera el formulario.
 
 
+UBICACIÓN Y ALINEAMIENTO DE LOS COMPONENTES
+
+Layout, herramienta empleada internamente el mecanismo de Java para disponer los elementos.
+Swing dispone de los siguientes tipos de distribuciones:
+  -> BoderLayout, aloja los componentes en los límites del formulario, cuando se coloca se indica si van al norte, sur, este u oeste.
+  -> GridLayout, diseña mediante una rejilla, en la que los componentes se organizan por filas y columnas.
+  -> GridBagLayout, como GridLayout, pero permite a un componente que ocupe más de una celda
+  -> CardLayout, diseño por paneles. Permite la colocación de distintos componentes en momentos distintos de la ejecución.
+  -> BoxLayout, diseño en caja, coloca los componentes en una fila o columna ajustándose al espacio que haya.
+  -> FlowLayout, diseña alojando los componentes de izquierda a derecha mientras quede espacio, si no queda, pasa a la siguiente fila.
+  -> GroupLayout, trabaja por separado la distribución vertical y horizontal para definir exactamente el posicionamiento de los componentes.
+  -> SpringLayout, flexible y se usa para herramientas de diseño gráfico de interfaces, se especifican las relaciones entre los límites de los componentes bajo su control.
+
+
+ENLACE DE COMPONENTES A ORÍGENES DE DATOS
+Poder acceder a la información contenida en una base de datos por una aplicacin le aporta flexibilidad y potencia.
+
+
+PATRONES DE ARQUITECTORA DE LAS APLICACIONES GRÁFICAS
+Patrones de arquitectura que se utilizan para organizar y estructural el código de ls aplicaciones, esto ayuda a separar responsabilidades y facilitan el mantenimiento, estabilidad y reutilización del código.
+
+Entre los patrones de arquitectura más comunes se encuentran:
+  -> MODELO-VISTA-CONTROLADOR (MVC), se basa en la separación de la lógica de negocio en tres componentes principales:
+    -> MODELO, 
+    -> VISTA, 
+    -> CONTROLADOR, 
 
 
 
