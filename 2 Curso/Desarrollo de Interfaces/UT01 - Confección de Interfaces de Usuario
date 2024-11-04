@@ -157,14 +157,132 @@ Patrones de arquitectura que se utilizan para organizar y estructural el código
 
 Entre los patrones de arquitectura más comunes se encuentran:
   -> MODELO-VISTA-CONTROLADOR (MVC), se basa en la separación de la lógica de negocio en tres componentes principales:
-    -> MODELO, 
-    -> VISTA, 
-    -> CONTROLADOR, 
+    -> MODELO, representa los datos y la lógica de la aplicación.
+    -> VISTA, se refeiere a la interfaz de usuario. Muestra los datos al user y recibe sus interacciones.
+    -> CONTROLADOR, actúa como intermediario entre el Modelo y la Vista.
+  -> MODELO-VISTA-PRESENTADOR (MVP), variante del patron MVC se enfoca en mejorar las pruebas unitarias. El presentador toma un papel más activo que el Controlador.
+     La vista no conoce directamente al Modelo, sino que interactúa con el Presentador que se encarga de actualizar la Vista y el Modelo.
+  -> MODELO-VISTA-VISTA-MODELO (MVVM), utilizado en el desarrollo de apps moviles y web con elances de datos(data binding). Se compone de:
+    -> MODELO, representa los datos y la lógia de negocio, de manera siminar al patrón MVC.
+    -> VISTA, la interfaz de usuario.
+    -> VISTA-MODELO, actúa como intermediario entre Modelo Y la Vista pero permite la utilización de enlaces de datos para sincronizar automáticamente la Vista con el Modelo.
+  -> PATRÓN DE NAVEGACIÓN, se enfoca en la estructura de navegación dentro de la aplicación, puede conbinarse con otros petrones, define como los users se mueven entre las vistas de la aplicación.
+  -> PATRÓN DE COMANDO, utilizado para encapsular una solicitud en un objeto, permitiendo parametrizar a los clientes con diferentes solicitudes, hacer cola para ellas o llevar a cabo operaciones de registro.
 
 
+ASOCIACIÓN DE ACCIONES A EVENTOS
+
+Event Sources,  los objetos donde se  producen los eventos.
+Event Listeners, registran los objetos que habrán de gestionarlos.
+Interfaz Listener, se corresponden con los tipos de eventos que se pueden producir.
 
 
+DIÁLOGOS MODALES Y NO MODALES
 
+El DIALOGO es un área visual que contiene los elementos de interfaz de usuario mostrando la aplicación y permitiendo la entrada de datos.
+Se representan casi siempre como objetos de dos dimensiones colocados en el escritorio.
+
+La MODALIDAD se refiere a la forma de mantener el foco que va a tener el diálogo con respecto a los demás diálogos:
+  -> DIALOGO NO MODAL, si una vez qque se encuentra activo permite alternanr el foco a cualquier otro díalogo abierto en el sistema o dentro de la APP.
+  -> DIALOGO MODAL RESPECTO A UNA APLICACIÓN, permiten alternar el foco a otros diálogos del sistema, pero no al que le da origen hasta que se produzca una determinada acción sobre ella.
+  -> DIALOGO MODAL RESPECTO AL SISTEMA, no va ceder el foco a ningua otra aplicación hasta que se produzca una determinada acción sobre él.
+
+
+DIÁLOGOS MODALES
+Se utilizan de forma generalizada en aplicacines y por el propio sistema operativo.
+
+En Java:
+  -> Un objeto de la clase Frame será el diálogo padre de toda la aplicación.
+  -> JDialog, permite la creación de diálogos modlaes.
+Para crear diálogos modales, en el constructor se establecera el parámetro "modal" a "true", de forma que este mantiene el foco, impiediendo que pueda ser tomadao por cualquier otro.
+
+- Clase static clas ModalityType, sirve para definir el tipo de bloqueo, o alcance del bloqueo en una aplicación, su enumeración contiene:
+  -> APPLICATION_MODAL, bloquea todas las ventanas de la app, excepto las derivadas de ella.
+  -> DOCUMENT_MODAL, bloquea la ventana padre de la ventana y su jerarquía superior.
+  -> MODELESS, no bloquea ninguna ventana.
+  -> TOOLKIT_MODAL, bloquea las ventanas de nivel superior que corren en el mismo TOOLKIT.
+
+- Clase ModalExclusionType, para excluir del bloqueo a una ventana o diálogo, opciones de enumeración:
+  -> APPLICATION_EXCLUDE, la ventana que utiliza este valor de enumeración no será bloqueada por ningún diálogo de la aplicación.
+  -> NO_EXCLUDE, indica que la ventana no estrá excluida del bloqueo si este ocurriera.
+  -> TOOLKIT_EXCLUDE, indica que no se bloqueará esta ventana si se llamase a APPLICATION_MODAL o TOOLKIT_MODAL.
+
+
+DIALOGOS NO MODALES
+Se puede pasar el foco de un diálogo a otro sin ningún tipo de restricción.
+
+
+EDICIÓN DE CÓDIGO GENERADO POR HERRAMIENTAS DE DISEÑO.
+
+El IDE automáticamente genera bloques de código al realizar el diseño de una ventana con herramientas gráficas, esté se muestra enmarcado dentro del fichero .java.
+Se puede modificar editándolo en la ventana "Fuente"(source). Además, se puede escribir código personalizado y especifico.
+
+
+CLASES, PROPIEDADES, MÉTODOS.
+
+Java Foundation Classes (JFC), conjunto de clases agradables visualmente y fáciles de utilizar para el programador, constituidas por 5 grupos:
+  -> AWT, bibliotecas de clases Java para el desarrollo de Interfaces gráficas de usuario.
+  -> Java 2D, conjunto de clases gráficas bajo licencia IBM/Taligent.
+  -> Accesiblididad, clases para facilitar el uso de ordenadores y tecnologia a personas con deficiencias visuales.
+  -> Drag an Drop, clases en las que se soporta los JavaBeans.
+  -> Swing, conjunto de componentes bien descritos y especificados, de forma que su presentación visual es independiente de la plataforma donde se ejecuta la aplicacion que utilice sus clases.
+
+
+CLASES
+En Java actualmente se utilizán los componentes Swing. Para cear interfaces gráficas de usuario combina los componentes de la clas JCompoent en contenedores de alto nivel:
+  -> JWindow, ventana sin barra de título ni botones.
+  -> JFrame, ventana con barra de título y botones que permiten su manipulación.
+  -> JDialog, permite visualizar un cuadro de diálogo.
+  -> JApplet permite crear un applet de Swing.:
+
+Componentes derivados de la clase JComponent:
+  -> JComponent, clase base para los componentes Swing:
+    -> JButton.
+    -> JMenuItem, elemento de un menú:
+      -> JCheckBoxMenuItem.
+      -> JMenu.
+      -> JRadioButtonMenuItem.
+    -> JToggleButtom, botón de estados:
+      -> JCheckBoc.
+      -> JRadioButton.
+y unos cuantos más ...
+
+
+PROPIEDADES
+Las propiedades de los componentes permiten adaptar su comportamiento y apariencia
+
+Ver listado si hace falta ...
+
+
+MÉTODOS
+Cada componente dispone de un conjunto complemento de métodos que permite comunicarse con el componentes y modificar su aspecto o comportamiento
+
+Ver listado de destacados ...
+
+
+EVENT, LISTENERS
+
+Los eventos se agrupan en función al componente que lo produce o la acción que lo provoca.
+
+Elementos de un Evento:
+  -> EVENT SOURCE, componente que origina el evento.
+  -> EVENT LISTENER, el encargado de atrapar o escuchar el evento.
+  -> EVENT HANDLER (manejador), método que permite implementar la interfaz. 
+
+El event handler recibe un objeto ActionEvent que contiene información sobre el evento disparado, el manejador descifra el evento y procesa lo solicitado por el user.
+
+Un evento puede ser escuchado por más de un manejador de eventos.
+
+
+LISTENERS
+Es el objeto de la clase que implementa la interfaz de escucha de un evento y que contien el método de respuesta al propio evento.
+
+Cada interfaz de escucha contiene los métodos para gestionar un determinado grupo de eventos.
+La interfaz de escucha WindowsListener define el formato de los métodos para la gestion de los eventos de ventana.
+
+Cada interfaz de escucha contiene sus propios métodos de gestión de eventos.
+
+Para responder a un evento dentro de una aplicación, se debe definir una clase que interprete la interfaz de escucha correspondiente al tipo de evento que se quiera gestionar.
 
 
 
