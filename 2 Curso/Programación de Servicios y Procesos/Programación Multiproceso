@@ -1,21 +1,73 @@
 INTRO: APLICACIONES, EJECUTABLES Y PROCESOS
 
+- PROGRAMA, conjunto de instrucciónes que ejecutadas en un ordenador realizarán una tarea o ayudarán al user a realizarla.
+- APLICACIÓN, tipo de programa informático, diseñado como herramienta para resolver de manera automática un problema específdico del usuario.
+- EJECUTABLE, fichero que contiene el código binario o interpretado que será ejecutado.
+- PROCESO, un programa en ejecución.
 
 
+EJECUTABLES
+
+Según el tipo de código que contenga, los podemos clasificar en:
+  -> BINARIOS, formados por un conjunto de instrucciones que directamente son ejecutadas por el procesador.
+     Se optiene al compilar el código fuente de un programa y se guarda en un fichero ejecutable.
+  -> INTERPRETADOS, código que suele tratarse como ejecutable, pero no es binário, sino otro tipo.
+     Esta formado por códigos de operación que tomará el intérprete, que será el encargado de traducirlos al lenguaje máquina que ejecutará el procesador.
+  -> SCIPTS, tipo especial de ejecutables interpretados, contienen las instrucciones que serán ejecutadas una detrás de otra por el intérprete.
+     No son compilados, se puede abrir y ver el código que contienen en un editor de texto plano. Los interpretes de estos se suelen llamar MOTORES.
+  -> LIBRERIAS, conjunto de funciones que permiten dar modularidad y reusabilidad a ptrogramas, su contenido es código ejecutable, aunque este sea ejecutado por todos lo ptrograma sque invoquen las funciones que contienen.
 
 
+GESTION DE PROCESOS
+
+Tipos de procesos ejecutados en el sistema:
+  -> POR LOTES, formados por una serie de tareas. El user sólo introduce las tareas y los datos iniciales, deja que se realice el proceso y recoge los resultados.
+  -> INTERACTIVOS, aquellas tareas en las que el proceso interactúa contiunuamente con el user y actúa de acuerdo a las acciones que éste realiza, o a los datos que suministra. 
+  -> TIEMPO REAL, tareas en las que es crítico el tiempo de respuesta del sistema.
+
+ESTADOS DE UN PROCESO
+Los estados en el ciclo de vida de un proceso:
+  1. NUEVO, proceso nuevo, creado.
+  2. LISTO, que está esperando la CPU para ejecutar sus instrucciones.
+  3. EN EJECUCIÓN, que actualmente, está en turno de ejecución en la CPU.
+  4. BLOQUEADO, que está a la espera de que finalice una E/S.
+  5. SUSPENDIDO, que se ha llevado a la memoria virtual para liberar RAM del sistema.
+  6. TERMINADO, que ha finalizado y ya no necesitará más la CPU.
+
+Todo proceso en ejecución, tiene que estar cargado en la RAM física del equipo, así como todos los datos que necesite.
 
 
+PLANIFICACIÓN DE PROCESOS POR EL SISTEMA OPERATIVO
+
+El CARGADOR es el encargado de crear los procesos, relaiza las siguientes tareas cuando se inicia un proceso:
+  1. CARGA EL PROCESO EN LA MEMORIA PRINCIPAL, reserva un espacio en la RAM para el proceso, ahí se copian las instrucciones del fichero ejecutable de la aplicación, las constantes y, deja un espacio para los datos y la pila.
+     Un proceso sudrante su ejecución no podrá hacer referencia a direcciones que se encuentren fuera de su espacio de memoria.
+  2. CREA UNA ESTRUCTURA DE INFORMACIÓN (PCB - Process Control Block), la info es única para cada proceso y permite controlarlo. Entre otros el PCB estara formado por los siguientes datos:
+      - PID (PROCESS IDENTIFICATOR), número único para cada proceso.
+      - ESTADO ACTUAL DEL PROCESO, en ejecución, listo, bloqueado, suspendido ó finalizado.
+      - ESPACIO DE DIRECCIONES DE MEMORIA donde comienza la zona de memoria reservada al proceso y su tamaño
+      - INFORMACIÓN PARA LA PLANIFICACIÓN, prioridad, quamtum, estadísticas, ...
+      - INFORMACIÓN PARA EL CAMBIO DE CONTEXTO, valor de los registros de la CPU. Esta info es necesaria para poder cambiar de la ejecución de un proceso a otro.
+      - RECURSOS UTILIZADOS, Ficheros abiertos, conexiones, ...
+
+El PLANIFICADOR es el encargado de tomar las decisiones relacionadas con la ejecución de los procesos, se encarga de decidir qué proceso se ejecuta y cuanto tiempo se ejecuta.
+Es otro proceso, parte del SO.
+ALGORITMO DE PLANIFICACION, es la política en la toma de decisiones del planificador, los más importantes son:
+  -> ROUND-ROBIN, favorece la ejecución de procesos interactivos.
+     Cada proceso puede ejecutar sus instrucciones en la CPU durante un quamtum, si no le ha dado tiempo a finalizar, se coloca al final de la cola de procesos listos, y espera a que vuelva su turno de procesamiento.
+  -> POR PRIORIDAD, se asignan prioridades a los distintos procesos y su ejecución se hace de acuerdo a la prioridad.
+  -> MÚLTIPLES COLAS, combinación de los anteriores. 
+     Todos los procesos de una misma prioridad, estarán en la misma cola, cada cola será gestionada con el algoritmo Round-Robin.
+
+En la PLANIFICACION o SCHEDULING se busca conciliar los siguientes objetivos:
+  - EQUIDAD, todos los procesos deben ejecutarse.
+  - EFICACIA, mantener ocupada la CPU un 100% del tiempo.
+  - TIEMPO DE RESPUESTA, Minimizar el tiempo de respuesta al usuario.
+  - TIEMPO DE REGRESO, Minimizar el tiempo de espera de los users de procesos por lotes para obtener resultados.
+  - RENDIMIENTO. Maximizar el número de tareas procesadas por hora.
 
 
-
-
-
-
-
-
-
-
+CAMBIO DE CONTEXTO EN LA CPU
 
 
 
