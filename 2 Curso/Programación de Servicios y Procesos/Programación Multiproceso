@@ -71,9 +71,29 @@ CAMBIO DE CONTEXTO EN LA CPU
 
 Un proceso es una unidad de trabajo completa.
 
+Estado de la CPU es el congunto de registros(pequeños espacios de memoria) en los que se almacenan temporalmente la información que, en cada instante, necesita la instruccion que esté procesando la CPU.
+
+Registros que destamamos:
+  -> REGISTRO CONTADOR DE PROGRAMA, en cada instante almacena la dirección de la siguiente instrucción a ejecutar.
+El contador de programa, apunta a la dirección de la siguiente instrucción que habrá que traer a la memoria, cuando se termine de procesar la instruccion en curso.
+Este contador de programa nos permitirá continuar en cada proceso por la instrucción de dónde lo hubiéramos dejado todo.
+  -> EL PUNTERO A LA PILA, en cada instante apunta a la parte superior de la pila del proceso de ejecución, que es donde será almacenado el contexto de la CPU, y de donde se recuperará cuando ese proceso vuelva a ejecutarse.
+
+La CPU realiza un CAMBIO DE CONTEXTO cada vez que cambia la ejecución de un proceso a otro distinto.
+En un cambio de contexto, hay que guardar el estado actual de la CPU y restaurar su estado del proceso que va a pasar a ejecutar.
 
 
+SERVICIOS. HILOS
 
+THREAD o HILO, son parte de la misma aplicación, cada uno actúa siguiendo un patrón de comportamiento.
+El comportamiento es el algoritmo que cada uno de ellos seguirá.
+Los hilos de un mismo proceso comparten la información de las variables del proceso.
+
+Realizar cambios de contexto entre hilos de un mismo proceso, es más rápido y menos costoso que el cambio de contexto entre procesos, ya que solo hay que cambiar el valor del registro contador 
+de programa de la CPU y no todos los valores de los registros de la CPU.
+
+- Un proceso, estará formado por, al menos, un hilo de ejecución.
+- Un proceso es una unidad pesada de ejecución. Si el proceso tiene varios hilos, cada hilo, es la unidad de ejecución ligera.
 
 
 
