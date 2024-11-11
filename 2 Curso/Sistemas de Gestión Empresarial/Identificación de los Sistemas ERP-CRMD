@@ -49,26 +49,114 @@ Se suele contratar por suscripcion donde se paga una cuota mensual por número d
   -> LICENCIA PLATFOR AS A SERVICE (PaaS), al igual que Saas se aloja en la nube, ademas el user tiene acceso a la infraestructura teniendo libertad a la hora de implementar desarrollos o modificaciones.
   -> LICENCIA ON-PERMISE (EN SITIO o IaaS), el software está alojado en servicores físicos en las instalaciones de la empresa que lo contrata.
 
+CARACTERISTICAS DE UN ERP
+
+  -> INTEGRACIÓN, integra todos los procesos de la empresa, de forma que las considera una serie de áreas que se relacionan entre sí, para conseguir una mayor eficiencia reduciendo tiempo y costes.
+  -> MODULARIDAD, cada mosulo se corresponde con un área de la empresa, gracias a una DB centralizada, estos comparten información entre sí, facilitando la adaptabilidad, personalización e integración.
+  -> ADAPTABILIDAD, Para abaratar costes, a veces se utiliza una solución más genérica y se modifican algunos de los procesos para alinearlos al sistema ERP.
+
+VENTAJAS
+
+  - Permite resolver problemas derivados del tratamiento de la información con los sistemas anteriores.
+  - Aumentan la eficiencia operativa.
+  - Mejoran las relaciones entre empresa y agentes con los que intereactúan el mercado.
+  - Facilitan el acceso a la información.
+  - Reducen costes empresariales, especialmente los relacionados con las operaciones tecnologícas de información y comunicación con la empresa.
+  - Mayor facilidad en la configuración de los sistemas de la empresa.
+  - Constituyen una mejora en las herramientas para el tratamiento de la información.
+
+INCONVENIENTESS
+
+  - Se requieren recursos para la adquisición e implementación, consultoría previa y los costes de adaptación de las funcionalidades a medida.
+  - Requieren nueva manera de hacer negocios y trabajar y organizarse dentro de la empresa.
 
 
+CRM - CUSTOMER RELATIONSHIP MANAGEMENT
+Herramientas tecnológicas que gestionan grandes cantidades de información, son una extensión específica de los ERP, enfocandose en mantener, crear y potenciar las relaciones con los clientes.
+
+Funcionalidades clave de los CRM:
+  -> REDUCCIÓN DE COSTOS DE ITERACIÓN, permiten una comunicación eficiente con los clientes, disminuyendo costes asociados.
+  -> BIDIRECCIONALIDAD EN LA COMUNICACIÓN, facilitan la interacción entre la empresa y los clientes, promoviendo un diálogo activo.
+  -> MAYOR EFICIENCIA EN LAS ACCIONES DE COMUNICACIÓN, optimizan las campañas de marketing y ventas al proporcionar información precisa sobre los clientes.
+  -> SOFTWARE EN LÍNEA Y SU ÉXITO, los sistemas basados en la nube han prosperado aprovechando internet como herramienta para su aplicación.
+
+CARACTERISTICAS DE LOS CRMs
+  - Facilitan tomar decisiones en tiempo real, incrementando la rentabilidad del cliente, ya que obtienen información muy util a partir de datos complejos.
+  - Fomentan relaciones a largo plazo con sus clientes, gracias a que transforman la manera de vender, ayudando y aprovechando oportunidades para conquistar a sus clientes.
+  - Facilintan la toma de decisiones referentes a inversiones reduciendo la longitud de los ciclos de venta.
+  - Permiten que el user pueda hacer adaptaciones sin modificar el código fuente.
+
+CRMs ACTUALES
+En común, cubren una serie de funcionalidades básicas mediante un conjunto de módulos comunes:
+  -> MÓDULO CLIENTE, centraliza toda la información de todos los clientes.
+  -> MÓDULO SERVICIO AL CLIENTE, busca aumentar la fidelidad del cliente manteniendo un historial de intracciones de forma que ayude a reducir el tiempo de respuesta y resolución de problemas con los clientes.
+  -> MÓDULO DE VENTAS, acceso a todas las negociaciones o posibles ventas que la empresa ha generando buscando su optimización.
+  -> MÓDULO DE MARKETING, incluye herramientas de segmentación de clientes para gestionar campañas de marketing.
+  -> MÓDULO DE FINANZAD, gestiona todos los datos de facturación, contabilidad, presupuestos, ingresos, ...
+
+VENTAJAS DESTACADAS DE LOS CRMs:
+  - Reducir costes y mejrar ofertas.
+  - Identificar clientes potenciales que mayor beneficio generen para la empresa.
+  - Mejorar la información del cliente.
+  - Personalizar y optimizar los procesos.
+  - Aumentar la cuota de gasto de los clientes.
+  - Localizar nuevas oportunidades de negocio.
+  - Aumentar las tasas de retención de clientes.
+  - Incremento de ventas.
+
+Conceptos Estratégicos en una emresa para la inclusión de CMRs:
+  ->  ESTRATEGIA, en consonancia con las necesistades tácticas y operativas de la empresa, así como la coorporativa.
+  -> PERSONAS, formación del personal y comunicación interna imprescindibles.
+  -> PROCESOS, esfuerzo para la nueva definición de los procesos de negocio y mejorar las relaciones con los clientes.
+  -> TECNOLOGÍA, la solución tecnológica dependera de las necesidades de la empresa y de sus recursos disponibles.
+
+REQUISITOS DE LOS SITEMAS ERP-CRM
+
+  -> ANÁLISIS PREVIO, definir objetivos a conseguir, recursos necesarios, coste total, necesidades de organización -> Su alcance funcional.
+  -> PROYECTO PROPIO DE IMPLANTACIÓN.
+
+DOCUMENTACIÓN DE LAS OPERACIONES REALIZADAS
+
+SISTEMAS DE GESTIÓN DOCUMENTAL (DMS), herramientas diseñadas para facilitar la organización, almacenamiento, búsqueda y gestión de documentos electronicos.
+Automatizan el flujo de documentos, mejorando la eficiencia y reducciendo errores.
+
+Algunas caracteristicas comunes de un DMS:
+  -> ALMACENAMIENTO CENTRALIZADO, guardado en un repositorio central, evitando tambien su duplicación.
+  -> BÚSQUEDA EFICIENTE, busqueda por palabras clave, fechas o categorias.
+  -> CONTROL DE VERSIONES, registra cambios en los documentos y permite la recuperación de versiones anteriores.
+  -> FLUJO DE TRABAJO, automatiza la circulación de documentos, asignando tareas y notificando a los responsables.
+  -> SEGURIDAD, ofrece permisos de acceso.
+
+ARQUITECTURA DE UN SISTEMA ERP-CRM
+
+Los dos elementos técnicos más importantes en la estructura ERP-CRM son:
+  -> ARQUITECTORUA CLIENTE-SERVIDOR, utilizada para operar con servicios del sistema. Consiste en que los clientes solicitan servicios al servidor cuando no pueden realizarlos por si mismos.
+Los clientes se comunicaran con el servidor mediante red corporativa o internet, solicitando consultas a la DB.
+El servidor o servidores realizarán funciones de administración de periféricos y control de acceso a la DB compartida.
+  -> BASE DE DATOS RELACIONAL, el modelo relacional es el más utilizado en los sitemas gestores, respondiendo al requerimiento de cada una de las aplicaciones que deseean, revisar, actualizar o eliminar datos almacenados.
 
 
+ESTRUCTURA FUNCIONAL DE UN SISTEMA ERP
+
+Dependiendo de los procesos de negocios que se apoyen, los sitemas ERP se pueden clasificar en:
+  -> PROCESO DE MANUFACTURA.
+  -> PROCESOS DE VENTA Y MARKETING.
+  -> PROCESOS FINANCIEROS Y CONTABLES.
+  -> PROCESOS DE RECURSOS HUMANOS.
 
 
+EXTENSIONES REFERENTES AL SISTEMAS ERP
+
+Añaden funciones adicionales como:
+  -> CRM - COSTUMER RELATIONSHIP MANAGMENT, administración basada en la relación con los clientes.
+  -> HCM - HUMAN CAPITAL MANAGEMENT, gestión del capital humano, control de los empleados .
+  -> SCM - SUPPLY CHAIN MANAGEMENT, gestión de la cadena de suministro, control eficiente de las operaciones de la cadena de suministro.
+  -> PLM - PRODUCT LIFECYCLE MANAGMENT, gestión de vida del producto, controlar el proceso de fabricación y evolución posterior.
 
 
+SOFTWARE COMPATIBLE - CONFIGURACIÓN
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+3 factores que tener en cuenta al adoptar el mejor sistema operativo para la implantación de un ERP:
+  -> EXPERIENCIA, de la empresa en otros SOs.
+  -> DISPONIBILIDAD, de servicios que el SO ofrece al ERP.
+  -> COSTE, de la inversión a realizar al adoptar el nuevo SO.
