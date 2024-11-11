@@ -1,0 +1,74 @@
+INTRODUCCIÓN A LA GESTIÓN EMPRESARIAL
+
+Una empresa o negocio existe siempre y cuando obtenga beneficios, ya que gracias a ellos adquiere capacidad de crecer y desaarrollarse.
+Tiene que gestionar perfectamente sus recursos para poder ser competitiva ante otras que realizan idénticos productos.
+
+
+EVOLUCIÓN DE LA INFORMÁTICA DE GESTIÓN EMPRESARIAL
+
+Clasíficación según la evolución a lo largo del tiempo:
+  -> SISTEMA DE PROCEDIMIENTO DE TRANSACCINOES, gestionan la información.
+  -> SISTEMA DE AUTOMATIZACIÓN DE OFICINAS, aplicaciones destinadas a ayudar en el trabajo diario administrativo y organizativo de la empresa.
+  -> SISTEMAS DE PLANIFICACIÓN DE RECURSOS -> ERP -> ENTERPRISE RESOURCING PLANNING, sistemas compuestos de diferentes pates integradas en una única aplicación.
+  -> SISTEMA EXPERTO, aplicación capaz de solucionar un conjunto de problemas que exigen un gran conocimiento sobre un determiado tema.
+
+
+ORGANIZACIÓN DE UNA EMPRESA Y SUS RELACIONES
+
+Una de las posibles clasificaciones de los entornos que afectan a la empresa:
+  -> ENTORNO PRÓXIMO - MICROENTORNO, factores que influyen directamente en las operaciones diarias de la empresa y que en mayor o menor medida pueden ser gestionadas por la empresa.
+  -> ENTORNO GENERAL - MACROENTRONO,, factores externos que afectan a la empresa como factores geopolíticos, ecónomicos, socioculturales, tecnológicos, etc. No son gestionambes directamente por la empresa.
+
+SISTEMAS DE PLANIFICACIÓN DE RECURSOS-ERP-ENTERPRESE RESOURCING PLANNING
+Son sistemas de gestión de la información que integran y automatizan muhcas de las prácticas de negocio asociadas con los aspectos operativos o productivos de una empresa,
+eliminando complejas conexiones entre sistemas de distintos proveedores.
+
+ARQUITECTURA MODULAR, cada módulo gestiona funciones de un área empresarial diferentes. Realizan funciones diferentes, pero se interrelacionan compartiendo información.
+
+
+TIPOS DE LICENCIAS DE LOS ERP-CRM
+
+LICENCIA SOFTWARE LIBRE, contrato entre el autor/dessarrollador y el usuario/consumidor del software, se establecen las posibilidaddes de utilización, modificación y distribución
+
+Un software se cosidera libre cuando garantiza las siguientes 4 clausulas:
+  -> Libertaad de utilizar el programa para cualquier proposito.
+  -> Libertad de estudiar el funcionamiento del programa, modificándolo y adaptándolo a nuevos requisitos.
+  -> Libertad de distribuir copias del programa.
+  -> Libertad de mejorar y hacer públicas las mejoras, de modo que la comunidad se beneficie de ello.
+
+Tipos de Licencias Libre:
+  -> SOFTWARE DE DOMINIO PÚBLICO, no seta protegido con copyright.
+  -> SOFTWARE BAJO COPYLEFT, permiten la distribución y versiones modificadas, debe mantener el copyleft.
+    -> SOFTWARE BAJO GPL (GENERAL PUBLIC LICENCE DE GNU), orientada a proteger la libre distribucion, modificación y tulización del software.
+  -> SOFTWARE BAJO LICENCIAS PERMISIVAS, licencias permisivas felxibles respecto a la distribución de moso libre o privativo.
+  -> SOFTWARE DE PRUEBA (SHAREWERE), autorizan la utilización para que el usuario evalue y posteriormente lo adquiera, suele tener algunas limitaciones.
+
+Tipos de Licencias Comerciales:
+  -> SOFTWARE AS A SERVICE (SaaS), el software y la infraestructura necesaria se aloja en la nube del proveesor, el cual se encarga del mantenimiento, actualizaciones y almacenamiento.
+Se suele contratar por suscripcion donde se paga una cuota mensual por número de usuarios.
+  -> LICENCIA PLATFOR AS A SERVICE (PaaS), al igual que Saas se aloja en la nube, ademas el user tiene acceso a la infraestructura teniendo libertad a la hora de implementar desarrollos o modificaciones.
+  -> LICENCIA ON-PERMISE (EN SITIO o IaaS), el software está alojado en servicores físicos en las instalaciones de la empresa que lo contrata.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
