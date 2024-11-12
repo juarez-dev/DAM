@@ -130,6 +130,65 @@ Administrador de Tareas en Windows y Monitor del Sistema en GNU/Linux, nos ofrec
   -> Posibilidad de cambiar la prioridad de ejecución de los procesos.
 
 
+PROGRAMACIÓN CONCURRENTE
+
+CONCURRENCIA, la coincidencia de varios sucesos al mismo tiempo.
+Dos procesos son CONCURRENTES, cuando la primera instrucción de uno de los procesos se ejecuta después de la primera y antes que la última del otro proceso.
+La planificación alternando los instantes de ejecución en la gestión de los procesos, hace que los procesos se ejecuten de forma concurrente, o lo que es lo mismo MULTIPROCESO.
+
+LA PROGRAMACIÓN CONCURRENTE proporciona mecanismos de comunicación y sincronización entre procesos que se ejecutan de forma simultanea en un sistema informático.
+Nos permitirá definir qué instrucciones se ejecutan de forma simultánea con las de otros procesos, sin producir errores y cuales deben ser sincronizadas con las de otros procesos para que los resutados sean correctos.
+
+Principales razones por las que se utiliza una estructura concurrente:
+  -> OPTIMIZAR LA UTILIZACIÓN DE LOS RECURSOS.
+  -> PROPORCIONAR INTERACTIVIDAD A LOS USUARIOS Y ANIMACIÓN GRÁFICA.
+  -> MEJORAR LA DISPONIBILIDAD.
+  -> CONSEGUIR EL DISEÑO CONCEPTUALMENTE MÁS COMPRENSIBLE Y MANTENIBLE.
+  -> AUMENTAR LA PROTECCIOÓN.
+
+Nuevos entornos hardware:
+  -> Micropocesadores con múltiples núcleos que comparten la memoria principal del sistema.
+  -> Entornos multiprocesador con memoria compartida.
+  -> Entornos distribuidos. Conectados por red y/o internet.
+
+Beneficios al adoptar un modelo de programa concurrente:
+  -> Aporta gran claridas sobre lo que cada proceso debe hacer y cuando hacerlo.
+  -> Puede conducir a una reducción del tiempo de ejecución.
+  -> Permite mayor flexibilidad de planificación.
+  -> Permite mejor modelado previo del comportamiento del programa, y en consecuencia un análisis más fiable de las diferentes opciones que requiera su diseño.
+
+Tipos básicos de interacción entre procesos concurrentes:
+  -> INDEPENDIENTES, sólo interfieren en el uso de la CPU.
+  -> COOPERANTES, un proceso genera la información o proporciona un servicio que otro necesita.
+  -> COMPETIDORES, procesos que necesitan usar los mismos recursos de forma exlusiva.
+
+CONDICIÓN DE COMPETENCIA, cuando ambos procesos necesitan el mismo recurso, ya sea exclusivamente o no, por lo que hay que utilizar mecanismos de sincronización y comunicación entre ellos.
+
+* REGIÓN DE EXCLUSION MUTUA O REGIÓN CRÍTICA, conjunto de instrucciones en las que el proceso utiliza un recurso y que se deben ejecutar de forma exclusiva con respecto a otros procesos competidores por ese mismo recuro.
+* Un proceso hace un LOCK sobre un recurso cuando ha obtenido su uso en exclusión mútua.
+* DEADLOCK o INTERBLOQUEO, cuando los procesos no pueden obtener, nunca, los recursos necesarios para contiunar su tarea, es una situación peligrosa que puede llevar al sistema a su caída o cuelgue.
+
+
+COMUNICACIÓN ENTRE PROCESOS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
