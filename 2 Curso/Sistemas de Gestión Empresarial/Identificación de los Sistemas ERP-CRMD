@@ -8,27 +8,34 @@ EVOLUCIÓN DE LA INFORMÁTICA DE GESTIÓN EMPRESARIAL
 
 Clasíficación según la evolución a lo largo del tiempo:
   -> SISTEMA DE PROCEDIMIENTO DE TRANSACCINOES, gestionan la información.
-  -> SISTEMA DE AUTOMATIZACIÓN DE OFICINAS, aplicaciones destinadas a ayudar en el trabajo diario administrativo y organizativo de la empresa.
-  -> SISTEMAS DE PLANIFICACIÓN DE RECURSOS -> ERP -> ENTERPRISE RESOURCING PLANNING, sistemas compuestos de diferentes pates integradas en una única aplicación.
+  -> SISTEMA DE AUTOMATIZACIÓN DE OFICINAS, aplicaciones destinadas a ayudar en el trabajo diario administrativo y 
+organizativo de la empresa.
+  -> SISTEMAS DE PLANIFICACIÓN DE RECURSOS -> ERP -> ENTERPRISE RESOURCING PLANNING, sistemas compuestos de diferentes partes 
+integradas en una única aplicación.
   -> SISTEMA EXPERTO, aplicación capaz de solucionar un conjunto de problemas que exigen un gran conocimiento sobre un determiado tema.
 
 
 ORGANIZACIÓN DE UNA EMPRESA Y SUS RELACIONES
 
 Una de las posibles clasificaciones de los entornos que afectan a la empresa:
-  -> ENTORNO PRÓXIMO - MICROENTORNO, factores que influyen directamente en las operaciones diarias de la empresa y que en mayor o menor medida pueden ser gestionadas por la empresa.
-  -> ENTORNO GENERAL - MACROENTRONO,, factores externos que afectan a la empresa como factores geopolíticos, ecónomicos, socioculturales, tecnológicos, etc. No son gestionambes directamente por la empresa.
+  -> ENTORNO PRÓXIMO - MICROENTORNO, factores que influyen directamente en las operaciones diarias de la empresa
+y que en mayor o menor medida pueden ser gestionadas por la empresa.
+  -> ENTORNO GENERAL - MACROENTRONO,, factores externos que afectan a la empresa como factores geopolíticos, 
+ecónomicos, socioculturales, tecnológicos, etc. No son gestionambes directamente por la empresa.
 
 SISTEMAS DE PLANIFICACIÓN DE RECURSOS-ERP-ENTERPRESE RESOURCING PLANNING
-Son sistemas de gestión de la información que integran y automatizan muhcas de las prácticas de negocio asociadas con los aspectos operativos o productivos de una empresa,
+Son sistemas de gestión de la información que integran y automatizan muhcas de las prácticas de negocio asociadas con 
+los aspectos operativos o productivos de una empresa,
 eliminando complejas conexiones entre sistemas de distintos proveedores.
 
-ARQUITECTURA MODULAR, cada módulo gestiona funciones de un área empresarial diferentes. Realizan funciones diferentes, pero se interrelacionan compartiendo información.
+ARQUITECTURA MODULAR, cada módulo gestiona funciones de un área empresarial diferentes. Realizan funciones diferentes, 
+pero se interrelacionan compartiendo información.
 
 
 TIPOS DE LICENCIAS DE LOS ERP-CRM
 
-LICENCIA SOFTWARE LIBRE, contrato entre el autor/dessarrollador y el usuario/consumidor del software, se establecen las posibilidaddes de utilización, modificación y distribución
+LICENCIA SOFTWARE LIBRE, contrato entre el autor/dessarrollador y el usuario/consumidor del software, 
+se establecen las posibilidaddes de utilización, modificación y distribución
 
 Un software se cosidera libre cuando garantiza las siguientes 4 clausulas:
   -> Libertaad de utilizar el programa para cualquier proposito.
@@ -39,21 +46,29 @@ Un software se cosidera libre cuando garantiza las siguientes 4 clausulas:
 Tipos de Licencias Libre:
   -> SOFTWARE DE DOMINIO PÚBLICO, no seta protegido con copyright.
   -> SOFTWARE BAJO COPYLEFT, permiten la distribución y versiones modificadas, debe mantener el copyleft.
-    -> SOFTWARE BAJO GPL (GENERAL PUBLIC LICENCE DE GNU), orientada a proteger la libre distribucion, modificación y tulización del software.
+    -> SOFTWARE BAJO GPL (GENERAL PUBLIC LICENCE DE GNU), orientada a proteger la libre distribucion, 
+modificación y tulización del software.
   -> SOFTWARE BAJO LICENCIAS PERMISIVAS, licencias permisivas felxibles respecto a la distribución de moso libre o privativo.
-  -> SOFTWARE DE PRUEBA (SHAREWERE), autorizan la utilización para que el usuario evalue y posteriormente lo adquiera, suele tener algunas limitaciones.
+  -> SOFTWARE DE PRUEBA (SHAREWERE), autorizan la utilización para que el usuario evalue y posteriormente lo adquiera, 
+suele tener algunas limitaciones.
 
 Tipos de Licencias Comerciales:
-  -> SOFTWARE AS A SERVICE (SaaS), el software y la infraestructura necesaria se aloja en la nube del proveesor, el cual se encarga del mantenimiento, actualizaciones y almacenamiento.
+  -> SOFTWARE AS A SERVICE (SaaS), el software y la infraestructura necesaria se aloja en la nube del proveesor, 
+el cual se encarga del mantenimiento, actualizaciones y almacenamiento.
 Se suele contratar por suscripcion donde se paga una cuota mensual por número de usuarios.
-  -> LICENCIA PLATFOR AS A SERVICE (PaaS), al igual que Saas se aloja en la nube, ademas el user tiene acceso a la infraestructura teniendo libertad a la hora de implementar desarrollos o modificaciones.
-  -> LICENCIA ON-PERMISE (EN SITIO o IaaS), el software está alojado en servicores físicos en las instalaciones de la empresa que lo contrata.
+  -> LICENCIA PLATFOR AS A SERVICE (PaaS), al igual que Saas se aloja en la nube, ademas el user tiene acceso a la 
+infraestructura teniendo libertad a la hora de implementar desarrollos o modificaciones.
+  -> LICENCIA ON-PERMISE (EN SITIO o IaaS), el software está alojado en servicores físicos en las instalaciones 
+de la empresa que lo contrata.
 
 CARACTERISTICAS DE UN ERP
 
-  -> INTEGRACIÓN, integra todos los procesos de la empresa, de forma que las considera una serie de áreas que se relacionan entre sí, para conseguir una mayor eficiencia reduciendo tiempo y costes.
-  -> MODULARIDAD, cada mosulo se corresponde con un área de la empresa, gracias a una DB centralizada, estos comparten información entre sí, facilitando la adaptabilidad, personalización e integración.
-  -> ADAPTABILIDAD, Para abaratar costes, a veces se utiliza una solución más genérica y se modifican algunos de los procesos para alinearlos al sistema ERP.
+  -> INTEGRACIÓN, integra todos los procesos de la empresa, de forma que las considera una serie de áreas que se relacionan entre sí, 
+para conseguir una mayor eficiencia reduciendo tiempo y costes.
+  -> MODULARIDAD, cada mosulo se corresponde con un área de la empresa, gracias a una DB centralizada, 
+estos comparten información entre sí, facilitando la adaptabilidad, personalización e integración.
+  -> ADAPTABILIDAD, Para abaratar costes, a veces se utiliza una solución más genérica y 
+se modifican algunos de los procesos para alinearlos al sistema ERP.
 
 VENTAJAS
 
@@ -61,35 +76,43 @@ VENTAJAS
   - Aumentan la eficiencia operativa.
   - Mejoran las relaciones entre empresa y agentes con los que intereactúan el mercado.
   - Facilitan el acceso a la información.
-  - Reducen costes empresariales, especialmente los relacionados con las operaciones tecnologícas de información y comunicación con la empresa.
+  - Reducen costes empresariales, especialmente los relacionados con las operaciones tecnologícas de información y 
+comunicación con la empresa.
   - Mayor facilidad en la configuración de los sistemas de la empresa.
   - Constituyen una mejora en las herramientas para el tratamiento de la información.
 
 INCONVENIENTESS
 
-  - Se requieren recursos para la adquisición e implementación, consultoría previa y los costes de adaptación de las funcionalidades a medida.
+  - Se requieren recursos para la adquisición e implementación, consultoría previa y 
+los costes de adaptación de las funcionalidades a medida.
   - Requieren nueva manera de hacer negocios y trabajar y organizarse dentro de la empresa.
 
 
 CRM - CUSTOMER RELATIONSHIP MANAGEMENT
-Herramientas tecnológicas que gestionan grandes cantidades de información, son una extensión específica de los ERP, enfocandose en mantener, crear y potenciar las relaciones con los clientes.
+Herramientas tecnológicas que gestionan grandes cantidades de información, son una extensión específica de los ERP, 
+enfocandose en mantener, crear y potenciar las relaciones con los clientes.
 
 Funcionalidades clave de los CRM:
   -> REDUCCIÓN DE COSTOS DE ITERACIÓN, permiten una comunicación eficiente con los clientes, disminuyendo costes asociados.
   -> BIDIRECCIONALIDAD EN LA COMUNICACIÓN, facilitan la interacción entre la empresa y los clientes, promoviendo un diálogo activo.
-  -> MAYOR EFICIENCIA EN LAS ACCIONES DE COMUNICACIÓN, optimizan las campañas de marketing y ventas al proporcionar información precisa sobre los clientes.
-  -> SOFTWARE EN LÍNEA Y SU ÉXITO, los sistemas basados en la nube han prosperado aprovechando internet como herramienta para su aplicación.
+  -> MAYOR EFICIENCIA EN LAS ACCIONES DE COMUNICACIÓN, optimizan las campañas de marketing y ventas al proporcionar 
+información precisa sobre los clientes.
+  -> SOFTWARE EN LÍNEA Y SU ÉXITO, los sistemas basados en la nube han prosperado aprovechando internet 
+como herramienta para su aplicación.
 
 CARACTERISTICAS DE LOS CRMs
-  - Facilitan tomar decisiones en tiempo real, incrementando la rentabilidad del cliente, ya que obtienen información muy util a partir de datos complejos.
-  - Fomentan relaciones a largo plazo con sus clientes, gracias a que transforman la manera de vender, ayudando y aprovechando oportunidades para conquistar a sus clientes.
+  - Facilitan tomar decisiones en tiempo real, incrementando la rentabilidad del cliente, 
+ya que obtienen información muy util a partir de datos complejos.
+  - Fomentan relaciones a largo plazo con sus clientes, gracias a que transforman la manera de vender, 
+ayudando y aprovechando oportunidades para conquistar a sus clientes.
   - Facilintan la toma de decisiones referentes a inversiones reduciendo la longitud de los ciclos de venta.
   - Permiten que el user pueda hacer adaptaciones sin modificar el código fuente.
 
 CRMs ACTUALES
 En común, cubren una serie de funcionalidades básicas mediante un conjunto de módulos comunes:
   -> MÓDULO CLIENTE, centraliza toda la información de todos los clientes.
-  -> MÓDULO SERVICIO AL CLIENTE, busca aumentar la fidelidad del cliente manteniendo un historial de intracciones de forma que ayude a reducir el tiempo de respuesta y resolución de problemas con los clientes.
+  -> MÓDULO SERVICIO AL CLIENTE, busca aumentar la fidelidad del cliente manteniendo un historial de intracciones
+de forma que ayude a reducir el tiempo de respuesta y resolución de problemas con los clientes.
   -> MÓDULO DE VENTAS, acceso a todas las negociaciones o posibles ventas que la empresa ha generando buscando su optimización.
   -> MÓDULO DE MARKETING, incluye herramientas de segmentación de clientes para gestionar campañas de marketing.
   -> MÓDULO DE FINANZAD, gestiona todos los datos de facturación, contabilidad, presupuestos, ingresos, ...
@@ -112,12 +135,14 @@ Conceptos Estratégicos en una emresa para la inclusión de CMRs:
 
 REQUISITOS DE LOS SITEMAS ERP-CRM
 
-  -> ANÁLISIS PREVIO, definir objetivos a conseguir, recursos necesarios, coste total, necesidades de organización -> Su alcance funcional.
+  -> ANÁLISIS PREVIO, definir objetivos a conseguir, recursos necesarios, coste total, 
+necesidades de organización -> Su alcance funcional.
   -> PROYECTO PROPIO DE IMPLANTACIÓN.
 
 DOCUMENTACIÓN DE LAS OPERACIONES REALIZADAS
 
-SISTEMAS DE GESTIÓN DOCUMENTAL (DMS), herramientas diseñadas para facilitar la organización, almacenamiento, búsqueda y gestión de documentos electronicos.
+SISTEMAS DE GESTIÓN DOCUMENTAL (DMS), herramientas diseñadas para facilitar la organización,
+almacenamiento, búsqueda y gestión de documentos electronicos.
 Automatizan el flujo de documentos, mejorando la eficiencia y reducciendo errores.
 
 Algunas caracteristicas comunes de un DMS:
@@ -130,10 +155,12 @@ Algunas caracteristicas comunes de un DMS:
 ARQUITECTURA DE UN SISTEMA ERP-CRM
 
 Los dos elementos técnicos más importantes en la estructura ERP-CRM son:
-  -> ARQUITECTORUA CLIENTE-SERVIDOR, utilizada para operar con servicios del sistema. Consiste en que los clientes solicitan servicios al servidor cuando no pueden realizarlos por si mismos.
+  -> ARQUITECTORUA CLIENTE-SERVIDOR, utilizada para operar con servicios del sistema. Consiste en que 
+los clientes solicitan servicios al servidor cuando no pueden realizarlos por si mismos.
 Los clientes se comunicaran con el servidor mediante red corporativa o internet, solicitando consultas a la DB.
 El servidor o servidores realizarán funciones de administración de periféricos y control de acceso a la DB compartida.
-  -> BASE DE DATOS RELACIONAL, el modelo relacional es el más utilizado en los sitemas gestores, respondiendo al requerimiento de cada una de las aplicaciones que deseean, revisar, actualizar o eliminar datos almacenados.
+  -> BASE DE DATOS RELACIONAL, el modelo relacional es el más utilizado en los sitemas gestores, 
+respondiendo al requerimiento de cada una de las aplicaciones que deseean, revisar, actualizar o eliminar datos almacenados.
 
 
 ESTRUCTURA FUNCIONAL DE UN SISTEMA ERP
