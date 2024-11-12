@@ -40,7 +40,8 @@ Todo proceso en ejecución, tiene que estar cargado en la RAM física del equipo
 PLANIFICACIÓN DE PROCESOS POR EL SISTEMA OPERATIVO
 
 El CARGADOR es el encargado de crear los procesos, relaiza las siguientes tareas cuando se inicia un proceso:
-  1. CARGA EL PROCESO EN LA MEMORIA PRINCIPAL, reserva un espacio en la RAM para el proceso, ahí se copian las instrucciones del fichero ejecutable de la aplicación, las constantes y, deja un espacio para los datos y la pila.
+  1. CARGA EL PROCESO EN LA MEMORIA PRINCIPAL, reserva un espacio en la RAM para el proceso, ahí se copian las instrucciones del fichero ejecutable de la aplicación, las constantes y, 
+deja un espacio para los datos y la pila.
      Un proceso sudrante su ejecución no podrá hacer referencia a direcciones que se encuentren fuera de su espacio de memoria.
   2. CREA UNA ESTRUCTURA DE INFORMACIÓN (PCB - Process Control Block), la info es única para cada proceso y permite controlarlo. Entre otros el PCB estara formado por los siguientes datos:
       - PID (PROCESS IDENTIFICATOR), número único para cada proceso.
@@ -77,7 +78,8 @@ Registros que destamamos:
   -> REGISTRO CONTADOR DE PROGRAMA, en cada instante almacena la dirección de la siguiente instrucción a ejecutar.
 El contador de programa, apunta a la dirección de la siguiente instrucción que habrá que traer a la memoria, cuando se termine de procesar la instruccion en curso.
 Este contador de programa nos permitirá continuar en cada proceso por la instrucción de dónde lo hubiéramos dejado todo.
-  -> EL PUNTERO A LA PILA, en cada instante apunta a la parte superior de la pila del proceso de ejecución, que es donde será almacenado el contexto de la CPU, y de donde se recuperará cuando ese proceso vuelva a ejecutarse.
+  -> EL PUNTERO A LA PILA, en cada instante apunta a la parte superior de la pila del proceso de ejecución, que es donde será almacenado el contexto de la CPU, 
+y de donde se recuperará cuando ese proceso vuelva a ejecutarse.
 
 La CPU realiza un CAMBIO DE CONTEXTO cada vez que cambia la ejecución de un proceso a otro distinto.
 En un cambio de contexto, hay que guardar el estado actual de la CPU y restaurar su estado del proceso que va a pasar a ejecutar.
@@ -94,6 +96,46 @@ de programa de la CPU y no todos los valores de los registros de la CPU.
 
 - Un proceso, estará formado por, al menos, un hilo de ejecución.
 - Un proceso es una unidad pesada de ejecución. Si el proceso tiene varios hilos, cada hilo, es la unidad de ejecución ligera.
+
+UN SERVICIO es un proceso que, normalmente, es cargado durante el arranque del sistema operativo. Es un proceso que queda a la espera de que otro le pida que realize una tarea.
+
+
+CREACIÓN DE PROCESOS
+
+Las clases que necesitamos para crear procesos son:
+  -> java.lang.Process, proporciona los objetos Proceso, por lo que podremos controlar los procesos creados desde nuestro código.
+  -> java.lang.Runtime, permite lanzar la ejecución de un programa en el sistema.
+      * Método excec() -> Runtime.excec(String comando); -> devuelve el objeto Process que representa al proceso en ejecución que está realizando la tarea comando.
+
+
+COMANDOS PARA LA GESTIÓN DE PROCESOS
+
+  1. Windows:
+    * tasklist -> lista de procesos presentes en el sistemma.
+    * taskkill -> mata procesos, con la opcion /PID se especifica el identificador del proceso a matar.
+  2. GNU/Linux:
+    * ps, lista los procesos presentes en el sistemas. La opcion aux muestra todos los procesos independientemente del user que los haya lanzando.
+    * pstree, mustra un listado de procesos en forma de árbol. La opcion AGu construirá el árbol utilizando líneas guía y mostrará el nombre de user propietario del proceso.
+    * kill, manda señales a los procesos, -9 matará el proceso.
+    * killall, Mata procesos por nombre.
+    * nice, cambia la prioridad de un proceso. Las prioridades están entre -20 y -19.
+
+
+HERRAMIENTAS GRÁFICAS PARA LA GESTIÓN DE PROCESOS
+
+Administrador de Tareas en Windows y Monitor del Sistema en GNU/Linux, nos ofrecen, al menos, las siguientes funcionalidades e información:
+  -> Listado procesos activos, su PID, usuario y ubicación de su fichero ejecutable.
+  -> Posibilidad de finalizar procesos.
+  -> Información sobre el uso de CPU, memoria principal y virtual, red, ...
+  -> Posibilidad de cambiar la prioridad de ejecución de los procesos.
+
+
+
+
+
+
+
+
 
 
 
