@@ -170,15 +170,80 @@ CONDICIÓN DE COMPETENCIA, cuando ambos procesos necesitan el mismo recurso, ya 
 
 
 COMUNICACIÓN ENTRE PROCESOS
+Un proceso da o deja información; recibe o recoge información.
+
+PRIMITIVAS, un tipo de dato del cual conocemos sus restricciones y efectos, pero no su implementación exacta.
+Usar primitivas se traduce en utilizar objetos y sus métodos, teniendo en cuenta sus repercusiones reales en el comportamiento de nuestros procesos.
+
+Los lenguajes de programación y los sistemas operativos, nos proporcionana primitivas de sincronización que facilitan la interacción entre procesos de forma sencilla y eficiente.
+
+Clasificaremos las interacciones entre procesos y el resto del sistema, como estas 3:
+  -> SINCRONIZACIÓN, un proceso puede conocer el punto de ejecución en el que se encuentra otro en ese determinado instante.
+  -> EXCLUSIÓN MUTUA, mientras un proceso accede a un recurso, ningún otro accede al mismo recurso o variable compartida.
+  -> SINCRONIZACIÓN CONDICIONAL, sólo se accede a un recurso cuando se encuentra en un determinado estado interno.
 
 
+MECANISMOS BÁSICOS DE COMUNICACIÓN
+
+2 formas en las que un proceso puede comunicarse con otro:
+  -> INTERCAMBIO DE MENSAJES, tenemos las primitivas de send y recibe o wait information.
+  -> RECURSOS (o MEMORIA) COMPARTIDOS, las primitivas seran write y read data en o de resource. Son bloqueantes, un proceso quedará bloqueado hasta que los datos estén listos para poder ser leidos.
+
+En caso de comunicar procesos dentro de una misma máquina, el intercambio de mensajes, se puede realizar de 2 formas:
+  -> Utilizar un BUFFER DE MEMORIA.
+  -> Utilizar un SOCKET.
+
+TIPOS DE COMUNICACIÓN
+
+ELEMENTOS:
+  -> MENSAJE, inoformación que es el objeto de la comunicación.
+  -> EMISOR, entidad que emite, genera o es el origen del mensaje.
+  -> RECEPTOR, entidad que recibe, recoge o es destinataria del mensaje.
+  -> CANAL, medio por el que viaja o es enviado y recibido el mensaje.
+
+Clasificación del canal según su capacidad y los sentidos en los que puede viajar la información:
+  -> SIMPLEX, comunicación en un sentido, el emisor es origen y el receptor escucha el mensaje al final del canal.
+  -> FULL DUPLEX, comunicación en ambos sentidos simultáneamiente entre emisor y receptor, el emisor es tambíen receptor y viceversa.
+  -> HALF DUPLEX, el mensaje puede viajar en abmos sentidos, pero no al mismo tiempo.
+
+Clasificación dependiento de la sincronía que mantengan el emisor y receptor durante la comunicación:
+  -> SÍNCRONA, el emisor queda bloqueado hasta que el receptor recibe el mensaje, ambos se sincronizan en el momento de la recepción del mensaje.
+  -> ASÍNCRONA, el emisor continua con su ejecución inmediatamente después de emitir el mensaje, sin quedar bloqueado.
+  -> INVOCACÍON REMOTA, el proceso emisor queda suspendido hasta que recibe la confirmación de que el receptor recibió correctamente el mensaje, 
+despues el emisor y receptor ejecutarán síncronamente un segmento de código común.
+
+Clasificación dependiento del comportamiento de los interlocutores que intervienen en la comunicación:
+  -> SIMÉTRICA, todos los procesos pueden enviar y recibir información.
+  -> ASIMÉTRICA, sólo un proceso actúa de emisor, el resto sólo escucháran el o los mensajes.
 
 
+SINCRONIZACIÓN ENTRE PROCESOS
 
+Problema de los procesos lectores-escritores (queremos acceder a lectura, escritura o a lectura/escritura), el SO nos ayuda a resolver estos problesmas, ya que:
+  -> Si el acceso es sólo lectura, permite que todos los procesos lectores, puedan acceder simultáneamente a él.
+  -> En caso de escritura y lectura/escritura, nos permite pedir un tipo de dacceso de forma esclusiva al fichero y otros los otros procesos esperarán a que haya terminado.
 
+REGIONES CRÍTICAS
+Conjunto de instrucciones en las que un proceso accede a un recurso compartido, las instrucciones que forman esa región o sección, se encuentran de forma indivisible o atómica
+y de forma exclusiva con respecto a otros procesos que accedan al mismo recurso compartido al que se está accediendo.
 
+Al identificar y definir regiones críticas en el código, se tendra en cuenta:
+  -> Se protegerán con secciones críticas sólo aquellas instrucciones que acceden a un recurso compartido.
+  -> Las instrucciones que forman una sección crítica, serán las mínimas.
+  -> Se pueden difinir tantas secciones como sean necesarias.
+  -> Un único proceso entra en su sección crítica, el resto esperan a que salga de su sección crítica.
+  -> Al final de cada sección crítica, el recurso debe ser liberado para que puedan utilizarlo otros procesos.
 
+Cualquier actualización de datos en un recurso compartido, necesitará establecer una región crítica que implicará como mínimo estas instrucciones:
+  -> Leer el dato que se quiere actualizar, pasarlo a la zona de memoria local al proceso.
+  -> Realizar el cálculo de actualización, modificar el dato en memoria.
+  -> Escribir el dato actualizado, llevar el dato modificado de memoria al recurso compartido.
 
+CATEGORÍA DE PROCESO CLIENTE-SUMINISTRADOR
+
+  * CLIENTE, es un proceso que requiere o solicita infromación o servicios que proporciona otro proceso.
+  * SUMINISTRADOR/SERVIDOR, suministra información o servicios, a traves de memoria compartida, fichero, red o cualquier otro recurso.
+  * INFORMACIÓN O SERVICIO ES PERECEDERO, la info desaparece cuando es consumida por el cliente y el servicio es prestado en el momento en el que el cliente y suministrador están sincronizados.
 
 
 
