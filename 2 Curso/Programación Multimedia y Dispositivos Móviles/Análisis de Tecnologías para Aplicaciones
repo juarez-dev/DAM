@@ -146,13 +146,78 @@ Un IDE-INTEGRATED DEVELOPMENT ENVIRONMNET, es una aplicación que ayuda a los de
 Aumenta la productividad de los developers al combinar capacidades y herramientas como editar, crear, probar y empaquetar software en una aplicación facil de usar.
 
 Los más utilizados:
-  ->
-  ->
-  ->
+  -> Android Studio:
+    * IDE oficial de Goodle para developing Android.
+    * Herramientas para el develop de interfaces, emuladrores y depuración.
+    * Admite Java y Kotlin.
+  -> Xcode:
+    * IDE oficial de Apple para developing iOS y macOS.
+    * Include emulador iOS.
+    * Admite Swift y Objetive-C.
+  -> Visual Studio Code
+    * Editor de código liviano y altamente configurable compatible con varios lenguajes y frameworks.
+    * Utilizado en developing de apps con React Natvie, Flutter y Kotlin Multiplatform.
+  -> Eclipse (Con plugins para movil developing)
+    * IDE historico utilizado en aplicaciones Java de Escritorio, web y movile devices.
+    * Herramientas de depeloping de plugins y extensiones para adaptarse a diferentes necesidades de movile developing.
 
 
+LENGUAJES DE PROGRAMACIÓN
+
+  -> Java:
+    * Desarrollo de apps Android
+    * Orientado a objetos y de propósito general.
+    * Gran cantidad de bibliotecas y recursos para el desarrollo de apps moviles.
+    * Robusto y maduro, con gran comunidad de developers y soporte.
+  -> Kotlin:
+    * Desarrollo de aplicaciones Android nativas, compatible con Kotlin Multiplatform para multiplataforma.
+    * Compatible con codigo Java ya existente.
+    * Conciso, seguro y moderno: incluye nulabilidad del tipo y funciones de extensión.
+    * Mejor productividad y menos cantidad de código en comparación con Java.
+  -> Swift, desarrollado por Apple.
+  -> Objetive-C, muy usado por developers Apple.
+  -> JavaScript / TypeScript, lenguaje interpretado que se ejecuta en el navegadro o en un entorno de ejecucion como Node.js.
+  -> Dart, desarrollado por Goodle, específico para Flutter.
+  -> C#, lenguaje de Microsoft utilizado entre otros, en el framework Xamarin.
 
 
+MÓDULOS Y LEBRERÍAS
+
+Ventajas del uso de Módulos y Librerías:
+  -> Reutilización de Código, ahorra tiempo y esfuerzon con funcionalidades ya resueltas.
+  -> Optimización del Desarrollo y Ahorro de Costes.
+  -> Mejores de la Calidad y la Seguridad del Código, las librerias suelen estar mantenidas ofreciendo soluciones a bugs, parches de seguridad, ...
+  -> Acceso a Funcionalidades Avanzadas.
+  -> Facilitar el Mantenimiento.
+
+Módulos y Librerías más usadas:
+  -> Android JetPack, oficialmente recomendadas por Google para Android.
+  -> Retrofit, librería de cliente HTTP para Android, permite consumir servicios web RESTgull con Java.
+  -> Glide/ Picasso, librería para gestionar imágenes.
+  -> Room, biblioteca de persistencia sobre SQLite para el almacenamiento de datos en Android.
+  -> Firebase, servicios en la nube.
+  -> Ulkit, para construir interfaces en iOS.
+  -> SDWebImage, similar a glide pero iOS.
+  -> Alamofire, permite gestionar llamadas desde la red entorno iOS.
+  -> Realm, para conectar base de datos locales para movile devices.
+  -> Otras librerias Multimedia.
+
+
+EMULADORES DE DISPOSITIVOS MÓVILES
+Permiten personalizar aspectos del hardware emulado como el almmacenamiento, la orientación, la resolución en pantalla, la memoria RAM y la versión del SO.
+Es posible emular dispositivos especificos de fabricantes como Google, Samsung, etc.
+
+
+FASES DEL FLUJO DE TRABAJO Y DESARROLLO
+  -> FASE DE PLANIFICACIÓN, se definen los objetivos de la app y sus características.
+  -> FASE DE DISEÑO, creación de prototipos de la interfaz de usuario, algunas TOOLS -> Adobe XD, Sketch y Figma
+  -> FASE DE DESARROLLO:
+    -> Recomendable herramienta de repositorio de control de versiones -> GitHub, GitLab, Bitbucket.
+    -> Desarrollo de funcionalidades usando el IDE seleccionado.
+    -> Librerias  para gestion de dependencias de los proyectos -> Gradle, CocoaPods.
+  -> FASE DE IMPLANTACIÓN, poner en producción la herramienta, a disposición de otros usuarios.
+  -> FASE DE MONITORIZACIÓN Y ANALÍTICA, recopilar información de caidas de rendimiento o el servicio, datos de uso y rendimiento. Herramientas -> Firebase Analytics, Google Analytics, Crashlytics, Sentry.
+  -> FASE DE ACTUALIZACIONES Y MANTENIMIENTO, responder comentarios de los usuarios e implementar actualizaciones y correcciones de errores de manera regular priorizando los problemas de seguridad detectados.
 
 
 
