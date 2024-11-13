@@ -29,9 +29,126 @@ Alguna de las caraterísticas funcionales de los dispositivos móviles:
   - Imgen de alta resolucion y control tactil.
   - y un montón más que no me da la gana ponerme a escribir.
 
+HARDWARE DE LOS DISPOSITIVOS MÓVILES
+
+Arquitectura del dispositibo, placa de circuito principal donde muchos de los elementos hardware están integrados, donde los componentes colaboran en armonía para ofrecer un rendimiento eficiente.
+
+La mayoria de los procesadores integrados están basados en la arquitectura ARM (Advanced RICS Machine). Se caracteriza por su eficiencia energética y admitir múltiples núcleos, permitiendo un rendimiento escalable.
+Algunos procesadores basados en ARM más comunes:
+  - Snapdragon (Qualcomm)   - Kirin (Huawei)
+  - Apple Silicon (Apple)   - Dimensity (MediaTek)
+  - Exynos (Samsung)        - Helio (MediaTek)
+  - Media Tek (MediaTek)    
+
+COMPONENTES HARDWARE
+Pantalla, Procesador, Memoria, Camara, Bateria, Sensores, De Conectividad.
+
+LIMITACIONES DE LAS TECNOLOGÍAS MÓVILES
+Hay que tener en cuenta de las limitaciones de estos dispositivos, ya que pueden afectar al rendimiento, experiencia del usuario y capacidad de ejecutar ciertas tareas.
+  - Procesadores y memoria RAM limitada.
+  - Almacenamiento persistente reducido.
+  - Pantallas de reducidas dimensiones.
+  - Teclados pequeños.
+  - Suministro de energia limitado por la bateria.
+  - Conectividad inestable con velocidades limitadas.
+  - Seguridad y privacidad.
+  - Sensibilidad al entorno.
+
+SISTEMAS OPERATIVOS
+Los más usados con mucha diferencia -> Android e iOS.
 
 
+ANDROID
+Es el sistema más usado del mundo.
+Basado en una versión mod del kernel de Linux.
 
+RESUMEN Y CARACTERÍSTICAS PRINCIPALES
+
+* Códiog abieto bajo Licencia Apache.
+* Diversidad de dispositivos de diversos fabricantes, marcas y modelos.
+* Alta capacidad de personalización.
+* Acceso a una extensa variedad de aplicaciones, juegos y contenidos.
+* Integración y conexion preconfigurada con servicios de Google.
+* Notificaciones interactivas de novedades en sus servicios y aplicaciones.
+* Soporte multitarea.
+* Ofrece herramientas developer.
+* Mejoras continuas en seguridad y privacidad con actualizaciones continuas.
+
+
+iOS
+Sistema privativo desarrollado por Apple para iPhone, está derivado del Mac OS X.
+Basado a su vez en un núcleo UNIX FreeBSD.
+
+RESUMEN Y CARACTERÍSTICAS PRINCIPALES
+
+* Interfaz intuitiva y accesible para todas las edades y niveles.
+* Integrado con el ecosistema de servicios Apple.
+* Seguridad y privacidad.
+* Diseñado por y para el hardware Apple.
+* Aplicaiones, juegos y contenido multimedia de la App Store.
+* Para el desarrollo ofrede IDE Xcode con varios SDKs y los lenguajes Swift y Objetive-C.
+* Multitarea y productividad.
+
+
+TIPOS DE APLICACIONES MÓVILES
+
+  -> APPS NATIVAS, se desarrollan para una plataforma en particular, usando el SDK, los lenguajes y el IDE proporcionado por el fabricante de la plataforma.
+    * VENTAJAS:
+      -> La aplicación se adapta 100% al dispositivo y puede acceder a todas sus funcionalidades.
+      -> Ofrecen mejor rendimiento y experiencia para el user.
+    * DESVENTAJAS:
+      -> Hay que duplicar el proyecto si se requiere que funcione para otro SO.
+      -> Hay que repetir cambios en cada versión.
+      -> Necesita que el equipo de desarrollo conozca ambos sistemas y entornos de desarrollo.
+
+  -> WEB APPS, desarrolladas usando tecnologías web estándar como HTML, CSS y JavaScript y se ejecutan desde el navegador web del móvil, a traves de una URL.
+    * VENTAJAS:
+      -> No requieren instalación.
+      -> Rápidas de desarrollar, fáciles de mantener y menos costosas por consiguiente.
+      -> No requiere conocimiento en tecnologías de desarrollo específicas para dispositivos móviles.
+    * DESVENTAJAS:
+      -> Ofrecen peor rendimiento que las nativas.
+      -> No pueden acceder directamente a muchas características del dispositivo.
+      -> Ofrecen nivel más bajo de seguridad.
+
+  -> APPS HIBRIDAS, mezcla de las 2 anteriores aprovechan la versatilidad del desarrollo web combinado con código JavaScript capaz de acceder a las funciones del dispositivo.
+    * VENTAJAS:
+      -> Posibilidad de acceder a los recursos harware directamente.
+      -> Independientes del SO, ya que son frameworks capaces de mantener una única base de código ejecutable en múltiples plataformas.
+    * DESVENTAJAS:
+      -> Experiencia del User y rendimiento no optimos.
+      -> Requerido el uso de Frameworks.
+      -> Pueden tener limitaciones en el acceso a algunas características del dispositivo.
+
+  -> APPS MULTIPLATAFORMA, enfoque parecedo a las aplicaciones híbridas, se construyen usando frameworks que permiten escribir código una vez y ejecutarlo en múltiples plataformas. 
+    Los marcos de desarrollo multiplataforma permiten generar distintas versiones para los distintos SOs.
+    No se ejecutan desde un contenedor o WebView.
+      * VENTAJAS:
+        -> Simplifica el proceso de desarrollo y reduce los costes.
+      * DESVENTAJAS:
+        -> Rendimiento y accesibilidad a las características del dispositivo pueden variar según el SO y es posible que se requiera trabajo adicional de personalización para garantizar una experiencia de user consistente.
+
+
+FRAMEWORKS (ENTORNOS DE TRABAJO)
+
+Cada uno de los frameworks permite hacer un tipo de aplicación con un lenguaje correcto, algunos de ellos son:
+  -> React Native, Facebook, multiplataforma, lenguajes JavaScript y React, utiliza componentes nativos para iOS y Android.
+  -> Flutter, Google, Multiplataforma, lenguaje Dart, proporciona alto rendimiento e interfaz atractiva para el user.
+  -> Xamarin, Microsoft, multiplataforma, lenguaje C#, utiliza enlace nativo para acceder a las APIs de cada plataforma, amplia gama de bibliotecas y herramientas.
+  -> Ionic, hibridas, tecnologias web estandar, se basa en Angular y usa Cordova o Capacitor para acceder a APIs nativas del dispositivo.
+  -> NativeScript, hibridas, lenguaje JavaScript o TypeScript, usa XML para definir la interfaz del user, aplicaciones con aspecto y rendimmiento nativos proporcionando acceso directo a las APIs nativas del dispositivo.
+  -> PhoneGap / Apache Cordova, híbridas, usan un contenedor web para ejecutar la app y proporcionan acceso a las APIs nativas a través de plugins.
+  -> Kotlin Multiplatform, multiplatafomra, permite escribir código comun y luego personalizar elemetos de la app que sean diferentes según si trabajamos en iOS o Android.
+
+
+IDEs
+Un IDE-INTEGRATED DEVELOPMENT ENVIRONMNET, es una aplicación que ayuda a los developer a desarrollar código de manera eficiente. 
+Aumenta la productividad de los developers al combinar capacidades y herramientas como editar, crear, probar y empaquetar software en una aplicación facil de usar.
+
+Los más utilizados:
+  ->
+  ->
+  ->
 
 
 
