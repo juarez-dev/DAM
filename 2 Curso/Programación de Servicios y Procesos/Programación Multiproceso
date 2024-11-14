@@ -245,12 +245,48 @@ CATEGORÍA DE PROCESO CLIENTE-SUMINISTRADOR
   * SUMINISTRADOR/SERVIDOR, suministra información o servicios, a traves de memoria compartida, fichero, red o cualquier otro recurso.
   * INFORMACIÓN O SERVICIO ES PERECEDERO, la info desaparece cuando es consumida por el cliente y el servicio es prestado en el momento en el que el cliente y suministrador están sincronizados.
 
+Entre un cliente y un suministrador, se establece sincronismo, por medio de intercambio de mensajes o a través de un recurso compartido.
+Entre un cliente y un servidor, la comunicación se establece de acuerdo a un conjunto de mensajes a intercambiar con sus correspondiente reglas de uso -> PROTOCOLO.
+
+Entre procesos cliente y suministrador debebos disponer de mecanismos de sincronización que permitan que:
+  * Un cliente debe poder leer un dato hasta que no haya sido suministrado completamente.
+  * Un suministrador producira su info, que en cada instante, no podrá superar un volumen de tamaño máximo establecido, para no desbordar al cliente.
+
+SEMÁFOROS
+Son componentes de bajo nivel de abstracción que permiten arbitrar los accesos a un recursos compartido en un entorno de programación.
+
+Al usar un semáforo, lo veremos como un tipo de dato, que podemos instanciar; Podrá tomar un tenerminado conjunto de valores y realizar con él determinadas operaciones,
+tendrá tambíen asociada una lista de procesos suspendidos que se encuentran a la espera de entrar en el mismo.
+
+Dependiendo del conjunto de datos que pueda tomar, tendremos:
+  -> SEMÁFOROS BINARIOS.
+  -> SEMÁFOROS GENERALES, pueden tomar cualquier valor Natural.
+
+Para un valor igual a 0, el semáforo estará cerrado y para un valor mayor de 0 abierto.
+
+Cualquier semáforo permite 2 operaciones seguras:
+  -> objSemaforo.wait(), si el semaforo no es nulo decrementa en uno su valor, si es nulo el proceso que lo ejecuta se suspende y se encola en la lista de procesos en espera del semaforo.
+  -> objSemaforo.signal(), si hay algún proceso en la lista activa uno de ellos para que ejecute la sentencia que sigue al wait que lo suspendio. 
+Si no hay procesos en espera la lista incrementa en 1 el valor del semáforo.
+* Tambien se puede realizar una operación de inicialización del semáforo, ese valor indicará cuántos procesos pueden entrar concurrentemente en el.
+
+PASOS PARA EL USO DE SEMÁFOROS:
+  1. Un proceso padre creará e inicializará el semáforo.
+  2. El proceso padre creará el resto de procesos hijos pasándolos al semáforo creado. Esos procesos hijos acceden al mismo recurso compartido.
+  3. Cada proceso hijo, hará uso de las operaciones seguras wait y signal respetando el siguiente esquema:
+    3.1. objSemaforo.wait(), para consultar si puede acceder a la sección crítica.
+    3.2. Sección Crítica, instrucciones que accedan al recurso protegido por el semáforo (objSemaforo).
+    3.3. objSemaforo.signal(), indica que abandona su sección y otro proceso podrá entrar.
+    3.4. El proceso padre habrá creado tantos semáforos como tipos de secciones críticas distintas se puedan distinguir en el funcionamiento de los procesoss hijos.
+
+VENTAJA -> proporcionan gran capacidad funcional(se pueden usar para resolver cualquier problema de concurrencia)
+INCONVENIENTE -> peligrosos de manejar por su bajo nivel de abstracción y a menudo son la causa de muchos errores, como el interbloqueo.
+
+Class Semafore en java.util.concurrent, se aplica a los hilos de un mismo proceso, para arbitrar el acceso de esos hilos de forma concurrente a la misma región de la memoria del proceso.
 
 
-
-
-
-
+MONITORES
+Componentes de alto nivel de abstracción destinados a gestionar recursos que van a ser accedidos de forma concurrente.
 
 
 
