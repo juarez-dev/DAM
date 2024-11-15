@@ -288,10 +288,40 @@ Class Semafore en java.util.concurrent, se aplica a los hilos de un mismo proces
 MONITORES
 Componentes de alto nivel de abstracción destinados a gestionar recursos que van a ser accedidos de forma concurrente.
 
+La declaración de un monitor incluye:
+  -> Declaración de las constantes, variables, procedimientos y funciones que son privados del monitor.
+  -> Declaración de los procedimientos y funciones que el monitor expone (públicos) y que constituyen la interfaz a través de la que los procesos acceden al monitor.
+  -> Cuerpo del monitor, constituido por un cloque de código que se ejecuta al ser instanciado o nicializado, tiene como fin inicializar las variables y estructuras internas del monitor.
+  -> El monitor garantiza el acceso al código interno en régimen de exclusión mutua.
+  -> Tiene asociada una lista en la que se incluyen los procesos que al tratar de acceder al monitor son suspendidos.
+
+Podemos implementar una clase monitor, haciendo uso de semáforors.
+
+VENTAJAS:
+  * UNIFORMIDAD, provee una única capacidad, la exclusión mutua.
+  * MODULARIDAD, el código que se ejecuta en exclusión mutua está separado del resto del programa.
+  * SIMPLICIDAD, no es necesario preocuparse de las herramientas para la exclusión mutua.
+  * EFICIENCIa DE LA IMPLEMENTACIÓN, la implementación subyacente puede limitarse fácilmente a los semáforos.
+
+DESVENTAJA:
+  * INTERACCIÓN DE MÚLTIPLES CONDICIONES DE SINCRONIZACIÓN, cuando el número de condiciones crece, y se hacen complicadas, la complejidad del código crece de manera extraordinaria.
 
 
+MEMORIA COMPARTIDA
+Es una forma natural de comunicación entre proceos. Además, los mecanismos de sincronización en programación concurrente que hemos vistos, tienen su razon de ser en la existencia de recursos compartidos, inclusive la memoria.
+
+COLA DE MENSAJES
+
+EL paso de mensajes es una técnica para aportar sincronización entre procesos y permitir exlusión mutua, su principal característica es que no precisa de memoria compatida.
+Los elementos principales que intervienen en el paso de mensajes son el proceso que envia, el que recibe y el mensaje.
+
+Dependiendo de si el proceso que envia el mensaje espera a que el mensaje sea recibido, se puede hablar de pado de mensajes:
+  -> ASINCRONO, no se espera a que el mensaje se reciba y continua su ejecución, posibilitando a la generación de un nuevo mensaje y su envio antes de la recepción del anterior.
+Suelen emplear buzones o colas, en los que se almacenan los mensajes a la espera de que un proceso los reciba.
+  -> SINCRONO (ENCUENTRO o RENDEZVOUS), el proceso que envia espera a que un proceso reciba el mensaje para continuar su ejecución.
 
 
+REQUISITOS: SEGURIDAD, VIVACIDAD, EFICIENCIA Y REUSABILIDAD
 
 
 
