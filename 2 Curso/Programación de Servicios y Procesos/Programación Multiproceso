@@ -321,8 +321,13 @@ Suelen emplear buzones o colas, en los que se almacenan los mensajes a la espera
   -> SINCRONO (ENCUENTRO o RENDEZVOUS), el proceso que envia espera a que un proceso reciba el mensaje para continuar su ejecución.
 
 
-REQUISITOS: SEGURIDAD, VIVACIDAD, EFICIENCIA Y REUSABILIDAD
+REQUISITOS DE UN PROGRAMA CONCURRENTE
 
+Propiedades que debe satisfacer un prográma concurrente:
+  -> SAFETY, propiedades retaltivas a que en cada instante de la ejecución no debe haberse producido algo que haga entrar al programa en un estado erróneo:
+    * Dos procesos no deben entrar simultáneamente en una sección crítica.
+    * Se respetan las condiciones de sincronismo
+  ->
 
 
 
