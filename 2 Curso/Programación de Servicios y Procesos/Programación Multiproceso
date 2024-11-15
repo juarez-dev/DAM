@@ -326,8 +326,142 @@ REQUISITOS DE UN PROGRAMA CONCURRENTE
 Propiedades que debe satisfacer un prográma concurrente:
   -> SAFETY, propiedades retaltivas a que en cada instante de la ejecución no debe haberse producido algo que haga entrar al programa en un estado erróneo:
     * Dos procesos no deben entrar simultáneamente en una sección crítica.
-    * Se respetan las condiciones de sincronismo
-  ->
+    * Se respetan las condiciones de sincronismo.
+  -> LIVENESS (Vivacidad), cada sentencia que se ejecute conduce en algún modo a un avance constructivo para alcanzar el objetivo funcional del programa. Propiedades de vivacidad:
+    * No deben producirse bloqueos activos -> LIVEBLOCK, conjuntos de procesos que ejecutan de forma continuada sentencias que no conducen a un progreso constructivo.
+    * Aplazamiento indefinido -> STARVATION, cuando un proceso esta monopolizando recursos a los que otro proceso no puede acceder.
+    * Interbloqueo -> DEADLOCK, cuando los procesos no pueden obener, nunca, los recursos necesarios para finalizar su tarea.
+
+Se busca tambien la eficiencia de las aplicaciones:
+  -> No usar m.ás recursos de los necesarios.
+  -> Buscar la rigurosidad en la implementación -> toda la funcionalidad esperada de forma correcta y concreta.
+Y la reusabilidad:
+  -> Implementar el código de forma modular, definiendo clases, métodos, funciones, ...
+  -> Documentar correctamente el código y el proyecto.
+
+
+ARQUITECTURAS Y PATRONES DE DISEÑO
+
+ARQUITECTORA DEL SOFTWARE o ARQUITECTURA LÓGICA, es el diseño de más alto nivel de la estructura de un sistema, consiste en un conjunto de patrones y abstracciones coherentes
+con la base a las cuales se pueden resolver los problemas que indican la estructura, funcionamiento e interacción entre las partes del sotware.
+Es el resultado de ensamblar un cierto número de elementos arquitectónicos de forma adecuada para satisfacer la mayor funcionalidad y requerimientos de desempeño de un sistema,
+así como requerimientos no funcionales, como la confiabilidad, escalabilidad, portabilidad, y disponibilidad, mantenibilidad, auditabilidad, flexibilidad e interacción.
+
+Lo habitual es adoptar una arquitectura conocida en función de sus ventajas e inconvenientes para cada caso concreto.
+
+Las arquitecturas más universales son:
+  -> MONOÍTICA, el software se estructura en grupos funcionales muy acoplados.
+  -> CLIENTE-SERVIDOR, el software reparte su carga de cómputo en 2 partes independientes: consumir un servicio y proporcionar un servicio.
+  -> ARQUITECTURA DE TRES NIVELES, especialización de cliente-servidor donde se divide la carga en capas con un reparto claro de funciones:
+    * Una capa para la presentación -> INTERFAZ DE USUARIO.
+    * Una capa para el cálculo.
+    * Una capa para el almacenamiento -> PERSIISTENCIA.
+Otras menos conocidas son:
+  -> PIPELINE, consiste en modelar un proceso comprendido por varias fases secuenciales, siendo la entrada de cada una la salida de la anterior.
+  -> ENTRE PARES, similar a cliente-servidor, salvo que cada elemento es igual a otro.
+  -> PIZARRA, consta de múltiples elementos funcionales (Agentes) y un instrumento de control o pizarra. 
+El comportamiento de cualquier agente es examinar la pizarra, realizar su tarea y escribir sus conclusiones en la misma pizarra. De esta manera otro agente puede trabajar sobre los resultados generados por otro.
+  -> SOA - SERVICE ORIENTED ARCHITECTURE, se diseñan servicios de aplicación basados en una definición formal independientemente de la plataforma subyacente y del lenguaje de programación, con una interfaz estándar.
+  -> DIRIGIDA POR EVENTOS, centrada en la producción, detección, consumo de y reacción a evento.
+
+
+Los PATRONES DE DISEÑO, son situaciones de diseño que son válidad en distintos contextos y que han sido aplicadas con éxito en otras ocasiones.
+  * Ayudan a arrancar en el diseño de un programa complejo.
+    - Dan descomposicion de objeto inicial bien pensada.
+    - Pensados para que el programa sea escalable y fácil de mantener.
+    - Otra gente los ha usado y les ha ido bien.
+  * Ayudan a reutilizar técnicas.
+    - Conocidos y se sabe como aplicarlos.
+    - Alto nivel de abstracción.
+    - Diseño aplicable a diferentes situaciones.
+
+Modelos básicos de programas concurrentes:
+  -> Un programa resulta de la actividad de objetos activos que interactuan entre si, directamente o a través de recursos y servicios pasivos.
+  -> Un programa resulta de la ejecución concurrente de tareas, cada una es una unidad de trabajo abstracta y discreta que idelmente puede realizarse con independencia de las otras tareas.
+
+DOCUMENTACIÓN
+
+Hay que añadir explicaciones a todo lo que no es evidente, pero sin repetir lo que se hace, sino explicar por qué se hace.
+
+Tipos de comentarios en Java:
+  -> JAVADOC -> /** ... */
+  -> DE LINEA -> // ...
+  -> TIPO C -> /* ... */
+
+Además, al documentar nuestras aplicaciones concurrentes destacaremos:
+  -> Las condiciones de sincronismo que se hayan implementado en la clase o método. (En la doc de javadoc).
+  -> Destacar las regiones críticas identificadas y el recurso compartido a proteger.
+
+DIFICULTADES EN LA DEPURACIÓN
+
+....
+....
+....
+
+
+PROGRAMACIÓN PARALELA Y DISTRIBUIDA
+
+DOS PROCESOS SE EJECUTAN DE FORMA PARALELA, si las instrucciones de ambos se están ejecutando realmente de forma simultánea.
+
+La PROGRAMACIÓN PARALELA Y DISTRIBUIDA considera los aspecto cocpetuales y físicos de la computación paralela, siempre con objetivo de mejorar las prestaciones aprovechando la ejecución simultánea de tareas.
+
+En la programación paralela y en la distribuida existe ejecución simúltanea de tareas que resuelven un problema en comun. La diferencia es:
+  -> La paralela se centra en microporcesadores multinúcleo o sobre supercomputadores.
+  -> La distribuida se centra en sistemas formados por un conjunto de ordenadores hetereogéneos interconectados entre sí, por redes de comunicación de proposito general.
+Su gestión se realiza utilizando componentes, protocolos estándar y sistemas operativos de red.
+
+En la computación paralela y distribuida:
+  -> Cada procesador tiene asignada la tarea de resolver una porción del problema.
+  -> En la paralela los proceos pueden intercambiar datos, a través de direcciones de memoria compartidos o mediante una red de interconexión própia.
+  -> En la distribuida el intercambio de datos y la sincronización se realizará mediante intercambio de mensajes.
+  -> El sistema se presenta como una unidad ocultando la realidad de las partes que lo forman.
+
+
+CONCEPTOS BÁSICOS
+
+CLASIFICACIÓN DE SISTEMAS DISTRIBUIDOS Y PARALELOS
+
+-> EN FUNCION DE LOS CONJUNTOS DE INSTRUCCIONES Y DATOS -> TAXONOMÍA DE FLYNN:
+  -> Arquitectura Secuencial:
+      -> SISD -> SINGLE INSTRUCTION SINGLE DATA.
+  -> Arquitecturas Paralelas o Distribuidas:
+      -> SIMD -> SINGLE INSTRUCTION MULTIPLE DATA.
+      -> MISD -> MULTIPLE INSTRUCTION SIGLE DATA.
+      -> MIMD -> MULTIPLE INSTRUCTION MULTIPLE DATA.
+      -> SPMD -> SIGLE PROGRAM MULTIPLE DATA
+
+-> POR COMUNICACIÓN Y CONTRO
+  -> SISTEMAS DE MLTIPROCESAMIENTO SIMÉTRICO -> SMP. Son MIMD con memoria compartida.
+  -> SISTEMAS MIMD CON MEMORIA DISTRIBUIDA.
+      -> CLUSTERS, colección de ordenadores conectados por red para trabajar concurrentemente en tareas del mismo programa.
+      -> GRID, un cluster cuya interconexion se realiza a través de internet.
+
+CONCEPTOS BÁSICOS
+  - DISTRIBUCIÓN, construcción de una aplicación por partes, a cada parte se le asigna un conjunto de responsabilidade dentro del sistema.
+  - NUDO DE LA RED, uno o varios equipos que se comportan como una unidad de asignación integrada en el sistema distribuido.
+  - OBJETO DISTRIBUIDO, un módulo de código con plena autonomia que se puede instanciar en cualquier nudo de la red y a cuyos servicios pueden acceder clientes ubicados en cualquier otro nudo.
+  - COMPONENTE, elemento software que encapsula una serie de funcionalidades. Es una unidad independiente, que puede ser utilizado en conjunto con otros para formar un sistema más comblejo.
+Tiene especificado los servicios que ofrece, los requerimientos que se necesitan para instalarlo en un nudo, las posibilidades de configuración y no esta ligado aninguna aplicación,
+puede ser instanciado en cualquier nudo y ser gestionado por herramientas automáticas.
+Sus características:
+    -> ALTA COHESIÓN, todos los elementos de un componentes están estrechamente relacionados.
+    -> BAJO ACOPLAMIENTO, nivel de dependencia que un coponentes respecto a otro.
+  ->TRANSACCIONES, conjunto de actividades que se ejecutan en diferentes nudos de una plataforma distribuida para ejecutar una tarea de negocio.
+Propiedades ACID de una transición:
+    -> ATOMICIDAD.
+    -> CONGRUENCIA.
+    -> AISLAMIENTO.
+    -> DURABILIDAD.
+  -> GESTOR DE TRANSACCIONES, controla y supervisa la ejecución de transacciones, asegurando sus propiedades ACID.
+
+
+TIPOS DE PARALELISMO
+
+
+
+
+
+
 
 
 
