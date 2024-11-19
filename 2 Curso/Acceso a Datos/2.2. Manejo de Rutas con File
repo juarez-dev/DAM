@@ -1,1 +1,5 @@
-MÉTODOS DE LA CLASE File
+CONSTRUCTORES DE File
+  -> public File (String nombreFichero|path);
+  -> public File (String path, String nombreFichero|path);
+  -> public File (File path, String nombreFichero|path);
+* La ruta o paht puede ser relativa o absoluta. *
