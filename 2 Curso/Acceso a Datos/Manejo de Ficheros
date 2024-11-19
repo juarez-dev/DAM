@@ -1,0 +1,14 @@
+INTRODUCCIÓN
+
+PERSISTENCIA DE DATOS, capacidad de conservar datos una vez apagado el equipo o aplicación que está utilizandolos.
+
+ARCHIVO, un conjunto de bits almacenados en un dispositivo. Un equipo los utiliza para guardar los datos.
+Los ficheros están grabados en un soporte.
+
+
+CONCEPTOS - USO DE FICHEROS EN JAVA
+
+Caracteristicas:
+  - Se ubican en directorios.
+  - Tienen un nombre único en el directorio o carpeta que los contiene.
+  - La extensión nos permite conocer el tipo de fichero.
