@@ -1,1 +1,17 @@
+CONSTRUIR UN OBJETO Path
+La forma mas easy es partir de la clase java.nio.file.Path, que tiene métodos estáticos que retornan objetos Path a partri de una representación tipo String de la ruta:
 
+        Path p = Paths.get("paht");
+
+La representación y manejo de paths en Java no está restringida por la existencia de los ficheros o directorios en el sistema de ficheros.
+
+MANEJO DE RUTAS CON Path
+Los objetos path de diferentes SO no pueden ser comparados fácilmente entre sí.
+  -> boolean isAbsolute(), si la ruta considerada es absoluta.
+  -> Path getFileName(), nombre del archivo o directorio más alejado de la raíz en la jerarquía de directorios o null si no existe.
+  -> Path getParent(), Ruta desde la raíz al archivo, sin el nombre del mismo.
+  -> URI toUri(), convierte un Path en Uniform Resource Identifier.
+  -> getRoot(), devuelve el directorio "raiz".
+  -> boolean startsWith(), comprueba si la ruta actual empieza con la ruta pasada.
+  -> boolean endsWith(), comprueba si la ruta actual termina con la ruta pasada.
+  -> Path normalize(), elimina de la ruta actual elementos propios del SO.
