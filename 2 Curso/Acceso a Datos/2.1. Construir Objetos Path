@@ -15,3 +15,7 @@ Los objetos path de diferentes SO no pueden ser comparados fácilmente entre sí
   -> boolean startsWith(), comprueba si la ruta actual empieza con la ruta pasada.
   -> boolean endsWith(), comprueba si la ruta actual termina con la ruta pasada.
   -> Path normalize(), elimina de la ruta actual elementos propios del SO.
+
+
+LA CLASE FileSystem, define un sistema de ficheros completo.        -> -> ->        FileSystem sistemaFicheros = FileSystems.getDefault();
+Por otro lado el concepto Path hace referencia a un directorio, fichero o link que tengamos dentro de nuestro sistema de ficheros.
