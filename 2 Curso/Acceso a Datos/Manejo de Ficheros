@@ -12,3 +12,5 @@ Caracteristicas:
   - Se ubican en directorios.
   - Tienen un nombre único en el directorio o carpeta que los contiene.
   - La extensión nos permite conocer el tipo de fichero.
+
+I/O (Input/Output), son las operaciones que constituyen un flujo de información del sistema con el exterior
