@@ -13,4 +13,154 @@ Caracteristicas:
   - Tienen un nombre único en el directorio o carpeta que los contiene.
   - La extensión nos permite conocer el tipo de fichero.
 
-I/O (Input/Output), son las operaciones que constituyen un flujo de información del sistema con el exterior
+I/O (Input/Output), son las operaciones que constituyen un flujo de información del sistema con el exterior.
+
+Cuando leemos o escribimos sobre un archivo enviamos flujos de datos como texto o como bytes.
+
+Java implementa el acceso a ficheros con Streams, que sería una secuencia de bytes, pero incorpora también funciones para utilizar almacenamiento o Buffer intermedio,
+que optimice las lecturas y escrituras en el fichero físico.
+
+Paquete estándar de la API de Java -> java.io y el paquete-> java.nio proporcionan las operaciones de E/S.
+
+TIPOS DE FICHEROS
+  -> FICHEROS DE TEXTO O DE CARACTRES, el contenido del fichero contiene exclusivamente caracteres de texto. (Se puede leer con un simple editor de texto).
+    * .txt   -> Fichero de texto plano.
+    * .xml   -> Fichero XML.
+    * .json  -> Fichero de intercambio de información
+    * .props -> Fichero de propiedades.
+    * .conf  -> Fichero de configuración.
+    * .sql   -> Script SQL.
+    * .csv   -> Fichero de datos.
+  -> FICHEROS BINARIOS O DE BYTES, ficheros compuestos por caracteres, pueden contener imágenes, videos, audios, datos, entre otros.
+    * .pdf   -> Fichero pdf.
+    * .jpg   -> Fichero de imagen.
+    * .doc/x -> Fichero de Microsoft Word.
+    * .avi   -> Fichero de Vídeo.
+    * .ppt/x -> Fichero de Power Point.
+
+
+FORMAS DE ACCESO A FICHEROS
+  -> ACCESO SECUENCIAL, no se pueden hacer saltos de posición con el cursor una vez abierto el fichero:
+    * Las lecturas se realizan en orden, desde el inicio al final de fichero.
+    * Las escrituras se realizan en el sitio donde se haya finalizado la última escritura.
+  -> ACCESO ALEATORIO, las escrituras y lecturas se realizan en cualquier puento del fichero.
+
+
+STREAMS, flujos de datos (binarios o de caracteres) entre el programa y el fichero directamente.
+FLUJO, es una abstracción de todo aquello que produce o consume informacion, una secuencia de bytes entre un origen y un destion, que no se almacenan en ningún sitio intermedio.
+
+BUFFER, zona de almacenamiento temporal, la conexión no se realiza directamente en el destino, sino que los bytes se almacenan de forma intermedia y ahí podemos realizar movimientos hacia delante o hacia atrás.
+Los datos se pasan al fichero por bloques cuandose hayan llenado, o cuando cerremos la operación de escritura.
+La lectura se realiza igual, se lee un bloque y se van pasando al programa según los necesite.
+
+CLASES UTILIZADAS POR JAVA
+Incorporan interfaces, clases y excepciones para acceder a todo tipo de ficheros y de distintas formas.
+
+Libreria java.io, contiene las clases necesarias para gestionar las operaciones de entrada y salida con Java, nos van ha permitir fundamentalmente:
+  -> Leer entradas de un flujo de datos.
+  -> Escribir entradas a un flujo de datos.
+  -> Operar con ficheros en el sistema de ficheros local.
+  -> Gestionar la serialización de objetos.
+
+Libreria java.nio (Non-Bloquing I/O), ofrece una forma diferente de trabajar con I/O que las API de I/O estándar. Se basa en el "Buffer" y el "Channel"
+Entres otras ventajas, tendremos la posiblidad de utilizar programación asíncrona de E/S, obtener información de atributos propios del sistema de archivos,
+reconocimiento de enlaces simbólicos y facilitado de algunas operaciones básicas.
+Características:
+  -> Define interfaces y clases para que la máquina virtual Java tenga acceso a archivos, atributos de archivos y sistemas de archivos.
+  -> Utilización de canales y bufferes, los datos siempre se leen de un canal a un búfer, o se escriben desde un búfer a un canal.
+  -> IO sin bloqueo, permite hacer IO sin bloqueo, desde un hilo podemos pedirle a un channel que lea datos en un buffer. 
+      Mientras el canal lee datos en el búfer, el hilo puede hacer otra cosa, una vez se leen los datos en el búfer, el hilo puede continuar procesándolo, ocurre lo mismo para escribir datos en channels.
+  -> Selectores, objeto que puede gestionar múltiples channes para eventos (conexión abiert, datos recibidos, ...). Permite que un solo hilo maneje múltiples channels.
+
+java.io ó java.nio:
+  -> java.nio, permite manejar múltiples canales (archivos o conexiones a red) con uno o unos pocos hilos.
+  -> java.nio, procesamiento de datos más complicado que usar los streams bloqueantes de java.io.
+  -> java.nio, la opción si se necesita manejar cientos de conexiones (canales) abiertas y en cada una manejar una pequeña cantidad de datos.
+  -> java.io, la opción si se manejan pocas conexiones con un alto ancho de banda (envio de mucha información a la vez).
+
+
+CLASES ASOCIADAS A LAS OPERACIONES DE GESTIÓN DE FICHEROS Y DIRECTORIOS
+A partir de la version JSE7 tenemos:
+  -> La clase Paths, tiene sólo un método get, que devuelve un elemento de tipo Path.
+  -> La interfaz Path, tiene varios métodos que se encargan de la gestión de rutas y características de las mismas y de los ficheros.
+  -> La clase Files, tiene métodos de creación de ficheros, carpetas, borrado y modificación de rutas, además de manejo de escritura y lectura en ficheros.
+
+MÉTODOS File:
+  -> String getParent()
+  -> File getParentFile()
+  -> Boolean file.createNewFile()
+  -> file.delete()
+
+MÉTODOS Path:
+  -> Path getParent()
+  -> getFileName()
+  -> getRoot()
+  -> startsWith()
+  -> endsWith()
+  -> normalize()
+
+MÉTODOS Files:
+  -> createFile()
+  -> createDirectory()
+  -> move()
+  -> delete()
+
+
+MANEJO DE RUTAS (PATHS)
+RUTA ESPECÍFICA, dentro de la estructura jerárquica de directorios, es el camino para llegar a un fichero determinado, desde donde estamos situados
+  -> RUTA ABSOLUTA, contiene la ruta completa desde la raíz del sistema de archivos hasta el archivo o directorio al que apunta.
+  -> RUTA RELATIVA, contiene la ruta al archivo o directorio desde alguna otra ruta.
+
+Segun el SO la ruta de los ficheros:
+  - Windows, C:\datos\fichero.txt
+  - Linux, /home/datos/fichero.txt
+  - Mac OS, /Biblioteca/Tipos de latra/
+
+La interfaz java.nio.file.Path representa un path.
+Un path puede señalar a un archivo o un directorio.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
