@@ -1,0 +1,54 @@
+OPERACIONES PRINCIPALES
+                                  EXISTENCIA Y ELIMINACION DE ARCHIVOS Y DIRECTORIOS
+
+VERIFICAR LA EXISTENCIA                                      ->   boolean Files.exists(Path path);
+BORRADO                                                      ->   void Files.delete();  &  void Files.deleteIfExists();
+COMPROBAR LOS PERMISOS DE ESCRITURA, LECTURA Y EJECUCIÓN     ->   Files.isReadable(path);  Files.isWritable(path);  Files.isExecutable(path);
+
+
+
+                                  CREACIÓN DE ARCHIVOS Y DIRECTORIOS
+
+CREACIÓN DE ARCHIVOS            ->    Path Files.createFile(path);
+CREACIÓN DE DIRECTORIOS         ->    Path Files.createDirectory(path);
+Los dos métodos generan una excepción de tipo genera una IOException.
+
+Si el directorio no está vacio e intentamos borrarlo, genera una DirectoryNotEmptyException.
+
+
+
+                                  COPIA Y CAMBIO DE DIDRECTORIOS DE ARCHIOVOS Y DIRECTORIOS
+
+COPIAR           ->    Path Files.copy(pathOrigen, pathDestino, StandardCopyOption.REPLACE_EXISTING);
+MOVER            ->    Patn Files.move(pahtOrigen, pathDestino, standardCopyOption.REPLACE_EXISTING);
+
+Si copiamos, tendremos que especificar el nombre del archivo origen y destino.
+La copia falla si el archivo destino existe, a menos que se especifique la opción REPLACE_EXISTING.
+Se puueden copiar directorios completos.
+
+
+
+                                  EXCEPCIONES DE MANEJO DE FICHEROS
+
+BORRAR       ->    delete(Path);
+
+-> NoSuchFileException, se intenta acceder a un archivo que no existe.
+-> DirectoryNotEmptyException, falla el borrado por que el directorio no esta vacio.
+-> FileAlreadyExistsException, el directorio ya existe.
+-> IOException, hay problemas con los permisos del fichero.
+
+
+Aunque no todas estas operaciones se pueden realizar con la clase File, hay muchas que si:
+  -> Creación de archivos y directorios.
+  -> Borrado de archivos y directorios. Para borrar un directorio en Java, hay que borrar cada uno de los ficheros y directorios que contenga, se puede recorrer recursivamente el directorio para borrar todos los ficheros.
+
+* Para ver como se crean y borran archivos y directorios con la clase File ver el pdf del tema *
+
+
+
+
+
+
+
+
+
