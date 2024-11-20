@@ -132,20 +132,72 @@ Tambien se puede montar un buffer sobre cualquiera de los flujos que definen est
 
 LECTURA Y ESCRITURA SECUENCIAL DE FICHEROS COMPLETOS
 
+java.nio -> archivo tipo Bytes -> byte[] Files.readAllBytes(Path path), lee un archivo completo devolviendo un array de bytes.
+java.nio -> archivo tipo Bytes -> Path Files.write(Paht path, byte[]), escribe todos los bytes en el path de salida de una sola vez.
+java.nio -> archivo tipo Caracteres -> List<String>Files.readAllLineas(Path path), lee un archivo completo devolviendo una lista de String.
+java.nio -> archivo tipo Caracteres -> Path Files.write(Path path, List<String>), escribe en un archivo una lista de Strings, cada uno en una línea distinta.
+
+Podemos proteger un fichero contra lecturas, escrituras indeseadas o borradod de contenido asignando un modo de acceso al mismo.
+En Java se definen una serie de modos de acceso a un fichero a través del parámetro OpenOption (java.nio), 
+lo más cómodo es usar este parámetro a traves del enum StandardOpenOption que puede tomar los siguientes valores entre otros:
+  -> StandardOpenOption.WRITE, habilita la escritura en el fichero.
+  -> StandardOpenOtion.APPEND, todo lo escrito al fichero se hará al final del mismo.
+  -> StandarOpenOption.CREATE_NEW, crea un fichero nuevo y lanza una excepción si ya existía.
+  -> StandarOpenOption.CREATE, crea el fichero si no existe y simplemente lo abre si ya existía.
+  -> StandarOpenOption.TRRUNCATE_EXISTING, si el fichero existe, y tiene contenido, se ignora su contenido para sobreescribirlo desde el principio.
 
 
+LECTURA Y ESCRITURA SECUENCIAL CON Streams
+
+Java define 2 tipos de flujos en el paquete java.io:
+
+  -> Byte streams (8 bits), proporciona lo necesario para la gestión de I/O de bytes y su uso está orientado a la lectura y escritura de datos binarios.
+El tratamiento del flujo de bytes viene determinado por las clases abastractas InputStream y OutputStream.
+Las clases principales que heredan de OutputStream, para la escritura de binarios son:
+    -> FileOutputStream, escribe bytes en un fichero, si el archivo existe, se borrará. Para añadri datos al final de éste hbar que usar el consturctor FileOutputStream(String filePaht, boolean append); con append=true.
+    -> ObjectOutputStream, convierte objetos y variables en vectores de bytes que pueden ser escritos en un OutputStream.
+    -> DataOutputStream, da formato a los tipos primitivos y objetos String, convirtiendolos en un flujo de forma que cualquier DataInputStream los pueda leer.
+De InputStream, para lectura de binarios, destacamos:
+    -> FileInputStream, lee bytes de un fichero.
+    -> ObjectInputStream, convierte en objetos y varibles los vectores de bytes leídos en un InputStream.
+
+  -> Character streams (16 bits), están determinados por 2 clases abstractas, que manejan los flujos de caracteres Unicode y de ellas se derivan subclases concretas que implementan métodos.
+Las clases de Writer y Reader que permiten trabajar con ficheros de texto son:
+    -> FileReader, para la lectura, crea un flujo de entrada que trabaja con caracters en ves de con bytes.
+    -> FileWriter, para la escritura, crea un flujo de entrada que trabaja con caracteres.
+
+Los streams, al ser un recurso finito, deben cerrarse una vez utilizados con el método close();.
 
 
+LECTURA Y ESCRITURA SECUENCIAL CON Buffer
+Cuando queresmos realizar la lectura o escritura utilizando un buffer intermedio, tanto de bytes como de caracteres, podemos hacer uso de los siguientes métodos:
+  -> Cadena de caracteres (con codificación) -> java.nio -> String java.io.BufferedReader.readLine() throws IOException                        -> Lee una línea de texto del fichero y devuelve un String.
+  -> Bytes                                   -> java.nio -> void java.io.BufferedWriter.write(String s, int off, int len) trhows IOException   -> Escribe un String en un fichero.
+  -> Caracteres                              -> java.nio -> newLine()                                                                          -> Generamos un retorno de carro en el fichero.
+
+Debemos cerrar el BufferedReader y el BufferedWriter una vez utilizado con el método close() y será en este momento en el que se vuelquen al fichero los datos a escribir.
 
 
+OPERACIONES CON FICHEROS ALEATORIOS
+EL INDICE o PUNTERO se usa para marcar el lugar del recorrido en el que se encuentra en cada momento.
+
+* Las clases de la libreria java.nio nos permiten no bloquear el fichero al realizar las operaciones.
+El procesamiento es más complejo.
+La lectura del fichero finaliza cuando read nos devuelve -1.
+
+* RandomAccessFile, clase utilizada por java.io que nos permite la lectura y/o escritura de ficheros de acceso aleatorio.
+    - Permite leer y escribir sobre el fichero, no son necesarisas clases diferentes.
+    - Necesita especificar el modo de acceso al construir un objeto de esta clase -> only read or only write.
+    - Posee métodos especificos de desplazamiento, para movernos de un registro a otro del fichero, o posicionarnos en una posición concreta del fichero.
+
+Constructores:
+    -> RandomAccessFile (File file, String mode).
+    -> RandomAccessFile (String name, String mode).
+Modo "r" -> si se abre en modo read.
+Modo "rw" -> si se abre en modo read & write.
 
 
-
-
-
-
-
-
+SERIALIZACIÓN DE OBJETOS
 
 
 
