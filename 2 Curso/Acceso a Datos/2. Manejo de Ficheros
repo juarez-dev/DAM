@@ -99,11 +99,26 @@ La interfaz java.nio.file.Path representa un path.
 Un path puede señalar a un archivo o un directorio.
 
 
+INTERFACE FilenameFileter
+Se puede usar para crear filtros que establezcan criterios de filtrado relativos al nombre de los ficheros.
+
+Una clase que lo implemente debe definir e implementar el método:
+  -> boolean accept (File dir, String nombre), devolverá true si el fichero cuyo nombre se indica aparezca en la lista de fichero del directorio indicado.
 
 
+LECTURA Y ESCRITURA EN FICHEROS
 
-
-
+ACCESOS
+  -> SECUENCIAL, lectura de forma secuencial de inicio a fin del archivo, en estos ficheros tendremos como operaciones más comunes:
+    - Creación de ficheros o apertura para leer, guardar/borrar datos.
+    - Copia de datos de un fichero a otro.
+    - Búsqueda de información
+  -> ALEATORIO, acceso aleatornio, permite acceder a los datos de forma no secuencial.
+    - Búsqueda de información.
+    - Actualización de elementos.
+    - Inserción de información en parte del fichero.
+  -> CONCATENACIÓN (PIPES), conexiones entre programas que se ejecutan simultáneamente dentro de una misma máquina, 
+                            de modo que lo que uno produce se envia por un extremo de "tubo" para ser recibido por otro que espera a la salida.
 
 
 
