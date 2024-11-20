@@ -1,5 +1,90 @@
 CONSTRUCTORES DE File
-  -> public File (String nombreFichero|path);
-  -> public File (String path, String nombreFichero|path);
-  -> public File (File path, String nombreFichero|path);
+  -> public File (String nombreFichero|path);                   >------------>  File f = new File("personas.dat");  File f = new File("ficheros/personas.dat");  File f = new File("C:/ficheros/personas.dat");
+  -> public File (String path, String nombreFichero|path);      >------------>  File f = new File("ficheros", "personas.dat");  * El primer Strig es le ruta que puede ser absoluta o relativa.
+  -> public File (File path, String nombreFichero|path);        >------------>  File f = new File("ficheros");  File f = new File(ruta, "personas.dat");
 * La ruta o paht puede ser relativa o absoluta. *
+
+
+MÉTODOS DE MANEJOS DE RUTAS CON File
+  -> String getName(), devuelve el nombre del fichero o directorio.
+  -> String getAbsolutePath(), devuelve el absolute path asociada al objeto File.
+  -> String getCanonicalPaht(), devuelve la ruta única asociada al objeto File, puede haber varias, pero solo una única canónica. Lanza una excepción del tipo IOException.
+  -> String getPath(), devuelve la ruta con la que se creó el File, puede ser relativa o no.
+  -> Strign getParent(), devuelve un String conteniendo el directordio padre del File, devuelve null si no tiene.
+  -> File getParentFile(), devuelve un File conteniendo el directorio padre del File, devuelve null si no tiene.
+  -> boolean isAbsolute(), true si es una ruta absoluta.
+  -> boolean isDirectory(), true si es un directorio válido.
+  -> boolean isFile(), true si es un fichero válido.
+  -> long lastModified(), devuelve un valor en milisegundo que representa la última vez que se ha modifiicado. Devuelve 0 si el fichero no existe o ha ocurrido un error.
+  -> long length(), devuelve el tamaño en bytes del fichero, 0 si no existe, un valor indeterminado si es un directorio.
+  -> String[] list(), devuelve un Array de String con el nombre de los archivos y directorios contenidos en el directorio indicado en el objeto File, si no es un directorio devuelve null y si esta vacio devuelve un Array vacio.
+  -> String[] list(FilenameFilter filtro), devuelve un array con el nombre de los archivos y drectrorios del diirectorio indiccado que cumplen con el filtro indicado.
+  -> boolean renameTo(File dest), cambia el nombre del fichero por el indicado en el parámetro dest, devuelve true si se ha realizado el cambio.
+
+
+SEPARADOR DE RUTAS
+El caracter separador entre directorios o carpetas suele cambiar dependiendo del SO en el que se ejecuta el programa.
+Para evitar problemas, se recomienta usar en Java ->->-> File.separator.
+
+USO
+String substFileSeparator(String ruta){
+  String separator = "\\";
+  try{
+    if(File.separator.equal(separator)){
+      sparator = "/";                                                    // El separador en Windows es '/'.
+      return ruta.replaceAll(separator, File.separator);                 //Reemplazamos las cadenas que coninciden con la expresión regular dado oldSep por la cadena File.separator.
+    }catch(Exception e){
+      return ruta.replaceAll(separator + separator, File.separator);     //Por si ocurre una java.util.ragex.PatternSyntaxException.
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
