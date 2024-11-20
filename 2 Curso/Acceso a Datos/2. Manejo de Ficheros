@@ -85,27 +85,6 @@ A partir de la version JSE7 tenemos:
   -> La interfaz Path, tiene varios métodos que se encargan de la gestión de rutas y características de las mismas y de los ficheros.
   -> La clase Files, tiene métodos de creación de ficheros, carpetas, borrado y modificación de rutas, además de manejo de escritura y lectura en ficheros.
 
-MÉTODOS File:
-  -> String getParent()
-  -> File getParentFile()
-  -> Boolean file.createNewFile()
-  -> file.delete()
-
-MÉTODOS Path:
-  -> Path getParent()
-  -> getFileName()
-  -> getRoot()
-  -> startsWith()
-  -> endsWith()
-  -> normalize()
-
-MÉTODOS Files:
-  -> createFile()
-  -> createDirectory()
-  -> move()
-  -> delete()
-
-
 MANEJO DE RUTAS (PATHS)
 RUTA ESPECÍFICA, dentro de la estructura jerárquica de directorios, es el camino para llegar a un fichero determinado, desde donde estamos situados
   -> RUTA ABSOLUTA, contiene la ruta completa desde la raíz del sistema de archivos hasta el archivo o directorio al que apunta.
