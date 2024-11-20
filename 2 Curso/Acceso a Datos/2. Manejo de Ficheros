@@ -120,7 +120,17 @@ ACCESOS
   -> CONCATENACIÓN (PIPES), conexiones entre programas que se ejecutan simultáneamente dentro de una misma máquina, 
                             de modo que lo que uno produce se envia por un extremo de "tubo" para ser recibido por otro que espera a la salida.
 
+Clases Reader y Writer, son las recomendadas para trabajr con ficheros de texto.
+Las subclases que permiten trabajar con ficheros de texto son:
+  -> FileReader, para lectura desde un fichero de texto, crea un flujo de entrada que trabaja con caracteres en vez de bytes.
+  -> FileWriter, para la escritura hacia un fichero de texto, crea un flujo de dalida que trabaja con caractres en vez de bytes.
 
+Tambien se puede montar un buffer sobre cualquiera de los flujos que definen estas clases:
+  -> BufferedWriter, se usa para montar un buffer sobre el flujo de salida de tipo FileWriter.
+  -> BufferedReader, se usa para montar un buffer sobre el flujo de entrada de tipo FileReader.
+
+
+LECTURA Y ESCRITURA SECUENCIAL DE FICHEROS COMPLETOS
 
 
 
