@@ -1,1 +1,95 @@
+CREACIÓN DE COMPONENTES VISUALES
+
+COMPONENTE SOFTWARE, clase creada para ser reutilizada y que puede ser manipulada por una herramienta de desarrollo de aplicaciones viusles.
+ESTADO que se almacena en un conjunto de propiedades, las cuales pueden ser modificadas para adaptar el componente al programa en el que se inserte.
+Tiene un COMPORTAMIENTO que se define por los eventos ante los que responde y los métodos que ejecuta ante dichos eventos.
+
+EVENTOS, las acciones que los users van a provocar sobre los componentes.
+
+Un subconjunto de los atributos y los métodos forman la interfaz del componente.
+
+Normas que debe cumplir una clase para que sea un componente:
+  -> Debe poder modificarse para adaptarse a la aplicación en la que se integra.
+  -> Debe tener persistencia, debe poder guardad el estado de sus propiedades cuando han sido modificadas.
+  -> Debe tener introspeccion, debe permitir a un IDE reconocer elementos de diseño como los nombres de las funciones miembors o métodos y definiciones de las clases y devolver esa información
+  -> Debe poder gestionar eventos.
+
+Ventajas del desarrollo basado en componentes:
+  -> Más sencillo, requiere menos tiempo y coste.
+  -> Disminución de errores en el software.
+
+
+ELEMENTOS DE UN COMPONENTES
+  
+PROPIEDADES, un tipo específico de atributos que representan características de un componente que afectan a su apariencia o su comportamiento.
+Son accesibles desde fuera de la clase y forman parte de su interfaz.
+Suelen estar asociadas a un atributo interno.
+Pueden examinarse y modificarse mediante métodos o funciones miembro, que acceden a la propiedad y son de 2 tipos:
+  -> Setters, permiten establecer el valor de la propiedad.
+  -> Getters, permiten leer el valor de la propiedad.
+
+
+MODIFICAR GRÁFICAMENTE EL VALOR DE UNA PROPIEDAD CON UN EDITOR
+
+INTROSPECCIÓN, capacidad de un componentes de identificar sus propiiedades simplemente detectando parejas de operaciones get/set.
+
+Un EDITOR DE PROPIEDAD es una herramienta para personalizar un tipo de propiedad en particular. 
+Se utilizan en la ventana de Propiedades, donde se determina el tipo de la propiedad, se busca un editor de propiedades apropiado y se muestra el valor actual de la propiedad de una manera adecuada a la clase.
+
+La creación de un editor de propiedad usando Java supone programar una clase que implemente la interfaz PropertyEditor, que proporciona métodos para especificar cómo se debe mostrar una propiedad en la hoja de propiedades.
+Su name debe ser el name de la property más la word Editor.
+
+Por default la class PropertyEditorSupport que implement PropertyEditor proporciona los editorés más empleados, incluyendo los basicos Color y Font.
+
+
+PROPIEDAD SIMPLE, representa un único valor, un número, verdadero o falso o un texto, por lo tanto, tomará valores dentro de un tipo de datos.
+  Tiene asociados los métodos getter y setter para establecer y rescatar ese valor.
+
+PROPIEDAD INDEXADA, representa un conjunto de elementos, que suelen representarse mediante un vector y
+se identifican mediante los siguientes patrones de opreaciones para leer o escribir elementos individuales del vector o el vector entero.
+
+PROPIEDADES COMPARTIDAS O LIGADA
+Los objetos que tienen una propiedad compartida o ligada notifican a otros objetos oyentes interesados, cuando su valor cambia, permitiendolos relizar algun tipo de acción.
+Cuando la propidead cambia, se crea un bojeto que contiene información acerca de su propiedad y lo pasa a los otros objetos oyentes intersados en el cambio.
+
+PropertyChangeEvent, clase a través de la cual se realiza la notificación del cambio, los objetos que deseen ser notificados debén registrarse cómo AUDITORES.
+  -> public void addPropertyChangeListener(PropertyChageListener 1)
+  -> public void removePropertyChangeListener(PropertyhangeListener 1)
+
+Para registrar auditores de una propidad específica:
+  -> public void addPropertyNameListener(PropertyChangeListener 1)
+  -> public void removePropertyNameListener(PropertyChangeListener 1)
+
+
+PROPIEDADES RESTRINGIDAS
+Similar a una ligada salvo que los objetos oyentes que se les notifica el cambio de valor tienen la opcioón de vetar cualquier cambio en el valor de dicha propidad.
+
+Los métodos utilizados, además de los anteriores para las propiedades ligadas, son:
+  -> addPropertyVetoableListener()
+  -> removePropertyVetoableListener()
+  -> addPropertyNameListener()
+  -> removePropertyNameListener()
+
+
+EVENTOS Y ASOCIACIÓN DE ACCIONES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
