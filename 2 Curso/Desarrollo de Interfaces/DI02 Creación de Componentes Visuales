@@ -73,6 +73,73 @@ Los métodos utilizados, además de los anteriores para las propiedades ligadas,
 
 EVENTOS Y ASOCIACIÓN DE ACCIONES
 
+Para que un componente pueda reconocer el evento y responder ante el tendrás que hacer lo siguiente:
+  -> Crear una clase para los eventos que se lancen.
+  -> Definir una interfaz que represente el listener asociado al evento, debe incluir una operación para el procesamiento del evento.
+  -> Definir 2 operaciones, para añadir y eliminar listeners. Si queremos tener más de un oyente para el evento tendremos que almacenar internamente estos listeners en una estructura de datos como ArrayList o LinkedList.
+  -> Finally, recorrer la estructura de datos interna llamando a la operación de procesamiento del evento de todos los listeners registrados.
+
+
+INTROSPECCIÓN, es una característica que permite a las herramientas de programación visual arrastrar y soltar un componente en la zona de diseño de una aplicación y determinar dinámicamente qué métodos de interfaz,
+propiedades y eventos del componente están disponibles.
+
+REFLEXIÓN, caracteristica que busca aquellos métodos definidos como públicos que empiezan por get/set, es decir, se basa en el uso de patrones de diseño,
+en establecer reglas en la construcción de la clase de forma que mediante el uso de una nomenclatura específica se permita a la herramienta encontrar la interfaz de un componente.
+
+PERSISTENCIA DEL COMPONENTE
+Almacenamiento del estado de una clase para que perdure a través del tiempo, para implementarla es necesario que pueda ser almacenada en un archivo y recuperado posteriormente.
+  MECANISMO DE SERIALIZACIÓN, es el mecanismo que implementa la persistencia:
+    -> Serializar, proceso de almacenar el estado de una clase en un archivo.
+    -> Deserializar, al proceso de recuperar el estado de una clase de un archivo.
+
+Para la persistencia en java, las clases deben implementar interfaces java.io.Serializable o java.io.Externalizable que ofrecen la posiblidad de serialización automática o de programarla según necesidad:
+  -> SERIALIZACIÓN AUTOMÁTICA, se implementa la interfaz Serializable que proporciona serialización mediante la utilización de las herramientas de Java Object Serialization.
+     Para poder usar la interfaz hay que tener en cuenta:
+      -> Las clases deben tener un constructor sin argumentos que será llamado cuando un objeto sea "reconstituido" desde un fichero .ser.
+      -> Todos los campos exepto static y transient son serializados. Se utilizara el modificador transient para especificar los campos que no queremos serializar y especificar las clases que no son serializables.
+      -> Se puede programar una serialización propia implementando los siguientes métodos:
+        * private void writeObject(java.io.ObjectOutputStream out) throws IOException;
+        * private void readObject(java.io.objectInputStream in) throws IOException;
+  -> SERIALIZACIÓN PROGRAMADA, el componente que implementa la interfaz Externalizable y sus métodos para guardar el componente con un formato específico.
+     Características:
+      -> Precisa de la implementación de readExternal() y writeExternal().
+      -> Las clases Externalizable también deben tener un constructor si argumentos.
+
+
+OTRAS TECNOLOGÍAS PARA LA CREACIÓN DE COMPONENTES VISUALES
+  JAVABEANS DE ORACLE
+  MODELO DE OBJETO COMPONENTES DE MICROSOFT
+  COBRA, estandar definido po el Object Management Group (OMG)
+
+EMPAQUETADO DE COMPONENTES
+Una vez creado, es necesario empaquetar el compoente para distribuirlo y utilizarlo después.
+Se necesita el paquete jar que contiene las clases que forman el componente:
+  - El propio componente.
+  - Objetos BeanInfo.
+  - Objetos Customizer
+  - Clases de utilidad o recursos que requiera el componentes, etc.
+
+Se pueden incluir varios componentes en el mismo archivo.
+
+El jar debe incluir un fichero de manifiesto (.mf) que describa su contenido.
+
+En el FICHERO DE MANIFIESTO la clase del componente va acompañada de Java-Bean: True, indicando que es un JavaBean.
+
+
+ELABORACIÓN DE UN COMPONENTE
+Pasos:
+  1. Creación del compomente.
+  2. Adición de propiedades.
+  3. Implementación de su comportamiento.
+  4. Gestión de los eventos
+  5. Uso de componentes ya creados en NetBeans.
+
+USO DE LOS COMPONENTES PREVIAMENTE CREADOS EN NetBeans
+Una vez construido, incorporar el componente a la paleta, se puede hacer de diferentes formas:
+  -> Clean and Build para generar el .jar, luego Herramientas>>Añadir a la Paleta.
+  -> Si de otro hay q disponer de la distribución en un .jar e incorporarlo a la paleta desde el Administrador de la paleta.
+
+
 
 
 
