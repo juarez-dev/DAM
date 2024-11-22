@@ -1,0 +1,36 @@
+1. CREAR UN NUEVO PROYECTO.
+
+2. CRAR UN NUEVO COMPOMENTE JavaBean y eliminamos toda lo morralla que nos ha escrito por default.
+    * Si lo que creamos es una modificación de una etiqueta, hacemos que la clase herede JTextField
+      - Public class ComponetName exteds JTextField implements Serializable{}
+      
+3. CREAMOS LAS PROPIEDADES ANCHO, COLOR Y FUENTE.
+    Se declaran las variables:
+        -> int width
+        -> java.awt.Colo color
+        -> java.awt.Font fontt
+    Descplegamos menú contextual, situandonos en el código:
+        -> insert code > add property.
+    Definimos el nombre, declarado privado y activamos la casilla que nos genere get y set.
+    Se continua introduciendo el código de los set y get declarados.
+    * Se puede hacer manual, quizas sea mejor *
+
+4. CREADO EL COMPONENTE, hay que asociar a las propiedades definidas un dfinidas un editor de propiedades.
+La forma más fácil es creando un objeto de tipo BeanInfo.
+    -> Seleccionamos la clase "Componente", en el panel proyectos, y seleccionamos la opción Editor BeanInfo
+        -> Respondemos que queremos crear un BeanInfo nuevo
+    -> En la parte derecha, se ve el código fuente de la clase y el Diseñador. Si accedemos al dieseñador se puede ver la info del nuevo JavaBean creado.
+    -> Una vez creado, seleccionamos nuestro proyecto, accedemos al menú contextual y Clean and Build. ya tenemos el componente usable.
+
+
+
+
+
+
+
+
+
+
+
+
+
