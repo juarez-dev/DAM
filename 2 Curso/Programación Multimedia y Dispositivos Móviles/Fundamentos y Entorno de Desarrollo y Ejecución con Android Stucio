@@ -11,9 +11,47 @@ FRAMEWORK DE APLICACIONES DE ANDROID, es la capa más importande para desarrolla
 
 El framework ofrece funciones a las apps para conectar con el Harware, pero siempre lo hará a través de una capa más interna. la HAL.
 
+Los módulos principales disponibles para desarrolladores Android son:
+  -> Un Sistema de Vista enriquecido y extensibel que se puede usar par compilar la IU de una app.
+  -> Un Administrador de Recursos que brinda acceso a recursos sin código como strings localizadas, gráficos y archivos de audio.
+  -> Un Administrador de Actividad que administra el ciclo de vida de las apps y proporciona una Pila de Retroceso de Navegación común.
+  -> Proveedores de Contenido que permiten que las apps accedan a datos desde otras apps.
+
+BIBLIOTECAS NATIVAS C/C++
+Algunos componentes esenciales del sistema Android están desarrolladas usando estas biliotecas, pero tambien las pueden usar los developers.
+Suelen usarse para conseguir un mejor rendimiento. Para usarlas se debe programar en C/C++ y usar un NDK(Native Development Kit).
+
+RUNTIME DE ANDROID (ART)
+Es un cojunto de Core Libraries del entorno de ejecución de Android que permiten ejecutar aplicaciones de forma optimizada.
+Cada aplicación Android ejecuta sus propios procesos con sus propias instancias del ART.
+
+Algunas Características:
+  -> Compilacion ahead-of-time (AOT), compila antes de ejecutar, ahorrando tiempo al arrancar.
+  -> Recolección de elementos no usados(CG) optimizada.
+  -> Código máquina más compacto.
+  -> Diseñada para ocupar un espacio mínimo en RAM.
+  -> Mejoras en la depuración con excepciones de diagnostico detalladas, informes de fallos y capacidad para añadir puntos de control.
+
+CAPA DE ABSTRACCIÓN DE HARDWARE (HAL)
+Un interfaz estándar que permite usar las capacidades de harware del dipositivo al framework de aplicaciones de la capa superior.
+Consta de varios módulos, cada uno implementa una interfaz para un tipo de componente hardware.
+Cuando el framework realiza una llamada al HAL, el sistema Android carga el módulo del componente HAL hardware ahorrando memoria cuando no se necesita.
+
+NÚCLEO DE LINUX
+La base de Android es el Kernel de Linux y aporta al sistema los servicios base como seguridad, gestíon de memoría, gestión de procesos, el tiempo de ejecucion de Androdi(ART), pila de red, modelo de controladores.
+Tambien actúa como una capa de abstracción entre el hardware y el resto de la pila de software.
 
 
+CICLO DE VIDA DE APLICACIONES MÓVILES
+Las apps pasan por 5 fases con respecto a su permanenecia en un dispositivo móvil:
+  -> DESCUBRIMIENTO o LOCALIZACIÓN, proceso por el que el user localiza la app a través de su dispositivo.
+  -> INSTALACIÓN, una vez descargada, el gestor de apps controla el proceso de instalación e informa al user del resultado.
+  -> EJECUCIÓN, los users lanzan las aplicacoiones a través de la pantalla de iconos de apps o de accesos directos.
+  -> ACTUALIZACIÓN, el gestor de aplicaciones instalar actualizaciones publicadas para garantizar que los parches de seguridad y nuevas funcionalidades están disponibles para el user.
+  -> BORRADO, el user podra desinstalar apps, a través del gestor, eliminando sus ejecutables del dispositivo.
 
+
+UTILIZACIÓN DEL ENTORNO DE EJECUCIÓN DEL ADMINISTRADOR DE APLICACIONES
 
 
 
