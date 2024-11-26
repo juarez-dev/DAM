@@ -2,3 +2,39 @@ FUNDAMENTOS PARA EL DESARROLLO DE APPS EN ANDROID
 PILA DE SOFTWARE (STACK) DE ANDROID
 Los SO están estructuradaos en capas concéntricas que cislan el hardware, cuando más interna es la capa, más lejana está de los usuarios y más cerana al hardware.
 Esto permite que las apps puedan desarrollarse sin saber exactamente sobre que hardware se van a ejecutar y pudiendo reutilizar muchas librerías y funciones.
+
+La capa más externa es la usada por las apps mientras que la más intera es el núcleo del SO, uníca que es capaz de entenderse con el hardware del dispositivo a traves de los drivers.
+
+Pila de Software de Android es esta arquitectura de capas de software en Android.
+
+FRAMEWORK DE APLICACIONES DE ANDROID, es la capa más importande para desarrollar apps ya que es la capa del SO que usan las apps al ejecutarse para acceder a las funciones de Android.
+
+El framework ofrece funciones a las apps para conectar con el Harware, pero siempre lo hará a través de una capa más interna. la HAL.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
