@@ -99,6 +99,11 @@ La interfaz java.nio.file.Path representa un path.
 Un path puede señalar a un archivo o un directorio.
 
 
+SEPARADOR DE RUTAS
+Para eveitar problemas en la ejecución de los programas cuando se ejecuten en uno u otro sistema operativo y, por tanto, persiguiendo que nuestras qplicaciones
+sean lo más portables posibles, se recomienda el uso de File.separator.
+
+
 INTERFACE FilenameFileter
 Se puede usar para crear filtros que establezcan criterios de filtrado relativos al nombre de los ficheros.
 
@@ -197,10 +202,19 @@ Modo "r" -> si se abre en modo read.
 Modo "rw" -> si se abre en modo read & write.
 
 
-SERIALIZACIÓN DE OBJETOS
+SERIALIZACIÓN DE OBJETOS o MARCHALLOING
+Es un proceso consistente en convertir un objeto en una secuencia de bytes para almacenar el objeto o transmitirlo a la memoria, a una db o aun archivo.
+Su proposito pirncipal es guardar el estado de un objeto para poder crearlo cuando sea necesario
+
+DESERIALIZACIÓN el proceso inverso de serialización.
+
+Para realizar la serialización en java, se implementa una interfaz llamada Serializable por parte de la clase en cuenstión.
+
+  -> El método write de la clase ObjectOutputStream se usa para escribir objeto. Se instancia con un OutputStream como parámetro.
+  -> El método readObject de ObjectInputStream se unsa para leer objetos. Se instancia con un InputStream como parámetro.
 
 
-
+TRABAJO CON FICHEROS DE INTERCAMBIO DE DATOS -> PAGE 47/102
 
 
 
