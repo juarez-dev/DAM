@@ -217,21 +217,77 @@ Un proyecto de Android Studio contiene uno o más módulos que mantienen el cód
 Android Studio facilita la creación de apps Android para varios factores de forma, como teléfonos y tablets, Wear OS, Android TV y Android Auto.
 El asistente NEW PROJECT permite elegir los formatos para la app y completar la estructura del proyecto con todo lo necesario para comenzar.
 
-PASO 1 -> NUEVO PROYECTO
-    File > New > New Project
-PASO 2 -> AGREGAR UNA ACTIVITY
+PASO 1 -> NUEVO PROYECTO.
+    File > New > New Project.
+PASO 2 -> AGREGAR UNA ACTIVITY.
     En la siguiente pantalla se puede seleccionar un tipo de proyecto.
-PASO 3 -> CONFIGURACIÓN DEL PROYECTO
+PASO 3 -> CONFIGURACIÓN DEL PROYECTO.
     Nombre de la aplicación.
     Nombre del paquete, servirá para definir el namespace de la aplicación usado para acceder a los resources, pero tambien definira el application ID del project con el que se publicará.
     Ubicación para guardar el proyecto.
     Lenguaje.
     Build Configuration Languaje: Kotlin DSL.
     Minimun SDK, se escoge el que permita que la app se ejecute, seleccionar los valores más cercanos al 100% para conseguir más compatibilidad.
-PASO 4 -> SELECCIONAR FACTORES DE FORMA Y NIVEL DE API
+PASO 4 -> SELECCIONAR FACTORES DE FORMA Y NIVEL DE API.
+    Se puede selecconar los factores de forma admitidos por la app o añadirlos con File > New File > New Module. Los formatos seleccionados se convierten en los módulos de la app dentro del proyecto.
+  Para cada formato se puede seleccionar el nivel de API para esa app y las versiones mínimas para los distintos factores de forma.
+  Para eliminar los módulos, encima de la carpeta del modulo con el boton derecho -> Open Module Sstting, despues se suprime la carpeta desde File > Open.
+PASO 5 -> MAIN ACTIVITY.
+    La main activity es una actividad especifica en una app que se representa al usuario cuando este inicia la app por primera vez, cada activity a su vez podra iniciar otra activity para poder realizar diferentes actions.
+ALGUNOS ATAJOS
+  -> Ctrl+BIzq sobre MainActivity en la línea de código "public class MainActivity" o sobre  el símbolo </>, nos lleva al fichero XML asociado a su layout.
+  -> Ctrl+Bizq sobre el nombre de una clase, nos llevará a su definición.
+PASO 6 -> DESARROLLAR LA APP
+    Si la app admite más de un formato, Android Studio crea una carpeta de módulos con archivos de origen completos para cada uno de ellos, donde se puede apreciar que:
+  -> En la parte superior hay un menú y/o barra de herramientas.
+  -> En el panel lateral izquierdo hay un navegador de la estructura de ficheros del proyecto.
+  -> En la parte central se dispone de un panel con una paleta de elementos incorporables en una emulación de la interfaz visual.
+  -> En el panel lateral derecho se dispone de un árbol de componentes de la interfaz visual, así como un descriptor de propiedades de cada elemento incorporado.
+  -> Más a la derecha aparece el panel de dispositivos.
+
+
+ESCRITURA DE CÓDIGO DE UN ACTIVITY
+Para comenzar trabajaremos sobre la plantilla Empty Views Activity y mantenemos el nombre de actividad por defecto (MainActivity).
+Se pueden incorporar más actividades posteriormente, cambiar el nombre de cualquiera de ellas.
+Todas las activities se veran reflejadas en el fichero AndroidManifest.xml, que permitirá ademas establecer cual será la actividad con la que arrancara la app.
+
+Las Activities estran compuestas por:
+  -> UNA PARTE LÓGICA, se corresponde con un archivo .java/kt que contiene la clase para poder interactuar desde esa activity.
+  -> UNA PARTE GRÁFICA, normalmente se corresponderá con un .xml en el que se define el layout de los elementos que se mostrarán.
+
+
+COMPILACIÓN Y EJECUCIÓN
+Para compilar un proyecto -> Build > Make Project.
+Para compilar y ejecutar -> Boton Run ó Run > Run 'Project Name'.
+
+
+EMULADORES
+En general permiten interactuar con ellos cómo si fuera un dispositivo real, pudiendo cambiar la orientación, hacer capturas, conectarse a internet, etc.
+
+
+INSTALACIÓN Y CONFIGURACIÓN DE DISPOSITIVOS VIRTUALES
+Para instalar un virtual device -> Tools > Device Manager -> Create Virtual Device(+) -> seguir las instrucciones del Virtual Device Configuration.
+
+Una vez descargado e instalado el dispositivo virtual se configuran los siguientes valores del AVD:
+  - Nombre.
+  - Orientación del dispositivo al arrancarse.
+  - Cámaras: frontales y trasera.
+  - Red: velocidad y latencia.
+  - Opciones de Rendimiento: Gráficos, Arranque rápido, etc...
+  - Memoria RAM y capacidad de almacenamiento.
+  - Marco del dispositivo.
+
+
+PERFILES DE RENDIMIENTO
 
 
 
+INSTALACIÓN Y EJECUCIÓN EN UN REAL DEVICE
+
+
+CREACIÓN DE UN PROYECTO KOTLIN
+Kotlin es el lenguaje de programación recomendado por Google para el development de apps Android.
+Es un lenguaje orientado a objetos, funcional, imperativo, estructurado en bloques, declarativo, genérico, reflexivo y concurrente. Es multiplataforma, incorporable con Java y se ejecuta en la MVJ.
 
 
 
