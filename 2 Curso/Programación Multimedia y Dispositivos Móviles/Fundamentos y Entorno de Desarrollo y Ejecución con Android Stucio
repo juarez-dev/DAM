@@ -52,16 +52,164 @@ Las apps pasan por 5 fases con respecto a su permanenecia en un dispositivo móv
 
 
 UTILIZACIÓN DEL ENTORNO DE EJECUCIÓN DEL ADMINISTRADOR DE APLICACIONES
+Android permite gestionar las aplicaciones instaladas en dispositivo y tambien las aplicaciones ene ejecución en el dispositivo.
+
+GESTIÓN DE APLICACINOES INSTALADAS -> Ajustes > Aplicaciones
+Desde "Ajustes" los users disponene de un apartado para gestionar las Aplicaciones, donde es posible gestionar el cilo de vida:
+Abrir(Ejecutar) - Forzar detención(Detener) - Desinstalar - Gestionar permisos de la aplicación en el dispositivo.
+
+UTILIZACIÓN Y ADMINISTRACIÓN DEL ENTORNO DE EJECUCIÓN
+En Android contamos también con herramientas para saber lo que se está ejecutando en cada momento.
+
+APLICACIONES DE USUARIO EN EJECUCIÓN
+En la parte inferior izquiera de la pantalla hay un boton donde apareceran un carrusel que muestra la aplicaciones que están en ejecución. Se podran mover entre ellas e incluso cerrar todas.
+
+SERVICIOS Y PROCESOS EN EJECUCION -> {} Opciones desarrollador > Servicios en ejecución
+Esta herramienta muestra visualmente el Estado de la RAM(Sistema, Apps y la libre), lista de aplicaciones activas en el momento y la RAM que utiliza cada una de ellas.
+Se pueden observar la cantidad de procesos y servicios que componen cada App e información sobre ellos.
 
 
+PROCESO DE CONSTRUCCIÓN Y EJECUCIÓN DE APLICACIONES - ART
+Una app Android esta compuesta de varios tipos de archivos y medios, organizados y enlazadaos mediante el IDE:
+  -> Archivos con código fuente programado.
+  -> Biblioteca de terceros importadas.
+  -> Recursos no compilables usados por la app.
+  -> Archivos de diseño y manifiesto XML.
+
+Las apps son distribuidas en un paquete APK, para construirlo se utiliza el Build System que combina JDK y las herramientas SDK de Android.
+GRADLE es la herramienta que lleva a cabo todo el proceso de construcción de la aplicación, usando a su vez las siguientes herramientas:
+  -> COMPILATION XML RESOURCES, AAPT(Android Asset Packaging Tool) compila el fichero AndroidManifest.xml y el resto de XMLs usados. Genera el fichero R.java para referenciar los recursos XML desde el código Java. KT->kotlin.
+  -> CODE COMPILATION, las clases e interfaces Android y el fichero R.java se compilan pasándose a bytcode en ficheros .class.
+  -> FILE DEX CREATION, los .class son unidos por la herramietna dex y son optimizados formando un único fichero DEX(Desktop eXperience), bytcode ejecutable por ART.
+  -> PAKAGE APK CREATION, la herramienta apkbuilder une los resources compilados por aapt, los no compilables y el DEX y los empaqueta en un file APK.
+  -> APK SIGN, los pakages deben ser firmados por la herramienta Jarsigner, a partir de un certificado de tipo desarrollo (debug) o uno de lanzamiento(release) construyen un APK que puede instialarse en cualquier Android Device.
+  -> APK ALIGNMENT, si se desea distribuir la app desde Google Play, el APK debe ser alineado. Es un proceso de optimización realizado por zipalign.
+  -> APP INSTALLING, si estamos porbando la app, Gradle se encargará de instalar y ejecutar la app en el emulador.
+  -> APLICACIÓN EJECUTABLE, cuando se instala el APK, Android extre el file DEX y genera dex2opt un archivo ELF(Executable and Linkeable Format) compatible con el kernel de Linus y ejecutable en el device concreto.
+     Cargado el ELF se cargará en memoria cada vez que la App se ejecute. Este sistema se llama "ahead-of-time"(AOT) y supone una mejora respoento al sistema JIT en Dalvik y ahorra tiempo al arrancar.
 
 
+DEFINICIONES ENTORNO DE EJECUCION ART
+  -> ART(Android RuntTime environment), entorno de ejecución de apps que compila el código de las aplicaciones instaladas traduciendo a código máquina ejecutable por el procesador del dispositivo.
+  -> ByteCode, el tipo de código resultado de realizar una fase previa a la compilación final del código fuente, un tabajo pesado de procesamiento y ooptimización del code, transformando el source code en
+     un código portable entre arquitecturas, pero no executable por un cpu.
+     El paso a bytcodie lo realiza en Android la JVM (Java Virtual Machine).
+  -> Fichero DEX(Dalvik Executable), archivo en formato bytecode generado a partir de los fichesros .class que forman una app Android y que puede ser ejecutado por ART. No es ejecutable por un device porque no es machine code.
+  -> Fichero ELF(Executable and Linkeable), es un ejecutable en machine code para el kernel de Linux. Se genera por la tool dex2oat, invocada por ART una única vez en el momento de instalación de la app.
+     Los ficheros ELFs se cargan en memoria cada vez que la app se ejecuta.
+  -> APK (Android Pakage), contiene los recursos XML de la aplicación compilasod, los resources y los no compilable media y el archivo formago DEX ejecutaple por ART.
+     Se usa para distribuir una app en dispositivo físico o emulador desde el IDE.
+     Para poder ejecutar la app, el APK debe estar firmado y alineado en caso de hacerse en el physical device.
+  -> GRADLE, es un pakete que automatiza, administra y configura el proceso de compilación de apps Android de forma personalizada y flexible, consruyendo un APK.
+     Para ello build.gradle, donde está la info de las dependencias de la app, descarga las dependencias y lanza todo el proceso para build el APK.
+     Internamente está compuesto por scipts que usan distintas herramientas para ir dando los pasos necesarios hasta que la app se convierta en ejecutable.
+  -> DEPENDENCIES, una dependencia es una aplicación o una biblioteca requerida por otro programa para poder funcionar correctamente.
+  -> AAPT (Android Asset Packaging Tool), empaqueta los recursos activos Android, se encarga de compilar los XML resources y crear las references a los mismos desde las clases de Java.
+  -> dex, development tool que compila y genera un DEX file ejecutable por ART a partir de los archivos .class compilados por Java.
+  -> APKBUILDER, development tool que genera APK pakages no firmados uniendo los XML resources de la app compilados, los resources y no compilable media y el archivo en formato DEX.
+  -> JARSINGER, firma un fichero APK con un certificado o clave. Puede ser un debug(clave de desarrollo) o un release(clave de lanzamiento).
+  -> ZIPALIGN, toma un APK firmado y lo alinea, el resultante aumenta el rendimiento del sistema de memoria en el device y queda preparado para subir a Google Play.
+  -> DEX2OPT, herramienta del SO Android que compila un archivo DEX para generar uno ELF. Se ejecuta cada vez que se instala una aplicación para construir finalmente el código ejecutable por el dispoitivo en formato ELF.
+     En los emuladodes, desde el IDE se usa otra tool, DEXOPT, para este cometido.
 
 
+CICLO DE VIDA DE UNA ACTIVITY
+ Cuando una app se pone en ejecución es cargada en memoria del dispositivo mendiante un proceso, entrando en funcionamiento una ACTIVITY.
+Una app puede tener una o varias Activities, según Android Developer.
+Los users cambian el estado de los procesos de la apps según interactuan con ellas a traves de sus Activities, el estado del proceso dependerá del estado de la Acivity en ejecución
+
+El ciclo de vida de una Activity:
+  -> CREATED
+    * Estado tambén conocido como Detenida.
+    * La activity no tiene ninguna presencia en pantalla, no es visible para el user.
+    * Este estado es alcanzado al ejecutarse el método onCreate() por primera vez, despúes de pedir su ejecución y el SO ha inicializado los recursos necesarios para su ejecucion, previamente existe el estado Inizialized.
+    * También se lanzara este estado al ejecutarse el método onStop() cuando una nueva activity recién lanzada haya cubierto toda la pantañña quedando nuestra activity oculta.
+      También cuando la activity termina de ejecutarse y está a putno de finalizar.
+    * Una activity detenida permanecera "viva".
+    * El sistema puede eliminarla cuando necesite memoria de alguna parte.
+
+  -> STARTED
+    * Estado también conocido como pausa.
+    * La activity es visible, pero no tiene el foco, pero al estar parcialmente visible podría recuperar el foco.
+    * Estado alcanzado cuando se ejecutan los métodos onStart() la primera o sucesivas veces.
+    * Tambien alcanzado al ejecutarse el método onPause() cuando otra activity haya cogido el foco.
+    * Una activity pausada está completamente "viva".
+    * El sistema podría eliminarla en situaciones en que la memoria sea extremadamente baja.
+
+  -> RESUMED
+    * Estado también llamado Reanudada
+    * La actividad tiene el foco y los controles de interactuación del dispositivo están "conectados con ella". El user interactúa con ella con las pulsaciones en pantalla.
+    * Estado alcanzado a través del método onResume() la primera y en sucesivas veces.
+
+- Cuando se pausa o se detiene una activity, el sitema puede excluirla de la memoria al solicitarle que se cierre llamando al método finish(), o eliminando su proceso.
+- Cuando una activity entra y sale de los diferentes estados se notifica a través de diferentes métodos -> callback. Todos ellos son enlaces que se pueden override(ar) para realizar tus propieas tareas correspondientes
+  al cambiar de estado de tu actividad.
+* La implementación de los métodos del ciclo de vida siempre han de llamar a la implementación de la superclass antes de realizar cualquier otra task. *
 
 
+ANDROID ESTUDIO
+Es el integrated development environment oficlia de Anfroid, incluye los siguientes componentes y herramientas clave fundamentales para el desarrollo de apps en Android:
+  -> EDITOR DE CÓDIGO.
+  -> GRADLE BUILD SYSTEM, automatiza tareas de compilación, administración de dependencias y librerias y el proceso de construcción de la aap.
+  -> ANDROID EMULATOR, simulador de Android devices.
+  -> ANDROID SDK MANAGER, gestiona las versiones sel SDK de Android y las herramientas relacionadas necesarias para el desarrollo.
+  -> AVD MANAGER (ANDROID VIRTUAL DEVICE MANAGER), permite crear y gestionar dispositivos virtuales Android para el desarrollo.
+  -> LAYOUT EDITOR, interfaz visual para diseñar y ajustar user interfaces de apps Android (UI), visualizando como se verá la app.
+  -> PROFILER, analiza el rendimiento de la app durante la ejecución, monotorizando el uso de CPU, memoria y red en real time, permitiendo la grabación de trazas del rendimiento.
+  -> DEBUGGER, depurador de apps paso a paso con puntos de interrupción, inspección de variables y seguimiento de pila.
+  -> VERSION CONTROL INTEGRATION, integración con sistemas de control de versiones GIT.
+  -> TEMPLATES Y PROJECT ASSISTANTS, aporta plantillas/asistentes con esctructuras predefinidas aplicables a new projects.
 
 
+INSTALAR ANDROID ESTUDIO
+Para su instalación descargarlo en la página oficial de Android Estudio -> https://developer.android.com/studio/install.html
+
+
+EL SDK DE ANDROID
+Es el requisito mínimo para poder compilar un programa Android, se puede descargar por separado del IDE.
+
+Un SDK (Software Development Kit), es un conjunto de herramientas de creación específicas de plataformas para developers.
+
+
+INTEGRACIÓN EN EL ENTORNO DE DESARROLLO
+
+LA ESTRUCTURA TÍPICA DE UN PROYECTO ANDROID
+
+  ESTRUCTURA DEL PROYECTO
+MÓDULO, unidad funcional compatible, depurable y testeable de forma independiente. Es un contenedor con un conjunto de archivos, separados de los archivos de otros módulos, 
+aunque pueden existir dependencias entre unos módulos y otros, que contiene básicamente: Codigo Fuente, Recursos, Codigo de Prueba y Configuradores de Compilación.
+
+Los proyectos se organizan en Módulos.
+Cuando se crea un proyecto, se crea una estructura de archivos para soportar al módulo
+Es posible añadir varios módulos a un mismo proyecto.
+
+Hay 3 motivos principales para añadir un módulo con separación de código a una app:
+  -> Crar código y recursos especiales optimizando el comportamiento de la app para algún tipo de dispositivo con necesidades especiales dentro del mismo proyecto.
+  -> Crear una biblioteca importable desde otro proyecto.
+  -> Crear un conjunto de funciones aisladas que pueden usarse en el resto de módulos del proyecto.
+
+STANDAR FILE ORGANIZATION ANDROID MOVIL APP -> Para cada módulo se creará una carpeta con el nombre del módulo, dentro de ela esstarán las siguientes subcarpetas:
+  -> build.gradle: -> archivo con la configuración de compilación y dependencias, incluyendo biliotecas de terceros utilizadas por la aplicación.
+  -> app/: -> cóntiene archivos de código y recursos para el módulo.
+    -> app/androidTest/: -> código para las pruebas del módulo en el dispositivo.
+    -> AndroidManifest.xml -> archivo de manifiesto que describe la configuración y componentes de la app: actividades, servicios y receptores de difusión.
+    -> app/main/: carpeta main del proyecto con todos los archivos principales del código y resources de las variantes de compilación.
+      -> app/main/java/: directorio con codigo Kotlin/Java.
+      -> app/main/res/: diresctorio de resources.
+      -> app/main/assets/: directorio con archivos no compilables a incluir en el APK
+  -> test/: código para las pruebas locales sobre la VJM.
+
+
+JERARQUÍA DE CLASES
+Puede variar según la complejidad y requisitos de proyecto, aunque típicamente la estructura de clases usada es:
+  -> Activities, representan las pantallas o ventanas de la app y manejan la visualización e interacción con el user.
+  -> Frangments, componentes modulares de la interfaz de usuario reutilizados en múltiples actividades y representan partes de una pantalla o ventana.
+  -> Adapters, clases que vinculan datos a visitas de la interfaz, como listas u cuadrículoas, y definen la representación de los datos en estas vistas.
+  -> Services, se ejecutan en segundo plano y realizan operaciones de larga duración.
+  -> Broadcast Recivers, responden a eventos del sistema o la app.
+
+
+CREACIÓN DE UN PROYECTO JAVA.
 
 
 
