@@ -210,10 +210,25 @@ Puede variar según la complejidad y requisitos de proyecto, aunque típicamente
 
 
 CREACIÓN DE UN PROYECTO JAVA.
+https://developer.android.com/studio/projects/create-project.html
 
+Un proyecto de Android Studio contiene uno o más módulos que mantienen el código organizado en unidades de funcionalidades discretas.
 
+Android Studio facilita la creación de apps Android para varios factores de forma, como teléfonos y tablets, Wear OS, Android TV y Android Auto.
+El asistente NEW PROJECT permite elegir los formatos para la app y completar la estructura del proyecto con todo lo necesario para comenzar.
 
-
+PASO 1 -> NUEVO PROYECTO
+    File > New > New Project
+PASO 2 -> AGREGAR UNA ACTIVITY
+    En la siguiente pantalla se puede seleccionar un tipo de proyecto.
+PASO 3 -> CONFIGURACIÓN DEL PROYECTO
+    Nombre de la aplicación.
+    Nombre del paquete, servirá para definir el namespace de la aplicación usado para acceder a los resources, pero tambien definira el application ID del project con el que se publicará.
+    Ubicación para guardar el proyecto.
+    Lenguaje.
+    Build Configuration Languaje: Kotlin DSL.
+    Minimun SDK, se escoge el que permita que la app se ejecute, seleccionar los valores más cercanos al 100% para conseguir más compatibilidad.
+PASO 4 -> SELECCIONAR FACTORES DE FORMA Y NIVEL DE API
 
 
 
