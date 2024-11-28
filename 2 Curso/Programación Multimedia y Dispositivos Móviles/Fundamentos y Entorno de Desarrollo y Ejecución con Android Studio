@@ -279,10 +279,30 @@ Una vez descargado e instalado el dispositivo virtual se configuran los siguient
 
 
 PERFILES DE RENDIMIENTO
+El mal rendimiento de una app normalmente se deba a un consumo excesivo de alguno de estos recursos del dispositivo:
+  - CPU.
+  - Memoria RAM.
+  - Gráficos.
+  - Red.
+  - Batería del dispositivo.
 
-
-
-INSTALACIÓN Y EJECUCIÓN EN UN REAL DEVICE
+Para identificar el problema Android Studio dispone los PERFILES DE RENDIMIENTO, una herramienta de diagnóstico que nos permite medir cuanto consume nuestra app en los emuladores donde se ejecuta.
+Para evaluar el rendimiento de nuestra app seguiremos los siguientes pasos:
+  PASO 1 -> Activar la herramienta -> View > Tools > Profiler -> Esto activara nuevo panel en el IDE.
+  PASO 2 -> Imprescindible un Emulador activo.
+  PASO 3 -> Enlazar el Profiler con un proceso o app en ejecución en el emulador, pulsando "+" en el Profiler y seleccionando la app a estudiar.
+  PASO 4 -> Arrancar la Sesión del Profiler con play, muestra una vista del uso de la CPU y RAM.
+  PASO 5 -> Análisis de la CPU, el desplegable superior seleccionar CPU para ver el rendimiento de la CPU en tiempo real. Se puede visualizar como se comportan los distintos hilos y en que momento se usan los resources.
+  PASO 6 -> Análisis de la RAM, se puede evaluaar el consumo separando en distintas categorías:
+    - Java
+    - Native, objetos asignados desde código C/C++, usada internamente por Android manejando elementos de imágenes y gráficos.
+    - Graphics, memoria compartida con la CPU usada por la gráfica.
+    - Stack, relacionada con la cantidad de subprocesos en ejecución de al app.
+    - Code, memoria usada por la app para el código y recursos.
+    - Others, incluye la usada por la app que el sistema no sabe cómo categorizar.
+    - Allocated, la cantidad de objetos Java/Kotlin asignados por la app.
+    - Garbage Collector, el profiler muestra que el recolector de basura a entrado en juego.
+  PASO 7 -> Se puede GRABAR TRAZAS Y GENERAR VOLCADOS -> RECORD & DUMPS con más datos que permiten analizar pormenorizadamente qué está sucediendo en el device cuando se ejecuta la app.
 
 
 CREACIÓN DE UN PROYECTO KOTLIN
