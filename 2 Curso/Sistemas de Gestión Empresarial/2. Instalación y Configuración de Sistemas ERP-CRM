@@ -34,15 +34,45 @@ Tareas implicadas en un proceso de instalación e implantación de un ERP genera
   -> FORMACIÓN DE USUARIOS, comprende la formación de los users sobre la utilización del ERP, podrá conllevar formación inicial para los responsables del proyecto y formación para los users finales.
 
 
+TIPOS DE INSTALACIÓN
+Tradicionalmente los ERP/CRM se han alojado en instalaciones localas, despliegue conocido como ON-PREMISE.
+Nuevos modelos de despliegue -> IaaS, PaaS y SaaS
+
+  -> INSTALACIÓN MONOPUESTO
+Cuando el ERP y la Base de Datos están instalados en un único equipo local del cliente, para acceder al ERP se eejecuta o se accede como localhost en caso de que se acceda mediante un servicio web.
+Son comunes en situaciones donde una sola persona o usuario necesita acceder y gestionar los datos de la empres.
+
+  -> INSTALACION CLIENTE/SERVIDOR
+Cuando el sistema ERP juto a su base de datos se ubican en un equipo centralizado (Servidor), y el usuario se conecta mediante equipos clientes.
+El server puede estar local o en remoto.
+Este tipo de modelo tambien es llamado ARQUITECTURA DE 2 CAPAS.
+
+Actualmente podmos ver modelos de 3 o más capas, en uno de 3 podemos encontrar:
+  - Capa de presentación en el cliente, donde se encuentra la interfaz de usuario, con la que el cliente interactua.
+  - Capa de aplicación en el servidor, contiene la lógica de negocio y procesamiento de datos.
+  - Capa de datos, almacena y gestiona los datos
+
+Esta separación permite modularidad y escalabilidad, las capas pueden estar ubicadas en uno o más servidores.
+
+  -> INSTALACIÓN EN LA NUBE - CLOUD COMPUTING
+No es más que una interpretación contemporánes del modelo cliente/servidor en el que se ofrece una serie de servicios en red consistente en ofrecer al user un espacio virtual, generalmente en internet,
+en el que se puede disponer de las versiones más actualizadas de hardware y software.
+
+Hay 3 modelos de informática en la nube:
+  - Iaas, INFRAESTRUCTURE AS A SERVICE, el usuario contrata únicamente las infraestructuras tecnológias(capacidad de proceso, de almacenamiento y/o de comunicaciones) sobre sus plataformas (SOs) y aplicaciones (ERP Y DB).
+    El usuario tiene el control total sobre las plataformas y aplicaciones, pero no tiene control alguno sobre las infraestructuras.
+  - PaaS, PLATFORM AS A SERVICE, el usuario contrata un servicio que le permite alojar, instalar y desarrollar las aplicaciones que necesita.
+    El usuario no tiene control alguno sobre la plataforma ni sobre la infraestructura, pero no mantiene el control total sobre sus aplicaciones.
+  - Saas, SOFTWARE AS A SERVICE, el usuario contrata la utilización de una determinada aplicación sobre las que únicamente puede ejercer acciones de configuración y parametrización permitidas por el proveedor.
+    El usuario no tiene control alguno sobre la app, la plataforma y la infraestructura, en esta modalidad el user no tiene que instalar ni mantener ningún tipo de software.
 
 
+PROCESOS DE INSTALACIÓN Y SERVICIOS DE ACCESO AL SISTEMA
+Depende de la plataforma con la que esté trabajando la emresa.
+  -> En entornos de desarrollo es conveniente escoger la ultima versión del SO, actualizar paquetes, y procurar instalar la última versión estable del ERP deseado.
+  -> En entornos de producción es recomentable utilizar una versión del SO que tenga un mayor tiempo de soporte y una versión del ERP menos reciente siempre y cuando no suponga ningún inconveniente prescindir de nuevas funcionalidades.
 
-
-
-
-
-
-
+    2.2. INSTALAR ODOO 16 EN UBUNTO SERVER 22.04     ----->    VER EN APUNTES
 
 
 
