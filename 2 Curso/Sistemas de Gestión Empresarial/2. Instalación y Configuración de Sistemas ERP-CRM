@@ -75,8 +75,39 @@ Depende de la plataforma con la que esté trabajando la emresa.
     2.2. INSTALAR ODOO 16 EN UBUNTO SERVER 22.04     ----->    VER EN APUNTES
 
 
+PÁRAMETROS DE CONFIGURACIÓN
+Tras la instalación se lleva a cabo la configuración, la modificación o establecimiento de parámetros con objeto de garantizar el correcto funcionamiento del sistema, puede requerir la instalacion de nuevos módulos.
+
+Dentro de los parametros a configurar:
+  -> CONEXIÓN A SERVIDORES, parámetros para la configuración de la conexión al servidor donde se encuentra la app.
+  -> ACCESO A LA BASE DE DATOS, parámetros para el acceso a los datos del sistema de gestión de DB utilizado.
+  -> CONFIGURACIÓN DEL IDIOMA.
+  -> ARCHIVOS DE LOCALIZACIÓN DEL PAIS, archivos o módulos específicos que adaptan el sistema a las leyes y necesidades de cada pais.
 
 
+CONFIGURACIÓN DEL SERVIDOR Y DE LA BASE DE DATOS - OpenERP
+Antes de todo hay que instalar y configurar adecuadamente la base de datos con la que va a trabajar el programa.
+
+SERVICIO DE ACCESO PARA EL CLIENTE DE ESCRITORIO
+Configurado el servidor y la DB, hay que confugurar los servicios de acceso para los clientes y sus parámetros de configuración, estos permitiran la canexión de los users al sistema ERP.
+Lo primero es configurar el Servicio de Acceso de Cliente de Escritorio.
+
+Otra tarea a realizar es crear la DB que contendrá los datos de nuestra aplicación.
+
+
+SERVICIO DE ACCESO PARA EL CLIENTE WEB
+Una vez realizada la instalacion del cliente web, es necesario modificar el valor de ciertos parámetros para que funcione adecuadamente.
+El archivo de configuración del cliente web se encuentra detro de la carpeta donde hemos instalado el cliente web.
+
+
+ACTUALIZACIÓN DEL SISTEMA ERP/CRM
+La actualización entre versiones secundarias o parches, normalmente es automática, estas actualizaciones son versiones que dependen de la misma versión base.
+Cuando los cambios son significativos se produce un cambio de versión, en tal caso, tendremos 2 opciones:
+  -> Esperar a que la version se agregue al repositorio del SO.
+  -> Si no queremos esperar, realizar la instalación manual mediante el terminal.
+
+
+TIPOS DE MÓDULOS
 
 
 
