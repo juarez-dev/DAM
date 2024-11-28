@@ -1,0 +1,76 @@
+INSTALACIÓN Y CONFIGURACIÓN DE SISTEMAS ERP-CRM
+Enterprise Resource Planning Systems, tienen como objetivo proporcionar una gestión integrada y flexible de todos los recursos empresariales.
+  -> INTEGRADA, porque el resultado de un proceso conlleva el inicio de otro, todo ello bajo una base de datos comun mantenida por un sistema de administración de db.
+  -> FLEXIBLE, porque se basan en los flujos de trabajo de la empresa, en contraposición a los programas cerrados con menos posibilidades de adaptación.
+
+
+EL SOFTWARE LIBRE EN EL MERCADO DE LOS ERPs
+Los proveedores pueden ser profesionales independientes(freelance) o empresas consultoras.
+Los servicios se ofrecen bajo mantenimiento anual por usuario o puesto instalado, o bien simplemente cobrando las horas trabajadas.
+
+La actualización o corrección de erroresen el software libre, no existe una grantía como tal y es necesario esperar a que la comunidad del producto reporte el error y sea subsanado en un plazo de tiempo no determinado.
+
+La libertad de acceder y modificar el sotware y la reducción de costes de licencia, son dos de los motivos principales para optar por una solucion ERP de software libre.
+
+
+ERPs DE SOFTWARE LIBRE
+  -> Openbravo ERP, aplicación OpenSource de planificacion de recursos empresariales, utiliza una arquitectura cliente/servidor web y está escrita en Java.
+     Se ejecuta sobre un servidor web y ofrece soporte para las bases de datos Oracle y PsotgreSQL.
+     Consta de 2 versiones_
+      -> Openbravo Community Editon, libre y gratuira desde la que no se puede acceder a los módulos comerciales.
+      -> Openbravo Network Edition, version bajo licencia OBCL que proporciona actualizaciones de código y en la que se pueden instalar módulos comerciales.
+  -> OpenERP, escrita en Phyton y la base de datos utilizada es PostegreSQL.
+
+
+INSTALACIÓN Y CONFIGURACIÓN DEL SISTEMA ERP-CRM
+Tareas implicadas en un proceso de instalación e implantación de un ERP generalmente son:
+  -> DISEÑO DE LA INSTALACIÓN, estudio de las necesidades de la empres y cómo serán resueltas por la aplicación.
+  -> INSTALACIÓN DE EQUIPOS SERVIDORES Y CLIENTES, instalación, revisión y/o actualización del hardware de la empresa para que cumpla los requisitos mínimos necesarios.
+  -> INSTALACIÓN DEL SOFTWARE, instalacion de la aplicacion ERP y el software necesario para su correcto funcionamiento.
+  -> ADAPTACIÓN Y CONFIGURACIÓN DEL PROGRAMA, configuración y adaptación a la empresa del software una vez instalado.
+  -> MIGRACIÓN DE DATOS, introducir los datos necesarios para su buen funcionamiento.
+  -> REALIZACIÓN DE PRUEBAS, periodo de transicion con la solución antigua de gestión de la empresa, este comprende pruebas para ver que el ERP funciona bien con resultados satisfactorios.
+  -> DOCUMENTACIÓN DEL SISTEMA, realizar los documentos y manuales y puesta a disposición ante la organización, mediante los medios de difusión interna disponibles.
+  -> FORMACIÓN DE USUARIOS, comprende la formación de los users sobre la utilización del ERP, podrá conllevar formación inicial para los responsables del proyecto y formación para los users finales.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
