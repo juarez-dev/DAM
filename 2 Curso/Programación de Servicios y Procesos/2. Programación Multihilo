@@ -40,10 +40,10 @@ VENTAJAS SOBRE LOS PROCESOS
 
 USO DE LOS HILOS
 Se aconseja el uso de los hilos cuando:
-  -> 
-  -> 
-  -> 
-  -> 
+  -> La app maneja entradas de varios dispositivos de comunicación.
+  -> La app debe poder realizar diferentes tareas a la vez.
+  -> Interesa diferenciar tareas con una prioridad variada.
+  -> La aplicación se va a ejecutar en un entorno multiprocesador.
 
 
 
