@@ -177,11 +177,46 @@ Funcionalidades
   - Definir compras de un producto a distintos proveedores.
 
   -> FACTURACIÓN - COBROS Y PAGOS.
-  -> GESTIÓN COMERCIAL.
+Encargado de la generación de datos que tienen que ver con la facturación de productos y servicios a las clientes.
+Son contempladas diversas formas de cobro y pago de un cliente.
+Funcionalidades:
+  - Configuración de formas de pago de Clientes o cobro de proveedores.
+  - Facturas automáticas desde pedido o albarán.
+  - Generación automática de efectos de cobro y pago.
+  - Gestión de recibos, órdenes de pago y transferencias.
+  - Importación de extractos bancarios.
+  - Envío telemático de remesas al banco.
+  - Gestión de bancos propios, bancos de Clientes y bancos de proveedores.
+
   -> GESTIÓN DE PERSONAL.
-  -> GESTIÓN DE LA RELACIÓN CON EL CLIENTE.
+Lleva a cabo la planificación y realización de nóminas, altas, bajas, control de horarios y datos del personal, además de un sistema de remuneraciones para el pago de los empleados con inclusión de comisiones por ventas.
+Funcionalidades:  
+  - Gestión de empleados y calendario de vacaciones.
+  - Gestión de contratos de empleados.
+  - Gestión de beneficios.
+  - Gestión de ausencias.
+  - Gestión de producción o rendimiento.
+  - Gestión de perfiles y responsabilidades.
+
+  -> GESTIÓN DE LA RELACIÓN CON EL CLIENTE o CRM (CUSTOMER RELATIONSHIP MANAGEMENT).
+Permite registrar lo relativo a la relación comercial con clientes o posibles clientes con el de objetivo tener toda la información centralizada para optimizar los procesos de gestión de la empresa.
+Funcionalidades:
+- Datos identificativos del contacto.
+- Segmentación de clientes en función de múltiples criterios.
+- Determinación de clientes reales y potenciales.
+- Gestión de llamadas.
+- Calendario de encuentros.
+- Generación y seguimiento de campañas de marketing.
+- Seguimiento de acciones comerciales.
+- Enlace con otros documentos y procesos de la aplicación.
+- Herramientas de productividad: editor de documentos, sincronización de contactos y calendario, envíos masivos por correo electrónico, mensajería sms o fax, etc.
+- Estadísticas diversas.
 
 
+INTRODUCCIÓN A LA INSTALACIÓN Y CONFIGURACIÓN DE MÓDULOS.
+
+
+ASISTENCIA TÉCNICA REMOTA EN EL SISTEMA ERP-CRM.
 
 
 
