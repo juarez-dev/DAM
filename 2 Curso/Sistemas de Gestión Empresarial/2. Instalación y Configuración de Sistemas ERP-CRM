@@ -108,7 +108,78 @@ Cuando los cambios son significativos se produce un cambio de versión, en tal c
 
 
 TIPOS DE MÓDULOS
+La funcionalidad de un ERP está contenida en sus distintos módulos.
+Un MÓDULO es un programa que cubre una determinada función de la app.
 
+Entre las características más imortantes de los distintos módulos funcionales:
+  -> Des/Instalación mediante asistentes.
+  -> Configuración/Parametrización de los módulos para su adaptación al entorno de producción.
+  -> Generación de informes por cada módulo.
+  -> Incorporación de niveles de seguridad, módulos accesibles solo por el admin.
+  -> Interconexión entre distintos módulos, la información se comparte, por lo que solo se introduce una vez.
+  -> Posibilidad de incluir textos y comentarios en las diversas opciones del programa.
+  -> Adaptación de menús a las necesidades de each user.
+
+MÓDULO BASE
+Módulo/s necesarios para que funcione la app, alrededor del cual se situan los módulos adicionales que se van desarrollando según necesidades, pero que se instalan al principio y sólo se hará uso de ellos si se necesita.
+
+Algunas funcionalidades:
+  -> Configuración de la app.
+  -> Gestion de los datos maestros, datos para que funcionen todos los procesos de gestión soportados en el sistema.
+  -> Establecimiento de idioma o importación de traducciones.
+  -> Seguridad, gestión de users y accesos.
+  -> Administración de módulos, para la instalación de nuevos módulos.
+Dependiendo del ERP pueden incorporar otras funcioonalidades o estar organizadas de distintas formas.
+
+Dentro de los módulos adicionales destacan por su importancia los siguientes:
+
+  -> GESTIÓN CONTABLE Y FINANCIERA.
+Recoge y automatiza las operaciones contables, centralizándolas para su consulta, publicación o control.
+
+Integrado con el módulo de compras y ventas para evitar duplicidades y para poder disponer de la información a tiempo real, así podremos obtener automáticamente facturas desde los pedidos de compra y venta.
+
+Sus funciones básicas son.
+  - Contabilidad general.
+  - Contabilidad analítica/costes.
+  - Gestión de impuestos.
+  - Presupuestos.
+  - Facturas clientes/proveedores.
+  - Extractos de cuentas bancárias.
+  - Informes contables.
+
+  -> APROVISIONAMIENTO - MÓDULO DE COMRAS
+Registra las operaciones de solicitudes de presupuestos a proveedor, recepción de precios y creación de pedidos de compra, con indicación de cualquier información relevante.
+Funcionalidades:
+  - Seguimiento de tarifas de sus proveedores.
+  - Conversión de tarifas en órdenes de compra.
+  - Gestionar entregas parciales del proveedor.
+  - Gestión de reclamaciones del proveedor.
+  - Generación automática de borradores de pedidos de compra.
+
+  -> APROVISIONAMIENTO - MÓDULO DE VENTAS
+Similar al módulo de compras con los documentos de venta,
+Funcionalidades:
+  - Creación de pedidos de venta.
+  - Revisión de los pedidos en sus distintos estados.
+  - Confirmación de envio.
+  - Definición de formas de pago por pedido y fecha de facturación
+  - Gestión y cálculo de gastos de envio de pedido.
+  - Albaranes automáticos desde pedido.
+  - Albaranes de envios parciales.
+
+  -> APROVISIONAMIENTO - MÓDULO DE ALMACÉN
+Permite gestionar las existencias de productos en almacén.
+Funcionalidades
+  - Definición de múltiples almacenes.
+  - Gestión de rotación de inventario y niveles de stock.
+  - Transpasos entre almacenes.
+  - Codificar y numerar productos de distinta forma.
+  - Definir compras de un producto a distintos proveedores.
+
+  -> FACTURACIÓN - COBROS Y PAGOS.
+  -> GESTIÓN COMERCIAL.
+  -> GESTIÓN DE PERSONAL.
+  -> GESTIÓN DE LA RELACIÓN CON EL CLIENTE.
 
 
 
