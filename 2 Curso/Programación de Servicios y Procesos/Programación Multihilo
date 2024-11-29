@@ -1,0 +1,65 @@
+PROGRAMACIÓN MULTIHILO
+Es un enfoque de la concurrencia.
+Los programas realizan actividades o tareas, y para ello pueden seguir uno o más flujos de ejecución, demendiendo de su número, podemos hablar de 2 tipos de programas:
+  -> PROGRAMA DE FLUJO ÚNICO, el que realiza las actvidades/tareas una a continuación de la otra, de manera secuencial, cada una de ellas debe concluir por completo antes de iniciar la siguiente.
+  -> PROGRAMA DE FLUJO MÚLTIPLE, aquel que coloca las actividades a realizar en diferentes flujos de ejecución, cada uno de ellos se inicia y termina por separado, pudiéndose ejecutar de manera simultánea o concurrente.
+
+La PROGRAMACIÓN MULTIHILO o MULTITHREADING consiste en desarrollar programas de flujo múltiple, cada flujo de ejecucion es un TRHEAD o HILO.
+
+
+CONCEPTOS SOBRE HILOS
+  THREAD o SUBPROCESO, flujo de control secuencial independiente dentro de un proceso y está asociado a una secuencia de instrucciones, un conjunto de registros y una pila.
+  PRIMARY THREAD, el primer hilo creado, cuando se ejecuta el SO, el cual puede a su vez crear hilos adicionales.
+
+Observaciones:
+  - Un thread no puede existir independientemente de un proceso.
+  - Un thread no puede ejecutarse por si solo.
+  - Dentro de cada proceso puede haber varios thread ejecutándose.
+
+
+RECURSOS COMPARTIDOS POR LOS THREADS
+
+Un thread lleva asociado los siguientes elementos:
+  - Un id único.
+  - Un contador de programa propio.
+  - Un congunto de registros.
+  - Una stack.
+
+Un thread puede compartir con otros del mismo proceso los siguiente resources:
+  - Code.
+  - Data (Global variables).
+  - Other SO resources (open files, signals, ...).
+
+Se hace necesario utiilizar esquemas de bloqueo y sincronicación por el hecho de que los hilos comparten recursos.
+
+
+VENTAJAS SOBRE LOS PROCESOS
+  -> Consumen menos recursos en el lanzamiento y ejecución.
+  -> Tardan menos tiempo en crear y terminar.
+  -> La conmutación entre hilos del mismo proceso o cambio de contexto es bastante más rápida.
+
+USO DE LOS HILOS
+Se aconseja el uso de los hilos cuando:
+  -> 
+  -> 
+  -> 
+  -> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
