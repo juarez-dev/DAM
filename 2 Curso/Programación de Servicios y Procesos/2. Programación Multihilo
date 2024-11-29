@@ -44,13 +44,28 @@ Se aconseja el uso de los hilos cuando:
   -> La app debe poder realizar diferentes tareas a la vez.
   -> Interesa diferenciar tareas con una prioridad variada.
   -> La aplicación se va a ejecutar en un entorno multiprocesador.
+Los threads son idóneos para programar aplicaciones de entornos interactivos y en red, asi como simuladores y animaciones.
 
 
+MULTITHREADING ON JAVA
+Java da soporte al concepto Thread desde el propio lenguaje, con algunas clases e interfaces definidas en java.lang y con métodos especificos para la manipulación de threads en la clase Object.
+A partir de la versión 5, se incluye el paquete java.util.concurrent con nuevas utilidades para desarrollar apps multithread y aplicaciones con alto nivel de concurrencia.
 
+En el paquete java.lang tenemos las siguientes utilidades de concurrencia:
+  -> Clase thread, responsable de producir threads funcionales para otras clases y proporciona gran parte de los métodos utilizados para su gestión.
+  -> Interfaz Runnable, proporciona la capacidad de añadir la funcionalidad de hilo a una clase implementando la interfaz, en lugar de derivandola a la clase thread.
+  -> Clase ThreadDeath, una clase de error, deriva de la clase Error y proporciona medios para manejar y notificar errores.
+  -> Clase ThreadGroup, se utiliza para manejar un grupo de hilos de modo conjunto, de manera que se pueda controlar su ejecución de forma eficiente.
+  -> Clase Object, no es estrictamente de apoyo a los hilos, pero proporciona métodos cruciales dentro de la arquitectura multihilo de Java -> wait(), notify(), notifyAll().
 
-
-
-
+El Paquete java.util.concurrent incluye clases que facilitan el desarrollo de apps multihilo y apps complejas porque estan concebidas para utilizarse con bloques de diseño.
+Estas utilidades están dentro de los siguientes Paquetes:
+  -> java.util.concurrent:
+    - Clases de sincronización -> Semaphore, CountDownLatch, CyclicBarrier y Exchanger.
+    - Interfaces para separar la lógica de la ejecución -> Executor, ExecutorService, Callable y Future.
+    - Interfaces para gestionar colas de hilos -> BlockingQueque, LinkedBlokingQueque, ArrayBlockingQueque, SynchronousQueque, PriorityBlockingQueque y DelayQueque.
+  -> java.util.concurrent.atomic, 
+  -> java.util.concurrent.locks, 
 
 
 
