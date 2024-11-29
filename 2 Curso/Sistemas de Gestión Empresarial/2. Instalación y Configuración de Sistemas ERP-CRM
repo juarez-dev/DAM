@@ -214,30 +214,54 @@ Funcionalidades:
 
 
 INTRODUCCIÓN A LA INSTALACIÓN Y CONFIGURACIÓN DE MÓDULOS.
-
+Como instalar módulos en Odoo - ver apuntes -> 3.7.
 
 ASISTENCIA TÉCNICA REMOTA EN EL SISTEMA ERP-CRM.
+El soporte remoto permite controlar un equipo físicamente distante como si estuviéramos sentados frente a él.
+
+Para el soporte remoto existen programas basados en estructuras cliente/servidor.
+El servidor es el ordenador a contrlar, al ejecutar la aplicación VNC en el equipo cliente, aparecerá una ventana que muestra el escritorio del equipo servidor, en esta podemos visualizar archivos y,
+si tenemos permiso, ejecutar programas, como si estuviéramos físicamente delante del equipo serviodr.
 
 
+INSTALACIÓN Y CONFIGURACIÓN EN SERVIDORES UBUNTU Y WINDOWS
+Ubuntu incorpora un sistema de asistencia remota mediante protocolo VNC (Virtual Network Computing) gracias al servidor VINO.
+La configuración de VINO se hace a través del comando Sistema/Preferencias/Escritorio remoto.
+
+El servidor en Windows está accesible mediante el comando Inicio/Programas/UltraVNC/UltraVNC server.
+
+CONEXIÓN REMOTA POR VNC INVERSO
+Cuando la conexión en vez de solicitarla el cliente hacia el servidor la solicita el serviodr, así el cliente se mantiene a la escucha y es el servidor el que establece la conexión.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+HERRAMIENTAS PARA LA PROGRAMACIÓN DE SISTEMAS ERP/CRM
+  ENTORNO DE DESARROLLO / EDITOR DE TEXTO
+    -> Visual Studio Code (VS Code), editor de texto en el que se pueden instalar extensiones para ampliar sus capacidades, algunos de ellos son:
+      - Python, soporte de lenguaje, linting, depuración y formato.
+      - XML, soporte para .xml.
+      - Odoo Snippets, fragmentos de código para modelos, vistas, controladores, etc.
+      - Pylint, asegura la calidad del código Python.
+      - Remote-S SH, permite conectarse vía ssh al entorno de Odoo.
+    -> PyCharm, IDE robusto para Python, incluye herramientas de depuración, integración con Git y soporte para el desarrollo Odoo. Característincas:
+      - Inspección de código de tiempo real.
+      - Integración con sistemas de control de versiones.
+      - Herramientas avanzadas de depuración y pruebas
+  CONTROL DE VERSIONES
+    -> Git, herramienta para el control de versiones y la colaboración en el desarrollo. GitHub, GitLab y BitBucket son plataformas populares para repositorios Git.
+  HERRAMIENTAS DE LÍNEA DE COMANDOS
+    -> Odoo shell-CLI, el shell proporciona una interfaz interactiva para ejecutar comandos y depurar en tiempo real.
+    -> pylint-odoo, analizador estático de código (linter) específico para módulos Odoo que ayuda a seguir las buenas prácticas de desarrollo.
+  BASES DE DATOS
+    -> pgAdmin, herramienta de admin y development para PstegreSQL, el SGDB usado por Odoo.
+    -> DBeaver, cliente de DB universal que soporta PostegreSQL y otros SGDB.
+  GENERACIÓN DE INFORMES
+    -> iReport, diseñador de informes para ERP/CRM, facilita la creación de informes en JasperReprot al ser una herramienta visual intuitiva y facil de manejar.
+    -> Jaspersoft Studio, entorno de trabajo para la generación de informes en JasperReport.
+  HERRAMIENTAS DE TESTEO
+    -> Pruebas Unitarias de Python, hacen Unit Tests sobre el código Python.
+      - UnitTest python library, usually viene integrada se instala Python en el sistema.
+      - Odoo Shell-CLI, ayuda a lanzar los tests de forma eficiente.
+    -> Pruebas Unitarias de JS, utiles para probar código JavaScript de forma aislada.
+      - QUnit, framework recomendado desde Odoo para testear JavaScript.
+    -> Tours, simulan situaciones reales. Aseguran la correcta comunicación entre las partes de Python y JavaScript.
 
