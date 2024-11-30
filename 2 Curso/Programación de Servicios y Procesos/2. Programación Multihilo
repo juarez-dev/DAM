@@ -64,14 +64,55 @@ Estas utilidades están dentro de los siguientes Paquetes:
     - Clases de sincronización -> Semaphore, CountDownLatch, CyclicBarrier y Exchanger.
     - Interfaces para separar la lógica de la ejecución -> Executor, ExecutorService, Callable y Future.
     - Interfaces para gestionar colas de hilos -> BlockingQueque, LinkedBlokingQueque, ArrayBlockingQueque, SynchronousQueque, PriorityBlockingQueque y DelayQueque.
-  -> java.util.concurrent.atomic, 
-  -> java.util.concurrent.locks, 
+  -> java.util.concurrent.atomic, incluye clases para ser usadas como variables atómicas en aplicaciones multithread y con diferentes data types -> AtomicInteger, AtomicLong.
+  -> java.util.concurrent.locks, define clases como uso alternativo a la clausa sinchronized, se encuenran algunas interfaces como -> Lock, ReadWriteLock.
 
 
+CREACIÓN DE THREADS
+En java se representan mediante una instancia de la clase java.lang.thread, este objeto se emplea para inicar, detener o cancelar la ejecución de un thread.
+
+Los thread se pueden implementar o definir de 2 formas:
+  -> Extendiendo la clase thread.
+  -> Mediante la interfaz Runnable.
+En ambos, se debe proporcionar una definición del método run(), el cual contiene el código que ejecutará el hilo, es decir, su comportamiento.
+
+-> Extender la clase thread es el procedimiento más sencillo, pero si la clase ya hereda alguna otra, no se puede heredar thread tambien, por lo que habrá que recurrir al procedimiento.
+-> Implementar Runnable is always possible, es el procedimiento más general y el más flexible.
+
+* Cuenado JVM arranca en la ejecución de un programa, hay un thread ejecutnadose (Main Thread) controlado por el método main(), que se ejecuta al inicio del programa y es el último que termina su ejecución.
+
+EXTEDNS THREAD
+  -> Se crea una new class que herede la clase thread.
+  -> Se redefine el método run() con el código asociado al hilo, las secuencias que ejecutará.
+  -> Se crea un objeto de la nueva clase thread, que será realmente el hilo.
+Para iniciar el hilo una vez creado:
+  -> Invocar el método start() del objeto thread creado.
+
+IMPLEMENTS RUNNABLE
+  -> Declarar new class implements Runnable.  
+  -> Redefinir en la class el metódo run() con el código asociado al thread.
+  -> Crear un objeto de la class.
+  -> Crear un objeto de la class thread pasando como argumento al constructor el objeto cuya class tiene el método run(), que sera el thred.
+Para iniciar el thread e iniciarlo:
+  -> Invocar el método start() del objeto thread.
 
 
+ESTADOS DE UN THREAD
+El ciclo de vida de un thread comprende los diferentes estados en los que puede estar un thread desde que se crea hasta que finaliza:
+  -> New, se ha creado pero aún no está disponible para su ejecución.
+  -> Runnable, está preparado para ejecutarse.
+Puede estar ejecutandose, siempre y cuando se le haya asignado un procesamiento, o que no este ejecutandose en beneficio de otro hilo, en cuyo caso esta Preparado.
+  -> No runnable, podría estar ejecutándose, pero alguna actividad interna al propio thread se lo impide.
+Si un thread esta en No Ejecutable no tiene oportunidad de que se le asigne tiempo de procesamiento.
+  -> Terminated, ha finalizado, la fomra natural de terminated thread es finalizando su método run().
+
+El metodo getState() de la class thread, permite obtener el estado en el que se encuentra el thread, devuelve:
+  - RUNNABLE.
+  - NO RUNNABLE.
+  - TERMINATED.
 
 
+INICIAR UN HILO
 
 
 
