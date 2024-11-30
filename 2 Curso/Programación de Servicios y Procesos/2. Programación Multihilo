@@ -113,7 +113,24 @@ El metodo getState() de la class thread, permite obtener el estado en el que se 
 
 
 INICIAR UN HILO
+Cuando se crea un thread mediante el método new(), no implica que se pueda ejecutar, para ello debe estar en estado Runnable y para esto es necesario iniciarlo mediante el método start() de la clase thread.
 
+El método start() realiza las siguientes tasks:
+  -> Crea los resources del sistem necesarios para ejecutar el thread.
+  -> Se encarga de llamar a su método run() y lo ejecuta como un subroceso nuevo e independiente.
+
+Consideraciones importantes:
+  -> Se puede invocar directamente run() y se ejecutara el código asociado al método dentro del thread actual, pero no comenzará un nuevo hilo como subproceso independiente.
+  -> Una vez llamado al metodo run() de un threadddddddddd, no se puede volver a realizar otra llamada al mismo método, si no, se obtendra una IllegalThreadStateException.
+  -> El orden en que se inician los thread mediante start() no influye en el orden de ejecución de los mismos -> El orden de ejecución de los hilos es NO-DETERMINÍSTICO.
+
+
+DETENER TEMPORALMENTE UN THREAD
+Significa que ha pasado al estado no runnable.
+Un thread pasara a no runnable cuando se de alguna de las siguientes circunstancias:
+  -> El thread se ha dormido, 
+  -> El thread está esperando, 
+  -> El thread se ha bloqueado, 
 
 
 
