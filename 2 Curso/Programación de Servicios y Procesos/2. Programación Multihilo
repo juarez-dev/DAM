@@ -212,6 +212,63 @@ Sobre yield() y el egoísmo de los threads hay que tener en cuenta que:
   -> En la app hay que incluir adecuadamente las llamadas a yield(), incluso a sleep() o wait(), si el thread no se bloquea por una E/S.
 
 
+SINCRONIZACIÓN Y COMUNICACIÓN DE THREAD
+Hay ocasiones en las que distintos hilos de un programa necesitan establecer relación entre sí y compartir resources or info.
+Dos situaciones entre threads:
+  -> Dos o más compiten por obtener un mismo resource.
+  -> Dos o más colaboran para obtener un fin común y para ello, necesitan comunicarse a través de algún resoruce.
+
+Para que se ejecuten de manera controlada y coordinada y evitar así posbiles interferencias, utilizamos:
+  -> SINCRONIZACIÓN, capadidad de informar de la situación de un hilo a otro, tiene como objetivo establecer la secuencialidad correcta del programa.
+  -> COMUNICACIÓN, capacidad de transmitir información de un hilo a otro, tiene como objetivo el intercambio de información entre hilos para operar de forma coordinada.
+En Java esto se consigue mediante:
+  -> MONITORES, se crean para marcar bloques de código con la palabar synchronized.
+  -> SEMÁFOROS, se pueden implementar própios o utilizar la clase Semaphore del paquete java.util.concurrent.
+  -> NOTIFICACIONES, permiten comunicar hilos mediante los métodos wait(), notify(), notifyAll() de la clase java.lang.Object.
+
+El paquete java.util.concurrent proporciona varias clases de sincronización que permiten la sincronización y comunicación entre hilos de una app multithreadring -> Semapher, CountDownLatch, CyclicBarrier y Exchanger.
+
+
+INFORMACIÓN COMPARTIDA ENTRE THREADS
+SECCIONES CRÍTICAS, son aquellas secciones de código que no pueden ejecutarse concurrentemente, pues en ellas se encuentran recursos o información que comparten diferentes hilos, y por lo tanto pueden ser problemáticas.
+
+Una forma de proteger secciones críticas es mediante la sincronización, que se consigue mediante:
+  -> EXCLUSIÓN MÚTUA, asegurar que un hilo tiene acceso a la sección crítica de forma exclusiva y por un tiempo finito.
+  -> POR CONDICIÓN, asegurar que un hilo no progrese hasta que se cumpla una determinada condición.
+
+En Java la sincronización de acceso a recursos compartidos se basa en el concepto de monitor.
+
+
+MONITORES - MÉTODOS SYNCHRONIZED
+Es una porción de código protegida por un mute o lock.
+
+Para crear un monitor en Java, hay que marcar un bloque de códiog con synchronized, pudiendo ser ese bloque:
+  -> Un método complet.
+  -> Cualquier segmento de código.
+
+Añadir Synchronized a un método significará que:
+  -> Se crea un monitor asociado al objeto.
+  -> Sólo un thread puede ejecutar el método synchronized de ese objeto a la vez.
+  -> Los threads que necesitan acceder al método permanecerán bloqueados y en espera.
+  -> Cuando el hilo finaliza la ejecución del método, los hilos en espera de poder ejecutarlo se desbloquearán, el planificador Java seleccionará a uno de ellos.
+
+* Interesa marcar como synchronized los bloques que correspondan a secciones críticas y contengan el código o datos que comparten los hilos.
+
+MONITORES - SEGMENTOS DE CÓDIGO SYNCHRONIZED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
