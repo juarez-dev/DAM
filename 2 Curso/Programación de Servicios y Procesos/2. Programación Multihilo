@@ -128,9 +128,97 @@ Consideraciones importantes:
 DETENER TEMPORALMENTE UN THREAD
 Significa que ha pasado al estado no runnable.
 Un thread pasara a no runnable cuando se de alguna de las siguientes circunstancias:
-  -> El thread se ha dormido, 
-  -> El thread está esperando, 
-  -> El thread se ha bloqueado, 
+  -> El thread se ha dormido, se ha invocado sleep() de la clase thread, indicando el tiempo que permanecerá detenido, transcurrido se vuelve Runnable, en concreto a Preparado.
+  -> El thread está esperando, detiene su ejecución mediante la llamada al método wait() y no se reanudará, pasará a Ejecutable cuando se produzca una llamada a notify() o notifyAll() por otro thread.
+  -> El thread se ha bloqueado, está pendiente de que finalice una operación EE/S en algun dispositivo, o a la espera de algún otro topo de recurso, cunado finaliza el bloqueo vuelve a Ejecutable -> Preparado.
+
+El método suspend() (en desuso) también permite detener temporalmente un thread y en este caso lo reanuda resume(), no son seguros y provocan muchos problemas.
+
+
+FILANIZAR UN THREAD
+La forma natural de que muera un thread es cuando termia de ejecutarse su método run(), pasando a estado dead.
+
+Para realizar otra vez el trabajo desempeñado del thread, hay que:
+  -> Crear un nuevo thread con new()
+  -> Iniciar el thread con start()
+
+isAlive() de la clase thread devuelve:
+  -> true si el método esta alive, el thread esta recién creado o un dead thread.
+  -> false si el método no está alive, el thread se encuentra ejecutablo o no ejecutable.
+Un thread esta alive desde la llamada de su método start() hasta su muerte.
+
+
+DORMIR UN THREAD CON sleep()
+El método sleep() de la class thread recibe como parámetro el tiempo que queremos dormir un thread que lo invoca, despues vuelve a estar Runnable (Ready) para seguir ejecutandose.
+
+Dos formas de llamar al método:
+  -> Pasar el tiempo en milisegundos positivo.
+  -> Agregar un segundo argumento entero (entra 1 y 999999), el cual, representa un tiempo extra en nanosegundos que se sumará al primer argumento.
+
+* Cualquier llamada al método sleep() puede provocar una exepción, el compilador nos obliga a controlarla mediante un bloque try-catch.
+
+
+GESTIÓN Y PLANIFICACIÓN DE THREADS
+
+La EJECUCIÓN DE THREADS, requiere la planificación de una secuencia de ejecución (scheduling), y se puede realizar mediante:
+  -> PARALELISMO, en un sistema con múltiples CPUs, cada uno puede ejecutar un thread diferente.
+  -> PSEUDOPARALELISMO, cuando no es posible el paralelismo, una CPU ejecuta múltiple threads.
+
+El SHEDULER es el planificador de threads de Java, utiliza un algoritmo de secuenciación de threads denominado fixed priority scheduling que se basa en un sistema de prioridades relativa,
+de manera que el algoritmo secuencia la ejecución de threads en base a la prioridad de cada uno de ellos.
+El FUNCIONAMIENTO DEL ALGORITMO es el siguiente:
+  -> El thread elegido para ejecutarse, siempre es el Runnable de prioridad más alta.
+  -> Si hay más de uno con la misma prioridad, el orden se maneja mediante un algoritmo por turnos (ROUD-RUBIN) basado en una cola circular FIFO.
+  -> Cuando el thread que esta ejecutandose pasa al estado no ejecutable o muerto, se selecciona otro thread para su ejecución.
+  -> La ejecución de un thread se interrumpe, si otro thread con prioridad más alta se vuelve Runnable -> PREEMPTIVE SHEDULING, cuando un thread con una priority mas alta interrumpa a otro.
+
+La responsabilidad de ejecución de thread se del SO sobre el que corre la JVM y cada uno tiene un manejo distinto:
+  -> SO QUE IMPLEMENTA TIME-SLICING (subdivisión de tiempo), el thread que entra en ejecución se mantiene en ella sólo un micro-intervalo de tiempo fijo o quantum de procesamiento,
+de manera que el hilo ejecutandose no es solo interrumpido por otro con priority mas alta se vuelve ejecutable, sino que también cuando su cuanto de ejecución se acaba.
+  -> SO QUE NO IMPLEMENTA TIME.SLICING, el hilo que entra en ejecución es ejecutado hasta su muerte, salvo que regrese a no ejecutable y otro hilo de prioridad más alta alcance el estado de ejecutable.
+
+
+THREAD PRIORITY
+Cada thread tiene su prioridad representada por un valor entero entre 1 y 10, cuanto mayor sea el valor, mayor es la prioridad.
+
+El main thread siempre es creado con prioridad 5.
+El resto de secondary threads heredan la prioridad que tenga en ese momento el hilo padre.
+
+En la clase thread se definen 3 constantes para menejar prioridades:
+  - MAX_PRIORITY(=10), valor que simboliza la mayor prioridad.
+  - MIN_PRIORITY(=1), valor que simboliza la menor prioridad.
+  - NORM_PRIORITY(=5), valor que simboliza prioridad normal, la que tiene por default el thread donde corre el método main().
+
+Se puede obeter y modificar la thread priority mediante los siguientes métodos de la clase thread:
+  -> getPriority(), devuelve la prioridad del thread.
+  -> setPriority(), modifica la prioridad del thread.
+
+* Cada sistema operativo tiene sus nivles de prioridad que pueden ser distintos de Java (Usar las constantes) *
+
+Se puede conseguir aumentar el rendimiento de una aplicación multithread gestionando las diferentes prioridades de los threads.
+
+
+THREADS EGOSISTAS
+Un thread que entra en Runnable y no sale hasta su murte, impidiendo que otros thread entren en runnable hasta que el muera.
+* Ocurre en SOs que no implementan el time-slicing. *
+
+PROGRAMACIÓN EXPULSORA
+Java da solución al problema de que el mismo programa Java se ejecute de diferente manera según el SO, dificultando así la portabilidad, a traves del método yield() de la clase java.lang.thread.
+  -> yield(), hace que un thread que esta ejecutandose pase a preparado para permitir que otros threads de la misma priority puedan ejecutarse.
+
+Sobre yield() y el egoísmo de los threads hay que tener en cuenta que:
+  -> Su funcionamiento no esta garantizado, puede que después de que un thread invoque a yield() y pase a preparado, éste vuelva a ser elegido para ejecutarse.
+  -> No se debe asumir que la ejecución de una app se realizará en un SO que implementa time-slicing.
+  -> En la app hay que incluir adecuadamente las llamadas a yield(), incluso a sleep() o wait(), si el thread no se bloquea por una E/S.
+
+
+
+
+
+
+
+
+
 
 
 
