@@ -255,6 +255,220 @@ Añadir Synchronized a un método significará que:
 * Interesa marcar como synchronized los bloques que correspondan a secciones críticas y contengan el código o datos que comparten los hilos.
 
 MONITORES - SEGMENTOS DE CÓDIGO SYNCHRONIZED
+Hay veces que no se puede o no interesa sincronizar un método, la solución es poner las llamadas a los métodos que se quieren sincronizar dentro de segmentos sincronizados:
+    
+            synchronized(object){//sentencias segmento;}
+
+En este caso el funcionamiento es el siguiente:
+  -> El objeto, es donde está el método que se quiere sincronizar.
+  -> Dentro del segmento se hará la llamada al método que se quiere sincronizar.
+  -> El thread que entra en el segmento declarado synchronized se hará con el monitor del objeto, si esta libre, o se bloqueará en espera de que quede libre. 
+El monitor se libera al salir del thread del segmento de códiog synchronized.
+  -> Sólo un thread puede ejecutar el segmento synchronized a la vez.
+
+Hay que tener en cuenta que:
+  -> Declarar un método o segmento como sincronizado ralentizará la ejecución del programa, ya que la adquisición y liberación de monitores genera sobrecarga.
+  -> Siempre que sea posible, por legibilidad del código, es mejor sincronizar métodos completos.
+  -> Al declarar bloques synchronized puede aparecer interbloqueo.
+
+* Muchos métodos de las clases predefinidas de Java ya están sincronizados *
+
+
+COMUNICACIÓN ENTRE HILOS CON MÉTODOS java.lang.Object
+La comunicación entre hilos la podemos ver como un mecanismo de auto-sincronización, consistente en lograr que un hilo actúe cuando otro a concluido cierta actividad.
+
+Java soporta la comunicación entre hilos mediante los siguientes objetos de la clase java.lang.Object:
+  -> whait(), detiene el hilo, el cual no se reanudará hasta que otro hilo notifique que ha ocurrido lo esperado.
+  -> whaint(long time), como el anterior, ahora el hilo se vuelve ejecutable tambien si ha concluido el tiempo pasado.
+  -> notify(), notifica a uno de los hilos puestos en espera para el mismo objeto, que ya puede continuar.
+  -> notifyAll(), notifica a todos los hilos puestos en espera para el mismo objeto que ya pueden continuar.
+* La llamada a estos métodos se realiza dentro de bloques syncronized. *
+
+Problemas cásicos para el uso de sincronizar y comunicar hilos:
+  -> Productor-Consumidor, permite modelar situaciones en las que se divide el trabajo entre los hilos.
+modela el acceso simultáneo de varios hilos a una estructura de datos u otro recurso, de manera que unos hilos producen y almacenan los datos en el recursos y otros se encargan de eliminar y procesar esos datos.
+  -> Lectores-Escritores, permite modelar el acceso simultáneo de varios hilos a un a db, fichero u otro recurso, unos queriendo leer y otros escribir o modificar datos.
+
+
+INTERBLOQUEO - DEADLOCK
+Consiste en que uno o más hilos, se bloquean o esperan indefinidamente, esto ocurre porque:
+  -> Cada hilo espera a que le llegue un aviso de otro hilo que nunca llega.
+  -> Todos los hilos, de forma circular, esperan para acceder a un recurso.
+
+Principalmente se llega a interbloqueco cuando un hilo entra en un bloque synchronized y a su vez llama a otro bloque synchronized o bien a utiliar clases de java.util.concurrent que llevan implicita la exclusión mútua.
+
+STARVATION (INANICIÓN), consiste en que un hilo es desestimado para su ejecución.
+Se produce cuando un hilo no puede tener acceso regular a los recursos compartidos y no puede avanzar, quedando bloqueado.
+Puede ocurrir por que el hilo nunca es seleccionado para su procesamiento o porque otros hilos que compiten por el recurso se lo impiden.
+
+
+LA CLASE SEMAPHORE
+Del paquete java.util.concurrent, permite definir un semáformo para controlar el acceso a un recurso compartido.
+
+Para crear y usar un Semaphore:
+  -> Indicar al constructor Semaphroe(int permits) el total de permisos que pueden dar para acceder al mismo tiempo el recurso compartido, coincide con el número de hilos que pueden acceder a la vez al recurso.
+  -> Indicar al Semaphore mediante el método acquire(), que queremos acceder al recurso, o mediante acquire(int permisosAdquirir) cuantos permisos se quieren consumir al mismo tiempo.
+  -> Indicar mediante el método release(), que libere el permiso, o mediante release(int permisosLiberar), cuantos permisos se quieren liberar al mismo tiempo.
+  -> Hay otro constructor Semaphore(int permit, boolean fair) que mediante fair permite garantizar que el primer hilo en invocar acquire() será el primero en adequirir un permiso cuando sea liberado, es decir,
+garantiza el orden de adquisición de permisos, según el orden en que lo solicitan.
+
+La invocación de estos métodos, dependerá del uso de Semaphore:
+  -> Si se usa para proteger secciones críticas, la llamada acquire() y release() se hará desde el recurso compartido o sección crítica y el número de permisos pasado al constructor será 1.
+  -> Si se usa para comunicar hilos, un hilo invocará al método acquire() y otro al release() para trabajar así de manera coordinada.
+El número de permisos pasado al constructor coincidira con el número máximo de hilos bloqueados en la cola o lista de espera para adquirir un permiso.
+
+
+CLASE EXCHANGER
+Del paquete java.util.concurrent, establece un punto de sincronización donde se intercambian objetos entre hilos.
+
+La clase Exchanger<V> es genérica, lo que significa que habrá que especificar en <V> el tipo de objeto a compartir entre los hilos.
+Existen 2 métodos definidos en esta clase:
+  -> exange(V x)
+  -> exange (V x, long timeout, TimeUnit unit)
+Ambos permiten intercambiar objetos entre hilos.
+El hilo que desea obtener la info esperará realizando una llamada al método exchange() hasta que el otro sitúe la info utilizando el mismo método o 
+hasta que pase un periodo de tiempo establecido mediante el parámetro timeout.
+
+El funcionamiento es el siguiente:
+  -> Dos hilos intercambián objetos del mismo tipo, A y B.
+  -> El hiloA inovocará a exchange(onbjetoA) y el hiloB invocara exchange(objetoB).
+  -> El hilo que procese su llamada a exchange(object) en primer lugar, se bloqueará y quedará a la espera de que lo haga el segundo.
+Cuando esto ocurra y se libere el bloqueo sobre ambos hilos, a la salida del método exchange(objectA) proporciona el objeto objetoB al hiloA, y el método exchange(objetoB) el objetoA al hiloB.
+
+* Los intercambios se emplean típicamente cuando un hilo productor está rellenando una lista o búfer de datos, y otro hilo consumidor los está consumiendo. *
+
+De esta forma cuando el consumidor empieza atratar la lista de datos entregados por el productor, el productor ya está produciendo una nueva lista, 
+esta es la principal utilidad, que la producción y el consumo de datos, puedan tener lugar concurrente.
+
+
+LA CLASE COUNTDOWNLATCH
+Del paquete java.util.concurrent es un autilidad de sincronización que permite que uno o más threads esperen hasta que otros finalizen su trabajo.
+
+Funcionamiento:
+  -> Implementa un puntoo de espera que deniminaremos puerta de cierre, donde uno o más hilos esperan a que otros finalicen su trabajo.
+  -> Los hilos que deben finalizar su trabajo se controloan mediante un contador que llamaremos cuenta atrás.
+  -> Cuando la cuenta atras llega a 0 se reanudará el trabajo del hilo o hilos interrumpidos y puestos en espera.
+  -> No sera posible volver a utilizar la cuenta atras (reiniciarla), si fuera necesario habria que pensar en utilizar la clase CycleBarrier.
+
+Los aspectos mas importantes al usar la clase CountDownLatch:
+  - Al constructor countDownLatch(int count), se le indica el total de hilos que deben completar su trabajo.
+  - El hilo en curso desde el que se invoca el método await() esperará en la puerta de cierre hasta que la cuenta tome el valor 0.
+También se puede utilizar await(long tiempoEsper, TimeUnit unit) para indicar que la esperá será hasta que la cuenta llega a 0 o se sobrepase el tiempo de espera.
+  - La cuenta se irá decrementando mediante la invocación de countDown() y cuando llega a 0 se libera el hilo/s que estaban a la espera, continuando su ejecución.
+  - No se puede reiniciar/reutilizar la cuenta atras una vez llega a 0.
+  - El método getCount() obtiene el valor actual de la cuenta y generalmente se utiliza durante las pruebas y depuración del programa.
+
+
+LA CLASE CYCLICBARRIER
+Del paquete java.util.concurrent es una utilidad de sincronización que permite que uno o más thread esperen hasta que todos ellos finalicen su trabajo.
+
+Funcionamiento:
+  -> Implementa un punto de espera (barrier), donde cierto número de hilos esperan a que todos ellos finalicen su trabajo.
+  -> Finalizado el trabajo de los hilos, se diapra la ejecución de una determinada acción o bien el hilo interrumpido continua con su trabajo.
+  -> La barrier se llama cíclica, poruq se puede reutilizar después de que los hilos en espera hayan sido liberados tras finalizar su trabajo, también se puede reiniciar.
+
+Aspectos importantes a usar la clase CyclicBarrirer:
+  - Indicar al constructor CyclicBarrirer(in threadAcceden) el total de hilos que van a usar la barrier, este sirve para disparar la barrier.
+  - La barrera se dispara cuando llega el último hilo.
+  - Cuando se dispara, dependientdo del consturctor, CyclicBarrire(int hilos) o CyclicBarrier(in hilos, Runnable accionBarrera) se lanzara o no una acción y
+entonces se liberan los hilos de la barrera. La acción puede ser realizada mediante cualquier objeto que implemente Runnable.
+  - El método principal de la clase es await(), se utiliza para indicar que el hilo en curso ha concluido su trabajo y queda a la espera de que lo hagna los demas.
+
+Otros métodos de clase usables:
+  - await(long tiempo, TimeUnit unit), el hilo espera en la barrier hata que los demas finalicen o un tiempo.
+  - reset(), reinicia la barrier al estado inicial.
+  - getNumberWaiting(), número de hilos que estan a la espera.
+  - getParties(), número de hilos requeridos para esa barrier.
+
+
+APLICACIONES MULTIHILO
+Deben reunir las siguientes propiedades:
+  - SEGURIDAD, la app no llegará a un estado inconsistente por un mal uso de los resources compartidos, esto implica sincronizar hilos asegurando la exclusión mutua.
+  - VIVEZA, la app no se bloqueará o probocará que un hilo no se pueda ejecutar, esto implica un comportamiento no egoísta de los hilos y la ausencia de interbloqueos e inanición.
+
+La CORRECCIÓN DE LA APLICACIÓN se mide en función de la seguridad y viveza, pudiento tener:
+  - CORRECCIÓN PARCIAL, se cumple la propiedad de seguridad, el programa termina y el resultado es el deseado.
+  - CORRECCIÓN TOTAL, se cumplen la seguridad y viveza, el programa termina y el resultado es el correcto.
+
+Aspectos a tener en cuenta al desarrollar una app multihilo:
+  -> La situación de los hilos en la app:
+    - Independientes, no es necesario sincronizar y/o comunicar hilos.
+    - Colaborando y/o Compitiendo, es necesario sincronizar y/o comunicar los hilos, evitando interbloqueos y esperas indefinidas.
+  -> Gestionar las prioridades, de manera que los hilos más importantes se ejecuten antes.
+  -> No todos los SO implementan time-slicing.
+  -> La ejecución de hilos es no-determinística.
+
+Ventajas que podemos obener de usar las librerias aportadas por el lenguaje de programación(Java) para las apps multihilo,:
+  - Facilitar la programación, requiere menos esfuerzos utilizar una clase estandar que desarrollarla para realizar la misma tarea.
+  - Mayor rendimiento, los algoritmos usados han sido desarrollados por expertos en concurrencia y rendimiento.
+  - Mayor fiabilidad, Las librerias o bibliotecas estándar han side diseñadas para evitar deadlocks, cambios de contexto innecesarios o condiciones de carrera, nos permiten garantizar un minimo de calidad en nuestro software.
+  - Menor mantenimiento, el código que generemos será más legible y facil de actualizar.
+  - Mayor productividad, el uso de una API estándra permite mejor coordinación entre developers y reduce el tiempo de aprendizaje.
+
+
+OTRAS UTILIDADES DE CONCURRENCIA
+  -> Interfaz Executor, programador de tareas, permite:
+    - Realizar la ejecución de tares en un único hilo en segundo plano, en un nuevo hilo o en un pool de hilos.
+    - Diseñar políticas propias de ejecución y añadirlas a Executro.
+    - Ejecutar tareas mediante el método execute(), estas deben implementar la interfaz Runnable.
+    - Hacer uso de  diferentes implemtaciones de Executor, como ExecutorService.
+  -> Collections, cabe destacar:
+    - Interfaz Queque, colección diseñada para almacenar elementos antes de procesarlos, ofreciendo diferentes operaciones como inserción, extracción e inspección.
+    - Interfaz BlockingQueque, deseñada para colas de tipo productor/consumidor, y que son thread-safe, son capaces de esperar mientras no haya elementos almacenados en su cola.
+    - Implementaciones concurrentes de Maps y List.
+  -> La class Locks, proporciona implementaciones y tipos de bloqueos y desbloqueos entre métodos. Su funcionaidad es equivalente a Synchronized, 
+     pero proporciona métodos que hacen más facil el uso de bloqueos y condiciones, entre ellos:
+    - newCondition(), permite tener mayor control sobre el lock y genera un objeto tipo Condition asociado al bloqueo. Así el método await() indica cuándo deseamos esperar, 
+y el método signal() permite indicar si una condición de bloqueo se activa, para finalizar la espera.
+    - ReentranLock, permite realizar exclusión mutua utilizando monitores. El metodo lock() indicca que deseamos utilizar el recurso compartido y unlock() que hemos terminado de utilizarlos.
+  -> Variables atómicas, java.util.concurrent.atomic, permiten definir recursos compartidos, sin la necesidad de proteger dichos recursos de forma explícita, ya que ellas internamente realizan dichas labores de protección.
+
+
+LA INTERFAZ EXECUTOR Y LOS POOLS DE HILOS
+Un THREAD POOL, es un básicamente un contenedor dentro del cual se crean e inician un número limitado de hilos, para ejecutar todas las tareas de una lista.
+
+Normalmente para declarar un pool se delcara un objeto tipo ExecutorService utilizando alguno de los siguientes métodos de la clase estática Executors:
+  -> newFixedTheradPool(int threadNumber), crea un pool con el número indicado de hilos, dichos hilos se reutilizan ciclicamente hasta terminar con las Tasks de la cola o lista.
+  -> newCachedThreadPool(), crea un pool que crea hilos conforme se necesitan, pero puede reutilizar lo ya concluidos para no crear demasiados.
+Los hilos inactivos por mucho tiempo son eliminados automáticamente.
+  -> newSingleThreadExecutor(), crea un pool de un solo hilo, tiene como ventaja que si ocurre una excepción durante la ejecución de una tarea, no se detiene la ejecución de las siguientes.
+  -> newScheduledExecutor(), crea un pool que va a ejecutar tareas programadas cada cierto tiempo, ya sea una vez o de manera repetitiva.
+Es parecido a un objeto Timer, pero con la diferencia de que puede tener varios thread que irán realizando las tareas programadas conforme se desocupen.
+
+Los objetos ExecutorService implements la interfaz Executor, que define el método execute(Runnable), alque hay que llamar una vez por cada tarea que deba ejecutarse por el pool.
+
+La interface ExecutorService proporciona métodos para el control de la ejecución de las tareas, 
+entre ellos el método shutdown() par indicarle al pool que los hilos no se van a reutilizar par new tasks y deben morir al finalizar su trabajo.
+
+
+GESTIÓN DE EXCEPCIONES
+Para la gestión de excepciones de una app multihilo se puede utilizar el método uncaughtExceptionHandler() de la clase thread, que permite definir un manejador de excepciones.
+
+Creación de un MANEJADOR DE EXCEPCIONES:
+  -> Crear una class que implements la interfaz thread.UncaughtExceptionHandler.
+  -> Implements el método uncaughtException().
+
+
+DEPURACIÓN Y DOCUMENTACIÓN
+Tareas muy importantes:
+  - DEPURACIÓN, corregir fallos y errores de funcionamiento del programa.
+  - DOCUMENTACIÓN INTERNA, aportar legibilidad a nuestros programas.
+
+Depuración de apps multihilo, es una tarea dificil debido a:
+  - La ejecución de hilos tiene un comportamiento no determinístico.
+  - Hay que controloar varios flujos de ejecución
+  - Aparecen nuevos errores potenciales debidos a la compartición de recursos entre varios hilo:
+    - Errores al no cumplir la exclusión mutua.
+    - Errores al producirse interbloqueo.
+
+Seguimientos de la pila de Java estáticos y dinámicos con métodos de la clase thread:
+  - dumpStack(), muestra una traza de la pila del hilo en curso.
+  - getAllStackTraces(), devuelve un Map de todos lo hilos vivos en la app.
+  - getStackTrace(), devuelve el seguimiento de la pila dentro de un hilo en una app.
+* Los gets permiten grabar los datos del seguimiento de pila en un log. *
+
+
+
 
 
 
