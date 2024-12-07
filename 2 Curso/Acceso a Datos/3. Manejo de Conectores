@@ -1,0 +1,118 @@
+MANEJO DE CONECTORES
+DBMS -> Database Managment System
+RDMBS -> Relational Database Managment System
+JDBC -> Java DataBase Connectivity, simplifica el acceso a las bases de datos relacionales, proporciona un lenguaje mediante el cual las apps pueden comunicarse con motores de bases de datos.
+
+DESFASE OBJETO RELACIONAL o IMPEDANCIA OBJETO-RELACIONAL, la diferencia de aspectos que existen entre la programación orientada a objetos y la base de datos relacional, 
+conjunto de deificultades técnicas que surgen cuando una db se usa en un conjunto con un programa escrito en POO:
+  - Lenguaje de programación.
+  - Tipos de datos.
+  - Paradigma de programación.
+
+El m. realacional trata con relaciones y conjuntos debido a su naturaleza matemática.
+El m. de POO trata con objetos y asociaciones entre ellos.
+
+La escritura/lectura mediante JDBC implica
+  - Abrir una conexión.
+  - Crear una sentencia SQL.
+  - Copiar todos los valores de las propiedades de un objeto en la sentencia, ejecutarla y así almacenar el objeto.
+
+
+PROTOCOLO DE ACCESO A BASE DE DATOS
+Cada SGDB tiene su propia conexión y su propio API.
+
+ODBC -> Open DataBase Conectivity. Este sistema de conexión es configurado usando diferentes drivers y un API estándar.
+
+Clase JDBC DriveManager, es responsable de localizar un controlador JDBC que necesita la aplicación. 
+Cuando un app cliente solicita una conexión de DB, la solicitud se expresa en forma de una URL.
+Una URL de JDBC es similar a las de un navegador web.
+
+
+CONECTORES O DRIVERS
+Conjunto de clases encargadas de implementar los interfaces del API y acceder a la DB.
+Suele ser un fichero .jar que contiene una implementación de todas las interfacesl del API JDBC.
+
+
+ARQUITECTURA JDBC
+MODELO DE DOS CAPAS, una aplicación se comunica directamente a la fuente de datos. Esto necesita un conector JDBC que pueda comunicar con la fuente de datos específica a la que acceder.
+Cliente/Servidor, las instrucciones de usuario se envian a la DB y los resultados se devuelven al user.
+
+MODELO EN TRES CAPAS, los comandos se envian a una capa intermedia de servicios, la cual envía los comandos a la fuente de datos, esta los procesa y envía los resultados de vuelta a la capa intermedia,
+desde ahí se envían al user.
+
+
+CONECTOR TIPO 2
+Los conectores tipo 1 -> JDBC-ODBC Bridge, proporcionan un puente entre el API JDBC y el API ODBC.
+El driver JDBC.ODBC Bridge traduce las llamadas JDBC a llamadas ODBC y las envía a la fuente de datos ODBC.
+Este tipo de driver va incluido en el JDK.
+
+CONECTOR TIPO 2 - API NATIVA
+Convierten las llamadas JDBC a llamadas específicas de la DB para bases de datos como SQL Server, Informix, Oracle o Sybase.
+Comunica directamente con el servidor de bases de datos, por lo que es necesario que haya códiogo en la máquina cliente.
+
+*Los conectores tipo 1 y 2 utilizan código nativo vía JNI(Java Native Interface), por lo que son más eficientes.
+
+
+CONECTOR TIPO 3 - JDBC-Net pure Java driver
+Tiene un aproximación de tres capas.
+Las peticiones JDBC a la base de datos se pasan a través de la red al servidor de la capa intermedia (middleware), 
+el servidor traduce el protocolo independientemente del SGDB a protocolo específico del sistema gestor y se envía a la DB.
+Los resultados se mandan de vuelta al middleware y se enrutan al cliente.
+* Es útil para aplicaciones en Internet.
+
+CONECTOR TIPO 4 - PROTOCOLO NATIVO
+Convierten directameente las llamadas JDBC al protocolo de red usado poor el SGDB, esto permite una llamada directa desde la máquina cliente al servidor del SGDB y una solución excelente para acceso en tntranets.
+
+
+CONEXIÓN A UN DB
+En java podemos utilizar el método getConnection() de la clase DriverManager, recibe una URL de JDBC que identifica a la DB con la que queremos realizar la conexión.
+Se devuelve un objeto Connection que representa la conexión con la DB.
+
+
+CREACIÓN DE LA BASE DE DATOS
+DRIVERS MySQL
+Proporciona drivers basados en estándares para JDBC, ODBC y .Net.
+Proporciona conectiividad para aplicaciones clientes desarrolladas en Java con MySQL Connectro/j, que implemente la API JDBC, tambien soporta el nuevo X DevAPI.
+MySQL Connector/J es Tipo 4.
+
+DRIVERS DE Oracle
+JDBC Thin Driver, utiliza sockets de Java para conectarse directamente a Oracle.
+Proporciona su propia version TCP/IP del protocolo SQL*Net de Oracle.
+
+
+INSTALAR EL CONECTOR DE LA DB
+MySQL.
+La función del conector es traducir los comandos del API JDBC al protocolo nativo del SGDB.
+Necesitoamos instalar el conector de la base de datos en el IDE.
+
+Oracle.
+Se hace de la misma forma que en MySQL
+  - Se utliza el driver ojdbc11.jar o ojdb8.jar que se pueden descargar en la página de Oracle. Dese el IDE añadimos la libreria y configuramos el Build Path.
+  - La cadena de conexion recomendada es la que utiliza el Service Name: host:port:service_name
+
+  **** Se puede utilizar Maven para obtener el conector en el proyecto añadiendo la dependencia a pom.xml ****
+
+
+  JDBC CONEXIÓN A UNA BASE DE DATOS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
