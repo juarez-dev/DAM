@@ -1,0 +1,400 @@
+DISEÑO DE INTERFACES GRÁFICAS
+
+USABILIDAD
+La disciplina que estudia la forma de diseñar webs y apps para que los users puedan interactuar con ellos de la forma más fácil, cómoda e intuitiva posible.
+
+Cuanto más sencillo le resulta a un usuario navegar por una app, más posibilidades tendrá de realizar de forma eficiente su trabajo y mayor éxito tendrá el software.
+Definir adecuados parámetros de usabilidad en el diseño, se traducirá en beneficios económicos, de calidad y de imagen de "nuestra empresa".
+
+ACCESIBILIDAD, se refiere a que el diseño del software sea tal que permite que permite a personas discapacitadas acceder a sus contenidos.
+UTILIDAD, mide el grado de satisfacción de las necesidades de los users.
+
+
+CARACTERÍSTICAS
+Las más importantes de una interfaz usable:
+  - ÚTIL, capáz de cumplir las tareas específicas para la cual se ha diseñado.
+  - FÁCIL DE USAR, eficiente, veloz y con la menor cantidad de errores posibles.
+  - FÁCIL DE APRENDER, que no se necesite excesivo tiempo en aprender a trabajar con la app y que sea sencillo recordar su funcionamiento.
+  - ELEGANTE EN SU DISEÑO, para favorecer la precepción del usuario y sus emociones.
+
+Otras características a tener en cuenta en el diseño de interfaces:
+  - Previsión de errores de los users al navegar por la interfaz -> Devemos proveer mecanismos de recuperación de errores y reversibilidad de acciones
+  - Retroalimentación de la interfaz ante acciones del user, para evitar que se sienta perdido.
+  - Simplicidad de diseño de la interfaz, evitar la sobrecarga será esencial para un buen uso de la misma.
+
+
+ATRIBUTOS
+Es necesario saber que su correcta manipulación puede hacer que se cumplan o no los objetivos planteados por el sistema, por ello, los principios básicos son:
+  - Organizar.
+  - Economizar.
+  - Comunicar.
+
+Los CINCO ATRIBUTOS DE LA USABILIDAD:
+  - FACILIDAD DE APRENDIZAJE, el sistema debe de ser fácil de aprender.
+  - EFICIENCIA, una vez aprendido el manejo de la app, el user debe adquirir un nivel alto de productividad.
+  - RECUERDO DE UTILIZACIÓN EN EL TIEMPO, el uso debe ser fácil de recordar.
+  - TASAS DE ERROR, cuantos errores comete el user por unidad de tiempo.
+  - SATISFACCIÓN, qué grado de satisfacción tiene la utilización de la aplicación para el user.
+
+Beneficios de la Usabilidad:
+ - Reducción de los costes de aprendizaje y ayuda al user.
+ - Optimización de los costes de diseño, rediseño y mantenimiento.
+ - Disminución de la tasa de errores cometidos por el uso cotidiano de la aplicación.
+ - Aumento de la satisfacción de los users y del prestigio de la marca.
+
+
+ACCESIBILIDAD
+Personas con algún tipo de discapacidad van a poder hacer uso de la app.
+Hace referencia al diseño que va a permitir que estas personas puedan percibir, entender, navegar e interactuar con la app, aportando a su vez contenidos.
+También beneficia a otras personas, incluyendo personas de edad avanzada que han visto mermadas sus habilidaddes a consecuencia de la edad.
+
+Nuevo signifcado -> Asegurar que el diseño de la aplicación sea uniforme y universal.
+
+APLICACIÓN DE LA ACCESIBILIDAD
+Hay que comprender la accesibilidad, comprometerse a garantizarla, aprender cómo aplicarla y comprender sus responsabilidades legales.
+
+COMPROMISO Y RESPONSABILIDAD
+  - CONOCIMIENTO, tener conciencia sobre el tema, la mayoria de errores de accesibilidad son el resultado de la falta de conocimiento.
+  - LIDEREZGO, dirección comprometida con la accesibilidad.
+  - POLÍTICAS Y PROCEDIMIENTOS, respaldo de las normas y procedimientos correctos, establecer política interna que resuma las normas, procedimientos y métodos para supervisar su cumplimiento
+FORMACIÓN Y SOPORTE TÉCNICO
+  - Los beneficios de brindar acceso a una población más amplia suelen superar el tiempo necesario para que un developer con experiencia aplique la accesibilidad.
+  - Leva meses interiorizar aprender accesibilidad. Existen diferentes fuentes de información útiles y profesionales que pueden ayudar a logara alta accesibilidad.
+LEYES Y NORMATIVAS
+Direcctrices internacionales, desarrolladas por World Wide Web Consorcium (W3C), son la base de muchas leyes de accesibilidad web en todo el mundo.
+La versión 2.0 de estas directrices se basa en CUATRO PRINCIPIOS:
+  - PERCEPTIBLES, el contenido debe ser perceptible para los sentidos (vista y oido), ya sea a través del navegador o mediante ayudas técnicas.
+  - OPERABLES, los users deben poder interactuar con todos los controles y elementos interactivos utilizando el ratón, teclado o dispositivos de asistencia.
+  - COMPRENSIBLES, el contenido debe ser claro y evitar la confusión y la ambiguedad.
+  - ROBUSTOS, el contenido debe se accesible para una amplia variedad de tecnologías, iclusive navegadores y ayudas ténicas antiguas y modernas.
+
+
+PRINCIPIOS CLAVE DEL DISEÑO ACCESIBLE
+  - PROPORCIONA UN TEXTO ALTERNATIVO ADECUADO.
+Una alternativa textual a los contenidos que no son texto en la aplicaciones, útil para las personas que son ciegas y que dependen de un lector de pantalla para acceder al contenido de una app.
+
+  - PROPORCIONA ENCABEZADOS PARA LAS TABLES DE DATOS.
+Las tablas se utilizan para mostrar y organizar datos.
+Las que se utilizan para organizar datos tabulados deben tener encabezados adecuados.
+Las celdas deben de estar asociadas con sus cabeceras adecuadas, lo que hace que sea más fácil para los usuarios de lectores de pantalla navegar y entender las tablas de datos.
+
+  - GARANTIZA QUE LOS USUARIOS PUEDEN COMPLETAR Y ENVIAR TODOS LOS FORMULARIOS.
+Cada elemento de un formulario tiene etiqueta y que está asociadan al elemento del formulario correcto, además, el usuario debe poder enviar el formulario y recuperarse de cualquier error.
+
+  - ASEGURA QUE LOS ENLACES TENGAN SENTIDO FUERA DE CONTEXTO.
+Deben tener sentido si el texto del enlace es leído de forma aislada, evitar frases como "haga click aqui" o "más".
+
+  - SUBTITULA Y/O PROPORCIONA TRANSPCRIPCIONES.
+Los vídeos y audios deben tener subtítulos y una transcripcion. Con el audio archivado, la transcripcion puesde ser suficiente.
+  
+  - GARANTIZA LA ACCESIBILIDAD DEL CONTENIDO, INCLUYENDO ARCHIVOS PDF, DOCUMENTOS WORD O PRESENTACIONES
+Los documentos deben ser lo más accesibles posible.
+  
+  - PERMITE A LOS USERS SALTAR LOS ELEMENTOS REPTETITIVOS EN LA PÁGINA.
+Se logra generlamente al proporcionar un enlace "saltar al contenido", "saltar al contenido principal" o "saltar navegación" en la parte superior de la página que salta al contenido principal de la página.
+
+  - NO CONFÍES ÚNICAMENTE EN EL COLOR PARA TRANSMITIR EL SIGNIFICADO.
+La información transmitida por colores puede no estar disponible para una persona daltónica y no estará disponible para users de lectores de pantalla.
+
+  - ASEGURARSE DE QUE EL CONTENIDO ESTÁ CLARAMENTE ESCRITO Y ES FÁCIL DE LEER.
+Muchas formas de hacerlo: escribir con clarirdad, tipos de letras evidentes y empolear ecabezados y listas adecuadamente.
+
+
+PAUTAS Y ESTANDARES DE ACCESIBILIDAD PARA EL CONTENIDO WEB -WCAG
+  WCAG 1.0
+  WCAG 2.0
+  WCAG 3.0
+
+
+NORMAS RELACIONADAS CON LA USABILIDAD Y LA ACCESIBILIDAD
+USABILIDAD
+  ISO 2500 .- Calidad del Software y Métricas de Evaluación.
+  ISO 9241 .- Requisitos del Software en Relación a la Calidad de Uso.
+  ISO 14915 .- Ergonomía del Software para Interfaces de Usuarios Multimedia.
+
+ACCESIBILIDAD
+  - Leyes de derechos civiles y derechos humanos.
+  - Directrices de accesibilidad al contenido en la web WCAG.
+  - Section 508.
+  - Normas ISO.
+  - Legislación Europea.
+  - Normativas Locales
+
+
+MEDIDA DE USABILIDAD Y ACCESIBILIDAD DE APLICACIONES
+Las métricas de usabilidad son aquellas características de la interfaz que son medibles de forma efectiva.
+Se trata de encontrar una forma de evaluar la usabilidad de manera cualitativa y cuantitativa.
+
+Estas características se suelen dividir en 3 grupos.
+  1. EFECTIVIDAD, mide la plenitud con la que se alcanza un objetivo concreto.
+  2. EFICIENCIA, mide el esfuerzo para conseguir un objetivo.
+  3. SATISFACCIÓN, mide el grado de satisfacción del user.
+
+Para médir las métricas anteriores, es necesario un gran número de users y seguir las siguientes pautas:
+  1. DEFINIR LAS TAREAS que van a realizar los users, concentrandose en las supuestas más complejas o las que requieren más tiempo para ejecutarlas.
+  2. ESTABLECER LOS OBJETIVOS para las tareas seleccionadas.
+  3. DEFINIR QUÉ VARIABLES SE VAN A MEDIR durante el proceso.(Tiempo de ejecucion, porcentaje de error, número de veces que retroceden los users).
+  4. PLANIFICAR CÓMO SE VAN A RECOGER LOS DATOS.
+
+Algunas medidas clave que se pueden tomar para evaluar y mejorar la accesibilidad de una aplicación:
+  - PRUEBAS CON USUARIOS con una variedad de habilidaddes y discapacidades.
+  - COMPLIMIENTO WCAG.
+  - ETIQUETADO DE ELEMENTOS.
+  - CONTRASTES VISUALES.
+  - NAVEGACIÓN Y TECLADO.
+  - LECTORES DE PANTALLA.
+  - FORMULARIOS Y ETIQUETAS.
+  - COMPATIBILIDAD CON TECNOLOGÍAS DE ASISTENCIA.
+  - ANIMACIONES Y MULTIMEDIA.
+  - AJUSTES Y PERSONALIZACIÓN.
+  - PRUEBAS DE ESTRÉS.
+  - DOCUMENTACIÓN ACCESIBLE.
+
+
+PRUEBAS DE EXPERTOS
+Usuarios expertos contribuyen a las pruebas de usabilidad y accesibilidad detectando errores del sistema, basando sus opiniones en su experiencia.
+Tienen como objetivo principal detectar elementso de diseño de la interfaz que pueden confundir al user y restar calidad en la aplicación
+
+Tipos de pruebas con expertos:
+  - EVALUACIÓN HEURÍSTICA, verificación frente a heurísticas de diseño.
+  - REVISIÓN DE NORMAS.
+  - INSPECCIÓN DE CONSISTENCIA, a través de una familia de interfaces que confomran la app.
+  - INSPECCIÓN FORMAL DE USABILIDAD Y ACCESIBILIDAD.
+
+CAMINATA COGNITIVA, un grupo de expertos simuna la manera en la cual un user caminaria por la interfaz al realizar tareas particulares.
+
+
+PRUEBAS CON USUARIOS
+Nos van a permitir obtener valiosa info, la base para lograr un diseño centrado en el user, sobre la que se construiran las etapas posteriores de explotación y mantenimiento.
+
+Metodologías de pruebas con usuarios:
+  - REUNIÓN, Encuentros durante las etapas del proceso de development del software. Recomendable que siempre haya un experto actuando como moderador.
+  - ENTRENVISTAS Y ENCUESTAS
+Las entrevistas son contactos personalizados con users, orales -> info cualitativa; escritas -> info cuantitativa.
+Las encuests son escritas y revisadas por especialiestas para asegurar que se evaluan los aspectos más complejos de la interfaz.
+  - DISEÑO DE ESCENARIOS, variante de la encuesta, se les pide a los users que definan el orden de acciones realizadas para lograr un objetivo, se busca así obtener las secuencias lógicas de accion de alguna tarea.
+  - DISEÑO PARTICIPATIVO, reunion entre productores y una muestra de users potenciales del producto final, se busca que los users participen en el diseño de la interfaz.
+
+  La prueba con los users permitirá detectar las tareas que resultan más dificilies, así como los elementos de la interfaz que son menos comprensibles.
+
+
+  ESQUEMAS (WIREFRAMES), PROTOTIPOS Y MAQUETAS (MOCKUPS)
+Son los 3 primeros pasos en la secuencia del producto, permiten a los diseñadores de interfaces UI y experiencias de usuario UX realizar rondas de pruebas de user en cada etapa del proceso de diseño.
+
+WIREFRAME
+Es una representación básica de baja fidelidad del concepto original del producto que contiene los elementos básicos que aparecen en una web o aplicación.
+
+PROTOTIPO
+Es el siguiente paso en el proceso de desarrollo de productos después de crear el wireframe y consiste en un modelo funcional de una app o web.
+La crecion de prototipos permite examinar los recorridos de los users, pensar como se mueven entre diferentes actividades o tareas para logra ciertos resultasod y descubir cualquier problema potencial de flujo de interacción.
+
+MAQUEGA O MOCKUP
+Es una simulación estática de alta fidelidad del producto terminado que proporciona una representación visual de deseño del producto, incluida tipografia, las imágenes, colores y estilo general.
+
+
+PAUTAS DE DISEÑO DE LA INTERFAZ DE USUARIO
+  - Organizar los elementos que conforman la interfaz de manera clara y consistente.
+  - Economizar elementos y contenidos, para comunicar lo máximo con los mínimos elementos.
+  - Comunicar, ajustando la presentación de contenidos a las capacidades del usuario.
+
+Pautas que deben tenerse en cuenta:
+  - DISEÑO VISUAL.
+  - COLOR.
+  - MATIZ, CONTRASTE Y RESPLANDOR.
+  - DISPOSICIÓN DE LAS VENTANAS TIPO FORMULARIO.
+  - REDACCIÓN DE TEXTO EN LA INTERFAZ:
+    - BREVEDAD.
+    - LENGUAJE.
+
+
+ESTRUCTURA DE LA INTERFAZ DE USUARIO
+Los principios básicos para el diseño son:
+  - FAMILIARIDAD DE USO.
+  - CONSISTENCIA.
+  - LEGIBILIDAD.
+  - MÍNIMA SORPRESA.
+  - RECUPERABILIDAD.
+
+Una interfaz coherente debe integrar la interacción del usuario y la presentación de la información.
+
+
+MENÚS
+Lista de opciones que se muestran en pantalla o en una ventana para que los users elijan la opción que deseen.
+
+Permiten 2 cosas:
+  - Navegar dentro de un sistema, presenando rutas que llavan de un sitio a otro.
+  - Seleccionar elementos de una lista.
+
+En su diseño hay que especificar su título, las opciones que se mostrarán y que acciones van a tener lugar cuando se elijan
+
+Los tipos más usados son:
+  - MENUS DE BARRAS.
+  - MENUS DE BARRAS Y MENU DESPLEGABLES.
+  - PALETAS O BARRAS DE HERRAMIENTAS.
+  - MENUS CONTEXTUALES O MENUS POP-UP.
+  - PERSONALIZACIÓN.
+
+
+VENTANAS
+Areas particulares de la pantalla dedicadas a un propósito particular.
+Pueden moverse, ocultarse, minimizarse,... permitiendo al user controlar la apariencia de la interfaz.
+
+CUADROS DE DIÁLOGO
+Mensajes producidos por el sistema en respuesta a las acciones del usuario.
+Tambíen se usan para el sistema de ayuda en línea y como parte de la documentación suministrada con el sistema.
+
+Factores a tener en cuenta a la hora de su diseño:
+  - Nivel de habilidad del usuario.
+  - Estilo.
+  - Los mensajes deben ser positivos y activos.
+  - Cultura.
+
+Tipos de cuadros de diálogo:
+  - Para informar del éxito/fracaso de una acción.
+  - Para motores de búsqueda de la aplicación.
+  - Para ayuda en línea de la aplicación.
+
+
+ATAJOS DE TECLADO
+Son combinaciones de teclas que realizan una acción determinada, sustituyendo el uso del puntero sobre el elemento gráfico de la interfaz,
+
+Son convenientes para aumentar la velocidad de trabajo del usuario en aquellas acciones que realizan con más frecuencia.
+
+
+ASPECTO DE LA INTERFAZ DE USUARIO
+Tiene que ver con los colores, el tipo de fuente, los iconos y la distro de los elementos en el espacio.
+Su objetivo principal es que al user le permita adaptarse rápidamente al diseño, localizr la información y controlar la navegación en el espacio.
+
+
+COLORES
+Usados adecuadamente constituyen una potente herramienta de comunicación.
+Su uso inadecuado puede provocar molestias visuales o asociaciones erróneas que impidan la correcta percepción del mensaje.
+
+Resaltan la información que se considera más importante.
+
+VENTAJAS
+  - Comunicar ideas de forma rápida y estética, aumentando la eficiencia del sistema.
+  - Hacer que ciertos mensajes se presenten de forma más llamativa, aumentando el intres en leerlos.
+  - Crear un efecto psicológico que llama la atencion, se memoriza visualmente y crea emociones, persuadiendo al observador
+  
+PRECAUCIONES
+  - No abusar del color.
+  - Demasiados colores compitiendo produce confusión.
+
+Principios básicos:
+  - Limitar el número de colores, no mas de 4 o 5 por ventana y no mas de 7 en la app.
+  - Utilizar cambio de color para mostrar cambio en el estado del sistema.
+  - Utilizar el código de colores para apoyar la tarea que los usuarios están tratando de llevar a cabo.
+  - Utilizar el código de colores de forma consciente y consistente.
+  - Cuidar el uso de pares de colores. rojo y azul simultaneamente.
+  - Utilizar un color consistente en todo el espacio de la interfaz, aperentar homogeneidad.
+  - Seleccionar combinaciones legibles entre el fondo y lo que presentamos en el frente
+
+
+FUENTES
+Su elección adecuada contribuirá al equilibrio y la interacción entre los distintos caracteres de la pantalla, asi como de una igualdad verbal y visual.
+Jerarquia visual.
+Tamaño adecuado.
+
+
+ICONOS
+Imagenes que representan acciones o conceptos, se reconocen rápido y ocupan poco espacio en pantalla.
+
+El equilibrio y organización general de los iconos es fundamental. Equilibrio entre letras e iconos.
+
+
+DISTRIBUCION DE ELEMENTOS
+Puede dirigir las intenciones del usuario y hacer que la interacción sea mucho más amena y eficaz.
+Diseñar una interfaz ordenada y agradable al determinar claramente el espacio de texto y gráficos y el espacio en blanco.
+
+
+ELEMENTOS INTERACTIVOS DE LA INTERFAZ DE USUARIO
+La retroalimentación debe ser fácil de leer y entender, para ello, se debe fomentar su consistencia y el almacenamiento de información adicional para asegurar el feed-back.
+
+Para el diseño interactivo, hay que tener en cuenta el tipo de acciones que se van a llevar a cabo y cuál es la interacción más apropiada de cada una con el user.
+
+
+BOTON DE COMANDO
+Un BOTON es un objeto de control sobre la interfaz que nos permite introducir un dato de confirmación al sistema.
+
+Tipos de botones:
+  - En relieve.
+  - De confirmación.
+  - De forma de radio.
+
+
+LISTAS DESPLEGABLES
+Son controles para manejar una lista de posibles elecciones.
+Son una combinación de cuadros de texto y menús desplegables.
+
+
+ETIQUETAS
+Son textos estáticos utilizados en las interfaces de usuario que generalmente se usan para identificar otros elementos.
+Son elementos de info entre el user y la interfaz que sirven para describir los demas controles y aumentar la legibilidad, usabilidad y accesibilidad de la aplicación.
+
+
+PRESENTACIÓN DE DATOS
+Claridad visual.
+La usabilidad y accesibilidad en la presentación de datos es la medida en que los elementos pueden ser utilizados para explotar al máximo todas las posibilidades de la app.
+
+Algunas regas de diseño para una presentación efectiva de los datos:
+  - ENREJILLADO, organización espacial por areas funcionales.
+  - BALANCEADO, equilibrio entre ejes horizontal y vertical.
+  - SIMETRIA, duplicar la imagen a lo largo de alguno de los ejes para asegurar un diseño balanceado.
+
+Consejos presentación de datos en pantalla:
+  - Ser conciso en la información.
+  - Permitir una fácil navegación por el sitio.
+  - Diseñar los contenidos por una estructura piramidal, lo más importante al principio.
+  - Lenguaje cercano al user.
+  - Presentación separada de la info.
+
+
+DISEÑO DE LA SECUENCIA DE CONTROL DE LA APLICACIÓN
+Se puede resumir en los siguientes pasos:
+  1. Se crea una interfaz dibujando los controles y objetos sobre su formulario.
+  2. Establecemos las propiedades de los objetos.
+  3. Escribimos el código que se va a ejecutar en respuesta a los eventos que se produzcan cuando se active un control u objeto determinado.
+  4. Guardamos el proyecto y generamos el ejecutable, por último creamos el instalador.
+
+Consideraciones a seguir en cuanto al diseño:
+  - Establecer los objetivos de cada componente y sus intenciones.
+  - Hacer corresponder los objetivos con una secuencia de interacción.
+  - Especificar la secuencia de acciones de las tareas.
+  - Indicar el estado del sistema.
+  - Definir mecanismos de control.
+  - Mostrar la manera de cómo los mecanismos de control afectan al estado del sistema.
+  - Indicar la forma en que los users interpretan el estado del sistema a partir de la info de la interfaz.
+
+
+ASEGURAMIENTO DE LA INFORMACIÓN
+Sin aseguramiento, no tenemos la certeza de que la info que manejamos en la interfaz sea segura, confiable y esté disponible cuando se necesite.
+Es la utilización de información y diferentes actividades operativas, con el fin de proteger la info, los sistemas de info y las redes de forma que preservemos la integridad, disponiblidad, autenticación y
+confidencialidad ante el riesgo de amenazas ya sean locales o remotas.
+
+Se debe tener en cuenta en 4 ambitos diferentes:
+  1. ASEGURAMIENTO DE DATOS.
+  2. ASEGURAMIENTO DE PROCESOS.
+  3. ASEGURAMIENTO DE COMPORTAMIENTO.
+  4. ASEGURAMIENTO DEL SISTEMA DE GESTIÓN DE LA EMPRESA.
+
+
+APLICACIONES MULTIMEDIA
+Aquellas que además de texto, pueden presentar elementos como sonido, imágenes, animaciones, vídeos, etc.
+
+El uso de elementos multimedia mejora la retención de la info presentada.
+
+El diseño debe de ser equilibrado entre los contenidos que aprovechan las posibilidades de hipertexto y mmultimedia y los que no.
+Se trata de diseñar contenidos relacionados y vinculados que faciliten el uso de la app manteniendo coherencia visual y comunicativa.
+
+Los elementos multimedia utilizados son:
+  - GRÁFICOS.
+  - IMÁGENES.
+  - ANIMACIONES.
+  - VÍDEOS.
+  - AUDIO.
+
+
+
+
+ 
