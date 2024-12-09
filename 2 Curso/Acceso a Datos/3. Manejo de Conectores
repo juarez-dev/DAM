@@ -93,8 +93,8 @@ Se hace de la misma forma que en MySQL
   **** Se puede utilizar Maven para obtener el conector en el proyecto añadiendo la dependencia a pom.xml ****
 
 
-  JDBC CONEXIÓN A UNA BASE DE DATOS
-
+JDBC CONEXIÓN A UNA BASE DE DATOS
+En Java tenemos la clase DriverManager, para establecer una conexión con una base de datos podemos utilizar el método getConnectión(), el cual devuelve un objeto Connection que representa la conexión con la DB.
 
 
 
