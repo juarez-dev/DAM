@@ -95,8 +95,73 @@ Se hace de la misma forma que en MySQL
 
 JDBC CONEXIÓN A UNA BASE DE DATOS
 En Java tenemos la clase DriverManager, para establecer una conexión con una base de datos podemos utilizar el método getConnectión(), el cual devuelve un objeto Connection que representa la conexión con la DB.
+El objeto Connection está totalmente vinculado a una DB:
+      getConnection(String url)      ;        getConnection(String url, Properties info)       ;       getConnectión(String url, String user, String password)
+
+Cuando se presenta con una URL específica, DirveManager itera sobre la colección de drivers registrados hasta que uno de ellos reconoce la URL, si no se encuentra ningún conector adecuado -> SQLException.
+ URL -> 3 valores separados por :
+    - Protocolo, para las URL JDBC siempre es -> dbc
+    - Subprotoclolo.
+    - Nombre se sistema para establecer la conexión con un sistema específico, depende del controlador usado, del host donde se aloje el SGDB, del puntero que se use par escucar las petidiones y del nombre de la DB o esquema.
+
+Existen 2 valores especiales que pueden utilizarse para conectarse con la DB local:
+    - LOCAL
+    - localhost
+Son sensibles a las minúsculas y mayúsculas, puede suminstrarse un nombre de sistema específico.
 
 
+OPERACIONES EN LA DB
+Se pueden realizar 4 sentencias DML(Data Manipulanting Languaje):
+  - Consultas -> SELECT.
+  - Insercciones de registros -> INSERT.
+  - Actualización de datos de registros -> UPDATE.
+  - Borrado de registros -> DELETE.
+
+Las sentencias utilizadas para realizar las anteriores :
+  - Statement, para sentencias sencillas SQL.
+  - PreparedStatement, para consultas preparadas (ej. las que tienen parámetros).
+  - CallableStatement, para ejecutar procedimientos almacenados en la DB.
+
+
+REALIZACIÓN DE CONSULTAS
+
+Para operar con una db:
+  1. CARGAR EL DRIVER necesario para comprender el protocolo que usa la db.
+  2. ESTABLECER UNA CONEXIÓN con la db.
+  3. ENVIAR CONSULTAS y procesar el resultado.
+  4. LIBERAR LOS RECURSOS al terminar.
+  5. GESTIONAR LOS ERRORES que se puedan producir.
+
+Para hacer consultas en la db:
+  - Crear un objeto de tipo Stetement o PreparedStatement.
+  - Ejecutar la consulta con el método executeQuery(query), query es una Stríng con la query sql.
+  - Recorrer el ResultSet que devuelve este método.
+
+ResultSet, es una clase de java.sql que condendrá todos los registros de la consulta.
+Para obtener los registors, recorresmos con un cursor los datos.
+El cursor con el método .next obtendra cada registor y devolverá false cuando llegue al final.
+Los métodos getInt(), getString(), ... tendrán como párametro el nombre del atributo de la query realizada o la posición del atributo en la parte de proyeccioón de la select(Comienza en 1).
+
+
+EJECUCIÓN DE SENTENCIAS INSERT, UPDATE Y DELETE.
+Desde el punto de vista de la comunicación con el SGDB se comportan de manera similiar, siguiendo el siguiente patrón:
+  1. Instanciamos un objeto Statement, a partir  de una conexión activa.
+  2. Ejecutamos la sentencia SQL, con executeUpdate.
+  3. Cerramos el objeto Statement instanciado.
+  4. Cerramos la conexión activa.
+
+executeUpdate devuelve un número entero, que representa el número de filas afectadas por la instrucción SQL.
+
+
+PROCEDIMIENTOS DE ALMACENADOS EN LA DB
+Son subprogramas almacenados en la db, se ejecutara en la db y devolverá sólo los datos necesários.
+
+Suelen ser de 2 clases:
+  - PROCEDIMIENTOS almacenados, el típico tiene:
+    - Un nombre.
+    - Una lista de parámetros.
+    - Unas sentencias SQL.
+  - FUNCIONES que devuelven un valor que se puede emplear en otras sentencias SQL.
 
 
 
