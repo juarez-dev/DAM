@@ -163,6 +163,55 @@ Suelen ser de 2 clases:
     - Unas sentencias SQL.
   - FUNCIONES que devuelven un valor que se puede emplear en otras sentencias SQL.
 
+-> Las llamadas a los procedimientos se hacen sobre una conexión:
+  CallabelStatement = prepareCall(Connection);
+-> La llamada al procedimiento almacenado debe de ser un String "" e ir entre llaves {}, dando los parámetros reales que espera el procedimiento almacenado:
+  CallableStatement("{CALL nombre_procedimiento(?)}");
+-> El procedimiento se ejecuta cuando llamamos al método execute, en el momento que se ejecute tienen que estar definidos los parámetros de entrada y salida:
+  CallableStatement.execute();
+
+
+SENTENCIAS PREPARADAS
+PreparedStatement para enviar sentencias de SQL a la DB, este tipo especial se deriva de Statement.
+Es una sentencia SQL de DB precompilada, al estar precompilada, su ejecución es más rápida que una SQL convencional, por lo que es más adecuada cuando se ejecuta la misma sentencia SQL(con distintos valores) muchas veces.
+
+Uso:
+Se ponen interrogantes '?' donde van los valores concretos que vamos a utilizar, cada uno se identifica luego con un número.
+Con los métodos set() se rellenan esos valores, el primer parámetro es el número del interrogante y el segundo el valor que se quiere utilizar.
+Finalmente se llama a executeUpdate().
+Luego con el PreparedStatement, ponemos otros valores volviendo a llamar a los métodos set() y volvemos a llamar a execute().
+setInt() y setString() hacen las conversiones necesarias.
+  EJEMPLO -> si pones setInt(n,x) -> en el 'n-interrognate' se coloca el valor entero x; luego se hara así con todos los valores y con executeUpdate() ejecutamos la consulta con los valores seteados.
+
+
+LIBERACIÓN DE RECURSOS
+Las conexiones con una DB consumen muchos recursos en el sistema gestor, y por lo tanto en el sistema informático en general, por esto, conviene cerrarlas con elmétodo close() al dejar de utilizarlas.
+También es conveniente cerrar la ejecición de procedimientos almacenados CallableStatement, las sentencias Statement/PreparedStatement y los resultados ResultSet para liberar los recursos.
+
+GESTIÓN DE ERRORES
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
