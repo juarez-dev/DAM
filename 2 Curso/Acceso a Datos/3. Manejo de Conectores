@@ -189,17 +189,73 @@ Las conexiones con una DB consumen muchos recursos en el sistema gestor, y por l
 También es conveniente cerrar la ejecición de procedimientos almacenados CallableStatement, las sentencias Statement/PreparedStatement y los resultados ResultSet para liberar los recursos.
 
 GESTIÓN DE ERRORES
+El manejo de excepciones permite manejar condiciones excepcionales tales como errores definidos por el programa de una manera controlada.
+Cuando se produce una, se lanza una excepción, la ejecución se detiene y el control se redirige a la cláusula de captura catch más cercana, si no existe el programa finaliza.
 
 
+TRANSACCIONES
+Ejecuntan una serie de consultas SQL en conjunto, aseguran la ejecución de todas.
+Se pueden "deshacer" los cambios efectuados en las tablas si no se han podido realizar todas las operaciones de la transacción.
+
+Al ejecutar una transacción, el motor de DB garaniza, la atomicidad, consistencia, aislamiento y durabilidad ACID de la transacción que se utilice.
+
+El control de la transacción es realizado por el objeto de la conexión, cuando se crea tiene pordefecto el modo autocommit, significa que cada operación DML es tratada como una transacción por sí misma
+que se valida automáticamente en cuanto se ejecute.
+
+Para agrupar varias sentencias SQL en una única transacción:
+  1. Modificamos el autocomit -> conexion.setAutocommit(fase);
+  2. Ejecutamos las sentencias.
+  3. Finalizamos la transacción manualmente -> conexion.Commit.
+
+COMMIT Y ROLLBACK
+  - Si una transacción finaliza correctamente lo hará con COMMIT, se realizan los cambios en la DB.
+  - Si hay algun fallo se ejecuta ROLLBACK, se deshacen los cambios hechos hasta el momento.
+
+Normalmente se trabaja con autocommit a true con la clase Connection.
+
+El modo autocomit=false las transacciones quedan definidas por las ejecuciones de los métodos commit y rollback hasta el siguiente commit.
+
+* Hay que planificar bien la app para minimizar el tiempo en el que se tengan las transacciones abiertas ejecutándose, ya que consumen recursos y suponen bloqueos en la DB que puede parar otras transacciones.*
 
 
+CONSULTAS AL DICCIONARIO DE DATOS
+DatabaseMetaData, interfaz de la API java.sql, permite obtener información sobre la DB en su conjunto.
+
+Algunos métodos de DatabaseMetaData devuelven listas de información en forma de objetos ResultSet, que se pueden recorrer para obtener metadatos, se utiliza para ello los metodos getString/Int ...
+Algunos métodos tienen argumentos que son patrones de cadena, es posible usar patrones dentro de las cadenas:
+    % -> cualquier subcadena de 0 o más caracteres
+    _ -> un caracter.
+
+Métodos Útiles:
+    -> getColumns(String catalog, String schemaPattern, String tableNamePattern, String columnNamePattern);
+Devuelve en un ResultSet la descripción de las columnas de la tabla disponibles en el catálogo especificado.
+    -> getDriverName();
+Devuelve en un String el nombre del controlador JDBC.
+    -> getDriverVersion();
+Devuelve en un String el número de versión de este controlador JDBC como a String.
+    -> getExportedKeys(String catalog, String schema, String table);
+Devuelve un ResultSet la descripción de las columnas de clasve Foranea que hacen referencia a las columnas de clave principal de la tabla dada.
+    -> getFunctions(String catalog, String schemaPattern, String functionNamePattern);
+Devuelve un ResultSet con la descripción del sistema y las funciones de usuario disponibles en el catálogo dado.
+    -> getMaxConnections();
+Recupera el número máximo de conexiones simultáneas a esta base de datos que son posibles.
+    -> getPrimaryKeys(String catalog, String shcema, String table);
+Devuelve un ResultSet con una descrición de las columnas de clave primaria de la tabla dada.
+    -> getProcedures(String catalog, String schemaPattern, String procedureNamePattern);
+Recupera una descripción de los procedimientos almacenados disponibles en el catálogo dado.
+    -> getSchemas();
+Devuelve en un ResultSet los nombres del esquema disponibles en esta base de datos.
+    -> getSQLKeywords();
+Recupera una lista separada por comas de todas las palabras clave de SQL de esta DB que NO son también palabras clave se SLQ:2003.
+    -> getStringFunctions();
+Recupera una lista deparada por comas de funciones de cadena disponibles con esta base de datos.
+    -> supportsAltersTableWithAddColumn();
+Recupera si esta base de datos admite ALTER TABLE con añadir columna, devuelve un booleano.
+    -> supportsTransactions();ç
+Recupera si esta base de datos admite transacciones.
 
 
-
-
-
-
-
+RECUPERACIÓN Y MODIFICACIÓN DE VALORES DE ResultSet
 
 
 
