@@ -1,0 +1,71 @@
+INFORMES
+Son documentos que permiten mostrar el contenido de un origen de datos aplicando un formato que permita a los users adquiri información.
+Son un modo eficaz de presentar la info ejerciendo un control preciso sobre cómo se presenta, ya que permite, ver, formatear y resumir los datos relacionados.
+
+Normalmente son generados a partir de un diseño en el que se determina la distribución y configuración de los elementos a mostrar y que podemos crear utilizando alguna herramienta gráfica.
+Luego, se combina el diseño con los datos actuales almacenados en el origen de datos volcando el resultado en documentos que faciliten su lectura e implementación al user y posiblitando su impresión y almacenamiento de copias.
+* Para ver cambios hay que re-generar el informe. *
+
+Usos:
+  - Distribuir información a otras personas en un formato que entiendan.
+  - Controlar la distribución de info cuando la imprimamos.
+  - Hacer cálculos y mostrarlos de forma legible.
+  - Obtener información de los datos para poder tomar decisiones.
+
+INFORME INCRUSTADO
+  Es uno que se ha importado al proyecto o se ha creado directamente en él.
+Cuando se crea en una app, se crea desde una clase contenedora, con el mismo nombre que el informe, esta contiene, o representa, el informe en el proyecto.
+Todo el código del proyecto interactçua con la clase del informe, en vez de hacerlo con el propio archivo de informe original.
+
+INFORME NO INCRUSTADO
+  Es uno que se ha generado con una herramienta específica aparte del proyecto y también se almacena independientemente de él.
+No hay que planificar cómo se va a acceder y cargar el informe para interactuar con él.
+Simempre se obtiene acceso externamente y el SDK puede tener acceso a el de varias formas:
+  -> El informe puede estar en la unidad de disco duro en una ruta de directorio de archivos.
+  -> El informe puede estar expuesto a través de un servicio web de informes.
+
+
+GENERACIÓ DE INFORMES DE FORMA ATUTOMÁTICA
+Los MOTORES DE INFORMES permiten, mediante interfaz gráfica determinar la posición, aspecto final y configuración de los elementos que aparecen en el informe, generando automáticamente los ficheros y el diseño final.
+
+Motores destacados:
+  - Crystal Reports, herramienta propietaria integrada en Visual Stucio .NET.
+  - JasperReport + iReport, software libre, genera XML(con extension jrxml) que contienen el diseño, para generar el informe se compila este archivo en otro de extension jrxml y se rellena con el origen de datos.
+  - Eclipse Birt (Bussiness Inteligence Reporting Tools), sistema de generación de informes para apps web, basadas en Java o Java EE.
+Tiene 2 componentes principales:
+      -  Un diseñador de inforbes basado en Eclipse.
+      -  Un componente que se puede agregar al servidor de apps y que genera informes en tiempo de ejecución.
+
+
+iREPORT
+iReport es un diseñador de informes escrito en Java, visual, intuitivo y muy potente.
+Lo distribuye la comunidad JasperForge de forma gratuita bajo licencia AGPL((Affero General Public Licence).
+Dispone de asistentes de generación de informes, subinformes y plantillas que facilitan el trabajo, sin embargo, tambien permite la elaboración de informes desde 0.
+
+JASPERREPORT
+JasperReport, libreria Java que constituye en núcleo de Jaspersoft, permite enviar informes a documentos de texto, PDF, imagen o impresora.
+Se integra fácilmente en una app Java, aunque Jaspersoft se puede utilizar independientemente..
+
+En resumen:
+  - iReport permite diesñar informes.
+  - JasperReports ejecuta y genera informes en una aplicación Java.
+
+
+INTERFAZ DE USUARIO DE iReports en NetBeans
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
