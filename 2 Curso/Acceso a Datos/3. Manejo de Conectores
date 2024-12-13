@@ -256,21 +256,51 @@ Recupera si esta base de datos admite transacciones.
 
 
 RECUPERACIÓN Y MODIFICACIÓN DE VALORES DE ResultSet
+Un objeto ResultSet es una tabla de datos que representa un conjunto de resultados de base de datos.
+Puede ser creado a través de cualquier objeto que implementa la interfaz Statement -> PreparedStatement, CallableStatement.
+Es necesario un bucle para iterar a través de todos los datos en el ResultSet, con ResultSet.next se hace avanzar al cursor a la siguiente fila.
+Un ResultSet no permite la acutalización, además, solo se puede mover el cursor hacia adelante, sin embargo se pueden crear que se puedan desplazar hacia atras/adelante o meverse a una posición absoluta y actualizarse.
+
+Para utilizar el ResultSet para actualizaciones de talbas, tendremos que crear la consulta con la opcion ResultSet.CONCUR_UPDATABLE, que es un parámetro opcional de la creación de la sentencia:
+      connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+-> Con ResultSet.TYPE_SCROLL_SENTSITIVE se crea un objeto ResultSet que puede recorrerse hacia adelante y atrás en relación con la posición actual y con la posición absoluta.
 
 
+POOL DE CONEXIONES
+La pool de conexiones tiene como objetivo solucionar:
+  -> No tener tantas conexiones como usuarios.
+  -> Cerrar la conexión.
+
+Funcionamiento:
+El servidor web tiene n-conexiones creadas y conectadas a la base de datos (waiting connections)
+  - Cuando llegan m-peticiones, la app pide m-conexiones al pool, quedando n-m conexiones.
+  - Cuando las peticiones finalizan, las conexiones no se cierran, se devuelven al pool indicándolo que ya se han acabado de usar.
+
+* Si se piden más conexiones de las que hay esperando, se crearán hasta el máximo que permita el pool. *
+* Si hay demasiadas conexiones esperando a ser usadas se cerrarán para ahorrar recursos en el server de la DB. *
+
+Con el pool conseguimos:
+  - Las conexiones no quedarán abiertas, cada una se pseudo-abre y pseudo-cierra con cada petición.
+  - No tendremos tantas conexiones como usuarios usan la app, para los users que hay haciendo peticiones.
+  - Al inicar un servidor Java EE, automáticamente el pool crea un número de conexiones físicas iniciales.
+
+Cuando un objeto Java del servidor J2EE necesita una conexión, la solicita a traves del método dataSource.getConnection(), la fuente de datos javax.sql.DataSource habla con el pool y
+éste le entrega una conexión lógica java.sql.Connection, esta conexión la recibe por último, el objeto Java.
+
+Cuando un objeto Java del servidor Java EE desea cerrar una conexión a través del método connection.close(), la fuente de datos javax.sql.DataSource habla con el poll y le devuelve la conexión lógica en cuestión.
 
 
+EXCEPCIONES Y CIERRE DE CONEXIONES
+Debemos tener en cuenta siempre que las conexiones con una base de datos consumen muchos recursos en el sistema gestor, y por lo tanto en el sistema informático en general. 
+Por ello, conviene cerrarlas con el método close siempre que vayan a dejar de ser utilizadas, en lugar de esperar a que el garbage collector de Java las elimine.
 
+EXCEPCIONES
+Cuando se produce un error durante la ejecución de un programa, se genera un objeto asociado a esa excepción. Ese objeto es de la clase Exception o de alguna de sus subclases. 
+Este objeto se pasa entonces al código que se ha definido para gestionar la excepción.
 
-
-
-
-
-
-
-
-
-
+CIERRE DE CONEXIONES
+Como en la app de nuestro código se puede producir excepciones que tendremos capturadas, o que elevaremos con (throws), es necesario garantizar que en todos los casos se cierran las conexiones.
+Para ello el cierre lo realizaremos en la parte finally.
 
 
 
