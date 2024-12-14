@@ -160,6 +160,97 @@ Para editar una variable, se selecciona en el inspector de informe y se modifica
 
 RECUENTOS
 Consiste en aplicar la función resumen suma a un campo concreto de una consulta, son utiles para calcular totales y subtotales.
+DD
+
+MODIFICAR ENCABEZADOS Y PIES DE PÁGINA.
+Para añadir la página X de Y en el pie de un informe, solo hay que arrastrar la herramienta página X de Y de la paleta en la banda PAGE_FOOTER.
+Esta herramienta crea 2 campos de texto que muestran la misma variable -> PAGE_NUMBER; El primer campo muestra la página actual, el segundo el total de páginas del informe.
+Esto es posible porque el tiempo de evaluación de cada uno es diferente; El primero el tiempo establecido a Now y el segundo a Report.
+
+EL TIEMPO DE VALUACIÓN de un campo de texto es very important because nos permite print the value asumido por una variable en diferent moments.
+
+De igual manera se pueden añadir etiquetas a la banda PAGE_HEADER para modificar el encabezado de las páginas del informe.
+
+
+NUMERACIÓN DE LÍNEAS
+Para numerar las líneas en un informe se usa una variable creadsa por el user.
+Para conseguir que cuente el número de línea para cada registro se modifican las propiedades de variable para hacer que sea tipo entero, 
+en Calculatión se indica que no haga nada (nothing) y se le asigna la expresión $V{REPORT_COUNT}(Value Expresion).
+
+
+INFORMES CON AGRUPAMIENTOS
+Agrupar los datos de un informe nos permite crear ciertas estructuras para organizar mejor los datos.
+
+Para crear un grupo se define una expresión que se evalúa de tal modo que cada vez la expresión cambia se inicia un nuevo grupo.
+La expresión puede ser representada sólo por un campo específico, o se puede ser más compleja.
+
+Es conveniente obtener los registros de la consulta de base bien ordenados, ya que la herramienta no va a hacer nada por ordenados, solo van a crear grupos cada vez que la expresión cambie.
+
+
+SUBTOTALES
+Su cálculo implica hacer recuentos y cálculos resumidos del conjunto de los datos que se representa en el informe, pero aplicando una categorización que lo divide en grupos.
+Se realiza el cálculo para cada grupo y luego para el conjunto de datos completo también.
+
+El proceso de obtención del subtotal conlleva los siguientes pasos:
+  1. Ejecutar la query que nos devuelva los registros que nos interesan.
+  2. Dividir los registros en grupos en función de un criterio. Los grupos deben ser mutuamente excluyentes.
+  3. Aplicar el cálculo o recuento de cada grupo.
+  4. Hacer el cálculo para todo el conjunto de los registros obtenidos.
+
+
+SUBINFORMES
+Son informes dentro de informes, esto permite la creación de diseños muy complejos, con diferentes partes de un documento único, que se llena con diferentes fuentes de datos e informes.
+Cuando los utilizamos, tenemos que construir al menos un informe principal y tantos secundarios como necesitemos.
+
+
+AÑADIR IMÁGENES
+Las imágenes son representaciones visuales de objetos que se almacenan en un fichero al que se aplica un formato concreto.
+
+Cuando se añaden a un informe no pasan a formar parte de el, sino que se añade una expresión con la ruta absoluta de la imágen, por eso, 
+cuando se muestra un elemento de imagen en el diseñador,iReport muestra un cuadro de diálogo selector de ficheros.
+La expresión se establece como el valor de la propiedad Image Expression de la imágen.
+
+Parametrizar la Imagen Image Expresion
+Se puede parametrizar la propiedad Image Expresion de la imágen estableciendo su valor para que sea portable a otro equipo que no tenga la imagen.
+      $P{directorio_imagenes} + "miImagen.png"
+Se puede proporcionar un valor por defecto para el parámetro, la ubicación del directorio se proporciona de manera dinámica.
+
+Usar el Classpath
+Cuando una imagen se encuentra en el Classpath solo requiere el nombre de la imagen para encontrarla.
+
+
+GRÁFICOS
+Permiten representar cierta información de tipo numérico mediante recursos gráficos con el objetivo de:
+hacer más visibles los datos, poner de manifiesto su evolución temporal o espacial, o evidenciar relaciones elementos del sistema.
+
+Tipos de Gráficos:
+  -> LINEALES.
+  -> BARRAS.
+  -> CIRCULARES.
+  -> SIMBÓLICO, con imágenes que sierven para representar el comportamiento o la distribución de datos cuantitativos de una población, utilizando símbolos de tamaño proporcional al dato representado.
+
+Conceptos convenientes al trabajar con gráficos:
+  -> SERIE, el conjunto de datos numéricos a representar.
+A cada serie se le asigna algun identificativo que aparece señalado en la leyenda del gráfico.
+Cada dato de la serie toma valores en un rango, por lo que si queremos tener más de una serie en el gráfico conviene que todas estén dentro del mismo rango.
+  -> CATEGORÍA, se corresponde con los datos a representar dentro del eje horizontal de gráfico.
+Cada dato de la serie toma valores para un dato de la categoría.
+
+
+INFORMES SOBRE CONSULTAS COMPLEJAS
+iReport los facilita con su diseñador de consultas.
+
+
+ANÁLISIS DEL CÓDIGO OBTENIDO
+
+
+
+REPASO DE LA LIBRERÍA JASPER REPORT
+
+
+
+CREACIÓN DE INFORME DESDE UNA APLICACIÓN
+
 
 
 
