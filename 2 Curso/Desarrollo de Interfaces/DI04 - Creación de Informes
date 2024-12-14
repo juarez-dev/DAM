@@ -242,7 +242,7 @@ iReport los facilita con su diseñador de consultas.
 
 
 ANÁLISIS DEL CÓDIGO OBTENIDO
-
+Los informes de iReport se almacenan en XML con extension .jrxml, se compone de un conjunto de secciones.
 
 
 REPASO DE LA LIBRERÍA JASPER REPORT
