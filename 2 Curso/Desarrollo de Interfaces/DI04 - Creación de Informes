@@ -53,25 +53,113 @@ En resumen:
 
 INTERFAZ DE USUARIO DE iReports en NetBeans
 Sobre el diseñador de informes está el selector del origen de datos (selector de conexión), que muestra la conexión activa que se utiliza para ejecutar el informe.
+La estructura de ventanas de iReport permite modificaciones, sin más que añadir o eliminar ventanas, según la necesidad de cada momento.
 
 
+ELEMENTOS ESTRUCTURALES DE UN INFORME
+Title > Page Header > Column Header > Detail > Column Footer > Page Footer > Summary
+BANDA -> Cada uno de estos elementos estructurales.
 
 
+INICIAR EL ORIGEN DE DATOS
+Necesitamos tener el origen de datos preparado para acceder a los datos que van a construir el informe.
+
+Una vez creada la DB y está corriendo MySQL, se configura la conexión del proyecto con la base de datos:
+  Rport DataSources -> New -> DatabaseJdbcConnection
+Se rellenan los datos necesários para configurar la conexión:
+  - Name, nombre simbólico asignado a la conexión.
+  - JDBC Driver -> Mysql(com.mysql:jdbc.Driver).
+  - JDBC URL, la ruta de acceso a la base de datos -> jdbc:mysql://localhost/DbName y se indican las credenciales necesarias para acceder.
+  - Username, el nombre de usuario con el que se accede a la DB.
+  - Password, la contraseña del user con el que se accede a la DB.
 
 
+CREACIÓN DE UN INFORME SENCILLO
+Pasos principales:
+  - Crear un origen de datos o conexión al origen de datos utilizado para rellenar el informe. 
+  - Crear el informe nuevo.
+  - Seleccionar los datos que formarán parte del informe.
+  - Diseñar el informe, incluyendo la disposición de sus elementos y parámetros para representar los datos.
+  - Ejecutar el informe, a partir del archivo de origen se genera un archivo compilado y se rellena con los datos para la exportación o en pantalla.
+
+En NetBeans -> Archivo > Archivo Nuevo > Categorias > Report > RportWizard.
+Se selecciona el formato que se quiera utilizar.
+Se entroduce el nombre y se indica la carpeta donde se va a almacenar.
+Se selecciona la conexión que se utilizará y se introduce la orden SQL a realizar para recuperar los datos que se van a presentar en el informe.
+  Se puede utilizar tambien un asistenet para crear/diseñar la consulta, para ello se usa la opción DESIGN QUERY.
+A continuación se pueden indicar que campos aparecen en el informe, agrupar la información que se quiere mostrar, clasifincando asi los resultados obtenidos al presentarlos en el informe.
+Para finalizar la creación del informe se tiene que indicar la info que se nos muestra en el informe, se puede usar para ello el panel Report Inspector para diseñar el informe.
+
+Dentro del panel Report Inspector, en el apartado Field, se mostraran los campos definidos en la configuración de la consulta, se deben incluir estos campos dentro de cada banda del informe donde se quieran mostrar.
+
+Paleta Reports Element en la vista del diseñador para añadir etiquetas, lineas, ...
+Desde la ventana Propiedades se pueden modificar su aspecto.
+
+Preview para ver el resultado del informe, se compiila el fichero fuente jrxml y se es correcto se carga y se llena con la conexión activa.
 
 
+GESTIÓN DE ERRORES
+Al general la vista previa, iReport realiza una serie de operaciones para crear el informe final.
+La primera operación consiste en compilar el archivo fuente, con extensión .jrxml en un archivo de Jasper.
+Este paso puede fallar si los elementos no están colocados correctamtente o sí uan expresión contiene errores y no se puede compilar.
+
+Si la compilación se ejecuta correctamente, el archivo producido Jasper se carga y se llena con la conexión activa o fuente de datos.
+Esta operación puede producir fallos tambíen, si finalmente se completa sin errores, el informe se muestra en el visor integrado.
+
+Los errores se muestran en la ventana de info sobre problemas.
+Los resultados de la operación se muestran en la salida de iReport.
 
 
+FORMATOS DE SALIDA
+Cualquier motor de informes debe ser capaz de exportar sus documentos a diferentes formatos de uso cotidiano.
+iReport gestiona esto desde el menu Preview, donde se puede seleccionar el formato final del informe.
 
 
+OPERACIONES SOBRE LOS INFORMES
+Lo habitual es realizar ciertas operaciones sobre el informe para obtener más información o mejorar el formato de presentación.
+
+USO DE PARÁMETROS EN UN INFORME
+La utilidad es permitir generar diferentes resultados a partir de un mismo archivo de diseño, en funcion de un dato que se puede cambiar directamente o a través de la app final.
+
+Un parámetro se define por un name y una class, se emplea para pasar información al informe en tiempo de ejecución.
+
+Se pueden administrar los parámetros en el apartado Parameters del inspector de informe, es posible agregar/quitar parametros y modificarlo editando sus propiedades: 
+  - Name.
+  - Parameter class, el lugar donde ubicaremos la clase asociada al parámetro.
+  - Default Value Expresion.
+  - Use as Prompt, se activa esta opción cuando el valor del parámetro se asigne durante el instante de tiempo en el cual se esta generando el informe.
+
+Los parámetros se pueden clasificar en:
+  - PARÁMETROS INTEGRADOS, disponibles por default y contienen info en tiempo de ejecución. No pueden ser modificado ni eleiminados.
+    - REPORT_CONNECTION, tiene la conexión JDBC para ejecutar la consulta SQL del informe.
+    - REPORT_DATA_SOURCE, contiene la fuente de datos usada para llenar el informe.
+    - REPORT_LOCALE, contiene la configuración regional utilizada para rellenar el informe.
+  - PARÁMETROS DE USUARIO, se pueden configurar para que sean insertados por el use cuando se ejecute el informe.
 
 
+FILTRADO DE DATOS
+El uso de parámetros para filtrar los registros en la condición where o para añadir o sustituir elementos de la consulta o incluso pasar toda la cadena SQL para ejecutar.
+
+Hay 2 posiblidades
+  -> Los parámetros se utilizan como parámetros estándar SQL. $P{parameterName}.
+  -> El parámetro tratado cmo un campo de SQL -> SELCT * FROM talba ORDER BY $P!{campos}.
+JasperReports tendrá en cuenta este parámetro como una especie de marcador de posición, que será reemplazado por el valor de texto del parámetro.
+Con la misma lógica, una consulta pude pasarse integramente mediante un parámetro -> $P!{consulta}.
 
 
+VALORES CALCULADOS
+Se pueden añadir/eliminar variables des de la zona de variables del inspector de informe y la hoja de propiedades.
+Para editar una variable, se selecciona en el inspector de informe y se modifica la hoja de propiedades.
 
+  - Variables Predifinidas, sirven para hacer recuentos de elementos própios del informe:
+    - PAGE_NUMBER, contiene el número total de páginas.
+    - REPORT_COUNT, tiene el número de registros procesados hasta el momento.
+    - COLUMN_NUMBER, contiene el número de columnas.
+    - PAGE_COUNT, contiene el número de registros procesados por páginas.
+  - Variables de Usuario, se pueden cambiar, el programador es el encargado de definirlas.
 
-
+RECUENTOS
+Consiste en aplicar la función resumen suma a un campo concreto de una consulta, son utiles para calcular totales y subtotales.
 
 
 
