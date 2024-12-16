@@ -18,3 +18,7 @@ Componentes de XAMPP
   PHP, Para procesar código del lado del servidor.
   phpMyAdmin, interfaz gráfica para gestionar DBs.
   Perl, sirve pra desarrollar scripts y apps (Poco comun).
+
+
+phpMyAdmin
+Para acceder -> http://localhost/phpmyadmin/
