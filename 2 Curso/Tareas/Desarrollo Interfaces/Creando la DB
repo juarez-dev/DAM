@@ -1,0 +1,4 @@
+Acceder a phpMyAdmin
+  -> http://localhost/phpmyadmin
+
+En la barra superior en Importar, podemos importar el Script con las querys para crear la base de datos.
