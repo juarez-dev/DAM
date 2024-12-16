@@ -1,0 +1,6 @@
+Una vez configurado XAMPP y creada la base de datos "Fabrica", procedemos a configurar la conexión del proyecto con la DB en NetBeans:
+  1. Windows > sevices >  Database
+  2. Descargar el Connector de MySQL para java (Drivers) y añadirlo a la lista de Drivers -> Coge la path así que es importante no eliminar el Driver.
+  3. En el apartado Drivers, boton derecho sobre el connector y Connecting Using 
+  4. Ponemos el Host, nombre de la Database, el Port y nombre y password del user.
+Y ya siguiente y finalizamos la conexión.
