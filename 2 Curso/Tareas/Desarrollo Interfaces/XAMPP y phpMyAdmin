@@ -1,0 +1,20 @@
+XAMPP
+Paquete que permite configurar un servidor local en el pc para desarrollar y probar aplicaciones web.
+  X -> Cross-platform, multiplataforma.
+  A -> Apache, servidor web.
+  M -> MySQL o MariaDB, sistema de gestión de DB.
+  P -> PHP, lenguaje de programación para desarrollo web.
+  P -> Perl, otro lenguaje de programación.
+
+XAMPP sirve principalmente para:
+  1. Desarrollo local, permite crear y probar sitios o aplicaciones web.
+  2. Pruebas y Debugging, probar funcionalidades, ejecutar código PHP, gestionar DBs y verificar el comportamiento de apps web sin necesidad de internet.
+  3. Aprendizaje.
+  4. Ceración de Entornos de Prueba, simula un entorno de servidor en máquina virtual.
+
+Componentes de XAMPP
+  Apache, servidor web que permite acceder a las apps a traves del navegador web.
+  MySQL/MariaDB, para manejar DBs
+  PHP, Para procesar código del lado del servidor.
+  phpMyAdmin, interfaz gráfica para gestionar DBs.
+  Perl, sirve pra desarrollar scripts y apps (Poco comun).
