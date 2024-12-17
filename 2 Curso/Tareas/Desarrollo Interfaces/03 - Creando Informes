@@ -5,6 +5,8 @@
 5. Ejecutar el informe, a partir del archivo de origen se genera un archivo compilado y se rellena con los datos para exportación o en pantalla.
 
 Añadir los plugins y librerias a NetBeans
+* Los plugins estan bastante desactualizados y creo que son imposibles de encontrar por internet *
+* Los tengo directamente desde el Aula Virtual del CIDEAD * 
 
 EN NetBeans
       File -> New File -> Categories.
