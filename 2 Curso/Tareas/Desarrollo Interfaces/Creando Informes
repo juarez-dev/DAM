@@ -1,0 +1,11 @@
+1. Crear un origen de datos o conexión al origen de datos para llenar el informe.
+2. Crear el informe nuevo.
+3. Seleccionar los datos que formarán parte del informe.
+4. Diseñar el informe, incluyendo la disposición de sus elementos y parámetros para representar los datos.
+5. Ejecutar el informe, a partir del archivo de origen se genera un archivo compilado y se rellena con los datos para exportación o en pantalla.
+
+Añadir los plugins y librerias a NetBeans
+
+EN NetBeans
+      File -> New File -> Categories.
+      Report -> ReportWizard.
