@@ -1,1 +1,10 @@
-MAPEO OBJETO RELACIONAL
+MAPEO OBJETO RELACIONAL - ORM - OBJECT RELATIONAL MAPPING
+Tecnica de programación que se utiliza con el propósito de convertir datos entre el utilizado en un lenguaje de programación orientado a objetos y el utilizado en una base de datos relacional, gracias a la persistencia.
+Esto posiblita el uso en las DBs relacionelas de las características propias de la programación orientada a objetos(herencia y polimorfismo)
+
+* Persistencia, la capacidad de los objetos de sobrevivir al proceso que los creó, permitiendo al developer almacenar, transferir y recuperar el estado de los objetos.
+
+El ORM se encarga de convertir los objetos en regiistros y viceversa, simulando así tener una DB orientada a objetos.
+
+
+HERRAMIENTAS ORM
