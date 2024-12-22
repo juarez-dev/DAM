@@ -8,3 +8,8 @@ El ORM se encarga de convertir los objetos en regiistros y viceversa, simulando 
 
 
 HERRAMIENTAS ORM
+Actúan como un puente que conecta las ventajas de los RDBMS con una buena representación de ellos en un lenguaje orientado a objetos.
+
+* En el modelo relacional, cada fila de la tabla se mapea a un objeto y cada columna a una propiedad. *
+
+CARACTERÍSTICAS
