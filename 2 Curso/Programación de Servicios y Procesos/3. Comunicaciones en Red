@@ -1,0 +1,74 @@
+COMUNICACIONES EN RED
+  -> TCP/IP(Transmission Control Protocol/Internet Protocol), conjunto de protocolos que permiten la comunicación entre dispositivos en redes interconectadas.
+
+Capas el módelo TCP/IP:
+  1. LA CAPA HOST-RED
+Permite comunicar el ordenador con el medio que conecta el equipo a la red.
+Primero debe permitir convertir la información en impulsos físicos y ademas, permitir las conexiones entre los ordenadores de la red.
+En esta capa se realiza un direccionamiento físico utilizando las direcciones MAC.
+
+  2. LA CAPA DE RED
+Es el eje de la arquitectura ya que permite que los equipos envíen paquetes en cualquier red y viajen de forma independiente a su destino.
+Esta Capa define un formato de paquete y protocolo oficila llamado IP(Internet Protocol).
+El trabajo de la red es entregar paquetes IP a su destino.
+Realiza el direccionamiento lógico o direccionamiento por IP, ya que la capa es la encargada de enviar un determinado mensaje a su dirección IP de destino.
+
+  3. LA CAPA DE TRANSPORTE
+Permite que los equipos lleven a cabo una conversación.
+Aquí se definieron dos protocolos de transporte: 
+  - TCP(Transmission Control Protocl), es un protocolo orientado a conexión y fiable.
+  - UDP(User Datagram Protocol), es un protocolo no orientado a conexión y no fiable.
+Además, en esta capa se realiza el direccionamiento de los puertos, es encargada de que la informaci´´on se envíe a la aplicación adecuada(mediante un determinado puerto).
+
+  4. LA CAPA DE APLICACIÓN
+Engloba las funcionalidades de las capas de sesión, presentación y aplicación del modelo OSI.
+Incluye todos los protocolos de alto nivel relacionados con las apps que se utilizan en Internet.
+
+* PROTOCOLO, conjunto de reglas y estándares que determinan cómo se debe realizar la comunicación entre devices en una red. *
+* MAC, Media Access Control, identificador único asignado a la tarjeta red del dispositivo, 42 bits(12 dígitos hexadecimales) y se utiliza para identificar exclusivamente a un dispositov en una red local (LAN). *
+* OSI, Open Systems Interconnection, es un marco conceptual que describe cómo se comunica los sistemas en una red. Divide el proceso de comunicación en 7 capas, cada una con funciones específicas, para estandarizar y facilitar la interacción entre dispositivos y tecnologías. *
+
+CONEXIONES TCP/UDP
+  -> TCP - Transmission Control Protocol, protocolo orientado a la conexión que permite que un flujo de bytes originado en una máquina se entregue sin errores en cualquier máquina destino.
+    Fragmenta el flujo entrante de bytes en menajes y pasa cada uno a la capa de red.
+    En el diseño, el proceso TCP receptor reensambla los mensajes recibidos para formar el flujo de salida.
+    Se encarga tambien del control de flujo para asegurar que un emisor rápido no pueda saturar a un receptor lento con más mensajes de los que pueda gestionar.
+  -> UDP - User Datagram Protocol, protoclo sin conexión, para aplicaciones que no necesitan la asignación de secuencia ni el control de flujo TCP y que desean utilizar los suyos própios.
+    También se utiliz para las consultas de petición y respuesta de tipo cliente-servidor, y en apps en las que la velocidad es más importante que la entrega precisa.
+
+* A la hora de programar una app se debe elegir el protocolo que se quiere utilizar según las necesidades (El TCP o UDP). *
+
+
+PUERTOS DE COMUNICACIÓN
+El método empleado para comunicar una app con otra es el de definir direcciones de transporte en las que los procesos pueden estar a la escucha de solicitudes de conexión, estos puntos terminales son los PUERTOS.
+
+Ciertos puertos se asignan por convenio, a ciertas aplicaciones particulares o servicios de carácter universal, la IANA(Internet Assigned Numbers Authority) determina las asignaciones a todos estos puertos.
+Existen 3 rangos de puertos establecidos:
+  -> PUERTOS CONOCIDOS [0, 1023], puertos reservados a aplicaciones de uso standar:
+      - 21 FTP (File Transfer Protocol).
+      - 22 SSH (Secure SHell).
+      - 53 DNS (Domain Name System).
+      - 80 HTTP (HyperText Transfer Protocol).
+  -> PUERTOS REGISTRADOS [1024, 49151], son asignados por IANA para un servicio específico o aplicaciones, estos pueden ser utilizados por los usuários libremente.
+  -> PUERTOS DINÁMICOS [49152, 65535], este rango no puede ser registrado y su uso se establece para conexiones temporales entre aplicaciones.
+
+* PUERTO, punto de acceso en un dispositivo red que permite el intercambio de datos entre sistems, cada puerto está asociado con un número y se utiliza para identificar servicios especificos en la comunicación de red. *
+* Al desarrollar una app que utilice un puerto de comunicación, se opta por utilizar puertos comprendidos en el rango [1024, 4951]
+
+
+NOMBRES EN INTERNET
+Los equipos informáticos se comunican entre sí mediante una dirección IP.
+El sistema de resolucion de nombre DNS(Domain Name System) basado en dominis, en el que se dispone uno o más servidores encargados de resolver los nombres de los equipos pertenecientes a su ámbito,
+consiguiendo la centralización necesaria para la correcta sincronización de los equipos, un sistema jerárquico que permite una administracion focalizada y
+un mecanismo de resolucion eficiente.
+
+A la hora de comunicarse con un equipo, se puede hacer directamente a través de su directorio IP o se puede poner su entrada DNS, 
+en este último caso el equipo resuelve automáticamente su dirección IP a través del servidor de nombres que utilice en su conexión a Internet.
+
+
+MODELOS DE COMUNICACIONES
+
+
+
+
+
