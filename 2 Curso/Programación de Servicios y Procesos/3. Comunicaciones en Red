@@ -141,9 +141,17 @@ Una forma cómoda de recibir información:
 
 
 SOCKETS UDP
+En el caso de utilizar sockets UDP no se crea una conexión y básicamente permite enviar y recibir mensajes a través de una dirección IP y un puerto.
+Los mensajes se gestionan de forma individual y no se garantiza la recepción o envío como si ocurre en TCP.
+
+  - DatagramSocket, clase java para utilizar sockets UDP.
+  - DatagramPacket, para recibir o enviar mensajes.
+Cuando se recibe/envía un paquete se hace con la siguiente informacion -> mensjae, longitud del mensaje, equipo y puesto.
 
 
-
+RECEPTOR
+En caso de querer iniciar el socket en un determinado puesto:
+      DatagramSocket sSocket = new DatagramSocket(puerto);
 
 
 
