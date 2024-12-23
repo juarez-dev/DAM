@@ -67,6 +67,86 @@ en este último caso el equipo resuelve automáticamente su dirección IP a trav
 
 
 MODELOS DE COMUNICACIONES
+  - El modelo cliente/servidor esta compuesto por un servidor que ofrece servicios y unos clientes que acceden a dichos servicios a través de la red.
+  - Otro modelo son los Sistemas de Información Distribuidos, están comuestos por un conjunto de equipos que interactúan entre sí(actuando como servidores y clientes al mismo tiempo) para compartir información, recursos, ...
+
+
+SOCKETS TCP
+UN SOCKET es un punto de información por el cual un proceso puede recibir o enviar información.
+Los sockets permiten la comunicación entre procesos de diferentes equipos en red.
+
+A la hora de crear un socket hay que tener claro que tipo de socket se quiere crear (TCO o UDP)
+  Al utilizar sockets TCP, el servidor utiliza un puerto por el que recibe las diferentes peticiones de los clientes, normalmente, el puerto del servidor es uno bajo [1-1023].
+
+Cuando el cliente realiza la conexión con el server, se crea un nuevo socket encargado de permitir el envio y recepción de datos entre el cliente/servidor.
+El puerto se crea de forma dinámica y se encuentra en el rango 4915 y 655335, de esta forma,, el puerto por donde se reciben las conexiones de los clientes queda libre y cada comuncación tiene su propio socket.
+
+Paquete java.net
+    - Clase Socket, permite la comunicación por red, permite a un cliente conectarse a un servidro para enviar y recibir información.
+    - Clase ServerSocket, permite a un servidor escuchar y recibir las peticiones de los clientes por la red.
+
+
+SERVIDOR
+Los pasos que realiza para realizar una comunicación:
+    -> PUBLICOAR PUERTO, se utiliza el comando ServerSocket iniciando el puerto donde se van a recibir las conexiones.
+    -> ESPERAR PETICIÓN, el server queda a la espera de que se conecte un cliente, una vez conectado uno se crea el socket del cliente por donde se envían y reciben los datos.
+    -> ENVIO Y RECEPCION DE DATOS, es necesario crear un flujo(stream) de entrada y otro de salida. Cuando el server recibe una petición, la procesa y le envía el result al client.
+    -> CIERRE DEL SOCKET DEL CLIENTE una vez se finaliza la comunicación.
+
+Para publicar el puerto del servidor se utiliza la función ServerSocket a la que hay que indicarle el puerto a utlizar:
+      ServerSocket skServidor = new ServerSocket(Puerto);
+Una vez publicado, el servidor utiliza la función acept() para esperar la conexión de un cliente.
+Cuando se conecta se crea un nuevo socket por donde se van a realizar todas las comunaciones con el cliente y servidor.
+      Socket sCliente = skServidor.accept();
+Una vez recibida la petición del cliente, el servidor se comunia con él a través de streams de datos.
+Finalmente, una vez terminada la comunicación se cierra el socket:
+        sCliente.close();
+
+
+CLIENTE
+Los pasos que realiza para realizar una comunicación:
+    -> CONECTARSE CON EL SERVIDOR, utiliza la función Socket para indicarse con un determinado servidor a un puerto específico. Una vez realizada la conexión se crea el socket por donde se realizará la comunicación.
+    -> ENVIO Y RECEPCIÓN DE DATOS, para poder recibir/enviar datos es necesario crear un stream(flujo) de entrada y otro de salida.
+    -> SE CIERRA EL SOCKET una vez finalizada la comunicación.
+
+Para conectarse a un servidor se utiliza la función Socket indicando el equipo y el puerto al que desea conectarse:
+      Socket sCliente = new Socket (Host, Puerto);
+          - Host, string que guarda el nombre o dirección IP del servidor.
+          - Puerto, una variable tipo int que guarda el puerto.
+Establecida la comunicación, se crean los streams de entrada y salida para realizar las diferentes comunicaciones entre el cliente y el servidor.
+Finalmente, terminada la comunicación se cierra el socket:
+      sCliente.close();
+
+
+FLUJO DE ENTRADA Y SALIDA
+Una vez establecida la conexión cliente/servidor se inicializa la variable del tipo Socket.
+Para poder enviar/recibir datoss a través del socket es necesario establecer un stream(flujo) de entrada o salida según corresponda.
+
+Para establecer un stream de salida:
+      OputputStream aux = sCliente.getOutputStream();
+      DataOutputStream flujo_salida = new DataOutputStream (aux);
+o lo que es lo mismo:
+      DataOutputStream flujo_salida = new DataOutputStream(sCliente.getOutputStream());
+A partrir de éste momento puede enviar información de la siguiente forma:
+      flujo_salida.writeUTF("Enviar datos");
+
+De forma análoga, se puede establecer el stream de entrada de la siguiente forma:
+      InputStream aux = sCliente.getInputStream();
+      DataInputStream flujo_entrada = new DataInputStream(aux);
+o lo que es lo mismo:
+      DataInputStream flujo_entrada = new DataInputStream(sClientte.getInputStream(aux));
+Una forma cómoda de recibir información:
+      String datos = new String();
+      Datos = flujo_entrada.readUTF();
+
+
+SOCKETS UDP
+
+
+
+
+
+
 
 
 
