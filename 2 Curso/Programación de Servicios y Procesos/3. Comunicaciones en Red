@@ -152,7 +152,18 @@ Cuando se recibe/envía un paquete se hace con la siguiente informacion -> mensj
 RECEPTOR
 En caso de querer iniciar el socket en un determinado puesto:
       DatagramSocket sSocket = new DatagramSocket(puerto);
+Una vez iniciado el socket ya se pueden recibir mensajes utilizando la clase DiagramPacket, cuando recibe/envia un paquete se hace con la siguiente información (menasje, logitud del mensaje, equipo y puerto).
+      byte [] cadena = new byte[1000];
+      DatagramPacket mensaje = new DatagramPacket(cadena, cadena.lenght);
+      sSocket.receive(mensaje);
+Una vez recibido el mensaje se puede mostrar su contenido de la siguiente forma:
+      String datos=new String(mensaje.getData(),0,mensaje.getLenght());
+      System.out.println("\tMensaje Recibido; " + datos);
+Finalmente, una vez finalizado el programa cerramos el socket:
+      sSocket.close();
 
+
+EMISOR
 
 
 
