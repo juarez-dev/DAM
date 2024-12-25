@@ -25,4 +25,53 @@ Ventajas de ORM
   - Incentivan la portabilidad y escalabilidad de los programas de software.
 
 Desventajas de ORM
-  -
+  - Tiempo utilizado en ele aprendizaje. Heramientas complejas por lo que su correcta utilización lleva un tiempo que hay que emplear en ver el funcionamiento correcto y ver todo el partido que se puede sacar.
+  - Menor rendimiento, debido a que todas las consultas que se hagan sobre la DB, el sistema primero debe transformarlas al lenguaje propio de la herramienta, leer los registros y por último crear los objetos.
+  - Sistemas complejos, normalmente la utilidad y el rendimiendo del ORM disminuye cuanto mayor es la complejidad del sistema relacional.
+
+
+HERRAMIENTAS ORM MÁS UTILIZADAS
+  - HIBERNATE
+Herrameienta de Mapeo Objeto-Relacional para Java que facilita el mapeo de atribuots entre una DB relacional tradicional y el modelo de objetos de una app.
+Utiliza archivos declarativos XML o anotaciones en los beans de las entidades que permiten establecer relaciones.
+Es software libre, distribuido bajo los términos de la licencia GNY LGPL.
+Puede ser utilizadoo con y sin JPA.
+
+  - JAVA PERSISTENCE API (JPA)
+Es una especificación de Sun Microsystems para la persistencia de objetos de Java a cualquier base de datos relacional.
+Requiere de J2SE 1.5 o superior, ya que hace uso intensivo de las nuevas características de lenguaje Java, como anotaciones y los genéricos.
+
+  - IBATIS
+Framework de persistencia desarrollado por Apache Software Foundatión.
+Es de código libre.
+Sigue el mismo esquema de uso que Hibernate, se apoya en el mapeo de XML para persistir la info contenida en objetos en un repositorio relacional.
+
+
+HIBERNATE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
