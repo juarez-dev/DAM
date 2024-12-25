@@ -48,7 +48,14 @@ Sigue el mismo esquema de uso que Hibernate, se apoya en el mapeo de XML para pe
 
 
 HIBERNATE
+Nos vamos a centrar en el uso de Hibernate desde un Framework como Spring Boot para ver a continuación el uso de Hibernate en un app Java con JPA.
+Incorporaremos como lectura la posibilidad de configurar un proyecto con xml, ya que hoy en día la mayoria de las apps lo utilizan con JPA.
 
+SPRING FRAMEWORK, permite una excelente integración con Hibernate y Java Persistence API(JPA), proporcionando características como la IoC (Inversión of Control) como solución a problemas comunes.
+Permite tambíen configurar funciones compatibles con herramientas de mapeo objeto-relacional a traves de Inyección de Dependencias.
+Con el uso de un framework como Spring podemos lograr una separación clara de capas y un acoplamiento flexible de los objetos de la aplicación.
+Esto significa evitar dependencias directas de los servicions empresariales en la estrategia de acceso a datos o transacciones, y utilizar Inyección de Dependencias para administrar recuros.
+En resumen, Spring facilita la creación de DAOs ORM al proporcionar una infraestructura sólida y una forma eficiente de manejar recursos de persistencia.
 
 
 
