@@ -164,6 +164,30 @@ Finalmente, una vez finalizado el programa cerramos el socket:
 
 
 EMISOR
+Para realizar una aplicación emisora de mensaje UDP se debe iniciar primero la estructura DatagramSocket
+      DatagramSocket sSocket = new DatagramSocket();
+Ahora se debe crear el mensaje del tipo DatagramPacket, al que se debe indicar:
+  -> Mensaje a Enviar.
+  -> Longitud del Mensaje.
+  -> Equipo al que se le envia el mensaje.
+  -> Puerto destino.
+      DatagramPacket mensaje = new DatagramPacket(mensaje.logngitud, Equipo, Puerto);
+Para obtener la direccion del equipo al que se le envía el mensaje a través de su nombre se utiliza la función getByName de la clase InetAdress:
+      InetAddress Equipo = InetAddress.getByName("localhost");
+Una vez creado el mensaje lo enviamos:
+      sSocket.send(mensaje);
+Y al terminar cerramos el socket:
+      sSocket.close();
+
+
+
+
+
+
+
+
+
+
 
 
 
