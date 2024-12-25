@@ -57,14 +57,42 @@ Con el uso de un framework como Spring podemos lograr una separación clara de c
 Esto significa evitar dependencias directas de los servicions empresariales en la estrategia de acceso a datos o transacciones, y utilizar Inyección de Dependencias para administrar recuros.
 En resumen, Spring facilita la creación de DAOs ORM al proporcionar una infraestructura sólida y una forma eficiente de manejar recursos de persistencia.
 
+El uso de Spring con ORM aporta:
+  -> PRUEBAS MÁS SENCILLAS, la aproximación de IoC de expreing facilita la sustitución de implementaciones y ubicaciones de configuración para 
+instancias de SessionFactory de Hibernate, DataSource de JDBC, administradores de transacciones y objetos mapeados.
+  -> EN LAS EXCEPCIONES COMUNES DE ACCESO A DATOS, Spring convierte las excepciones del ORM en una jerarquía común de excepciones de tiempo en ejecición.
+Esto simplifica el manejo de excepciones en las capas apropiadas sin necesidad de declaraciones innecesarias.
+  -> GESTIÓN GENERAL DE RECURSOS, los contextos de aplicación de Spring manejan la ubicación y configuración de instancias de SessionFactory, EntityManagerFactory, DataSource y otros recursos relacionados.
+
+* Inversion de Control, se especifican respuestas deseadas a sucesos o solicitudes de datos concretas, dejando que algún tipo de entidad o arquitectura externa lleve a cabo las acciones de control que se requiran
+en el orden necesario y para el conjunto de sucesos que tengan que ocurrir. *
+* Inyección de Dependencias, patrón de diseño que se encarga de extraer a responsabilidad de la creación de instancias de un compoente para delegarla en otro. *
 
 
+ARQUITECTURA DE HIBERNATE
+Es una arquitectura en capas para mantenerlo aislado de tener que conocer las API subyacentes. Hibernate usa los datos de la DB y proporciona persistencia entre los diferentes objetos.
+Las interfaces que presenta Hibernate son las siguientes:
+  -> Configuration, representa un archivo de configuración o propiedades requerido por la hibernación. El objeto de configuración proporciona dos componentes claves: Conexión a DB y configuracíon del mapeado de clase.
+  -> Session Factory, Configura Hibernate para la app que utiliza el archivo de configuration suministrado y permite la creación de instancias del objeto Session.
+  -> Session, se usa para obtener conexión física con una DB.
+  -> Transaction, representa una unidad de trabajo con la DB y la mayor parte del RDBMS soporta la funcionalidad de transacción
+Las transacciones en hibernación son manejadas por un gestor de transacciones subyacente y de transacción.
+  -> Query, Objetos de consulta, utilizan SQL o Hibernate Query Language (HQL) para recuperar datos de la DB y crear objetos.
 
 
+MAPEO CON SPRING BOOT
+Se pueden destacar las siguientes características antes de ver los pasos a seguir para implementar una solución con Spring Boot y ORM:
+- El framework es quien maneja el control del proyecto
+- Tiene un ecosistema maduro.
+- Programación con anotaciones, evita la generación de mucho código, fundamentalmente de configuración, que antes se hacía con XML.
+- Se utiliza una DB externa.
 
 
-
-
+CONFIGURACIÓN DE LA APLICACIÓN
+  1. CREACIÓN DE UN NUEVO PROYECTO
+  2. CREACIÓN DE LAS DEPENDENCIAS
+  3. CONFIGURACIÓN DE LA BASE DE DATOS
+CONFIGURACIÓN DE LAS CLASES A PERSISTIR
 
 
 
