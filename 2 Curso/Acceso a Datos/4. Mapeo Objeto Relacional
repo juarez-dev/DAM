@@ -13,3 +13,16 @@ Actúan como un puente que conecta las ventajas de los RDBMS con una buena repre
 * En el modelo relacional, cada fila de la tabla se mapea a un objeto y cada columna a una propiedad. *
 
 CARACTERÍSTICAS
+Una herramienta ORM permite tomar un objeto Java y hacerlo persistente, carga el objeto de la DB a memoria y permite hacer consultas a las tablas de la base de datos.
+
+Ventajas de ORM
+  - Ayudan a reducir el tiempo de desarrollo.
+  - Abstracción e independencia de la base de datos.
+  - Reutilización.
+  - Permiten persistir objetos.
+  - Permiten recuperar los objetos persistidos.
+  - Lenguaje propio para realizar las consultas.
+  - Incentivan la portabilidad y escalabilidad de los programas de software.
+
+Desventajas de ORM
+  -
