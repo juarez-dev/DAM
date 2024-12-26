@@ -280,12 +280,21 @@ En Hibernate las transacciones se manejan con la intrefaz org.hibernate.Transact
 Cada vez que se realiza una operación sobre la DB hay que manejar la sesión y la transacción realizada.
 
 
+CARGA DE OBJETOS
+ -> load() de la clase Session suministra un mecanismo para capturar una instancia persistente, si conocemos su indentificador, este método acepta un objeto Class y cargará el estado de una nueva instancia de esa clase,
+inicializada en estado persistente.
+Se lanzará una excepción irrecuperable si no existe la fila de DB correspondiente, si no se esta seguro de su existencia, debe usarse el método get(), el cual consulta la DB inmediatamente y devuelve null si no existe.
+load() intenta devolver un bojeto proxy siempre y cuando sea posible, con lo que es posible que la excepción sea lanzada cuando se inicialice el objeto proxi -> carga perezosa.
+En el caso de obtener un proxi, no tiene impacto en la DB, hasta que no se inicializa el mismo, es muy útil cuando se obtiene una referencia de un objeto para asociarlo con otro, se modifica un objeto persistente.
 
 
-
-
-
-
+ALMACENAMIENTO Y MODIFICACIÓN DE OBJETOS PERSISTENTES
+El proceso de ALMACENAR sigue los siguientes pasos:
+  1. Se instancia un objeto nuevo (Estado Transitorio).
+  2. Se obtiene una sesión y se comienza la transacción, iniciando el contexto de la persistencia.
+  3. Se llama al método save(), el cual introduce el objeto en el contexto de persistencia, el método devuelve el identificador del objeto persistido.
+  4. Para sincronizar los cambios en la DB, se necesita hacer commit de la transacción. Dentro del objeto se llama al método flush(), en este se obtiene la conexión JDBC para poder ejecutar la sentencia oportuna.
+  5. Finalmente, la sesión se cierra, con el objeto de liberar el contexto de persistencia, devolviendo así la referencia del objeto creado al estado disociado.
 
 
 
