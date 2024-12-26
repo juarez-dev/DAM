@@ -260,8 +260,12 @@ Una instancia puede estar en uno de los siguientes estados:
   - Detached, objeto persistente que sigue en memoria despúes de terminar la sesión, existe en Java y en la DB.
   - Removed, objeto marcado para ser borrado de la DB, existe en Java y se borrará de la DB al terminar la sesión.
 
+Una sesión no obtendrá una Connection JDBC o un Datasource a menos que sea necesario.
+No consumirá resources hasta que se utilice.
+Las sesiones deben cerrarse al terminar la operación por seguridad de la app.
 
-
+El patrón más común en una app multiuser cliente/servidor es sesión-por-petición, por cada petición del cliente se envia al al servidor, en donde se ejecuta la capa de persistencia de Hibernate.
+Se abre una nueva Session de Hibernate y todas las operaciones de la DB se ejecutan en esta unidad de trabajo, una vez completado y una vez se ha preparado la respuesta para el cliente, se limia la Session y se cierra.
 
 
 
