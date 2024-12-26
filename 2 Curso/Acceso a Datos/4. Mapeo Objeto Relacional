@@ -89,11 +89,176 @@ Se pueden destacar las siguientes características antes de ver los pasos a segu
 
 
 CONFIGURACIÓN DE LA APLICACIÓN
-  1. CREACIÓN DE UN NUEVO PROYECTO
-  2. CREACIÓN DE LAS DEPENDENCIAS
-  3. CONFIGURACIÓN DE LA BASE DE DATOS
-CONFIGURACIÓN DE LAS CLASES A PERSISTIR
+    A. CREACIÓN DE UN NUEVO PROYECTO
+Se marcan las opciones con las que configurar el proyecto y se genera el archivo, el cual será el proyecto:
+  1. Lenguaje a utilizar.
+  2. Herramienta de gestión.
+  3. Version de Spring Boot.
+  4. Dependencias necesárias:
+    - Spring Web, para poder realizar el backend de una app web.
+    - Spring Data JPA, para utilizar JPA en una app.
+    - MySQL Driver, conexión con la DB externa.
+  5. Dependencia recomendable -> Spring Boot Dev Tools, ayuda a manejar la recarga de la aplicación y mejorar la experiencia del developer.
+    B. CREACIÓN DE LAS DEPENDENCIAS
+Vamos a utilizar Maven y por lo tanto tenemos un archivo pom.xml en el que se incluiran las dependencias que nos permitan trabajar son Spring Data utilizando una DB mysql.
+    C. CONFIGURACIÓN DE LA BASE DE DATOS
+En el archivo applicantiion.properties (src/main/resources) de Spring hay que indicar la información relativa a la DB que se utiliza.
+Los datos a proporcionar son los mismos que los utilizádos con la conexión JDBC:
+  - URL.
+  - USERNAME.
+  - PASSWORD.
+La sentencia spring.jpa.hibernate.ddl-auto tiene varias posibilidades en función del uso que tenga hibernate con jpa en el proyecto:
+  - create -> cuando arranque el proyecto hibernate se encargará de crear las tablas en la db indicada, en base a las anotaciones puestas en las clases a persistir.
+  - create-drop -> cuando arranque la app se crearan las tablas, al finalizar se destruyen.
+  - update -> cuando arranque la aplicación se actualizará la estructura de las tablas segun lo indicado, siempre que sea posible.
+Se puede activar el logging de las sentencias que va ejecutando Hibernate en la consola con la siguiente opción:
+      spring.java.properties.hibernate.show_sql=true;
 
+CONFIGURACIÓN DE LAS CLASES A PERSISTIR
+Todas las clases a persistir deben ser anotadas para que se pueda realizar su mapeo, se pueden tener clases que no son alojadas en la DB.
+
+Se indicará con anotaciones:
+  - Qué entidades se quieren en la DB.
+  - Nombres de los campos de la tabla y características.
+  - Clave primaria y autogeneración si es el caso.
+  - Relaciones entre tablas.
+
+ANOTACIONES BÁSICAS
+    @Table(name="name"), Tabla con la que la entidad se va a mapear.
+    @Entity( name="name"), Registra la entidad.
+    @Id, Identificador de la entidad, será la clave primaria en la tabla.
+    @Embeddedld, Mapeo claves primarias compuestas.
+    @GeneratedValue(strategy=GanerationType.IDENTITY), permite el autocincremento de las claves primarias en la DB, en una DB MySQL el autoincremento se realizará con Generation Type.IDENTITY.
+    @Column(name="name", nullable=true/false, length=int, unique=true/false), especifica los atributos del campo de la tabla.
+    @Transient, el atributo que está anotado con transient no se persiste.
+    @Enumerated(EnumType.STRING/ORDINAL), permite anotar campos enumerados de Java(Enum) y almacenarlos en la tabla como enteros o String.
+    @Temporal(TemporalType.TIMESTAMP/DATE), utilizado para fechas.
+
+
+RELACIONES
+
+  ANOTACIONES PARA RELACIONES
+    @OneToOne, mapeo de relaciones 1:1.
+    @OneToMany, mapeo de relaciones 1:N.
+    @ManyToOne, mapeo de relaciones N:1.
+    @ManyToMany, mapeo de relaciones N:M.
+      Sus Atributos:
+        - mappedBy = "attribute_name".
+        - cascade = type of propagation changes.
+        - orphanRemoval = true/false
+        - fetch = Fetch Type.LAZY/EAGER.
+    @JoinTable(name=table_name), se especifica el nombre de la tabla que realiza el mapeo.
+    @MapsId.
+
+  CONCEPTOS IMPORTANTES PARA EL MANEJO DE RELACIONES
+    - ENTIDAD PADRE, aquella que sea fundamental en la relación, sin la cual la otra entidad dejaría de tener sentido.
+    - ENTIDAD OWNER, la que va a llevar la clave foránea.
+    - RELACIÓN UNIDIRECCIONAL, si en la clase sólo se añade atributo en uno de los lados, de esta forma solo podremos acceder a los datos desde uno de los lados de la relación.
+    - RELACIÓN BIDIRECCIONAL, si se puede acceder desde los hijos al padre y viceversa, para ello no se crearan 2 relaciones en la DB, sino que se anotara con @JoinColumn y mappedBy
+@JoinColumn permite indicar el nombre de la columna a la que se hace referencia en la tabla hija.
+mappedBy establece una relación bidireccional ya que a pesar de tener una única Foreing Key, se pueden relacionar ambas tablas. Con esto se consigue aclarar donde se debe incluir la clave que mapea las relaciones.
+Normalmente estará en la clase padre.
+
+  CARGA DE DATOS EAGER O LAZY
+La forma de carga de datos puede impactar directamente en la eficiencia de la app ya que se puede sobrecargar la memoria y/o realizar una transferencia de datos demasiado costosa.
+    - EAGER, cuando se carga el objeto, se cargan todos los relacionados con él.
+    - LAZY, el objeto relacionado no se carga hasta que no sea necesário.
+En JPA, por defecto, @ManyToOne es EAGER y @OneToMany es LAZY.
+
+  PROPAGACIÓN DE CAMBIOS
+Cuando se realiza una operación en una entidad padre, puede que las entidades relacionadas se vean afectadas.
+Esta operación, por defecto, no se propagará a otras entidades que tienen relación con la entidad que se está modificando.
+Se puede decidir como se maneja en una entidad la propagacion de cambios con el atributo Cascade y los tipos u operaciones:
+    - ALL, propaga todos los cambios del padre al hijo.
+    - PERSIST, cuando se almacena el padre, se almacena en el hijo.
+    - MERGE, copia el estado de un objeto en el persistente con el mismo id, propaga la operación merge.
+    - REMOVE, propaga la eliminación.
+    - REFRESH, vuelve a leer una instancia de la DB, si se utiliza, tambíen el hijo se vuelve a leer cuando se utiliza en el padre.
+    - DETACH, elimina un objeto del contexto de persistencia, si se elimina el padre, también el hijo.
+
+  RELACIONES OPCIONALES Y OBLIGATORIAS
+Que una operación sea opcional impica que se puede almacenar el objeto en la DB sin asignarle el objeto relacionado.
+  @OneToMani siempre es opcional.
+  @ManyToOne es por defecto opcional, pero se puede cambiar.
+Con la forma de propagación de cambios también se pueden gestionar los cambios con el tipo que elijamos.
+
+  ELIMINACIONES AUTOMÁTICAS (HUÉRFANOS)
+Con orphanRemoval=true se especifica que la entidad hijo debe ser eliminada automáticamente por el propio ORM si ha dejado de ser referenciada por una entidad padre.
+
+
+  -> RELACIONES 1:1
+Se anotan con @OneToOne
+Si es unidirecional, se anota el atributo solo en la entidad propietaria.
+Si es bidireccional, se anota en las dos y con el atributo mappedBy.
+Si se quiere que se propagenia los cambios se utiliza el tipo de CascadeType deseado.
+  -> RELACIONES 1:N
+No participan las 2 entidades con la misma cardinalidad, se anotan con @OneToMany y @ManyToOne y ello depende de la función de la entidad en la relación.
+Si la entidad es propietaria, la anotación es @ManyToOne, irá asociada a un atributa.
+Si es bidireccional, se anota la entidad padre con @OneToMany y para que no haya más de una clave foránea en la DB, se indica con mappedBy el atributo al que hace referencia.
+Con @JoinColumn se indica el nombre del atributo en la DB, se puede indicar también el nombre de la restricción de Foreing Key que se cree con el atributo foreingKey.
+Se puede además asignar el tipo de propagación deseado, si hay huérfanos, opcionales, etc.
+  -> RELACIONES N:M
+Se anotan con @ManyToMany en ambas entidades si la relación es bidireccional y se creará una tabla intermedia a la que se pude nombrar con @JoinTable y asignar atributos como el nombre de las columnas de la tabla intermedia.
+Conviene asignar al atributo de la entidad un Set en lugar de un List en el campo de la asociación, por ser más eficiente su uso por parte de Hibernate.
+Se puede indicar el tipo de propagacion de cambios y otras características.
+
+
+REPOSITORIO BÁSICO
+Debe heredar de una interfaz que existe en Spring y que gestionará todas las operaciones básicas.
+
+MÉTODOS BÁSICOS que se pueden añadir al repositório
+  findByAtributo.
+  Añadir sentencias sql a través de @Query.
+  Añadir sentencias a través de JPQL( lenguaje específico para ello).
+
+
+CONSULTAS CON JPQL
+JPQL es un lenguaje de consulta que utiliza un modelo de clases para definir las queries en lugar de las tablas de la DB.
+Hibernate transformará de JPQL a SQL de la DB.
+  1. Selección de atributos de una clase -> SELECT objeto FROM Entidad objeto.
+  2. Selección de varias clases relacionadas -> SELECT a, b From Entidad a JOIN a.parametro b -> (no queda muy claro, pero bueno ya lo veré en algun ejercicio).
+
+
+MAPEO CON HIBERNATE Y JPA
+Se puede utilizar un proyecto Java sin Framework añadido y utilizar Hibernate con JPA.
+Los pasos a seguir para tener el proyecto completamente configurado:
+  1. Creación del proyecto y utilización de Maven. Incorporación de dependencias.
+  2. Creación de las clases y asignación de las anotaciones.
+  3. Generar el acceso a datos.
+
+CONFIGURACIÓN DE LA APLICACIÓN
+* PASO 1 -> Crear un new project Java, convertir el proyecto en Maven Project o crearlo directamente como project Maven.
+Para incorporar las librerías, se añaden al fichero de configuración pom.xml las dependencias necesárias:
+  - El conector MySQL.
+  - Hibernate core y commons.
+* PASO 2 -> Añadir la configuración de la base de datos y de las conexiones
+Se crea a nivel de src, un archivo (hibernate.cfg.xml) en el que se incluyen todas las características de configuración.
+Apartados/Sentencias del archivo:
+  - Dialecto utilizado para MySQL.
+  - Configuración de la conexión para la DB.
+  - Opción para mostrar las sentencias sql por pantalla.
+  - Parámetro de conexiones para Hibernate.
+  - Contexto de sesión.
+  - Forma de conectarse a la DB, creat, create-drop o update.
+  - Los ficheros de las entidades creadas que llevan las anotaciones.
+
+CONFIGURACIÓN DE LAS CLASES A PERSISTIR
+Tanto las clases como las relaciones entre ellas hay que indicarlas mediante anotaciones JPA.
+
+
+SESIONES Y TRANSACCIONES
+Para realizar las operaciones sobre la DB es necesario manejar las sesiones y dentro de ellas, las distintas transacciones a realizar.
+  SESIONES
+Una sesion es una interfaz que en Hibernate representa una unidade de trabajo en un hilo único, utilizara a su vez una conexión JDBC y se utiliza para realizar operaciones en la DB.
+La función es ofrecer las operaciones de creación, lectura y borrado para instancias de clases mapeadas.
+Para realizar la operación hay que abrir la sesión, operar y cerrar la sesión
+Una vez abierta la sesión, las instancias utilizadas quedarán unidas a esta, hasta que se cierre.
+
+Una instancia puede estar en uno de los siguientes estados:
+  - Transient, objeto recién creado que no ha sido enlazado con el gestor de persistencia.
+  - Persistent, objeto enlazado con la sesión, todo los cambios que se realicen serán persistentes.
+  - Detached, objeto persistente que sigue en memoria despúes de terminar la sesión, existe en Java y en la DB.
+  - Removed, objeto marcado para ser borrado de la DB, existe en Java y se borrará de la DB al terminar la sesión.
 
 
 
