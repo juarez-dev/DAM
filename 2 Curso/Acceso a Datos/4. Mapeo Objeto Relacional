@@ -248,6 +248,7 @@ Tanto las clases como las relaciones entre ellas hay que indicarlas mediante ano
 
 SESIONES Y TRANSACCIONES
 Para realizar las operaciones sobre la DB es necesario manejar las sesiones y dentro de ellas, las distintas transacciones a realizar.
+
   SESIONES
 Una sesion es una interfaz que en Hibernate representa una unidade de trabajo en un hilo único, utilizara a su vez una conexión JDBC y se utiliza para realizar operaciones en la DB.
 La función es ofrecer las operaciones de creación, lectura y borrado para instancias de clases mapeadas.
@@ -267,6 +268,16 @@ Las sesiones deben cerrarse al terminar la operación por seguridad de la app.
 El patrón más común en una app multiuser cliente/servidor es sesión-por-petición, por cada petición del cliente se envia al al servidor, en donde se ejecuta la capa de persistencia de Hibernate.
 Se abre una nueva Session de Hibernate y todas las operaciones de la DB se ejecutan en esta unidad de trabajo, una vez completado y una vez se ha preparado la respuesta para el cliente, se limia la Session y se cierra.
 
+  TRANSACCIONES
+La transacción nunca es opcional, toda comunicación tiene que estar dentro de una transacción, evitando el auto-commit.
+Las transacciones deben ser cortas, para evitar bloqueos en la DB, de lo contrario, el escalado de la app en un entorno de alta concurrencia se verá comprometido.
+
+En Hibernate las transacciones se manejan con la intrefaz org.hibernate.Transaction, que proporciona los métodos para controlar el ciclo de vida de la transacción:
+  -  beingTransaction() -> método de la sesión, para comenzar.
+  - commit() -> para finalizar y entonces se sincronizarán los cambios.
+  - rollback() para anular los cambios si ocurre un error.
+
+Cada vez que se realiza una operación sobre la DB hay que manejar la sesión y la transacción realizada.
 
 
 
