@@ -296,6 +296,57 @@ El proceso de ALMACENAR sigue los siguientes pasos:
   4. Para sincronizar los cambios en la DB, se necesita hacer commit de la transacción. Dentro del objeto se llama al método flush(), en este se obtiene la conexión JDBC para poder ejecutar la sentencia oportuna.
   5. Finalmente, la sesión se cierra, con el objeto de liberar el contexto de persistencia, devolviendo así la referencia del objeto creado al estado disociado.
 
+Los objetos cargados, grabados, creados o consultados por la sesión pueden ser manipulados por la app, y cualquier cambio a su estado de persistencia será persistido cuando se aplique "flush" a la sesión.
+No hay que invocar ningún método en particular para que las modificaciones se vuelvan persistentes, así que la manera más sencilla y directa de actualizar el estado de un objeto es cargarlo con load(),
+y luego manipularlo directamente, mientras la sesión esté activa.
+
+Para BORRAR OBJETOS PERSISTENTES, se puede ejecutar Session.delete(), que quitará el estado de un objeto en la DB, su aplicación podría tener aún referencia al objeto quitado.
+Se puede borrar objetos en cualquier orden, no se van a producir violaciones de llave externa, pero si se pueden producir de constrains NOT NULL aplicadas a la columna de llave externa.
+
+Muchas apps necesitan capturar un objeto en una transacción, mandarlo a la capa de interfaz de usuario para su manipuación, y grabar sus cambios en una nueva transacción.
+Las apps que usan esta estrategia en entornos de alta concurrencia, normalmente usan datos versionados para garantizar aislamiento durante la larga unidad de trabajo.
+Hibernate soporta este modelo, poveyendo reasociación de entidades desprendidas usando los métodos Session.update() o Session.merge().
+
+
+UTILIZACIÓN DE SENTENCIAS DE CONSULTA
+Las operaciones básicas sobre la DB:
+  -> save(), creación.
+  -> delete(), borrado.
+  -> consultas:
+      -> Recuperar una instancia, desde la sesión abierta utilizamos el método get -> return session.get(Employee.class, id);
+      -> Utilización de sql nativo para consultas, se utiliza el método createNativeQuery("Query", clase).list() también de la sesión -> Session.createSQLQuery();
+
+
+LENGUAJES PROPIOS DE LA HERRAMIENTA ORM
+
+HQL -> Hibernate Query Languaje, completamente orientado a objetos y comprende nociones como herencia, polimorfismo y asociación.
+Las consultas escritas en HQL Hibernate se encarga de convertirlas a SQL y ejecutarla para realizar la operación indicada.
+Es case-insensitive, sus sentencias pueden escribirse en máyusculas/minúsculas, hay que tener cuidado con los nombres de las clases recuperadas y sus propiedades, ahí si se distinguen mayus/minus.
+
+Entre las sentencias más importantes de HQL:
+  -> Soporte completo para operaciones relacionales -> permite representar consultas SQL, usa clases y atributos o propiedades en vez de talbas y columnas.
+  -> Regresa sus resultados en forma de objetos.
+  -> Consultas Polimórficas -> posibilidad de declarar el resultado usando el tipo de superclase e Hibernate se encarga de crear los objetos adecuados de las subclases correctas automáticamente.
+  -> Soporte para características avanzadas -> paginación, fetch joins con perfiles dinámicos, inner y outer joins, etc. Además soporta proyecciones, funciones de agrupación y agrupamientos, ordenamientos y subconsultas.
+  -> Independiente del manejador de DB -> las consultas son independientes de la DB.
+
+JPQL -> Java Persistence Query Languaje, inspirado en un subconjunto de HQL, una consulta JPQL es siempre válida en HQL, a la inversa no siempre es válida.
+
+
+SINTAXIS DEL LENGUAJE HQL
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
