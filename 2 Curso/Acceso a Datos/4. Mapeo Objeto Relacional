@@ -450,8 +450,34 @@ Métodos:
 El mayor problema es determinar el número de páginas para poder mostrarlo al user, para saber el número es necesario conocer el número de objetos que retorna la consulta.
 
 2. Consultas con Nombre
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hibernate provee una funcionalidad para escribir consultas en un fichero externo de manera sencilla.
+En cualquier fichero de mapeo de Hibernate se puede incluir anotaciones @NamedQuery and @NamedQueries Annotations con las consultas HQL que se quieran lanzar.
 
+La anotacion @NamedQuery contiene cuatro parámetros:
+  - name y query, definen el nombre de la consulta y la propia cadena de la consulta, y son obligatórios.
+  - lockMode y hints, proporcionana un reemplazo estático para los métodos setLockMode y setHit, y son opcionales.
+
+Para añadir varias consultas nombradas, tiene que haber una consulta nombrada por cada una de ellas y estas dentro de una anotación envoltorio @NamedQueries
+Estas anotaciones tienen los siguientes datos
+  - name, atributo que define el nombre de la consulta, posteriormente se usará desde el código Java para acceder a la consulta.
+  - query, es la consulta en formato HQL que ejecutará Hibernate.
+
+3. Código Java
+Para hacer uso de una consulta con nombre se usa el método getNamedQuery(String queryString), en vez de createQuery(String queryString) para obtener el objeto Query.
+
+
+MAPEO ORM CON HIBERNATE SIN ANOTACIONES
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+FICHEROS DE CONFIGURACIÓN - PROPIEDADES -> 44
+
+FICHEROS DE MAPEO - ESTRUCTURA, ELEMENTOS Y PROPIEDADES
+
+=~= CREANDO FICHEROS DE MAPEO EN NETBEANS =~=
+
+=~= CREANDO FICHEROS DE MAPEO EN ECLIPSE =~=
 
 
 
