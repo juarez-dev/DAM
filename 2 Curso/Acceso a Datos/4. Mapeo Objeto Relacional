@@ -334,6 +334,122 @@ JPQL -> Java Persistence Query Languaje, inspirado en un subconjunto de HQL, una
 
 
 SINTAXIS DEL LENGUAJE HQL
+La principal particularidad es que las consultas realizadas sobre los objetos Java, es decir, las entidades que se persisten en Hibernate, esto hace que HQL tenga las siguientes características:
+  - Los tipos de datos son los de Java.
+  - Las consultas son independientes del lenguaje de SQL especifico de la DB.
+  - Las consultas son independientes del modelo de tablas de la DB.
+  - Es posible tratar con las colecciones de Java.
+  - Es posible nevegar entre los distintos objetos en la propia consulta.
+
+Las consutlas HQL se ejecutan sobre el modelo de entidades definido en Hibernate.
+
+SENTENCIAS CONSULTAS - SELECT
+    -> Cláusula FROM, de que tabla cogemos los datos.
+    -> Cláusula SELECT, escoge qué objetos y propiedades devolver del conjunto de resultados de la consulta.
+    -> Cláusula WHERE, permite filtrar la lista de instancias retornadas.
+    -> FUNCIONES DE AGREGACIÓN, las consultas pueden retornar resultados de funciones de agregación sobre propiedades.
+          - avg, sum, max, count.
+    -> EXPRESIONES, se incluyen en la cáusula where.
+    -> Cláusula ORDER BY, para ordenar la lista retornada. (asc/desc)
+    -> Cláusula GROUP BY, retorna valores agregados, se puede agrupar por cualquier propidead de una clase retornada o componentes.
+    -> Cláusula HAVING, restringe grupos.
+
+Sintaxis -> SELECT ... FROM ... WHERE ... GROUP BY ... HAVING ... ORDER BY ...
+    Siendo la única obligatoria la cláusula FROM
+
+* Incluir alias en la consulta HQL -> java.lang.NullPointerException. *
+* Hibernate soporta no incluir SELECT en la consulta HQL, aunque se recomienda no hacerlo. *
+
+MAYUSCULAS
+El lenguaje HQL es sensible a min/mayus, pero con matices:
+  - Las palabras clave NO son sensibles.
+  - El nombre de las clases Java y sus prpiedades SI son sensibles.
+  - Al realizar comparaciones con valores de propiedades, éstas NO son sensibles.
+
+FILTRADO
+Se pueden filtrar las consultas mediante la cláusula WHERE.
+Al igual que con el nombre de la clase, el nombre de los campos del WHERE siempre hace referencia a la propiedades Java y nunca a los nombres de las columnas.
+
+LITERALES
+  - TEXTO, un literal de texto se indica con la comilla simple.
+  - INTEGER, simplemente se escribe el número a incluir.
+  - LONG, se escribe el número añadiendo L(mayuscula) al final.
+  - DOUBLE, se escribe el número separando la parte decimal con un punto, se puede usar notacion cientifica también.
+  - FLOAT, igual que DOBULE pero añadiendo una F al final
+  - FECHA, se indica entre comillas simples con formato yyyy-mm-dd
+  - HORA, se indica entre comillas simples con formato hh:mm:ss
+  - FECHA Y HORA, indicar fecha y hora con el formato yyyy-mm-dd hh:mm:ss.milis, los milisegundos son opcionales.
+  - OPERADORES DE COMPROBACIÓN, se pueden usar los siguientes:
+      = ; > ; < ; >= ; <= ; <>(desigual) ; != ; between ; in ; like ; not ; is  null
+
+OPERADORES LÓGICOS
+Se puede hacer uso de los típicos de SQL -> AND, OR y NOT
+
+OPERADORES ARTIMÉTICOS
+suma + ; resta - ; multiplicación * ; división /
+
+FUNCIONES DE AGREGACIÓN
+AVG() ; SUM() ; MIN() ; MAX() ; COUNT()
+
+FUNCIONES SOBRE ESCALARES
+UPPER(s) ; LOWER(s) ; CONCAT(s1, s2) ; TRIM(s) ; SUBSTRING(s, offset, lenght) ; LENGTH(s) ; ABS ; SQRT ; ||
+
+ORDENACIÓN
+Es posible ordenar los resultados usando ORDER BY, se pueden usar las palabaras ASC y DESC
+El uso de funciones escalares y de agrupamiento en la cláusula ORDER BY solo es soportado si es soportado por el lenguaje SQL de la DB.
+La cláusula no permite el uso de expresiones aritméticas.
+
+AGRUPACIONES
+Se pueden realizar mediante las palabras clave GROUP BY y HAVING.
+El uso de funciones escalares y de agrupamiento en la cláusula HAVING solo es soportado si es soportado por el lenguaje SQL de la DB.
+No se permiten expresiones aritméticas en GROUP BY.
+
+SUBCONSULTAS
+Hibernate las soporta como en SQL.
+
+COMBINACIONES
+En la clausula FROM se pueden incluir múltiples clases, usando JOIN(union) o CROSS JOIN(union "cruzada").
+Para poder relacionarlas se actua de forma similar a SQL.
+La palabra reservada INNER es opcional, tambien se puede incluir la clausula ON.
+Los tipo de uniones soportados:
+  - INNER JOIN.
+  - LEFT OUTER JOIN.
+  - RIGHT OUTER JOIN.
+  - FULL JOIN.
+
+PARÁMETROS NOMBRADOS
+Hibernate soporta parámetros nombrados en sus consultas, esto facilita la escritura de consultas que aceptan la entrada del usuario.
+La asignación de valores a los parámetros se realiza con el método setParameter (los métodos setString, setByte, etc. están obsoloetos).
+Tambien se pueden utilizar parámetros con ?.
+
+
+CONSULTAS POR CRITERIOS
+Hibernate tiene el objeto Query, que da acceso a todas las funcionalidades para poder leer objetos desde la DB.
+Para lanzar una consulta se usa session, createQuery(String queryString) con la consulta en HQL y nos retorna un objeto Query, sobre él llamamos al método list() que nos retorna una lista de los objetos que ha retornado.
+
+1. Funcionalidades de la Clase Query
+
+  A. List()
+-> Lista de Objetos <-
+Nos retorna una lista con todos los objetos retornados por la consulta.
+-> Lista de Array de Objetos <-
+Las consultas pueden devolver datos escalares en vez de clases completas.
+En este caso el método retorna una lista con un Array de objetos con tantos elementos como propiedades haya en SELECT.
+-> Lista de Ojbeto <-
+Cuando hay una única columna de datos escalares en SELECT, solo se retorna una lista de elementos List<Object>.
+
+  B. uniqueResult()
+Si una consulta únicamente retorna cero o un resultado(es poco útil una lista), Hibernate dispone este método, el cual retornará directamente el único objeto obtenido en la consulta o null si no hay ninguno.
+Si retorna más de un resultado se producirá la excepcion -> org.hibernate.NonUniqueResultException: query did not return a unique result
+
+  C. Paginación
+Técnica que permite dividir los resultados de una consulta en páginas más pequeña, mejora el rendimiento y la gestión de grandes volúmenes de datos.
+Métodos:
+  - setMaxResults(int masResults), establece el número máximo de objetos que van a retornarse.
+  - setFirstResult(int firstResult), establece el primer de los objetos que se va ha retornar.
+El mayor problema es determinar el número de páginas para poder mostrarlo al user, para saber el número es necesario conocer el número de objetos que retorna la consulta.
+
+2. Consultas con Nombre
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
