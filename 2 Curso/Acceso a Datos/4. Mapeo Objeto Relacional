@@ -467,28 +467,41 @@ Para hacer uso de una consulta con nombre se usa el método getNamedQuery(String
 
 
 MAPEO ORM CON HIBERNATE SIN ANOTACIONES
+Para empezar a trabajar con Hibernate es necesario configurar la herramienta para que conozca qué objetos debe recupera de la DB y en qué lugar los hará persistir, por lo tanto, el primer paso será tener una DB con la que trabajar.
+Cuando se crea el archivo de configuración de Hibernate usando el asistenete, se puede especificar la conexión de la DB.
+Cuando se genera el archivo de configuración, el IDE añade detalles de la conexión e información basada en la conexión de la DB seleccionadas, también añade las bibliotecas Hibernate en el proyecto.
+El fichero de configuración puede ser editado usando el editor interactivo, directamente en el código XML.
+El fichero de configuración contiene información sobre la DB, si la app se va a conectar a varias DBs, sería necesario difinir tantos archivos de configuración como DBs.
+
+Para tener toda esta información, en Hibernate surgen dos ficheros distintos:  
+  -> Hibernate.properties, archivo de propiedades de Hibernate, el encargado de determinar todos los aspectos relacionados con el gestor de la DB y las conexiones con él.
+  -> *.hbm.xml, los archivos que definene el emparejamiento(mapping) de propiedades don tablas y columnas.
 
 
+FICHEROS DE CONFIGURACIÓN - PROPIEDADES 
+Hibernate.cfg.xml, archivo de configuración de Hibernate, contiene información sobre la conexión de DB, las asignaciones de recursos y otras prop
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-FICHEROS DE CONFIGURACIÓN - PROPIEDADES -> 44
 
 FICHEROS DE MAPEO - ESTRUCTURA, ELEMENTOS Y PROPIEDADES
+* FICHERO DE MAPEO *
+.hbm.xml, para cada clase persistida se creará un fichero xml con la información que permitirá mapear la clase a una DB, este fichero estará en el mismo paquete que la clase a persistir.
 
-=~= CREANDO FICHEROS DE MAPEO EN NETBEANS =~=
+Significacado del fichero:
+  - Hibernate-mapping, todos los ficheros de mapeo comienzan y acaban con esta etiqueta.
+  - Class, engloba la clase con sus atributos e incluye el mapeo de la tabla de la DB:
+      - name, es el nombre de la clase
+      - table, es el nombre de la tabla de la DB que representa ese objeto.
+      - schema, es el nombre de la DB.
 
-=~= CREANDO FICHEROS DE MAPEO EN ECLIPSE =~=
+* EL SINGLETÓN *
+Antes de crear la clase main, una vez implementado Hibernate, hay que crear una instancia que nos permita trabajar con la DB y que se utilizará a lo largo de la app.
 
+Un singletón es un patrón de diseño, realizado para restrigir la creación de objetos pertenecientes a una clase, 
+su intención es garantizar que una clase solo tenga una instancia y proporcionar un punto de acceso global a ella.
 
+El patrón singletón se implementa creando en la clase un método que crea una instancia del objeto solo si todavía no existe alguna.
+Para asegurar que la clase no puede ser instanciada nuevamente se regula el alcance del constructor(con atributos como protegido o privado).
 
-
-
-
-
-
-
-
-
-
-
+Clase configure(), es una clase que ayuda y accede a SessionFactory para obtener un objeto de sesión, carga sobre el fichero de configuración hibernate.cfg.xml y construye la SessionFactroy para obener el objeto de sesión.
+El nombre de la clase es SessionFactoryUtil.java y se incluirá en la clase main.
 
