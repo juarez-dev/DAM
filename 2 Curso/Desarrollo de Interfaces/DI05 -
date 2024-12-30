@@ -1,0 +1,138 @@
+DOCUMENTACIÓN DE APLICACIONES
+
+FICHEROS DE AYUDA
+Permite conocer las características y forma de trabajo de una aplicacióon, sirven de guía, de referencia, manual a los diferentes users de una app.
+Permite acceder a información sobre la instalación, configuración, utilización y administración de un programa informático.
+Se implementan en diferentes formatos, en función de la platafroma de distribución, lenguaje o entorno de desarrollo, en general tienen formato basado en HTML, aunque tambíen pueden encontrarse en PDF.
+
+En Java para generar ficheros de ayuda se utiliza JavaHelp, el fichero de ayuda define la ayuda para la aplicación.
+
+Generalmente, el fichero incluye la siguiente información:
+  -> MAPA DE FICHERO,s e utiliza para asociar los Identificadores de tema con el nombre de la URL o ruta de tema HTML en el fichero de ayuda.
+  -> VISTA DE INFORMACIÓN, presenta la información descrita en los navegadores del fichero de ayuda.
+                     El estándar que se utiliza es -> Tabla de Contenidos, Índice, y Búsqueda de Texto Completo; algunos navegadores presentan un Golosario y Favoritos.
+  -> TÍTULO DEL FICHERO DE AYUDA, aparece en la barra de título de la ventana del fichero y en las ventanas secundarias del fichero.
+  -> HOME ID, el nombre del ID por defecto que se mostrará cuando el visor de ayuda sea invocado sin especificar un ID.
+  -> PRESENTACIÓN, las ventanas en las que se muestran los temas de ayuda.
+  -> SUB-FICHEROS DE AYUDA, ficheros más pequeños, que son fusionados para crear el fichero de ayuda de la aplicación.
+  -> IMPLEMENTACIÓN, sección opcional, crea un registro que proporciona datos clave para definir la asignación de la clase HelpBroker para usar el método HelpSet.createHelpBroker.
+                     El registro creado también determina el visor de contenido de usuario para un tipo MIME.
+
+
+FORMATOS
+Los formatos más habituales para implementar los ficheros de ayuda son:
+  -> FORMATO CHM - Compiled HTML, Es un fichero de ayuda compilado formato online, propiedad de Microsoft, sucesor de Microsoft WinHelp.
+La ayuda se entrega en un archivo binario junto con el chm, la ayuda contiene un cojunto de HTMLs, una tabla del contenido con hipervínculos y un archivo índice.
+
+  -> Formato HLP - Ficheros WinHelp, pueden ir acompañados opcionalmente de una tabla de contenido (.cnt).
+Cuando Windows abre un fichero WinHelp crea un fichero .gid en el directorio, que va a contener la información del fichero .hlp tal como el tamaño de la ventana o la localización.
+Si el user cliquea en la pestaña Buscar, se activará la indexación de palabras clave, Windows creará un archivo de índice con extension .fts(full text search).
+
+Es posible descompilar el archivo, proporcionando copias de su contenido (hpj, cnt, rtf, bmp), usando diferentes herramientas de software.
+Un fichero HPJ es el fichero de proyecto que es creado y editado en la herramienta Help Workshop.
+El HPJ contiene información acerca de los RTF(Rich Text Format).
+
+El fichero CNT contiene la tabla de contenidos para el fichero de ayuda.
+
+El fichero SHG crea un mapa de imagen para presentar gráficos en la ayuda.
+
+  -> ARCHIVOS IPF - Information Presentation Facility, son un sistema de presentación de ayuda en línea e hipertexto en los sistemas IMB OS/2, también hace referencia al lenguaje que se usa para crear el contenido IPF.
+El lenguaje IPF es parecido al HTML, pero añadiendo nuevas utilidades, en cocreto presenta 45 comandos básicos.
+Una vez editado el IPF, se compilan con el Compilador IPF hacia un archivo INF o HLP, estos son diferentes a los HLP de WinHelp utilizados en Windows.
+
+  -> FICHEROS JavaHelp, ficheros de ayuda en línea que se implementan para apps Java, utilizando el sistema JavaHelp.
+JavaHelp hace referencia tanto al sistema de creación como al formato del fichero.
+Los ficheros JavaHelp se pueden visualizar en el navegador JavaHelp, estan escritos en Java.
+El formato del fichero está basado en XML.
+
+  -> FICHEROS PDF, pueden ser abiertos por cualquier visor PDF.
+
+  -> FICHEROS MAML - Microsoft Assistance Markup Language, es un lenguaje basado en XML, desarrollado para proporcionar asistencia al user para SOs actuales de Microsoft.
+También se usa para proporcionar info de ayuda a los cmdlets de Powershell, módulos y funciones avanzadas.
+Poseen la siguiente estructura:
+  - Preguntas frecuentes conceptual.
+  - Glosario.
+  - Proceimiento de referencia.
+  - Contenido reutilizable.
+  - Tarea y solución de problemas.
+  - Tutorial.
+
+
+HERRAMIENTAS DE GENERACIÓN DE AYUDAS.
+Entre las más conocidas:
+  -> Help Workshop, para la creación de ficheros hlp en Windows y Webs que utilicen controles de navegación.
+Los archivos de ayuda que crea tienen extensión HLP, se pueden incluir en el paquete de distribución de la app y se instala con ella.
+El archivo generado incluye un índice, tabla de contenidos, proporciona claves de búsqueda e hiperenlaces hacia ellos, incluye un contrl ActiveX y un apple Java.
+* ActiveX -> entorno para definir componentes software reusables, independientes del lenguaje de programación. *
+* Applet -> componente de una app que se ejecuta en el contexto del propio programa. *
+
+  -> JavaHelp, para la creación de ayuda en aplicaciones Java.
+Es un paquete opcional de Java SE, consiste en un cojunto de funciones, especificaciones y una API, además de una implementación de referencia de esa especificaciçon y API escrita en Java.
+
+Otras herramientas de generación de ayuda son:
+  -> RoboHelp, para la creación de sistemas de ayuda y documentación profesionales para apps de escritorio y basadas en Web.
+  -> WINHELP, desarrollado por Microsoft para ofrecer ayuda en el entorno de Win95 y posteriores.
+  -> WEBHELP, desarrollo de ayuda basado en HTML y DHTML que funciona sobre cualquier plataforma.
+  -> Help Magician, para crear ficheros de ayuda Help Magician, popular para crear ayudas HTML o Webs.
+  -> HelpMaker, para crear ficheros de ayuda en diferentes formatos, permite crear la estructura de la ayuda, editarla, ampliarla, añadir vinculos, etc.
+  -> DOCBUILDER, capaz de generar archivos de documentación y ayuda en diferentes formatos; reconoce varios lenguajes y puede generanr documentación en HTML, RTF y archivos Windows de ayuda.
+
+
+AYUDA GENÉRICA Y SENSIBLE AL CONTEXTO.
+La ayuda de una app tiene como objetivo orientar al user con las funcionalidades y el uso de la app en la que van incrustada.
+
+  * AYUDA GENÉRICA *
+Proporciona un entorno en el que se presentan todos los contenidos de ayuda diseñados.
+Normalmente se accede mendiante F1.
+Va a incluir ademas un buscador,
+Seleccionado el tema de ayuda o contenido deseado, el sistema nos mostrará el texto asociado con la información de ayuda sobre el mismo.
+
+* AYUDA SENSIBLE AL CONTEXTO *
+Muestra un conjunto de elementos de ayuda en función del software activo o de la situación en la que la app se esta ejecutando.
+Puede presentarse en un formulario del sistema de ayuda en línea del SO o puede ser una función que muestre una breve explicación del control que esté seleccionando en la ventana de la app.
+
+
+USO DE JavaHelp
+Pasos para la creación de un sistema de ayuda:
+  1. CREACIÓN DE LOS TEMAS DE AYUDA
+Denominados topics, es necesario crear en este paso los topics HTML que van a servir para organizar los contenidos de la ayuda.
+  
+  2. CREACIÓN DE LOS FICHEROS METADATOS JavaHelp
+El sistema de JavaHelp necesita la creación de un conjunto de ficheros que permite organizar la información y la nevegación y búsqueda, dentro del sistema de ayuda:
+  
+  - Fichero map.
+Sirve para asociar los ficheros HTML, imagenes, etc. con un identificador.
+La sintaxis se basa en XML.
+Tiene extensión jhm(JavaHelp Map).
+
+
+  - Fichero HelpSet, este junto con el map y los topics HTML son inprescindibles para crear el sistema de ayuda.
+En este se fusionan y configuran todos los ficheros que forman la ayuda.
+Va a contener toda la información necesaria para que se pueda ejecutar el sistema de ayuda.
+Es el único que se referencia por la aplicación.
+Su sintaxis está basada en XML.
+Tiene extensión "hs"
+
+  - Fichero TOC (tabla de contenidos).
+Sirve para describir el contenido de la ayuda y su distribución en la tabla de contenidos.
+Su sintaxis se basa en XML.
+
+  - Fichero índice.
+Sirve para describir la distribución y contenido que va a tener nuestro sistema de ayuda.
+Utiliza sintaxis XML.
+
+  - Fichero con la base de datos de búsqueda.
+
+Para la generación de los topics se puede utilizar cualquier herramienta que permita la edicion de ficheros de textos.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
