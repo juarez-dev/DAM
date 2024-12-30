@@ -122,8 +122,76 @@ Sirve para describir la distribución y contenido que va a tener nuestro sistema
 Utiliza sintaxis XML.
 
   - Fichero con la base de datos de búsqueda.
+Se puede diseñar un sitema de ayuda, que permita la búsqueda de determinados términos o conceptos, dentro de distintos contenidos, para ello es necesario utilizar la herramienta jhindexer, para generar da DB de búsqueda.
+Si se programa el sistema de búsqueda, se generará una DB, que será almacenada en el directorio JavaHelpSearch.
+La creación de la DB de búsqueda, es un proceso que se realiza sobre los ficheros de los contenidos.
 
-Para la generación de los topics se puede utilizar cualquier herramienta que permita la edicion de ficheros de textos.
+El script jhindexer se ejecuta recibiendo como parámetro el directorio donde se encuentren los archivos con ayuda, y generará la DB de busqueda su ejecución tiene la siguiente sixatis:
+        jhindexer directorio_archivos
+La herramienta va recorriendo el directorio indexando todos los archivos encontrados, para ello crea la carpeta JavaHelpSearch donde almacena la DB de la búsqueda.
+Para verificar el funcionamiento de la búsqueda, se puede ejecutar en la línea de comandos:
+        jhsearch JavaHelpSearch
+
+  - Ficheros JAR
+Finalizada la generación del sistema de ayuda, para distribuirlo con un fichero indpendiente, es recomendable su encapsulación en un fichero JAR.
+Para la creación del fichero con la ayuda, se utiliza la orden jar de Java:
+        jar -cvf ayuda.jar*
+ayuda.jar será el fichero donde encapsularemos todos los archivos del sistema de ayuda, este comando se ejecuta en el directorio donde se creen todos los ficheros de ayuda.
+
+  -> Añadir ayuda a las aplicaciones Java
+Si se ha añadido una interfaz gráfica de usuario GUI, lo normal es tener una opcion de ayuda en el main menu, para poder incorporar la ayuda implementada en JavaHelp, es necesario añadir un cojunto de librerias y paquetes.
+
+* Paquete java.help
+* Clase HelpSet, nos permite utilizar desde la app, todos los ficheros y datos que constituyen el sistema de ayuda.
+  * Método findHelpSet, localiza el fichero helpset y devuelve su URL.
+  * Método createHelpBroker, permite crear un objeto HelpBroker.
+* Clase HelpBroker, se encarga de visualizar el contenido de la ayuda en la app, incorpora una serie de métodos que facilitan la incorporación de ayuda en la aplicación:
+  * enableHelpKey, habilita la tecla de ayuda sobre un componente.
+  * enableHelpOnButton, permite que se despliegue la ayuda cuando se presiona un botón o un determinado elemento de menú.
+  * enableHelp, nos indica el tema de ayuda a mostrar, cuando se pulsa la tecla de ayuda sobre un determinado componente.
+
+
+TABLE OF CONTENT - TOC
+Es una lista de las partes que forman el documento de ayuda, organizada en la forma en la que aparecen los diferentes topics de la ayuda, cada ítem de la lita hace referencia a un main topic de la ayuda.
+Suele presentar diferentes niveles de topics, de más general a más específico.
+La profundidad en los niveles depende del tamaño de la ayuda y del nivel de detalle de su diseño.
+Al cliquear sobre un topic se expande el árbol de contenido, moctrando los temas más especificos, hasta llegar al tema concreto el cual abre una ventana con la información.
+El objetivo de la TOC es mostrar una visión general de todos los topics de ayuda abordados, así el user puede navegar por la tabla y buscar el topic que le interesa.
+Para crear la tabla de contenido con JavaHelp se crea un fichero TOC, el cual, describe el contenido y distribución de la TOC con sintaxis XML.
+
+
+ÍNDICES
+Lista de palabras clave ordenadas alfabéticamente, es slimiar a un glosario de términos o una guía de difiniciones, salvo que su objetivo es aclarar un concepto o procedimiento de uso de la app,
+Normalmente, para acceder al índice se puede navegar por la ventana de términos indexados y seleccionar el que nos interese aclarar, o bien, rellenar un campo de texto y que el sistema busque el término en las ayudas.
+
+jhindexer es un componente del sistema JavaHelp que sirve para crear la DB de búsqueda necesaria para establecer el sistema de indices.
+El fichero de generación de índices es un fichero en formato XML.
+
+
+SISTEMAS DE BÚSQUEDAS
+Nos permiten buscar todas las referencias que aparecen en la ayuda, para un término en concreto.
+
+jhsearch permite buscar un término o concepto concreto dentro de todo el sistema de ayuda JavaHelp, es un programa en línea de comandos que busca en la DB creada con Jhindexer el término sobre el que se desea obtener ayuda.
+
+
+INCORPORACIÓN DE AYUDA A LA APLICACIÓN
+Se incorpora la clase URL, del paquete java.net, la clase HelpSet y la clase HelpBroker del paquete javax.help
+  - Clase URL permite representar una URL(Uniform Resource Locator), para identificar un recurso.
+  - Clase HelpSet permite tratar desde una app Java de conjunto de datos que constituyen el sistema de ayuda.
+  - Clase HelpBroker va a gestionar la visualización de la ayuda en la aplicación, incorporando métodos que nos permite añadir ayuda a la aplicación de forma sencilla:
+      - Método enableHelpKey, habilita la tecla de ayuda sobre un componente.
+      - Método enableHelpOnButton, hace que se despliegue la ayuda cuando se presiona un determinado botón o elemento del menú.
+      - Método enableHelp indica el topic a mostrar cuando se pulse la tecla de ayuda sobre un determinado componente.
+
+
+TIPOS DE MANUALES
+Documentos para facilitar el uso de la aplicación que son necesario  generarlos como parte del proyecto que permitan a los users finales su instalación, configuración, uso, mantenimiento, actualización y eliminación.
+
+Los tipos de manuales más habituales son:
+  MANUAL DE USUARIO
+  GUÍA DE REFERENCIA
+  GUÍAS RÁPIDAS
+  MANUALES DE INSTALACIÓN
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
