@@ -50,5 +50,6 @@ Cada objeto tiene su propia interfaz.
 
 Las interfaces pueden ser:
   - ESTÁTICAS, se crean dentro del código de la aplicación y no pueden ser modificadas.
-  - DINÁMICAS, pueden ser modificadas por el usuario, para lo cual se almacena la descripción de la vista en un lenguaje de descripción de datos que permita su modificación.
+  - DINÁMICAS, pueden ser modificadas por el usuario, para lo cual se almacena la descripción de la vista en un lenguaje de descripción de datos que permita su modificación. 
+Son construidas de forma dinámica por la descripción XML de la pantalla del cliente.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
