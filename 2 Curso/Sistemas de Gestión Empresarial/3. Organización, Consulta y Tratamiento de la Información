@@ -1,0 +1,37 @@
+ORGANIZACIÓN Y CONSULTA DE LA INFORMACIÓN
+Es necesaria una organización entre los componentes de la DB de un sistema ERP por la gran cantidad de información almacenada en ella.
+Se establece una serie de normativas o nombeclaturas para organizar la información, que los developers deven seguir al modificar el código fuente o el esquema de la base de datos.
+En los sitemas de planificación empresarial desarrollados en un lenguaje Orientado a Objetos cualquier dato es accesible a través de objetos.
+Cualquier método que quiera actuar sobre un objeto deberá tener un parámetro que indique sobre qué recurso o registro dentro del objeto se quiere actuar.
+
+
+TABLAS Y VISTAS DE LA BASE DE DATOS
+  OBJETOS/MODELOS
+Un objeto guarda todo elemento que forma parte de la aplicación.
+* Odoo los denomina MODELOS, ya que cada uno tiene una correspondencia con la DB.
+* Odoo cuenta con un ORM que internamente mapea cada objeto del módelo de Odoo a una tabla PostegreSQL
+  TABLAS
+Estructuras de datos organizadas en filas y columnas.
+Cada columna es un campo o atributo, que suelen representar los datos registrados y pueden ser básicos o relacionales.
+Cada fila es un registro.
+  VISTAS
+Una "tabla virtual" al que se puede acceder como si fuera una tabla del esquema, pero que realmente no lo es.
+Tienen la misma estructura que las tablas y se puede acceder a ellas de la misma forma(Consultas).
+
+VISUALIZACION DE LOS MODELOS
+  1. ACCEDIENDO DESDE LA INTERFAZ DE ODOO
+Configuración > Técnico > Estructura de la base de datos > Modelos
+  2. ACCEDIENDO DIRECTAMENTE A LA BASE DE DATOS
+Establecer una conexón con la base de datos:
+  - Mediante el terminal y usando el lenguaje de comandos de PostegreSQL.
+    Comando -> psql -U <username> -d <dbName>
+  - Usando las herramientas de terceros, agunas de ellas:
+      - pgAdmin 4.
+      - phpMyAdmin.
+      - phpPgAdmin.
+      - Adminer.
+
+
+CONSULTAS DE ACCESO A DATOS
+Per
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
