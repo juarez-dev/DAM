@@ -189,9 +189,106 @@ Documentos para facilitar el uso de la aplicación que son necesario  generarlos
 
 Los tipos de manuales más habituales son:
   MANUAL DE USUARIO
+Documento de comunicación técnica, que proporciona asistencia para users que utilizan un determinado sistema.
+Normalmente escrito por un escritor técnico.
+Son elaborados para aplicaciones software, ofrecen una explicación detallada de la instalación, configuración y uso de la app.
+
+Las secciones del manual suelen incluir los siguientes contenidos:
+  - Portada.
+  - Página de título y página de copytight.
+  - Prólogo, muestra detalles de los documentos relacionados e información sobre cómo navegar por el manual.
+  - Una guia de uso, de al menos, las funciones básicas de la aplicación.
+  - Una sección de solución de problemas, detallando problemas y posibles soluciones que pueden surgir.
+  - Sección FAQ.
+  - Donde encontrar más ayuda para el uso de la aplicación.
+  - Un glosario y un índice.
+
   GUÍA DE REFERENCIA
+Tipo de manual específico que nos ofrece información detallada sobre las características y uso de una determinada aplicación.
+Suelen estar destinadas a users experimentados.
+Suelen mostrar una lista completa de mensajes de error y cómo detectar y recuperarse de los errores detectados.
+Su uso más extendido es en aplicaciones que requieren un conocimiento muy especializado sobre una lista de comandos o un lenguaje de ptrogramación.
+
   GUÍAS RÁPIDAS
+Proporcionan una versión corta de un manual.
+
+Una guía rápida es ideal en los siguientes casos:
+  - Aplicación que reguiere una sola configuración.
+  - Aplicación con funcionalidad limitada.
+  - Documentación muy extensa.
+  - Usuarios que no pueden dedicar mucho tiempo a la formación.
+
+Para el diseño gráfico de la guía de referencia rápida se deben tener presentes cuatro aspectos:
+  - EL CONTRASTE, permite establecer relaciones jerárquicas entre la información y para llamar la atención.
+  - LA REPETICIÓN, diseño consistente en el documento que da integridad a la totalidad del mismo.
+  - LA ALINEACIÓN DEL TEXTO, manteniendo la simetría entre párrafos, imágenes, títulos y otros elementos que mantienen relajados a los ojos
+  - LA PROXIMIDAD, la agrupación de objetos interrelacionados, se deben agrupar las tareas importantes en la columna principal, manteniendo las tareas subordinadas en la columna lateral.
+
   MANUALES DE INSTALACIÓN
+Dirigidos a los admin de sistemas y users con privilegios de instalación de aplicaciones.
+Proporcionan información detallada de como instalar la app en un entorno determinado, contienen descripciones de los archivos que componen la aplicación, el SO para el que esta diseñado, los requerimientos mínimos, etc.
+También puede suministrar info sobre posibles modificaciones en los archivos del sistema anfitrión, modificación de variables de entorno, instalación de software adicional para que pueda funcionar la aplicación,
+como cualquier aspecto necesario que se requiera para poder instalar la aplicación en un sistema concreto.
+
+  MANUAL DE CONFIGURACIÓN Y ADMINISTRACIÓN
+La mayoria de los programas que se distribuyen suelen establecer una consfiguración predeterminada, donde la persona que realiza la instalación no modifica ninguna variable destacable de la instalación.
+La configuración predeterminada no requiere manual y esta destinada a user de todos los niveles.
+Otro tipo de apps requieren una configuración personalizada definida por el user, en el manual de configuraciones se aportará info sobre cómo realizar cambios para personalizar la app.
+
+El manual de Administración es el destinado a administradores de sistems, en ellos aparece la información necesaria para la operativa y mantenimiento del sistema informatico.
+Incluyen información sobre los comandos que se pueden utilizar, describir mensajes generados cuando el sistema esta interactuando con otros sistemas o con aplicacaciones o con users.
+Contiene también explicaciones de cómo realizar las tareas de mantenimiento de software.
+
+
+DESTINATARIOS Y ESTRUCTURA
+En la elaboración de manuales hay que distinguir diferentes tipos de users a los que van destinados, cada grupo tiene definido un papel determinado dentro del sistema informático y cada grupo tiene unos privilegios y conocimientos prévios.
+
+Se pueden distinguir los siguientes destinatários:
+  - ADMINISTRADORES DEL SISTEMA, se suele destinar para ellos el manual de instalación y el de configuració y administración.
+  - USERS EXPERIMENTADOS, suele destinar para ello el manual de usuario, la guía rápida y la guía de referencia.
+  - USERS POCO EXPERIMENTADOS, se les suele destinar la guía rápida y el manual de usuario.
+
+La estructura de un manual es la forma en la que el documento se organiza en capítulo, estos en caítulos apartados y subapartados.
+Tiene gran impacto en la facilidad de lectura y en la usabilidad y es importante su diseño cuando se crea la documentación.
+
+La estructura que se recomienda que posean los manuales debería tener los siguientes componentes:
+  - Dato Identificativo, titulo indicativo de manera unívoca al documento.
+  - Tabla de Contenidos, título de cada apartado y subapartado, junto con el número de página.
+  - Lista de Ilustraciones, número de figura y título.
+  - Introducción, define el objetivo del documento con una breve descripción de los contenidos.
+  - Info de Uso de la Documentación, sugerencias para los diferentes lectores de cómo usar eficientemente la documentación.
+  - Procedimientos, directrices de uso del software para completar las tareas para las que se ha diseñado.
+  - Información de los Comandos, descripción de cada comando soportado por el software.
+  - Glosario, definición de los términos especializados que se han utilizado.
+  - Fuentes de Información Relacionadas, referencias o enlaces a otros documentos que proporcionan info adicional.
+  - Elementos de Navegación, elementos que permitan a los lectores buscar su localización actual y moverse en todo el documento.
+  - Índice, lista de términos clave y páginas donde están referenciados.
+  - Capacidad de Busqueda, con finaliidad de encotrar un término específico en el documento.
+
+
+CONFECCIÓN DE TUTORIALES MULTIMEDIA
+Un turorial multimédia incorpora un conjunto de recursos de diferente tipo.
+
+Para que tenga calidad, necesita una buena información base, teniendo presente el tipo de user al que va destinado, la información se va a completar con imágenes, vídeos, sonidos, animaciones, gráficos, enlaces o cualquir tipo de recurso
+que permita completar y mejorar la calidad del tutorial que se esta implementando.
+
+
+HERRAMIENTA DE CAPTURA DE PANTALLA
+Las screenshots nos permiten crear una imágen del escritorio, una determinada ventan o área específica, esta puede ser manipulada e incrustrada en un documento, permitiendo la creación de manuales multimedia a medida.
+Boton de Impr Pant ó Impr Pant + AltGR
+
+
+HERRAMIENTAS DE CONFECCIÓN DE MANUALES INTERACTIVOS
+  OBS Studio
+Potente herramienta open source y multiplatform para grabación de video y transmisión en vivo.
+  SHOTCUT
+Editor de vídeo open source y multiplatform, es el complemento perfecto para OBS.
+
+
+SIMULACIÓN
+Permite al user conocer los procesos de instalación, configuración y ejecución de una aplicación, explorando así la aplicación, conocer su entorno y simular su uso.
+Para simular las ejecuciones de apps informáticas, es común el uso de tutoriales multimédia.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
