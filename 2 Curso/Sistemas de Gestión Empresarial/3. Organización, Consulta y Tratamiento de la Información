@@ -52,4 +52,81 @@ Las interfaces pueden ser:
   - ESTÁTICAS, se crean dentro del código de la aplicación y no pueden ser modificadas.
   - DINÁMICAS, pueden ser modificadas por el usuario, para lo cual se almacena la descripción de la vista en un lenguaje de descripción de datos que permita su modificación. 
 Son construidas de forma dinámica por la descripción XML de la pantalla del cliente.
+
+
+INTERFACES DE ENTRADA DE DATOS Y PROCESOS
+La gran mayoria de ERP cuenta con diversas interfaces de entrada de datos y de procesos que permiten al user interactuar con la plataforma de manera eficiente.
+
+Las interfaces se dividen según su propósito y funcionalidad, podemos clasificarlas en 2 grupos diferenciados:
+  1. INTERFACES DE ENTRADA DE DATOS
+Aquellos métodos/interfaces por los que se puede insertar/extraer información de nuestro ERP.
+Se pueden clasificar en:
+    * FORMULARIOS WEB:
+      - Formularios de Crear/Editar, permiten introducir y actualizar datos directamente desde la interfaz web e Odoo.
+      - Formularios de Filtrado/Búsqueda, facilitan la búsqueda de registros específicos mediante filtros y criterios de búsqueda.
+    * IMORTACIÓN DE DATOS:
+      - Importación CSV/XLSX, Odoo permite importar datos en masa desde archivos CSV o XLSX, lo que es útil para migraciones de datos o actualizaciones masivas.
+      - Conectores Externos, herramientas y módulos para la integración con otras aplicaciones y fuentes de datos.
+    * API Y WEB SERVICES:
+      - API REST, proporciona puntos de acceso para que otras aplicaciones puedan interactuar con Odoo programáticamente.
+      - XML-RPC, protocolo para la comunicación entre sitemas, utilizando para realizar operaciones en Odoo desde aplicaciones externas.
+  2. INTERFACES DE PROCESOS
+Aquellas herramientas y mecanismos que facilitan la ejecución, automatización y monitoreo de flujos de trabajo y tareas dentro del ERP.
+Se pueden clasificar en:
+    * PROCESOS AUTOMÁTICOS:
+      - Automatización de Flujos de Trabajo, Odoo permite definir reglas y acciones automáticas que se ejecutan en respuesta a ciertos eventos o condiciones.
+      - Planificación de Tareas, tareas programadas (cron jobs) que se ejecutan automáticamente en momentos específicos.
+    * INFORMES Y DASHBOARDS:
+      - Informes Personalizados, generación de informes a partir de los datos ingresados con opciones de exportación a PDF, Excel, etc...
+      - Dashboards, tableros interactivos que muestran datos en tiempo real, permitiendo a los usuarios monitorear KPIs y métricas clave.
+    * INTERFAZ DE USUARIO(IU):
+      - Vistas Kanban, Calendario y Gráficos, diferenes vistas para gestionar datos de manera visual y organizada.
+      - Drag and Drop, funcionalidad de arrastrar y soltar para organizar tareas, etapas de proyectos, etc.
+    * APLICACIONES MÓVILES:
+      - App de Odoo, aplicaciones móviles que permiten acceder a la mayoría de las funcionalidades de Odoo desde dispositivos móviles, facilitando la entrada de datos y gestión de procesos en movimiento.
+
+
+FORMULAIRIOS
+Se utilizan para presentar y editar los datos de un solo registro, esta vista es esencial para proporcionar una interfaz amigable y estructurada para los users interactuen con los datos.
+
+Estructura:
+  - Header, área que contiene botones y otros elementos de control.
+  - Sheet, contenedor principal que agrupa los elementos del formulario.
+  - Group, agrupa campos y otros elementos dentro del formulario para una mejor organización.
+  - Notebook y Pages, pestañas dentro del formulario que permiten la separación de información de secciones.
+
+GRÁFICOS
+Permiten analizar datos de manera eficiente y compensible, pueden ser de varios tipos y se utilizan en diversas vistas y módulos para representar datos clave de manera intuitiva.
+
+Característica de los gráficos en Odoo:
+  - Tipos, soporta varios tipos de graficos (barras, líneas, pasteles, áreas, etc.).
+  - Interactividad, permiten hacer clic en elementos para ver detalles adicionales.
+  - Filtros y agrupaciones, pueden ser filtrados y agrupados en diferentes critérios para analizar los datos desdes distintas perspectivas.
+  - Integración, están integrados en diversas vistas y módulos de Odoo, como ventanas, inventario, finanzas, etc.
+
+
+DEFINICIÓN DE CAMPOS
+En odoo, los campos son componentes fundamentales de los modelos de datos que definen la estructura y el tipo de los datos que cada modelo pueda almacenar.
+Cada campo en un modelo representa una columna en la DB.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
