@@ -33,5 +33,22 @@ Establecer una conexón con la base de datos:
 
 
 CONSULTAS DE ACCESO A DATOS
-Per
+Permiten acceder a la información que guardan las talbas y vistas de la DB, sirven para indicar al sistema de gestión de la DB que devuelva un extracto de la información en forma de un conjunto de registros.
+Pueden actuar sobre una o varias tablas o vistas y pueden guardarse para ser utilizadas posteriormente.
+Se pueden construir escribiendo el código en el lenguaje de consulta.
+
+Los pasos para crear una consulta son:
+  - Seleccionar las tablas o vistas sobre las que va a actuar la consulta.
+  - Establecer la relación entre las tablas y vistas, en caso de quee la aplicación no la proporcione
+  - Seleccionar los campos a mostrar en la consulta.
+  - Ejecutar la consulta.
+
+
+VISUALIZACIÓN DE LA INFORMACIÓN
+Tanto la información de las tablas comola de cualquier otro objeto de la aplicación se muestra a través de interfaces.
+Cada objeto tiene su propia interfaz.
+
+Las interfaces pueden ser:
+  - ESTÁTICAS, se crean dentro del código de la aplicación y no pueden ser modificadas.
+  - DINÁMICAS, pueden ser modificadas por el usuario, para lo cual se almacena la descripción de la vista en un lenguaje de descripción de datos que permita su modificación.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
