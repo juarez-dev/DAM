@@ -108,6 +108,24 @@ Característica de los gráficos en Odoo:
 DEFINICIÓN DE CAMPOS
 En odoo, los campos son componentes fundamentales de los modelos de datos que definen la estructura y el tipo de los datos que cada modelo pueda almacenar.
 Cada campo en un modelo representa una columna en la DB.
+
+Los tipos de campo permitidos en Odoo 16 se pueden agrupoar en 3 categorias:
+  * CAMPOS BÁSICOS: 
+    - Boolean, se representa como un checkbox y almacena una variable tipo boolean -> field_boolean=fields.Boolean('Boolean Field')
+    - Integer, se representa como un input de número y almacena una variable tipo número entero -> field_integer=fields.Integer('Integer Field')
+    - Float, se representa como un input de número y almacena una variable tipo número flotante -> field_float=fields.Float('Float Field')
+    - Char, se representa como un input de texto y almacena una variable de String corto -> field_char=fields.Char('Char Field')
+  * CAMPOS AVANZADOS:
+    - Text, se representa como un textarea y almacena una variable de String largo -> field_text=fields.Texts('Text Field')
+    - Selection, se presenta como un selection de HTML con una opción por cada dato que le pasamos, almacena un array que a su vez tiene componentes de dos componentes:
+El primer índice hace referencia al nombre técnico (key) del componente y el segunto al nombre a mostrar (label). -> field_selection=fields.Selection.([('data01','data02'),...], string='Selection Field')
+    - HTML, se representa como un textarea enriquecido y editable, y almacena una variable de string largo(pensado para guardar HTML). -> field_html=fields.Html('HTML Field')
+    - Binary, se representa como un input tipo(permite subir un archivo) y almacena una variable binaria, es decir, permite almacenar archivos con cualquier extensión. -> field_binary=fields.Binary('Date Field')
+    - Data, se representa como un input de fecha y almacena una variable de fecha. -> field_date=fields.Date('Date Field')
+    - Datetime, similar a date pero ademas permite guardar la hora. -> field_datatime=fields.Datatime('Datatime Field')
+    - Campos Calculados, 
+  * CAMPOS RELACIONALES: Many2one, One2many y Many2many
+Existen tambien CAMPOS AUTOMÁTICOS DE REGISTRO DE ACCESO que son de un usao más específico.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
