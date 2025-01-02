@@ -185,9 +185,92 @@ Algunas CARACTERÍSTICAS clabe del BI incluyen:
 
 INTEGRACIÓN BI COMO COMPLEMENTO DEL SOFTWARE ERP
 Podemos hablar de 3 etamas en la integración:
+
   1º ETAPA - ELABORACIÓN DE REPORTES E INFORMES
+Herramientas para la generación de reportes:
+  - JASPERREPORTS, motor de generación de informes, escrito en Java y tiene las siguientes características:
+      - Facilita conectores para un gran número de orígenes de datos.
+      - Permite dirigir los informes hacia pantalla, impresora o archivos en muchos formatos.
+      - Permite introducir gráficos de múltiples formatos en los informes.
+  - GENERADOR NATIVO DE INFORMES EN ODOO, consiste en generar una web en lenguaje HTML/QWeb, con formato similar a una vista. Una vez creado, y con el programa wkhmltopdf, puede convertirse en PDF.
+
   2º ETAPA - HERRAMIENTAS DE ANÁLISIS DE DATOS
+Algunas herramientas más notables son:
+  - Power Bi, permite operar con la analítica de datos en cualquier divice y en la nube, trabaja con diferentes fuentes de datos y genera informes personalizados e interactivos. Facilita la toma de decisiones.
+  - Qlit, ofrece análisis visual de datos y aplicacines interactivas, integra datos de diversas fuentes y los acutaliza en tiempo real, utiliza arquitectura asociativa para relacionar conjunto de objetos.
+  - Tableau, tiene una capa de visualización atractiva, hace uso de aceleradores, buckets y data stories.
+  - Grafana, se utiliza principalmente para visualizar datos de series temporales y monitorear sistemas, su fortaleza radica en la creación de paneles de control interactivos c0n gráficos, tablas y alertas.
+
   3º ETAPA - INTEGRACIÓN DEL BI DENTRO DEL ERP
+Herramientas BI en el ERP Odoo 16/16:
+  - Tablero y hoja de calculo (Dashboard and SpreadSheet), nos permiten realizar cuadros de datos con gráficos generados en tiempo real con los datos de algunos módulos de Odoo, además
+grácias a la hoja de cálculo se pueden insertar potentes fórmulas de manejo de datos (KPIs) que pueden ser usados en graficos o informes.
+  - Integración con IA, la versión 17 incluye acceso a ChatGPT.
+
+
+TRATAMIENTO DE LA INFORMACIÓN
+Al instalar el perfil mínimo de OpenERP hay que comprobar si existen datos, y si no, introducirlos de almenos los siguientes objetos o tablas:
+  - TÍTULO, el tipo de empresa o tratabiento que se le debe otorgar a una persona de contacto. Si es uno u otro se distingue a través del campo Dominio que hay en la tabla.
+  - FUNCIÓN, listado de cargos o funciones de las personas de contacto.
+  - PROVINCIAS, un listado de provincias por país.
+Esta info es necesaria para poder introducir los datos de las empresas, y podemos acceder a ella desde el menú Empresas/configuración.
+
+
+CALCULOS
+Entre los procesos a realizar por un sistema de planificación empresarial destacan:
+  - CONTABILIDAD, procesos donde se reflejan las operaciones realizadas por la empresa, determinación de los costes de la empresa y los presupuestos del ejercicio fiscal.
+  - OPERACIONES DE COMPRA:
+    - Crear una orden de compra o Pedido de compra.
+    - Recibir los bienes.
+    - Controlar la factura de compra.
+    - Registrar el pago al proveedor.
+  - OPERACIONES DE VENTA:
+    - Crear una orden de venta o Pedido de venta y recibir la conformidad del cliente.
+    - Preparar los bienes a enviar al cliente y realizar el albarán y la entrega.
+    - Registrar el cobro al cliente o pago al cliente.
+  - TRAZABILIDAD, el proceso de la entrada del producto hasta la salida del mismo.
+
+
+UTILIZACIÓN DE ASISTENTES - WIZARD
+Programas que incorpora la app par afacilitar la realización de determinadas tareas.
+Permiten ejecutar una tarea concreta programada sobre uno o varios objeots del ERP, generalmente son pantallas flotantes donde se va introduciendo la información necesaria para realizar una tarea concreta.
+
+Algunos de los asistentes:
+  - Asistente de configuración.
+  - Asistente para crear cuentas contables a partir de una pantalla.
+  - Asistente para enviar un correo electrónico o un mensaje a un/varios clientes.
+  - Asistente para la realización de tareas masivas.
+
+Los asistentes deben proporcionar métodos de volver atrás o volver a ejecutarlos por si se erra en algun parámetro.
+
+
+PROCEDIMIENTOS ALMACENADOS DE SERVIDOR
+Hay determinadas tareas que, a veces, es necesario que se realicen de forma automática como respuesta a algo que pasa en la aplicación.
+Para hacer esto en la mayoría de los sistemas se puede utilizar:
+  - Procedimientos Almacenados de Servidor -> programa, procedimiento o función almacenado en una DB y listo para ser usado.
+Pueden ser ejecutados directamente por el user o cuando se cumpla una determinada condición a traves de disparadores.
+  - Eventos de Servidor, consiste en detectar que pasa algo en la aplicación y hacer que el sistema responda a este suceso de forma automática.
+Son creados a nivel de objetos y no de DB
+Se pueden definir a traves de los menús de la aplicación, no siendo necesario introducirnos en la DB para programar la acción deseada.
+
+
+EXTRACCIÓN DE DATOS EN SISTEMAS ERP-CRM Y ALMACENES DE DATOS
+La operación de sacar datos de una aplicación para ser tratados en otra aplicación, puede realizarse utilizando diferentes sistemas.
+
+Procesos BUSINESS INTELLIGENCE, este tipos de soluciones deben realizar 3 tareas:
+  - Transformar y combinar los datos para extraer la información.
+  - Convertir la información en potentes indicacores.
+  - Mostrar la información en distintos formatos gráficos.
+
+Según el origen de datos y el tipo de información que se quiere optener se pueden utilizar:
+  - CONSULTAS E INFORMES, usados cuando todos los datos están en una sola DB y se extraen a partir de una query.
+  - ALMACENES DE DATOS, la extracción se hace desde diferentes sistemas y distintas DBs, creando almacenes de datos con el objetivo de homogeneizar e integrar la información.
+  - CUBOS MULTIDIMENSIONALES, conjunto de datos multidimensionales organizados en ejes y celdas, que maneja la información de una DB relacional.
+También existen DBs multidimensionales, como contraposición a la operación de guardar los datos en BDs relacionales y luego manejarlos con cubos.
+
+
+IMPORTAR Y EXPORTAR DATOS
+El formato usual de importación/exportación de datos es el CSV(Comma-Separated Values), el cual es un formato de texto utilizado para representar datos en forma de tabla, las columnas se separan por comas y las filas por saltos de línea.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
