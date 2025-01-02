@@ -123,9 +123,71 @@ El primer índice hace referencia al nombre técnico (key) del componente y el s
     - Binary, se representa como un input tipo(permite subir un archivo) y almacena una variable binaria, es decir, permite almacenar archivos con cualquier extensión. -> field_binary=fields.Binary('Date Field')
     - Data, se representa como un input de fecha y almacena una variable de fecha. -> field_date=fields.Date('Date Field')
     - Datetime, similar a date pero ademas permite guardar la hora. -> field_datatime=fields.Datatime('Datatime Field')
-    - Campos Calculados, 
-  * CAMPOS RELACIONALES: Many2one, One2many y Many2many
+    - Campos Calculados, se pueden calcular utilizando el parámetro de cálculo, se debe asignar el valor calculado al campo, si usa los valores de otros campos debe especificar esos campos usando depends().
+        from oddo import api
+        total = fields.Float(compute='_compute_total')
+        @api.depends('value','tax')
+        def_compute_total(self):
+        for record in self:
+        record.total=record.value+record.value*record.value*record.tax
+  * CAMPOS RELACIONALES: 
+    - Many2one, define una relación de muchos a uno, es decir, muchos registros de un modelo pueden estar relacionados con un solo registro de otro modelo.
+    - One2many, define una relación de uno a muchos, es decir, un registro de un modelo puede estar relacionado con muhcos registros de otro modelo.
+    - Many2many, define una relacion de muhcos a muchos, es decir, muchos registros de un modelo pueden estar relacionados con muchos registros de otro modelo.
 Existen tambien CAMPOS AUTOMÁTICOS DE REGISTRO DE ACCESO que son de un usao más específico.
+
+ATRIBUTOS
+Los campos en Odoo pueden tener varios atributos que definen su comportamiento y características.
+Algunos de ellos:
+  - string="Name"    - compute="coputed Function"    - store=True    - selected=True    - readonly=True    - inverse="Inverse Function"    - required=True    - translate=True    - help='field help'
+
+
+MENÚS
+Deben definirse menús así como las acciones asociadas a los mismos para acceder a los objetos creados en la apliicación.
+Pueden modificarse seleccionandolos y haciendo clic en el botón Cambiar, desde ahí se puede modificar el menú o crear nuevos menús.
+Para crear un menú secundario se sigue el mismo proceso, solo que indicando cuál es el menú padre del que depende.
+
+Acciones más importantes asociadas a las acciones del menú:
+  - Window, abre una vista en una nueva ventana.
+  - Report, imprime un informe.
+  - Wizard, ejecuta un asistente para realizar un determinado trabajo o proceso.
+
+Al crear un menú se debe indicar el tipo de acción asociada, ni no está creada la accion se debe crear utilizando el botón Nuevo.
+Los campos a introducir variarán según la acción de la que se trate.
+
+
+BÚSQUEDA DE INFORMACIÓN
+Los motores de búsuqueda deben ser lo suficientemente potentes para que el proceso sea rápido y efectivo.
+Normalmente se incluyen búsquedas básicas sobre los campos principales y avanzadas para buscar registros por campos más específicos.
+La opción de búsqueda está disponible en cada ventana de la aplicación.
+El listado se reducirá a los registros coincidentes con los criterios de búsqueda.
+Es posible aplicar filtros a la selección, pueden ser seleccionados y combinando al modo formulario se puede ver todos sus datos, así como editar su contenido.
+
+
+INFORMES Y LISTADOS DE LA APLICACIÓN
+Son una forma de mostrar los datos para mejorar su visualización, muchos de ellos están creados y son accesibles desde los distintos menús de la aplicación.
+
+Alguno de estos documentos pueden ser:
+Informes Contables, Albaranes, Pedidos, Recibos, Reclamaciones s Proveedores y/o Clientes, Informes Estadísticos, Generación de Etiquetas para un Conjunto de Registros, Informes de Agrupamiento, Impresion de Documentos del Sistema.
+
+Los informes incorporados por la aplicación se pueden modificar y también se pueden añadir nuevos informes instalándolos como módulos independientes.
+
+
+INTELIGENCIA DE NEGOCIO - BUSINESS INTELLIGENCE
+El término hace referencia al proceso de transformar un conjunto de datos en bruto(raw data) en información procesada y útil para el beneficio del negocio.
+Se hace uso de un conjunto de técnicas, aplicaciones y prácticas para la recopilación de datos, integración en el sistema, su análisis y presentación de tal forma que ayude a mejorar la toma de decisiones de la empresa.
+
+Algunas CARACTERÍSTICAS clabe del BI incluyen:
+  -> INTEGRACIÓN DE DATOS, combina datos de diversas fuentes internas y externas para proporcionar una vista completa y precisa de la información empresarial.
+  -> ANÁLISIS Y MODELADO, utiliza técnicas de ciencia en datos para identificar tendencias y patrones(analítica predictiva).
+  -> AUTOMATIZACIÓN, ahorra el tiempo al automatizar gran parte del proceso de análisis de datos.
+  -> PRESENTACIÓN, muestra de forma clara y sencilla los resultados de la información analizada con el fin de obtener conclusiones sobre el estado de nuestro negocio a golpe de vista.
+
+INTEGRACIÓN BI COMO COMPLEMENTO DEL SOFTWARE ERP
+Podemos hablar de 3 etamas en la integración:
+  1º ETAPA - ELABORACIÓN DE REPORTES E INFORMES
+  2º ETAPA - HERRAMIENTAS DE ANÁLISIS DE DATOS
+  3º ETAPA - INTEGRACIÓN DEL BI DENTRO DEL ERP
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
