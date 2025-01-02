@@ -270,24 +270,37 @@ También existen DBs multidimensionales, como contraposición a la operación de
 
 
 IMPORTAR Y EXPORTAR DATOS
-El formato usual de importación/exportación de datos es el CSV(Comma-Separated Values), el cual es un formato de texto utilizado para representar datos en forma de tabla, las columnas se separan por comas y las filas por saltos de línea.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+El formato usual de importación/exportación de datos es el CSV(Comma-Separated Values).
+* CSV, formato de texto utilizado para representar datos en forma de tabla, las columnas se separan por comas y las filas por saltos de línea. *
+
+La aplicacion debe incorporar una herramienta de importación que permita seleccionar los campos a importar y volcarlos en el objeto que sea.
+Se pueden importar hacia una sola tabla o hacia varias, en el caso de varias se utiliza un separador para indicar a qué tabla pertenece cada uno de los datos existentes en el archivo a importar.
+
+La exportación desde el objeto a exportar se elige la opción de EXPORTAR del formulario correspondiente, el archivo generado se podrar abrir en cualquier aplicación oficmatica o en caso de CSV en un editor de texto.
 
 
+EVALUACIÓN DEL RENDIMIENTO Y AUDITORÍAS DE ACCESO A LOS DATOS
+El encargado de administrar un sistema debe tener herramientas que permitan hacer un seguimiento de los datos que arroja el equipo servidor donde se encuentran las aplicaciones.
+
+El rendimiento sel servidor puede disminuir o ser inexistente debido por diversos motivos, para investigar que ocurre es necesario buscar información en los ficheros del registro o mensajes del sistema "logs",
+o ejecutar herramientas que permitan realizar un análisis y monitorización del rendimiento.
+
+Se pueden obtener datos instantáneos del rendimiento del sistema relativo al funcionamiento de los procesadores, de la memoria, de los dispositivos de entrada y salida, etc.
+Tabmien se pueden recoger datos periódicamente y almacenados en ficheros históricos para consultarlos posteriormente
+Estos datos proporcionan información importante sobre las posibles carencias y cuellos de botella del sistemas.
+
+Existen diversas utilidades para recopilar y hacer un histórico del rendimiento y la actividad de los datos.
 
 
+MONITORIZACIÓN Y EVALUACIÓN DEL RENDIMIENTO
+sar -> heramienta disponible para servidores Linux, incluida en el paquete sysstat.
 
 
-
-
-
-
-
-
-
-
-
-
+AUDITORÍAS DE CONTROL DE ACCESO A LOS DATOS - TRAZAS DEL SISTEMA logs
+La actividad de los programas queda registrada en ficheros del sistema -> logs.
+En la mayoria de distros Linux se guardan en el directorio /var/log.
+Para visualizar su contenido se necesitan permisos de root.
+Para consultar de manera gráfica las trazas del sistema de sar se puede utilizar la herramienta lsag, disponible a través de Synaptic.
 
 
 
