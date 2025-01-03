@@ -1,0 +1,11 @@
+Hay que tener actualizado el JDK, en mi caso la última versión es el 23.
+
+  * Se puede ver la versión instalada en la Terminal con:  java -version:
+              PS C:\Users\ISMAEL> java -version
+              java version "23.0.1" 2024-10-15
+              Java(TM) SE Runtime Environment (build 23.0.1+11-39)
+              Java HotSpot(TM) 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
+
+Configuración Eclipse para utilizar la versión del JDK:
+  Window > Preferences > Java > Installed JREs > Add > Standar VM 
+  seleccionamos el directorio Java -> C:/program Files/Java.
