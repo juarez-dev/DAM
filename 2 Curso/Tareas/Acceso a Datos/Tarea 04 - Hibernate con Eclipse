@@ -23,8 +23,7 @@ Se crea un nuevo proyecto en Eclipse utilizando Maven:
 
 Y añadimos las dependencias al pom.xml:
   	<dependencies>
-
-	  	<!-- Dependencia para Hibernate -->
+		<!-- Dependencia para Hibernate -->
 		   <dependency>
 			    <groupId>org.hibernate</groupId>
 			    <artifactId>hibernate-core</artifactId>
@@ -45,6 +44,17 @@ Y añadimos las dependencias al pom.xml:
 			    <version>5.6.1.Final</version>
 		   </dependency>
 	  </dependencies>
+
+
+3. CONFIGURACIÓN DE HIBERNATE -> hibernate.cfg.xml:
+	En el directorio -> src/main/resources creamos el archivo de configuración -> hibernate.cfg.xml
+
+
+
+
+4. CREO LAS ENTIDADES
+Cada entidad es una tabla y se represenan en Java como clases, así que creo una clase por cada entidad en el paquete con sus respectivas anotaciones para mapearlas
+
 
 
 
