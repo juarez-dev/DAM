@@ -1,3 +1,5 @@
+1. CONFIGURACIÓN ECLIPSE
+
 Hay que tener actualizado el JDK, en mi caso la última versión es el 23.
 
   * Se puede ver la versión instalada en la Terminal con:  java -version:
@@ -7,5 +9,47 @@ Hay que tener actualizado el JDK, en mi caso la última versión es el 23.
               Java HotSpot(TM) 64-Bit Server VM (build 23.0.1+11-39, mixed mode, sharing)
 
 Configuración Eclipse para utilizar la versión del JDK:
-  Window > Preferences > Java > Installed JREs > Add > Standar VM 
-  seleccionamos el directorio Java -> C:/program Files/Java.
+     Window > Preferences > Java > Installed JREs > Add > Standar VM 
+     seleccionamos el directorio Java -> C:/program Files/Java.
+
+
+2. CREANDO UN NUEVO PROYECTO MAVEN
+
+Se crea un nuevo proyecto en Eclipse utilizando Maven:
+      New > Maven Proyect --> Create a Simple Proyect
+
+** He tenido unos Warring messages con el uso del JDK ya que estaba configurado para usar el 8, lo he cambiado en la configuracion el proyecto y listo **
+** Con el pom.xml también tenia un error en la descarga de dependencias o algo así, y se soluciona tambien trasteando en la configuración del proyecto y seleccionando maven dependencies **
+
+Y añadimos las dependencias al pom.xml:
+  	<dependencies>
+
+	  	<!-- Dependencia para Hibernate -->
+		   <dependency>
+			    <groupId>org.hibernate</groupId>
+			    <artifactId>hibernate-core</artifactId>
+			    <version>5.6.11.Final</version>
+		   </dependency>
+
+		   <!-- Dependencia para MySQL Connector -->
+		   <dependency>
+			    <groupId>mysql</groupId>
+			    <artifactId>mysql-connector-java</artifactId>
+			    <version>8.0.33</version>
+		   </dependency>
+
+		   <!-- Dependencia para Hibernate Core -->
+		   <dependency>
+			    <groupId>org.hibernate</groupId>
+			    <artifactId>hibernate-core</artifactId>
+			    <version>5.6.1.Final</version>
+		   </dependency>
+	  </dependencies>
+
+
+
+
+
+
+
+
