@@ -21,34 +21,11 @@ Se crea un nuevo proyecto en Eclipse utilizando Maven:
 ** He tenido unos Warring messages con el uso del JDK ya que estaba configurado para usar el 8, lo he cambiado en la configuracion el proyecto y listo **
 ** Con el pom.xml también tenia un error en la descarga de dependencias o algo así, y se soluciona tambien trasteando en la configuración del proyecto y seleccionando maven dependencies **
 
-Y añadimos las dependencias al pom.xml:
-  	<dependencies>
-		<!-- Dependencia para Hibernate -->
-		   <dependency>
-			    <groupId>org.hibernate</groupId>
-			    <artifactId>hibernate-core</artifactId>
-			    <version>5.6.11.Final</version>
-		   </dependency>
-
-		   <!-- Dependencia para MySQL Connector -->
-		   <dependency>
-			    <groupId>mysql</groupId>
-			    <artifactId>mysql-connector-java</artifactId>
-			    <version>8.0.33</version>
-		   </dependency>
-
-		   <!-- Dependencia para Hibernate Core -->
-		   <dependency>
-			    <groupId>org.hibernate</groupId>
-			    <artifactId>hibernate-core</artifactId>
-			    <version>5.6.1.Final</version>
-		   </dependency>
-	  </dependencies>
+Y añadimos las dependencias al pom.xml  ->  ** archivo añadido a Tareas/Acceso a datos ** 
 
 
 3. CONFIGURACIÓN DE HIBERNATE -> hibernate.cfg.xml:
-	En el directorio -> src/main/resources creamos el archivo de configuración -> hibernate.cfg.xml
-
+	En el directorio -> src/main/resources creamos el archivo de configuración -> hibernate.cfg.xml  ->  ** archivo añadido a Tareas/Acceso a datos **
 
 
 
