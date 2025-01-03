@@ -24,8 +24,32 @@ Se crea un nuevo proyecto en Eclipse utilizando Maven:
 Y añadimos las dependencias al pom.xml  ->  ** archivo añadido a Tareas/Acceso a datos ** 
 
 
+4. INSTALACIÓN HIBERNATE Y DATA TOOLS PLATFORM EN ECLIPSE
+
+Se compone de 2 partes, instalar el plugin, e instalar las librerías de Hibernate para poder utilizarlo
+	Help > Install New Software
+	Work With -> https://download.jboss.org/jbosstools/photon/stable/updates/ -> Add 
+Y se selecciona JBoss Data Services Development > Hibernate Tools
+** Se puede instalar también desde Eclipse Marketplace, buscando JBoss y seleccionando la opción de Hibernate **
+
+Instalación del Data Tools Platform
+Se siguen los mismos pasos -> https://download.eclipse.org/datatools/updates/release
+Se instalan todas las opciones disponibles:
+	- Dependencies
+	- Eclipse Data Tools
+	- Eclipse Data Tools - Enablement
+	- Eclipse Data Tools - Sources
+** Esto abre la opcion para añadair la libreria de SGBD -> Conectivity Driver Definition. **
+
+
+4. AGREGAR DRIVER DEL SGBD A ECLIPSE
+Sobre el proyecto -> Build Path > Add.Libraries
+Conectivity Driver Definition -> Seleccionar el de MySQL
+** Como el ultimo driver existente no esta disponible, nos vamos a JAR List y añadimos el .JAR . ¡Hay que eliminar el otro para que furule!**
+
 3. CONFIGURACIÓN DE HIBERNATE -> hibernate.cfg.xml:
 	En el directorio -> src/main/resources creamos el archivo de configuración -> hibernate.cfg.xml  ->  ** archivo añadido a Tareas/Acceso a datos **
+
 
 
 
