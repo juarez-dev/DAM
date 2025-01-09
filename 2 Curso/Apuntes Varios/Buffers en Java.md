@@ -1,4 +1,4 @@
-## BUFFERS EN JAVA
+# BUFFERS EN JAVA
 # DEFINICIÓN
 Un **buffer** es un área de almacenamiento temporal de memoria utilizada para almacenar datos mientras se tranfieren de un lugar a otro.
 Se usa para compensar diferencias en la velocidad de procesamiento entre dos dispositivos o procesos.
