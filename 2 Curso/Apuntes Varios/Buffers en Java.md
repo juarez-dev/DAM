@@ -5,6 +5,6 @@ Se usa para compensar diferencias en la velocidad de procesamiento entre dos dis
 *Actúa como intermediario entre el programa y la fuente/destion de datos, reduciendo las operaciones de I/O costosas*
 
 ## CLASES PRINCIPALES BufferedInputStream & BufferedOutputStream:
-Trabajan con flujos de bytes ([InputStream](Flujos-de-Entrada-Salida.md#InputStream) y OutputStream)
+Trabajan con flujos de bytes ([InputStream](Flujos-Entrada-Salida.md#InputStream) y OutputStream)
 ### BufferedInputStream
 ### BufferedOutputStream
