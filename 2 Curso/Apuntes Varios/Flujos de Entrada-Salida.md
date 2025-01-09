@@ -14,11 +14,11 @@
 ## CLASES DataOutputStream y DataInputStream - JAVA
 Amplían las funcionalidades básicas de OutputStream e InputStream para facilitar el trabajo con datos primitivos y cadenas.
 Permiten leer/escribir tipos de datos primitivos de forma más conveniente.
-# DataOutputStream:
+# DataOutputStream: -> DatainputStream(InputStream)
   - **void writeInt (int v)**, escribe un entero.
   - **void writeDoubl(double v)**, escribe un valor double.
   - **void writeUTF(Strigns)**, escribe una cadena en formato UTF-8.
-# DataOutputStream:
+# DataOutputStream: -> DataOutputStream(OutputStream)
   - **int readInt()**, lee un entero.
   - **String readUTF()**. lee una cadena en formato UTF-8.
 
