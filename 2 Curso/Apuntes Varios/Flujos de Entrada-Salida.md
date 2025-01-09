@@ -5,7 +5,7 @@
     - **void write(byte[] b)**, escribe un arreglo completo de bytes.
     - **void flush()**, limpia cualquier dato almacenado en el buffer.
     - **void close()**, cierra el flujo y libera los recursos asociados.
-### InputStrean:
+### InputStream:
   - Clase abstracta, define los métodos básicos para leer datos a un destino:
       - **int read()**, lee un byte y devuelve su valor como entero ó -1 si se alcanza el final del flujo.
       - **int read(byte[] b)**, lee múltiples bytes y los almacena como un arreglo.
