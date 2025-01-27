@@ -84,10 +84,32 @@ Para hacerlas se debe tener en cuenta:
 
  
 ### INTEGRACIÓN
+Aquellas pruebas que se realizan una vez probado el funcionamient de las partes o módulos que componen la aplicación por separado, es decir, una vez conculidas las pruebas unitarias.  
 
-### ASCENDENTES
+Verifican la interacción entre componentes del sistema.  
 
-### DESCENDENTES
+## DE INTEGRACIÓN ASCENDENTES
+Se comienza por los módulos de más bajo nivel hasta llegar al programa principal.  
+El principal inconveniente es que hay una gran incertidumbre hasta el final de la prueba, ya que el programa en sí no existirá hasta no llegar al último módulo.
+  
+Caracteristicas más importantes:
+  - Se combinan los módulos de bajo nivel en grupo con una función similar.
+  - Se controlan las entradas en esos módulos de bajo nivel.
+  - Se prueba todo el grupop.
+  - Se  reemplazan los controladores y se combinan los grupos moviéndose hacia arriba por la estructura de módulos hasta llegar al programa principal.  
+
+## DE INTEGRACIÓN DESCENDENTES
+Integrar los módulos de arriba abajo por la jerarquía, comenzando desde el esqueleto del programa principal, hasta ir incorporando los módulos subordinados de forma incremental.  
+Tras la incorporación de cada módulo, habrá que realizar la prueba de integración.  
+
+Como ventaja se prueban antes los módulos más importantes.  
+Como desventaja es necesario trabajar con resguardos.
+
+Pasos que comprende:
+  - Se usa el módulo principal como controlador de la prueba, disponiendo de resguardos para todos los módulos subordinados.
+  - Se van sustituyendo los resguardos subordinados, uno a uno, por los módulos reales.
+  - Cada vez que se integra un módulo se realizan pruebas.
+  - Tras terminar con éxito las pruebas, se reemplaza otro resguardo por otro módulo real.
 
 ### SISTEMA
 
